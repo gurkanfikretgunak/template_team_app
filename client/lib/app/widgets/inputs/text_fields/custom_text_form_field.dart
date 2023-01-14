@@ -2,7 +2,7 @@ import 'package:client/core/constans/color_constants.dart';
 import 'package:flutter/material.dart';
 
 class CustomTextFormField extends StatelessWidget {
-  const CustomTextFormField({
+  CustomTextFormField({
     Key? key,
     this.controller,
     this.hintText,
@@ -21,6 +21,8 @@ class CustomTextFormField extends StatelessWidget {
     this.validator,
     this.iconColor,
     this.focusedBorderColor,
+    this.helpTextLabel = HelpText.off,
+    this.helpTextLabelValue = 'Place Holde Help Text',
   }) : super(key: key);
 
   final int? maxLines;
@@ -41,6 +43,8 @@ class CustomTextFormField extends StatelessWidget {
   final Function(String)? onChanged;
   final VoidCallback? onTap;
   final Color? focusedBorderColor;
+  final HelpText? helpTextLabel;
+  final String? helpTextLabelValue;
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -57,6 +61,9 @@ class CustomTextFormField extends StatelessWidget {
           keyboardType: keyboardType,
           maxLength: maxLength,
           decoration: InputDecoration(
+            helperText: helpTextLabel == HelpText.off
+                ? HelpTextLabel.off()
+                : HelpTextLabel.on(helpTextLabelValue!),
             hintText: hintText,
             hintStyle: TextStyle(
               color: hintTextColor,
@@ -88,4 +95,16 @@ class CustomTextFormField extends StatelessWidget {
       borderSide: BorderSide(color: borderSideColor),
     );
   }
+}
+
+enum HelpText {
+  on,
+  off,
+}
+
+class HelpTextLabel {
+  HelpTextLabel();
+
+  static String on(String helpTextLabelValue) => helpTextLabelValue;
+  static String off() => 'Help Text Not Working';
 }

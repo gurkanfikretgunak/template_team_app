@@ -1,4 +1,4 @@
-import 'package:client/app/widgets/inputs/textfields/custom_text_form_field.dart';
+import 'package:client/app/widgets/inputs/text_fields/custom_text_form_field.dart';
 import 'package:client/core/constans/color_constants.dart';
 import 'package:flutter/material.dart';
 
@@ -13,6 +13,8 @@ class _CustomSearchFieldState extends State<CustomSearchField> {
   @override
   Widget build(BuildContext context) {
     return CustomTextFormField(
+      helpTextLabel: HelpText.on,
+      helpTextLabelValue: 'HelpText',
       prefixIcon: Icon(
         Icons.search,
         color: ColorConstant.instance.purple2,
