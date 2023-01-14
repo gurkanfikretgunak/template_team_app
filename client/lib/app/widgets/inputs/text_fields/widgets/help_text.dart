@@ -13,7 +13,7 @@ class HelpTextLabel {
   HelpTextLabel();
 
   static String on(String helpTextLabelValue) => helpTextLabelValue;
-  static String off() => 'Help Text Not Working';
+  static String off() => '';
   static Color lowOpacity() => ColorConstant.instance.light0;
   static Color highOpacity() => ColorConstant.instance.dark0;
 }

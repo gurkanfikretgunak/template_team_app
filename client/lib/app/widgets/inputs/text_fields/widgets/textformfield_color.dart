@@ -17,7 +17,7 @@ class TextFormFieldColorLabel {
       case TextFormFieldColor.transparent:
         return ColorConstant.instance.transparent;
       case TextFormFieldColor.dark:
-        return ColorConstant.instance.dark0;
+        return ColorConstant.instance.dark4;
       case TextFormFieldColor.green:
         return ColorConstant.instance.green0;
       case TextFormFieldColor.red:

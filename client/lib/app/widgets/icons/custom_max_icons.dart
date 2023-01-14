@@ -3,11 +3,11 @@ import 'package:flutter/material.dart';
 class CustomMaxIcon extends StatelessWidget {
   const CustomMaxIcon({
     Key? key,
-    this.imagePath,
+    required this.imagePath,
     this.iconColor,
   }) : super(key: key);
 
-  final String? imagePath;
+  final String imagePath;
   final Color? iconColor;
 
   @override
@@ -15,12 +15,10 @@ class CustomMaxIcon extends StatelessWidget {
     return SizedBox(
       width: 24,
       height: 24,
-      child: imagePath == null
-          ? const SizedBox()
-          : Image.asset(
-              imagePath!,
-              color: iconColor,
-            ),
+      child: Image.asset(
+        imagePath,
+        color: iconColor,
+      ),
     );
   }
 }

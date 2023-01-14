@@ -1,8 +1,11 @@
-import 'package:client/app/widgets/icons/custom_max_icons.dart';
+import 'package:client/app/widgets/custom_text.dart';
 import 'package:client/app/widgets/inputs/text_fields/widgets/help_text.dart';
 import 'package:client/app/widgets/inputs/text_fields/widgets/input_text.dart';
 import 'package:client/app/widgets/inputs/text_fields/widgets/label_text.dart';
 import 'package:client/app/widgets/inputs/text_fields/widgets/textformfield_color.dart';
+import 'package:client/core/constans/color_constants.dart';
+import 'package:client/core/constans/shadow_effect_constants.dart';
+import 'package:client/core/extensions/common_extension.dart';
 import 'package:flutter/material.dart';
 
 class CustomTextFormField extends StatelessWidget {
@@ -29,8 +32,9 @@ class CustomTextFormField extends StatelessWidget {
     this.inputTextOpacity = InputText.highOpacity,
     this.enabledBorderColor = TextFormFieldColor.dark,
     this.focusedBorderColor = TextFormFieldColor.purple,
-    this.suffixIconColor = TextFormFieldColor.dark,
-    this.prefixIconColor = TextFormFieldColor.dark,
+    this.enableBorder,
+    this.enabledBorder,
+    this.focusedBorder,
   }) : super(key: key);
 
   final int? maxLines;
@@ -53,15 +57,27 @@ class CustomTextFormField extends StatelessWidget {
   final InputText? inputTextOpacity;
   final TextFormFieldColor? focusedBorderColor;
   final TextFormFieldColor? enabledBorderColor;
-  final String? suffixIcon;
-  final String? prefixIcon;
-  final TextFormFieldColor? suffixIconColor;
-  final TextFormFieldColor? prefixIconColor;
-
+  final Widget? suffixIcon;
+  final Widget? prefixIcon;
+  final InputBorder? enableBorder;
+  final InputBorder? enabledBorder;
+  final InputBorder? focusedBorder;
   @override
   Widget build(BuildContext context) {
-    return Column(
+    return Wrap(
+      runSpacing: 10,
+      crossAxisAlignment: WrapCrossAlignment.start,
       children: [
+        CustomText(
+          labelTextRequired == LabelText.required
+              ? LabelTextLabel.required(labelTextValue!)
+              : LabelTextLabel.notRequired(
+                  labelTextValue ?? "",
+                ),
+          color: labelTextOpacity == LabelText.highOpacity
+              ? LabelTextLabel.highOpacity()
+              : LabelTextLabel.lowOpacity(),
+        ),
         TextFormField(
           key: key,
           controller: controller,
@@ -76,6 +92,8 @@ class CustomTextFormField extends StatelessWidget {
           ),
           maxLength: maxLength,
           decoration: InputDecoration(
+            contentPadding: EdgeInsets.symmetric(
+                horizontal: context.normalValue, vertical: context.normalValue),
             helperText: helpTextLabel == HelpText.off
                 ? HelpTextLabel.off()
                 : HelpTextLabel.on(
@@ -86,30 +104,29 @@ class CustomTextFormField extends StatelessWidget {
                   ? HelpTextLabel.highOpacity()
                   : HelpTextLabel.lowOpacity(),
             ),
-            labelText: labelTextRequired == LabelText.required
-                ? LabelTextLabel.required(labelTextValue!)
-                : LabelTextLabel.notRequired(labelTextValue!),
-            labelStyle: TextStyle(
-              color: labelTextOpacity == LabelText.highOpacity
-                  ? LabelTextLabel.highOpacity()
-                  : LabelTextLabel.lowOpacity(),
-            ),
-            enabledBorder: border(
-              borderSideColor:
-                  TextFormFieldColorLabel().color(enabledBorderColor),
-            ),
-            focusedBorder: border(
-              borderSideColor:
-                  TextFormFieldColorLabel().color(focusedBorderColor),
-            ),
-            suffixIcon: CustomMaxIcon(
-              imagePath: suffixIcon,
-              iconColor: TextFormFieldColorLabel().color(suffixIconColor),
-            ),
-            prefix: CustomMaxIcon(
-              imagePath: prefixIcon,
-              iconColor: TextFormFieldColorLabel().color(prefixIconColor),
-            ),
+            // labelText: labelTextRequired == LabelText.required
+            //     ? LabelTextLabel.required(labelTextValue!)
+            //     : LabelTextLabel.notRequired(labelTextValue ?? ""),
+            // labelStyle: TextStyle(
+            //   color: labelTextOpacity == LabelText.highOpacity
+            //       ? LabelTextLabel.highOpacity()
+            //       : LabelTextLabel.lowOpacity(),
+            // ),
+
+            hintText: hintText,
+            hintStyle: TextStyle(color: ColorConstant.instance.dark3),
+            enabledBorder: enabledBorder ??
+                border(
+                  borderSideColor:
+                      TextFormFieldColorLabel().color(enabledBorderColor),
+                ),
+            focusedBorder: focusedBorder ??
+                border(
+                  borderSideColor:
+                      TextFormFieldColorLabel().color(focusedBorderColor),
+                ),
+            suffixIcon: suffixIcon,
+            prefixIcon: prefixIcon,
           ),
         ),
       ],
@@ -119,7 +136,7 @@ class CustomTextFormField extends StatelessWidget {
   OutlineInputBorder border({required Color borderSideColor}) {
     return OutlineInputBorder(
       borderRadius: const BorderRadius.all(
-        Radius.circular(16),
+        Radius.circular(8),
       ),
       borderSide: BorderSide(color: borderSideColor),
     );
