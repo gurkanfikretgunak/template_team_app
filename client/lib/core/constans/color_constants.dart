@@ -52,4 +52,9 @@ class ColorConstant {
   Color red2 = const Color(0xFFFF5C5C);
   Color red1 = const Color(0xFFFF3B3B);
   Color red0 = const Color(0xFFE53535);
+
+  Color shadowFront = const Color(0xFF28293D);
+  Color shadowBack = const Color(0xFF606170);
+
+  Color transparent = const Color(0x00000000);
 }
