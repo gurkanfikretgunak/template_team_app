@@ -1,16 +1,26 @@
 import 'package:flutter/material.dart';
 
 class CustomMaxIcon extends StatelessWidget {
-  const CustomMaxIcon({Key? key, required this.imagePath}) : super(key: key);
+  const CustomMaxIcon({
+    Key? key,
+    this.imagePath,
+    this.iconColor,
+  }) : super(key: key);
 
-  final String imagePath;
+  final String? imagePath;
+  final Color? iconColor;
 
   @override
   Widget build(BuildContext context) {
     return SizedBox(
       width: 24,
       height: 24,
-      child: Image.asset(imagePath),
+      child: imagePath == null
+          ? const SizedBox()
+          : Image.asset(
+              imagePath!,
+              color: iconColor,
+            ),
     );
   }
 }
