@@ -5,21 +5,24 @@ class CustomOutlinedButton extends StatelessWidget {
   const CustomOutlinedButton({
     Key? key,
     required this.onPressed,
-    required this.text,
+    this.text,
     this.textColor,
     this.borderSideColor,
     this.borderRadius,
     this.fontSize,
     this.fontWeight,
+    this.child,
+    this.padding,
   }) : super(key: key);
-
-  final String text;
+  final EdgeInsetsGeometry? padding;
+  final String? text;
   final Color? textColor;
   final Color? borderSideColor;
   final double? borderRadius;
   final VoidCallback? onPressed;
   final double? fontSize;
   final FontWeight? fontWeight;
+  final Widget? child;
 
   @override
   Widget build(BuildContext context) {
@@ -31,13 +34,14 @@ class CustomOutlinedButton extends StatelessWidget {
           side: BorderSide(color: borderSideColor ?? ColorConstant.instance.purple2),
           borderRadius: BorderRadius.all(Radius.circular(borderRadius ?? 5)),
         ),
-        padding: EdgeInsets.zero,
+        padding: padding ?? EdgeInsets.zero,
       ),
-      child: Text(
-        text,
-        style:
-            TextStyle(color: textColor ?? ColorConstant.instance.purple2, fontSize: fontSize, fontWeight: fontWeight),
-      ),
+      child: child ??
+          Text(
+            text ?? '',
+            style: TextStyle(
+                color: textColor ?? ColorConstant.instance.purple2, fontSize: fontSize, fontWeight: fontWeight),
+          ),
     );
   }
 }

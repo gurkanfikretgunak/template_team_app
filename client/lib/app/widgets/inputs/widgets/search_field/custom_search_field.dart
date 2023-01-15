@@ -1,5 +1,5 @@
-import 'package:client/app/widgets/icons/custom_max_icons.dart';
-import 'package:client/app/widgets/inputs/text_fields/custom_text_form_field.dart';
+import 'package:client/app/widgets/icons/icons_widgets.dart';
+import 'package:client/app/widgets/inputs/inputs_widgets.dart';
 import 'package:client/core/base/base_view/base_view.dart';
 import 'package:client/core/constans/color_constants.dart';
 import 'package:flutter/material.dart';
