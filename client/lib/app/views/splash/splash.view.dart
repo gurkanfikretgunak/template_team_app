@@ -1,5 +1,7 @@
 import 'package:client/app/views/splash/splash.widgets.dart';
+import 'package:client/app/widgets/custom_text.dart';
 import 'package:client/app/widgets/divider/custom_divider.dart';
+import 'package:client/app/widgets/tabbar/custom_tabbar.dart';
 import 'package:client/core/base/base_view/base_view.dart';
 import 'package:flutter/material.dart';
 
@@ -16,31 +18,34 @@ class SplashView extends BaseView with SplashWidgets {
 
   @override
   Widget build(BuildContext context) {
+    List<Widget> tabbarList = [
+      const CustomText("kdjf"),
+      const CustomText("kdjf"),
+    ];
+    List<Widget> tabbarViewList = [
+      const CustomText("kdjf"),
+      const CustomText("kdjf"),
+    ];
+
     return dynamicBuild(
       context,
       error: backendError(),
       body: Column(
-        children: const [
-          Text('not errror'),
-          CustomTextFormField(
+        children: [
+          const Text('not errror'),
+          const CustomTextFormField(
             labelTextValue: "xlkv",
             labelTextRequired: LabelText.required,
             focusedBorderColor: TextFormFieldColor.purple,
             enabledBorderColor: TextFormFieldColor.green,
           ),
-          CustomSearchField(),
-          CustomCheckbox(),
-          CustomDivider(),
-
-          // ListView(
-          //   shrinkWrap: true,
-          //   children: ListTile.divideTiles(
-          //     context: context,
-          //     tiles: [
-          //       CustomDivider( ),
-          //     ],
-          //   ).toList(),
-          // )
+          const CustomSearchField(),
+          const CustomCheckbox(),
+          const CustomDivider(),
+          CustomTabBar(
+            tabBarList: tabbarList,
+            tabBarViewList: tabbarViewList,
+          )
         ],
       ),
       errorBody: const Text('errorrrr'),
