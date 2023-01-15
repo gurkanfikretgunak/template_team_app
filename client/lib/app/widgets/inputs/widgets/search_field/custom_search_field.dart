@@ -1,26 +1,26 @@
-import 'package:client/app/widgets/inputs/widgets/text_fields/custom_text_form_field.dart';
+import 'package:client/app/widgets/icons/icons_widgets.dart';
+import 'package:client/app/widgets/inputs/inputs_widgets.dart';
+import 'package:client/core/base/base_view/base_view.dart';
 import 'package:client/core/constans/color_constants.dart';
 import 'package:flutter/material.dart';
 
-class CustomSearchField extends StatefulWidget {
+class CustomSearchField extends BaseView {
   const CustomSearchField({super.key});
 
   @override
-  State<CustomSearchField> createState() => _CustomSearchFieldState();
-}
-
-class _CustomSearchFieldState extends State<CustomSearchField> {
-  @override
   Widget build(BuildContext context) {
     return CustomTextFormField(
-      helpTextLabel: HelpText.on,
-      helpTextLabelValue: 'HelpText',
-      prefixIcon: Icon(
-        Icons.search,
-        color: ColorConstant.instance.purple2,
-      ),
-      hintText: "Search",
-      suffixIcon: const Icon(Icons.close),
-    );
+        prefixIcon: CustomMaxIcon(
+          imagePath: "assets/icons/search.png",
+          iconColor: ColorConstant.instance.purple2,
+        ),
+        hintText: "Search",
+        suffixIcon: IconButton(
+          onPressed: () {},
+          icon: CustomMaxIcon(
+            imagePath: "assets/icons/close.png",
+            iconColor: ColorConstant.instance.purple2,
+          ),
+        ));
   }
 }

@@ -5,7 +5,7 @@ class CustomTextButton extends StatelessWidget {
   const CustomTextButton({
     Key? key,
     required this.onPressed,
-    required this.text,
+    this.text,
     this.textColor,
     this.fontSize,
     this.fontWeight,
@@ -16,7 +16,7 @@ class CustomTextButton extends StatelessWidget {
     this.minimumSize,
   }) : super(key: key);
 
-  final String text;
+  final String? text;
   final Color? foregroundColor;
   final Color? textColor;
   final double? fontSize;
@@ -35,11 +35,12 @@ class CustomTextButton extends StatelessWidget {
         padding: padding,
         elevation: 0,
         tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+        minimumSize: minimumSize,
       ),
       onPressed: onPressed,
       child: child ??
           Text(
-            text,
+            text ?? '',
             style: TextStyle(
                 color: textColor ?? ColorConstant.instance.purple2, fontSize: fontSize, fontWeight: fontWeight),
           ),
