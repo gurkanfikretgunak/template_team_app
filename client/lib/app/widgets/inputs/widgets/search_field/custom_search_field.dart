@@ -1,4 +1,4 @@
-import 'package:client/app/widgets/inputs/text_fields/custom_text_form_field.dart';
+import 'package:client/app/widgets/inputs/widgets/text_fields/custom_text_form_field.dart';
 import 'package:client/core/constans/color_constants.dart';
 import 'package:flutter/material.dart';
 
