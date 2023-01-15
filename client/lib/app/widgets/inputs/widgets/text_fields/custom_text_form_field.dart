@@ -1,4 +1,4 @@
-import 'package:client/app/widgets/inputs/widgets/custom_text.dart';
+import 'package:client/app/widgets/custom_text.dart';
 import 'package:client/app/widgets/inputs/inputs_widgets.dart';
 import 'package:client/core/base/base_view/base_view.dart';
 import 'package:client/core/constans/color_constants.dart';

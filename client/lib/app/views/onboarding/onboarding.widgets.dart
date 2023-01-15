@@ -1,6 +1,6 @@
 import 'package:client/app/views/onboarding/onboarding.viewmodel.dart';
 import 'package:client/app/views/onboarding/widgets/indicator.dart';
-import 'package:client/app/widgets/inputs/widgets/custom_text.dart';
+import 'package:client/app/widgets/custom_text.dart';
 
 import 'package:client/core/constans/color_constants.dart';
 import 'package:client/core/extensions/common_extension.dart';

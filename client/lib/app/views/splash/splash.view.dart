@@ -1,4 +1,5 @@
 import 'package:client/app/views/splash/splash.widgets.dart';
+import 'package:client/app/widgets/divider/custom_divider.dart';
 import 'package:client/core/base/base_view/base_view.dart';
 import 'package:flutter/material.dart';
 
@@ -22,18 +23,24 @@ class SplashView extends BaseView with SplashWidgets {
         children: const [
           Text('not errror'),
           CustomTextFormField(
-            // helpTextLabel: HelpText.on,
-            // helpTextLabelValue: "Deneme",
             labelTextValue: "xlkv",
             labelTextRequired: LabelText.required,
             focusedBorderColor: TextFormFieldColor.purple,
             enabledBorderColor: TextFormFieldColor.green,
-            // suffixIcon: "assets/icons/check.png",
-            // prefixIcon: "assets/icons/check.png",
-            // suffixIconColor: TextFormFieldColor.green,
           ),
           CustomSearchField(),
-          CustomCheckbox()
+          CustomCheckbox(),
+          CustomDivider(),
+
+          // ListView(
+          //   shrinkWrap: true,
+          //   children: ListTile.divideTiles(
+          //     context: context,
+          //     tiles: [
+          //       CustomDivider( ),
+          //     ],
+          //   ).toList(),
+          // )
         ],
       ),
       errorBody: const Text('errorrrr'),
