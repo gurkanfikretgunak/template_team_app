@@ -34,6 +34,7 @@ class CustomText extends StatelessWidget {
           fontWeight: fontWeight,
           wordSpacing: wordSpacing,
           decoration: underlineText,
+          height: 1.7,
         ));
   }
 }
