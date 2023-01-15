@@ -101,15 +101,6 @@ class CustomTextFormField extends BaseView {
                   ? HelpTextLabel.highOpacity()
                   : HelpTextLabel.lowOpacity(),
             ),
-            // labelText: labelTextRequired == LabelText.required
-            //     ? LabelTextLabel.required(labelTextValue!)
-            //     : LabelTextLabel.notRequired(labelTextValue ?? ""),
-            // labelStyle: TextStyle(
-            //   color: labelTextOpacity == LabelText.highOpacity
-            //       ? LabelTextLabel.highOpacity()
-            //       : LabelTextLabel.lowOpacity(),
-            // ),
-
             hintText: hintText,
             hintStyle: TextStyle(color: ColorConstant.instance.dark3),
             enabledBorder: enabledBorder ??
