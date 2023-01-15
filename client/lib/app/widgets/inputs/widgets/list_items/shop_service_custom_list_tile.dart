@@ -1,6 +1,6 @@
-import 'package:client/app/widgets/buttons/custom_outlined_button.dart';
-import 'package:client/app/widgets/icons/custom_min_icons.dart';
-import 'package:client/app/widgets/list_items/order_items_tile.dart';
+import 'package:client/app/widgets/buttons/buttons_widgets.dart';
+import 'package:client/app/widgets/icons/icons_widgets.dart';
+import 'package:client/app/widgets/inputs/widgets/list_items/order_items_tile.dart';
 import 'package:flutter/material.dart';
 
 class ShopServiceCustomListTile extends StatelessWidget {
@@ -38,8 +38,10 @@ class ShopServiceCustomListTile extends StatelessWidget {
           width: imgSize ?? 75,
           height: imgSize ?? 75,
           decoration: BoxDecoration(
-            image:
-                DecorationImage(fit: BoxFit.cover, image: NetworkImage(imgPath ?? 'https://picsum.photos/250?image=9')),
+            image: DecorationImage(
+                fit: BoxFit.cover,
+                image: NetworkImage(
+                    imgPath ?? 'https://picsum.photos/250?image=9')),
             borderRadius: BorderRadius.all(Radius.circular(imgRadius ?? 8)),
           ),
         ),

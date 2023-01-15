@@ -1,5 +1,5 @@
-import 'package:client/app/widgets/buttons/custom_text_button.dart';
-import 'package:client/app/widgets/icons/custom_max_icons.dart';
+import 'package:client/app/widgets/buttons/buttons_widgets.dart';
+import 'package:client/app/widgets/icons/icons_widgets.dart';
 import 'package:flutter/material.dart';
 
 class ShopPromoTile extends StatelessWidget {
@@ -32,7 +32,8 @@ class ShopPromoTile extends StatelessWidget {
       leading: isApplied
           ? const CustomMaxIcon(imagePath: '../assets/icons/input-correct.png')
           : isInvalid
-              ? const CustomMaxIcon(imagePath: '../assets/icons/input-wrong.png')
+              ? const CustomMaxIcon(
+                  imagePath: '../assets/icons/input-wrong.png')
               : const CustomMaxIcon(imagePath: '../assets/icons/offer.png'),
       title: isApplied
           ? Text(title ?? 'Code ${promoCode ?? 'FREE10'} Applied!')

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../../../../core/constans/color_constants.dart';
+import '../../../../../../../core/constans/color_constants.dart';
 
 enum HelpText {
   on,

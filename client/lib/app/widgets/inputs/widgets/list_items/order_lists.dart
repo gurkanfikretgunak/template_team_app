@@ -1,6 +1,5 @@
-import 'package:client/app/widgets/buttons/custom_outlined_button.dart';
-import 'package:client/app/widgets/buttons/custom_text_button.dart';
-import 'package:client/app/widgets/icons/custom_max_icons.dart';
+import 'package:client/app/widgets/buttons/buttons_widgets.dart';
+import 'package:client/app/widgets/icons/icons_widgets.dart';
 import 'package:client/core/constans/color_constants.dart';
 import 'package:flutter/material.dart';
 
@@ -61,8 +60,10 @@ class OrderLists extends StatelessWidget {
                 mainAxisSize: MainAxisSize.min,
                 children: [
                   isFavorite
-                      ? const CustomMaxIcon(imagePath: '../assets/icons/heart-full.png')
-                      : const CustomMaxIcon(imagePath: '../assets/icons/heart.png'),
+                      ? const CustomMaxIcon(
+                          imagePath: '../assets/icons/heart-full.png')
+                      : const CustomMaxIcon(
+                          imagePath: '../assets/icons/heart.png'),
                   isFavorite ? const Text('Remove') : const Text('Favorite'),
                 ],
               ),

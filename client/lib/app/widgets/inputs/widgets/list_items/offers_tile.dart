@@ -1,5 +1,5 @@
-import 'package:client/app/widgets/buttons/custom_text_button.dart';
-import 'package:client/app/widgets/icons/custom_max_icons.dart';
+import 'package:client/app/widgets/buttons/buttons_widgets.dart';
+import 'package:client/app/widgets/icons/icons_widgets.dart';
 import 'package:flutter/material.dart';
 
 class OffersTile extends StatelessWidget {
@@ -19,8 +19,10 @@ class OffersTile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ListTile(
-      leading: CustomMaxIcon(imagePath: offerCustomIcon ?? '../assets/icons/visa.png'),
-      title: Text(offerTitle ?? 'Get cashback upto \$40 on VISA Debit or Credit cards'),
+      leading: CustomMaxIcon(
+          imagePath: offerCustomIcon ?? '../assets/icons/visa.png'),
+      title: Text(
+          offerTitle ?? 'Get cashback upto \$40 on VISA Debit or Credit cards'),
       subtitle: Text(offerSubtitle ?? 'On booking of \$200 or more.'),
       trailing: CustomTextButton(
         text: offerButtonText ?? 'Apply',
