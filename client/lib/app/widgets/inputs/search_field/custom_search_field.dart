@@ -1,16 +1,12 @@
 import 'package:client/app/widgets/icons/custom_max_icons.dart';
 import 'package:client/app/widgets/inputs/text_fields/custom_text_form_field.dart';
+import 'package:client/core/base/base_view/base_view.dart';
 import 'package:client/core/constans/color_constants.dart';
 import 'package:flutter/material.dart';
 
-class CustomSearchField extends StatefulWidget {
+class CustomSearchField extends BaseView {
   const CustomSearchField({super.key});
 
-  @override
-  State<CustomSearchField> createState() => _CustomSearchFieldState();
-}
-
-class _CustomSearchFieldState extends State<CustomSearchField> {
   @override
   Widget build(BuildContext context) {
     return CustomTextFormField(

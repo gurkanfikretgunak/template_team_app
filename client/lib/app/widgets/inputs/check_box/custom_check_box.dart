@@ -1,3 +1,4 @@
+import 'package:client/core/base/base_view/base_view.dart';
 import 'package:client/core/constans/color_constants.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -12,7 +13,7 @@ class CheckboxNotifier extends ChangeNotifier {
   }
 }
 
-class CustomCheckbox extends StatelessWidget {
+class CustomCheckbox extends BaseView {
   const CustomCheckbox({
     super.key,
     this.disable,

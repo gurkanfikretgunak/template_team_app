@@ -3,12 +3,12 @@ import 'package:client/app/widgets/inputs/text_fields/widgets/help_text.dart';
 import 'package:client/app/widgets/inputs/text_fields/widgets/input_text.dart';
 import 'package:client/app/widgets/inputs/text_fields/widgets/label_text.dart';
 import 'package:client/app/widgets/inputs/text_fields/widgets/textformfield_color.dart';
+import 'package:client/core/base/base_view/base_view.dart';
 import 'package:client/core/constans/color_constants.dart';
-import 'package:client/core/constans/shadow_effect_constants.dart';
 import 'package:client/core/extensions/common_extension.dart';
 import 'package:flutter/material.dart';
 
-class CustomTextFormField extends StatelessWidget {
+class CustomTextFormField extends BaseView {
   const CustomTextFormField({
     Key? key,
     this.controller,

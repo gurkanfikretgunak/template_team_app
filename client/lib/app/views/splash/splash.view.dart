@@ -1,7 +1,7 @@
 import 'package:client/app/views/splash/splash.widgets.dart';
+import 'package:client/app/widgets/inputs/check_box/custom_check_box.dart';
 import 'package:client/app/widgets/inputs/search_field/custom_search_field.dart';
 import 'package:client/app/widgets/inputs/text_fields/custom_text_form_field.dart';
-import 'package:client/app/widgets/inputs/text_fields/widgets/help_text.dart';
 import 'package:client/app/widgets/inputs/text_fields/widgets/label_text.dart';
 import 'package:client/app/widgets/inputs/text_fields/widgets/textformfield_color.dart';
 import 'package:client/core/base/base_view/base_view.dart';
@@ -36,6 +36,7 @@ class SplashView extends BaseView with SplashWidgets {
             // suffixIconColor: TextFormFieldColor.green,
           ),
           CustomSearchField(),
+          CustomCheckbox()
         ],
       ),
       errorBody: const Text('errorrrr'),
