@@ -20,8 +20,8 @@ abstract class BaseView extends StatelessWidget {
   }
 
   Widget baseBuild(BuildContext context, {required Widget body}) =>
-      Scaffold(body: body);
+      SafeArea(child: Scaffold(body: body));
 
   Widget errorBuild(BuildContext context, {required Widget body}) =>
-      Scaffold(body: body);
+      SafeArea(child: Scaffold(body: body));
 }

@@ -1,4 +1,9 @@
 import 'package:client/app/views/splash/splash.widgets.dart';
+import 'package:client/app/widgets/inputs/check_box/custom_check_box.dart';
+import 'package:client/app/widgets/inputs/search_field/custom_search_field.dart';
+import 'package:client/app/widgets/inputs/text_fields/custom_text_form_field.dart';
+import 'package:client/app/widgets/inputs/text_fields/widgets/label_text.dart';
+import 'package:client/app/widgets/inputs/text_fields/widgets/textformfield_color.dart';
 import 'package:client/core/base/base_view/base_view.dart';
 import 'package:flutter/material.dart';
 
@@ -16,7 +21,24 @@ class SplashView extends BaseView with SplashWidgets {
     return dynamicBuild(
       context,
       error: backendError(),
-      body: const Text('not errror'),
+      body: Column(
+        children: const [
+          Text('not errror'),
+          CustomTextFormField(
+            // helpTextLabel: HelpText.on,
+            // helpTextLabelValue: "Deneme",
+            labelTextValue: "xlkv",
+            labelTextRequired: LabelText.required,
+            focusedBorderColor: TextFormFieldColor.purple,
+            enabledBorderColor: TextFormFieldColor.green,
+            // suffixIcon: "assets/icons/check.png",
+            // prefixIcon: "assets/icons/check.png",
+            // suffixIconColor: TextFormFieldColor.green,
+          ),
+          CustomSearchField(),
+          CustomCheckbox()
+        ],
+      ),
       errorBody: const Text('errorrrr'),
     );
   }
