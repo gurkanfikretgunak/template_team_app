@@ -1,7 +1,7 @@
 export '../inputs/widgets/search_field/custom_search_field.dart';
 export '../inputs/widgets/check_box/custom_check_box.dart';
+export '../inputs/widgets/text_fields/help_text.dart';
 export '../inputs/widgets/search_field/custom_search_field.dart';
-export '../inputs/widgets/text_fields/widgets/help_text.dart';
 export '../inputs/widgets/text_fields//input_text.dart';
 export '../inputs/widgets/text_fields/label_text.dart';
 export '../inputs/widgets/text_fields//textformfield_color.dart';
