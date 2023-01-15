@@ -1,4 +1,4 @@
-import 'package:client/app/widgets/status_bar/status_bar_color.dart';
+import 'package:client/app/widgets/system_ui_overlay/status_bar_color.dart';
 import 'package:flutter/services.dart';
 
 class SystemUIOverlay {
