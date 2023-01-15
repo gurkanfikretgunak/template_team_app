@@ -24,16 +24,19 @@ class CustomText extends StatelessWidget {
   final TextDecoration? underlineText;
   @override
   Widget build(BuildContext context) {
-    return Text(text,
-        textAlign: textAlign,
-        maxLines: maxLines,
-        overflow: overflow,
-        style: TextStyle(
-          color: color ?? Theme.of(context).textSelectionTheme.cursorColor,
-          fontSize: fontSize,
-          fontWeight: fontWeight,
-          wordSpacing: wordSpacing,
-          decoration: underlineText,
-        ));
+    return Text(
+      text,
+      textAlign: textAlign,
+      maxLines: maxLines,
+      overflow: overflow,
+      style: TextStyle(
+        color: color ?? Theme.of(context).textSelectionTheme.cursorColor,
+        fontSize: fontSize,
+        fontWeight: fontWeight,
+        wordSpacing: wordSpacing,
+        decoration: underlineText,
+        height: 1.7,
+      ),
+    );
   }
 }

@@ -1,4 +1,4 @@
-import 'package:client/app/widgets/inputs/widgets/custom_text.dart';
+import 'package:client/app/widgets/custom_text.dart';
 import 'package:client/app/widgets/inputs/inputs_widgets.dart';
 import 'package:client/core/base/base_view/base_view.dart';
 import 'package:client/core/constans/color_constants.dart';
@@ -101,15 +101,6 @@ class CustomTextFormField extends BaseView {
                   ? HelpTextLabel.highOpacity()
                   : HelpTextLabel.lowOpacity(),
             ),
-            // labelText: labelTextRequired == LabelText.required
-            //     ? LabelTextLabel.required(labelTextValue!)
-            //     : LabelTextLabel.notRequired(labelTextValue ?? ""),
-            // labelStyle: TextStyle(
-            //   color: labelTextOpacity == LabelText.highOpacity
-            //       ? LabelTextLabel.highOpacity()
-            //       : LabelTextLabel.lowOpacity(),
-            // ),
-
             hintText: hintText,
             hintStyle: TextStyle(color: ColorConstant.instance.dark3),
             enabledBorder: enabledBorder ??
