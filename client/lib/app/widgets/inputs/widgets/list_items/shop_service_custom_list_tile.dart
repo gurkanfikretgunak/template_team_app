@@ -38,10 +38,8 @@ class ShopServiceCustomListTile extends StatelessWidget {
           width: imgSize ?? 75,
           height: imgSize ?? 75,
           decoration: BoxDecoration(
-            image: DecorationImage(
-                fit: BoxFit.cover,
-                image: NetworkImage(
-                    imgPath ?? 'https://picsum.photos/250?image=9')),
+            image:
+                DecorationImage(fit: BoxFit.cover, image: NetworkImage(imgPath ?? 'https://picsum.photos/250?image=9')),
             borderRadius: BorderRadius.all(Radius.circular(imgRadius ?? 8)),
           ),
         ),
@@ -71,7 +69,7 @@ class ShopServiceCustomListTile extends StatelessWidget {
                 child: Row(
                   children: [
                     Text(buttonText ?? 'Select'),
-                    const CustomMinIcon(
+                    const CustomIcon(
                       imagePath: '../assets/icons/plus.png',
                     )
                   ],

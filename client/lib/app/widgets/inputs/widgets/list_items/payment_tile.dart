@@ -4,12 +4,7 @@ import 'package:client/core/constans/color_constants.dart';
 import 'package:flutter/material.dart';
 
 class PaymentTile extends StatelessWidget {
-  const PaymentTile(
-      {super.key,
-      this.paymentName,
-      this.customIconPath,
-      this.removeCard,
-      this.isExistingCard = false});
+  const PaymentTile({super.key, this.paymentName, this.customIconPath, this.removeCard, this.isExistingCard = false});
   final String? customIconPath;
   final String? paymentName;
   final bool isExistingCard;
@@ -18,14 +13,12 @@ class PaymentTile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ListTile(
-      leading: CustomPaymentIcon(
-          imagePath: customIconPath ?? '../assets/icons/gift-card.png'),
+      leading: CustomIcon(imagePath: customIconPath ?? '../assets/icons/gift-card.png'),
       title: Text(paymentName ?? 'Payment Name'),
       trailing: isExistingCard
           ? CustomTextButton(
               onPressed: removeCard,
               text: 'Remove',
-              textColor: ColorConstant.instance.red0,
             )
           : const Icon(Icons.chevron_right),
     );
