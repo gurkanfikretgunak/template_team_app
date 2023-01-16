@@ -60,10 +60,8 @@ class OrderLists extends StatelessWidget {
                 mainAxisSize: MainAxisSize.min,
                 children: [
                   isFavorite
-                      ? const CustomMaxIcon(
-                          imagePath: '../assets/icons/heart-full.png')
-                      : const CustomMaxIcon(
-                          imagePath: '../assets/icons/heart.png'),
+                      ? const CustomIcon(imagePath: '../assets/icons/heart-full.png')
+                      : const CustomIcon(imagePath: '../assets/icons/heart.png'),
                   isFavorite ? const Text('Remove') : const Text('Favorite'),
                 ],
               ),
@@ -79,7 +77,6 @@ class OrderLists extends StatelessWidget {
                   ? CustomTextButton(
                       onPressed: () {},
                       text: 'Cancel Booking',
-                      textColor: ColorConstant.instance.red0,
                       padding: EdgeInsets.zero,
                       minimumSize: Size.zero,
                     )
