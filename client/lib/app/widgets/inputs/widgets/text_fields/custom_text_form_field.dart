@@ -62,7 +62,6 @@ class CustomTextFormField extends BaseView {
   @override
   Widget build(BuildContext context) {
     return Wrap(
-      runSpacing: 10,
       crossAxisAlignment: WrapCrossAlignment.start,
       children: [
         CustomText(
