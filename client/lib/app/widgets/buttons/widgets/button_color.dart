@@ -1,5 +1,4 @@
 import 'package:client/core/constans/color_constants.dart';
-import 'package:flutter/material.dart';
 
 enum ButtonColor {
   transparent,
@@ -28,10 +27,4 @@ class ButtonColorLabel {
         return ColorConstant.instance.dark0;
     }
   }
-
-  static Color transparent() => ColorConstant.instance.transparent;
-  static Color dark() => ColorConstant.instance.dark0;
-  static Color green() => ColorConstant.instance.green0;
-  static Color red() => ColorConstant.instance.red0;
-  static Color purple() => ColorConstant.instance.purple2;
 }
