@@ -22,6 +22,7 @@ class CustomIcon extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Image.asset(
+      color: iconColor,
       imagePath!,
       height: IconSizeLabel().height(height),
       width: IconSizeLabel().width(width),

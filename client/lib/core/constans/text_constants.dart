@@ -71,7 +71,7 @@ class TextConstants {
 
   TextStyle get heading6 => TextStyle(
         fontSize: 19,
-        fontWeight: FontWeight.w500,
+        fontWeight: FontWeight.w600,
         color: ColorConstant.instance.dark0,
       );
 

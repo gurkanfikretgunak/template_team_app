@@ -1,13 +1,13 @@
-import 'package:client/app/widgets/divider/divider_color.dart';
+import 'package:client/app/widgets/divider/widgets/divider_color.dart';
 import 'package:flutter/material.dart';
 
-class CustomDivider extends StatelessWidget {
-  const CustomDivider({
+class NormalDivider extends StatelessWidget {
+  const NormalDivider({
     super.key,
     this.color = DividerColor.highOpacity,
   });
-  final DividerColor? color;
 
+  final DividerColor? color;
   @override
   Widget build(BuildContext context) {
     return Divider(
