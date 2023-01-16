@@ -5,6 +5,7 @@ export '../inputs/widgets/text_fields/help_text.dart';
 export '../inputs/widgets/search_field/custom_search_field.dart';
 export '../inputs/widgets/text_fields//input_text.dart';
 export '../inputs/widgets/text_fields/label_text.dart';
+export '../inputs/widgets/text_fields/keyboard_type.dart';
 export '../inputs/widgets/text_fields//textformfield_color.dart';
 export '../inputs/widgets/text_fields/custom_text_form_field.dart';
 export '../inputs/widgets/list_items/address_tile.dart';
