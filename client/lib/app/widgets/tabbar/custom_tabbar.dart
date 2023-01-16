@@ -1,4 +1,3 @@
-import 'package:client/core/constans/color_constants.dart';
 import 'package:flutter/material.dart';
 
 class CustomTabBar extends StatelessWidget {

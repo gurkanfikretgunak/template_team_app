@@ -30,11 +30,10 @@ class ShopPromoTile extends StatelessWidget {
               : true
           : false,
       leading: isApplied
-          ? const CustomMaxIcon(imagePath: '../assets/icons/input-correct.png')
+          ? const CustomIcon(imagePath: '../assets/icons/input-correct.png')
           : isInvalid
-              ? const CustomMaxIcon(
-                  imagePath: '../assets/icons/input-wrong.png')
-              : const CustomMaxIcon(imagePath: '../assets/icons/offer.png'),
+              ? const CustomIcon(imagePath: '../assets/icons/input-wrong.png')
+              : const CustomIcon(imagePath: '../assets/icons/offer.png'),
       title: isApplied
           ? Text(title ?? 'Code ${promoCode ?? 'FREE10'} Applied!')
           : isInvalid

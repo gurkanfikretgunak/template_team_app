@@ -32,8 +32,7 @@ class AddressTile extends StatelessWidget {
           child: CircleAvatar(
             radius: 24,
             backgroundColor: const Color(0xFFF1F1F1),
-            child: CustomMaxIcon(
-                imagePath: customIconPath ?? '../assets/icons/home.png'),
+            child: CustomIcon(imagePath: customIconPath ?? '../assets/icons/home.png'),
           ),
         ),
         Wrap(

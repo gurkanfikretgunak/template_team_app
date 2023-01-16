@@ -1,4 +1,3 @@
-import 'package:client/app/views/onboarding/onboarding.viewmodel.dart';
 import 'package:client/app/widgets/bottom_bar/bottom_bar.viewmodel.dart';
 import 'package:client/app/widgets/bottom_bar/widgets/bottom_bar.dart';
 import 'package:client/core/base/base_view/base_view.dart';
