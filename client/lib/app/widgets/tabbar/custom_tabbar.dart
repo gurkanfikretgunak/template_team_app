@@ -1,5 +1,4 @@
 import 'package:client/core/constans/color_constants.dart';
-import 'package:client/core/extensions/common_extension.dart';
 import 'package:flutter/material.dart';
 
 class CustomTabBar extends StatelessWidget {
@@ -22,9 +21,9 @@ class CustomTabBar extends StatelessWidget {
           children: [
             Expanded(
               child: TabBar(
-                indicatorColor: ColorConstant.instance.purple2,
-                labelColor: ColorConstant.instance.purple2,
-                unselectedLabelColor: ColorConstant.instance.dark3,
+                // indicatorColor: ColorConstant.instance.purple2,
+                // labelColor: ColorConstant.instance.purple2,
+                // unselectedLabelColor: ColorConstant.instance.dark3,
                 indicatorWeight: 3,
                 tabs: tabBarList,
               ),

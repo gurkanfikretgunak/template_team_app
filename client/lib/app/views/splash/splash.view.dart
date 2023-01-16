@@ -3,6 +3,7 @@ import 'package:client/app/widgets/custom_text.dart';
 import 'package:client/app/widgets/divider/custom_divider.dart';
 import 'package:client/app/widgets/tabbar/custom_tabbar.dart';
 import 'package:client/core/base/base_view/base_view.dart';
+import 'package:client/core/constans/text_constants.dart';
 import 'package:flutter/material.dart';
 
 import '../../widgets/inputs/inputs_widgets.dart';
@@ -45,6 +46,10 @@ class SplashView extends BaseView with SplashWidgets {
           CustomTabBar(
             tabBarList: tabbarList,
             tabBarViewList: tabbarViewList,
+          ),
+          Text(
+            "sdf",
+            style: TextConstants.instance.heading1,
           )
         ],
       ),
