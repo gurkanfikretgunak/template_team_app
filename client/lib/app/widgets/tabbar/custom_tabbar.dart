@@ -7,7 +7,7 @@ class CustomTabBar extends StatelessWidget {
     required this.tabBarViewList,
   });
 
-  final List<Widget> tabBarList;
+  final List<Tab> tabBarList;
   final List<Widget> tabBarViewList;
 
   @override
@@ -20,15 +20,12 @@ class CustomTabBar extends StatelessWidget {
           children: [
             Expanded(
               child: TabBar(
-                // indicatorColor: ColorConstant.instance.purple2,
-                // labelColor: ColorConstant.instance.purple2,
-                // unselectedLabelColor: ColorConstant.instance.dark3,
                 indicatorWeight: 3,
                 tabs: tabBarList,
               ),
             ),
             Expanded(
-              flex: 9,
+              flex: 12,
               child: TabBarView(
                 children: tabBarViewList,
               ),

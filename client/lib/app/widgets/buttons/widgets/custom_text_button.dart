@@ -1,3 +1,6 @@
+import 'dart:ui';
+
+import 'package:client/app/widgets/buttons/widgets/button_color.dart';
 import 'package:client/app/widgets/buttons/widgets/button_size.dart';
 import 'package:flutter/material.dart';
 
@@ -6,18 +9,20 @@ class CustomTextButton extends StatelessWidget {
     Key? key,
     required this.onPressed,
     this.buttonSize = ButtonSize.medium,
-    this.text,
+    required this.text,
     this.padding,
     this.child,
     this.minimumSize,
+    this.color,
   }) : super(key: key);
 
-  final String? text;
+  final String text;
   final EdgeInsetsGeometry? padding;
   final VoidCallback? onPressed;
   final Widget? child;
   final Size? minimumSize;
   final ButtonSize? buttonSize;
+  final ButtonColor? color;
 
   @override
   Widget build(BuildContext context) {
@@ -25,10 +30,14 @@ class CustomTextButton extends StatelessWidget {
       style: TextButton.styleFrom(
         padding: padding,
         tapTargetSize: MaterialTapTargetSize.shrinkWrap,
-        minimumSize: ButtonSizeLabel().size(buttonSize),
+        fixedSize: ButtonSizeLabel().size(buttonSize),
       ),
       onPressed: onPressed,
-      child: child ?? Text(text ?? '', style: ButtonSizeLabel().buttonStyle(buttonSize)),
+      child: child ??
+          Text(text,
+              style: TextStyle(
+                color: ButtonColorLabel().color(color),
+              )),
     );
   }
 }
