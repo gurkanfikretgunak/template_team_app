@@ -15,3 +15,5 @@ export '../inputs/widgets/list_items/payment_tile.dart';
 export '../inputs/widgets/list_items/search_results_tile.dart';
 export '../inputs/widgets/list_items/shop_promo_tile.dart';
 export '../inputs/widgets/list_items/shop_service_custom_list_tile.dart';
+export '../inputs/widgets/list_items/circular_service.dart';
+export '../inputs/widgets/cards/shop_card.dart';
