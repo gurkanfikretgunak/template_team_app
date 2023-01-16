@@ -1,3 +1,4 @@
+import 'package:client/app/views/booking_detail/booking_detail.view.dart';
 import 'package:client/app/views/bookings/widgets/tabbar_view/tabbar_view_type.dart';
 import 'package:client/app/widgets/divider/divider_widgets.dart';
 import 'package:client/core/base/base_view/base_view.dart';
@@ -29,7 +30,16 @@ class BookingsTabBarView extends BaseView {
             );
           },
           itemBuilder: (context, index) {
-            return TabBarViewTypeLabel().buildOrderCard(tabBarViewType);
+            return InkWell(
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => const BookingDetailView(false)),
+                );
+              },
+              child: TabBarViewTypeLabel().buildOrderCard(tabBarViewType),
+            );
           },
         ),
       ),
