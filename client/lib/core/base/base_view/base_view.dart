@@ -9,6 +9,7 @@ abstract class BaseView extends StatelessWidget {
     BuildContext context, {
     required HasError error,
     required Widget body,
+    PreferredSizeWidget? appbar,
     Widget? bottomNavigationBar,
     required Widget errorBody,
   }) {
@@ -16,6 +17,7 @@ abstract class BaseView extends StatelessWidget {
       case HasError.off:
         return baseBuild(
           context,
+          appbar: appbar,
           body: body,
           bottomNavigationBar: bottomNavigationBar,
         );
@@ -30,11 +32,13 @@ abstract class BaseView extends StatelessWidget {
     BuildContext context, {
     required Widget body,
     Widget? bottomNavigationBar,
+    PreferredSizeWidget? appbar,
   }) =>
       SafeArea(
         child: Scaffold(
           body: body,
           bottomNavigationBar: bottomNavigationBar,
+          appBar: appbar,
         ),
       );
 

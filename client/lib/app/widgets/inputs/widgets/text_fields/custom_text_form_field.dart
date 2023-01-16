@@ -15,7 +15,6 @@ class CustomTextFormField extends BaseView {
     this.suffixIcon,
     this.prefixIcon,
     this.maxLength,
-    this.keyboardType,
     this.maxLines,
     this.onTap,
     this.validator,
@@ -32,6 +31,7 @@ class CustomTextFormField extends BaseView {
     this.enableBorder,
     this.enabledBorder,
     this.focusedBorder,
+    this.keyboardType = KeyboardType.name,
   }) : super(key: key);
 
   final int? maxLines;
@@ -40,7 +40,7 @@ class CustomTextFormField extends BaseView {
   final Color? hintTextColor;
   final Color? iconColor;
   final String? hintText;
-  final TextInputType? keyboardType;
+  final KeyboardType? keyboardType;
   final TextEditingController? controller;
   final String? Function(String?)? validator;
   final Function(String)? onChanged;
@@ -79,7 +79,7 @@ class CustomTextFormField extends BaseView {
           onTap: onTap,
           onChanged: onChanged,
           validator: validator,
-          keyboardType: keyboardType,
+          keyboardType: KeyboardTypeLabel().keyboardType(keyboardType),
           style: TextStyle(
             color:
                 inputTextOpacity == InputText.highOpacity ? InputTextLabel.highOpacity() : InputTextLabel.lowOpacity(),
