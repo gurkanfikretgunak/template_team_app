@@ -11,9 +11,7 @@ class CustomDivider extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Divider(
-      color: color == DividerColor.highOpacity
-          ? DividerColorLabel.highOpacity()
-          : DividerColorLabel.lowOpacity(),
+      color: color == DividerColor.highOpacity ? DividerColorLabel.highOpacity() : DividerColorLabel.lowOpacity(),
       thickness: 1,
     );
   }
