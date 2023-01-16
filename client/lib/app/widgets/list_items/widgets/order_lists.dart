@@ -1,6 +1,9 @@
 import 'package:client/app/widgets/buttons/buttons_widgets.dart';
+import 'package:client/app/widgets/buttons/widgets/button_color.dart';
 import 'package:client/app/widgets/icons/icons_widgets.dart';
+import 'package:client/app/widgets/icons/widgets/icon_size.dart';
 import 'package:client/core/constans/color_constants.dart';
+import 'package:client/core/constans/text_constants.dart';
 import 'package:flutter/material.dart';
 
 class OrderLists extends StatelessWidget {
@@ -54,15 +57,29 @@ class OrderLists extends StatelessWidget {
                 ),
               ],
             ),
-            CustomTextButton(
-              onPressed: () {},
+            InkWell(
+              onTap: () {},
               child: Column(
                 mainAxisSize: MainAxisSize.min,
                 children: [
                   isFavorite
-                      ? const CustomIcon(imagePath: '../assets/icons/heart-full.png')
-                      : const CustomIcon(imagePath: '../assets/icons/heart.png'),
-                  isFavorite ? const Text('Remove') : const Text('Favorite'),
+                      ? CustomIcon(
+                          imagePath: 'assets/icons/heart-full.png',
+                          iconColor: ColorConstant.instance.purple2,
+                          height: IconSize.large,
+                          width: IconSize.large,
+                        )
+                      : const CustomIcon(imagePath: 'assets/icons/heart.png'),
+                  isFavorite
+                      ? Text(
+                          'Remove',
+                          style: TextConstants.instance.label3,
+                        )
+                      : Text(
+                          'Favorite',
+                          style:
+                              TextStyle(color: ColorConstant.instance.purple2),
+                        ),
                 ],
               ),
             ),
@@ -79,12 +96,14 @@ class OrderLists extends StatelessWidget {
                       text: 'Cancel Booking',
                       padding: EdgeInsets.zero,
                       minimumSize: Size.zero,
+                      color: ButtonColor.red,
                     )
                   : const SizedBox.shrink(),
               CustomOutlinedButton(
                 onPressed: () {},
                 text: 'Reorder Booking',
                 padding: const EdgeInsets.all(8),
+                borderSideColor: ButtonColor.purple,
               ),
             ],
           ),
@@ -103,7 +122,7 @@ class DotIconWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return const Padding(
       padding: EdgeInsets.symmetric(horizontal: 4),
-      child: Icon(Icons.circle, size: 4),
+      child: Icon(Icons.circle, size: 7),
     );
   }
 }

@@ -1,12 +1,10 @@
 import 'package:client/app/views/bookings/bookings.widgets.dart';
-import 'package:client/app/views/bookings/widgets/tabbar_list.dart';
-import 'package:client/app/views/bookings/widgets/tabbar_view_list.dart';
-import 'package:client/app/widgets/custom_text.dart';
-import 'package:client/app/widgets/divider/widgets/custom_divider.dart';
-import 'package:client/app/widgets/divider/widgets/dashed_divider.dart';
+import 'package:client/app/views/bookings/widgets/tabbar/tabbar_list.dart';
+import 'package:client/app/views/bookings/widgets/tabbar_view/tabbar_view_list.dart';
+import 'package:client/app/widgets/custom_appbar.dart';
 import 'package:client/app/widgets/tabbar/custom_tabbar.dart';
 import 'package:client/core/base/base_view/base_view.dart';
-import 'package:client/core/extensions/common_extension.dart';
+import 'package:client/core/constans/text_constants.dart';
 import 'package:flutter/material.dart';
 
 class BookingsView extends BaseView with BookingsWidgets {
@@ -23,18 +21,18 @@ class BookingsView extends BaseView with BookingsWidgets {
     return dynamicBuild(
       context,
       error: backendError(),
+      appbar: CustomAppbar(
+          leading: Text(
+        "Your Bookings",
+        style: TextConstants.instance.heading6,
+      )),
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
-        children: const [
-          // CustomTabBar(
-          //   tabBarList: tabBarList,
-          //   tabBarViewList: tabBarViewList,
-
-          // ),
-          CustomText("fdsf"),
-          CustomDivider(type: DividerType.dashed),
-
-          Text("dfkkjdsfl"),
+        children: [
+          CustomTabBar(
+            tabBarList: tabBarList,
+            tabBarViewList: tabBarViewList,
+          ),
         ],
       ),
       errorBody: const Text('errorrrr'),
