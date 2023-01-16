@@ -170,7 +170,7 @@ class TextConstants {
       );
 
   set label2(TextStyle style) {
-    heading1 = style;
+    label2 = style;
   }
 
   TextStyle get label3 => TextStyle(
@@ -180,6 +180,6 @@ class TextConstants {
       );
 
   set label3(TextStyle style) {
-    heading1 = style;
+    label3 = style;
   }
 }

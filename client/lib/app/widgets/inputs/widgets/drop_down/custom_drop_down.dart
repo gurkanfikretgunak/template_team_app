@@ -1,5 +1,5 @@
 import 'package:client/app/widgets/inputs/widgets/drop_down/dd_hint_text.dart';
-import 'package:client/app/widgets/inputs/widgets/drop_down/dropdown_button.viewmodel.dart';
+import 'package:client/app/widgets/inputs/widgets/drop_down/dropdown_button_notifier.dart';
 import 'package:client/core/constans/color_constants.dart';
 import 'package:client/core/constans/text_constants.dart';
 import 'package:client/core/extensions/common_extension.dart';
@@ -17,7 +17,7 @@ class CustomDropdownButton extends StatelessWidget {
   final DDHintText hintText;
   @override
   Widget build(BuildContext context) {
-    final provider = Provider.of<DropDownButtonViewModel>(context);
+    final provider = Provider.of<DropDownButtonNotifier>(context);
 
     return Container(
       decoration: BoxDecoration(

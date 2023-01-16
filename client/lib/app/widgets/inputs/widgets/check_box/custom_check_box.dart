@@ -1,17 +1,9 @@
+import 'package:client/app/widgets/inputs/widgets/check_box/chech_box_label.dart';
+import 'package:client/app/widgets/inputs/widgets/check_box/check_box_notifier.dart';
 import 'package:client/core/base/base_view/base_view.dart';
 import 'package:client/core/constans/color_constants.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-
-class CheckboxNotifier extends ChangeNotifier {
-  bool _isChecked = false;
-  bool get isChecked => _isChecked;
-
-  void toggleCheck() {
-    _isChecked = !_isChecked;
-    notifyListeners();
-  }
-}
 
 class CustomCheckbox extends BaseView {
   const CustomCheckbox({
@@ -54,18 +46,4 @@ class CustomCheckbox extends BaseView {
       ),
     );
   }
-}
-
-enum ECheckBox {
-  disable,
-  enable,
-  unselectedLight,
-  unselectedDark,
-}
-
-class ECheckBoxLabel {
-  ECheckBoxLabel();
-
-  static Color unselectedDark() => ColorConstant.instance.purple2;
-  static Color unselectedLight() => ColorConstant.instance.light4;
 }

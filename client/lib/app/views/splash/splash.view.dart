@@ -1,5 +1,6 @@
 import 'package:client/app/views/splash/splash.widgets.dart';
 import 'package:client/app/widgets/divider/custom_divider.dart';
+import 'package:client/app/widgets/inputs/widgets/radio_button/custom_radio_button.dart';
 import 'package:client/core/base/base_view/base_view.dart';
 import 'package:flutter/material.dart';
 import '../../widgets/inputs/inputs_widgets.dart';
@@ -42,6 +43,9 @@ class SplashView extends BaseView with SplashWidgets {
           CustomDropdownButton(
             list: list2,
             hintText: DDHintText.gender,
+          ),
+          CustomRadioButton(
+            list: list2,
           )
         ],
       ),
