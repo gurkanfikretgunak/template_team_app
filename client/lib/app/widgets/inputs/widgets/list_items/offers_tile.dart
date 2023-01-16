@@ -19,10 +19,8 @@ class OffersTile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ListTile(
-      leading: CustomMaxIcon(
-          imagePath: offerCustomIcon ?? '../assets/icons/visa.png'),
-      title: Text(
-          offerTitle ?? 'Get cashback upto \$40 on VISA Debit or Credit cards'),
+      leading: CustomIcon(imagePath: offerCustomIcon ?? '../assets/icons/visa.png'),
+      title: Text(offerTitle ?? 'Get cashback upto \$40 on VISA Debit or Credit cards'),
       subtitle: Text(offerSubtitle ?? 'On booking of \$200 or more.'),
       trailing: CustomTextButton(
         text: offerButtonText ?? 'Apply',

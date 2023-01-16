@@ -10,14 +10,14 @@ class CustomSearchField extends BaseView {
   @override
   Widget build(BuildContext context) {
     return CustomTextFormField(
-        prefixIcon: CustomMaxIcon(
+        prefixIcon: CustomIcon(
           imagePath: "assets/icons/search.png",
           iconColor: ColorConstant.instance.purple2,
         ),
         hintText: "Search",
         suffixIcon: IconButton(
           onPressed: () {},
-          icon: CustomMaxIcon(
+          icon: CustomIcon(
             imagePath: "assets/icons/close.png",
             iconColor: ColorConstant.instance.purple2,
           ),
