@@ -1,9 +1,6 @@
 import 'package:client/app/widgets/buttons/buttons_widgets.dart';
 import 'package:client/app/widgets/buttons/widgets/button_color.dart';
-import 'package:client/app/widgets/icons/icons_widgets.dart';
-import 'package:client/app/widgets/icons/widgets/icon_size.dart';
-import 'package:client/core/constans/color_constants.dart';
-import 'package:client/core/constans/text_constants.dart';
+import 'package:client/app/widgets/icons/widgets/favorite_icon.dart';
 import 'package:flutter/material.dart';
 
 class OrderLists extends StatelessWidget {
@@ -57,32 +54,7 @@ class OrderLists extends StatelessWidget {
                 ),
               ],
             ),
-            InkWell(
-              onTap: () {},
-              child: Column(
-                mainAxisSize: MainAxisSize.min,
-                children: [
-                  isFavorite
-                      ? CustomIcon(
-                          imagePath: 'assets/icons/heart-full.png',
-                          iconColor: ColorConstant.instance.purple2,
-                          height: IconSize.large,
-                          width: IconSize.large,
-                        )
-                      : const CustomIcon(imagePath: 'assets/icons/heart.png'),
-                  isFavorite
-                      ? Text(
-                          'Remove',
-                          style: TextConstants.instance.label3,
-                        )
-                      : Text(
-                          'Favorite',
-                          style:
-                              TextStyle(color: ColorConstant.instance.purple2),
-                        ),
-                ],
-              ),
-            ),
+            FavoriteIcon(isFavorite: isFavorite),
           ],
         ),
         Padding(

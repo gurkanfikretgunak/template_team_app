@@ -1,3 +1,4 @@
+import 'package:client/app/views/booking_detail/booking_detail.viewmodel.dart';
 import 'package:client/app/views/onboarding/onboarding.viewmodel.dart';
 import 'package:client/app/widgets/bottom_bar/bottom_bar.viewmodel.dart';
 import 'package:client/app/widgets/inputs/widgets/check_box/check_box_notifier.dart';
@@ -13,5 +14,6 @@ class MultiProviderInit {
     ChangeNotifierProvider(create: (_) => BottomNavBarViewModel()),
     ChangeNotifierProvider(create: (_) => DropDownButtonNotifier()),
     ChangeNotifierProvider(create: (_) => RadioButtonNotifier()),
+    ChangeNotifierProvider(create: (_) => BookingDetailViewModel()),
   ];
 }

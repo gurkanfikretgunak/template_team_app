@@ -55,7 +55,8 @@ class OrderItemsTile extends StatelessWidget {
       trailing: Column(
         children: [
           isOrder
-              ? ProductCountButton(onRemove: onRemove, productCount: productCount, onAdd: onAdd)
+              ? ProductCountButton(
+                  onRemove: onRemove, productCount: productCount, onAdd: onAdd)
               : const SizedBox.shrink(),
           Expanded(child: Text('${totalPrice ?? '\$320'}')),
         ],
@@ -92,9 +93,13 @@ class ProductCountButton extends StatelessWidget {
       child: Row(
         mainAxisSize: MainAxisSize.min,
         children: [
-          InkWell(onTap: onRemove, child: const CustomIcon(imagePath: '../assets/icons/minus.png')),
+          InkWell(
+              onTap: onRemove,
+              child: const CustomIcon(imagePath: 'assets/icons/minus.png')),
           Text('${productCount ?? 2}'),
-          InkWell(onTap: onAdd, child: const CustomIcon(imagePath: '../assets/icons/plus.png')),
+          InkWell(
+              onTap: onAdd,
+              child: const CustomIcon(imagePath: 'assets/icons/plus.png')),
         ],
       ),
     );
