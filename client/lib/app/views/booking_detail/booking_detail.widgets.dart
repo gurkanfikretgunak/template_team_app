@@ -34,11 +34,9 @@ class BookingDetailWidgets {
         children: [
           Text("Order Details", style: TextConstants.instance.heading5),
           bookingTitle(),
-          const BookingDateAndLocation(
-              iconPath: "assets/icons/shop.png", text: "Shop Service"),
+          const BookingDateAndLocation(iconPath: "assets/icons/shop.png", text: "Shop Service"),
           const CustomDivider(type: DividerType.dashed),
-          const BookingDateAndLocation(
-              iconPath: "assets/icons/calender.png", text: "10 March 2021"),
+          const BookingDateAndLocation(iconPath: "assets/icons/calender.png", text: "10 March 2021"),
           const CustomDivider(type: DividerType.dashed),
           orderItemList(),
           const CustomDivider(type: DividerType.dashed),
@@ -68,8 +66,7 @@ class BookingDetailWidgets {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             const Text("Grand Total"),
-            Text("-\$210",
-                style: TextStyle(color: ColorConstant.instance.green0)),
+            Text("-\$210", style: TextStyle(color: ColorConstant.instance.green0)),
           ],
         );
       },

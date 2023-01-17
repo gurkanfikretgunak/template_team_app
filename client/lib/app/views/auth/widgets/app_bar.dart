@@ -1,5 +1,7 @@
+import 'package:client/app/widgets/buttons/widgets/button_color.dart';
 import 'package:client/app/widgets/buttons/widgets/button_size.dart';
 import 'package:client/app/widgets/buttons/widgets/custom_text_button.dart';
+import 'package:client/core/constans/color_constants.dart';
 import 'package:client/core/constans/text_constants.dart';
 import 'package:flutter/material.dart';
 
@@ -18,18 +20,20 @@ class AppBarContent extends StatelessWidget {
             children: <Widget>[
               Text(
                 'Sign Up',
-                style: TextConstants.instance.heading4,
+                style: TextConstants.instance.heading4.copyWith(color: ColorConstant.instance.light4),
               ),
               Row(
                 children: [
                   Text(
                     'Already have an Account ?',
-                    style: TextConstants.instance.heading6,
+                    style: TextConstants.instance.heading6.copyWith(color: ColorConstant.instance.light4),
                   ),
                   CustomTextButton(
                     onPressed: () {},
                     text: "Login",
-                    buttonSize: ButtonSize.medium,
+                    buttonSize: ButtonSize.small,
+                    hasUnderline: true,
+                    color: ButtonColor.dark,
                   )
                 ],
               ),

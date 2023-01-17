@@ -2,6 +2,7 @@ import 'package:client/app/widgets/buttons/buttons_widgets.dart';
 import 'package:client/app/widgets/buttons/widgets/button_color.dart';
 import 'package:client/app/widgets/buttons/widgets/button_size.dart';
 import 'package:client/app/widgets/image_viewer/icons/widgets/favorite_icon.dart';
+import 'package:client/core/constans/text_constants.dart';
 import 'package:flutter/material.dart';
 
 class BookingCard extends StatelessWidget {
@@ -37,20 +38,20 @@ class BookingCard extends StatelessWidget {
               direction: Axis.vertical,
               spacing: 4,
               children: [
-                Text(title ?? 'Woodlands Hills Salon'),
+                Text(title ?? 'Woodlands Hills Salon', style: TextConstants.instance.label1),
                 Row(
                   children: [
-                    Text(location ?? 'Keira throughway'),
+                    Text(location ?? 'Keira throughway', style: TextConstants.instance.subtitle2),
                     const DotIconWidget(),
-                    Text(distance ?? '5.0 Kms'),
+                    Text(distance ?? '5.0 Kms', style: TextConstants.instance.subtitle2),
                   ],
                 ),
-                Text(desc ?? 'Haircut x 1 + Shave x 1'),
+                Text(desc ?? 'Haircut x 1 + Shave x 1', style: TextConstants.instance.subtitle2),
                 Row(
                   children: [
-                    Text(date ?? '8 Mar 2021'),
+                    Text(date ?? '8 Mar 2021', style: TextConstants.instance.subtitle1),
                     const DotIconWidget(),
-                    Text(price ?? '\$102'),
+                    Text(price ?? '\$102', style: TextConstants.instance.subtitle1),
                   ],
                 ),
               ],
@@ -72,11 +73,13 @@ class BookingCard extends StatelessWidget {
                       color: ButtonColor.red,
                     )
                   : const SizedBox.shrink(),
-              CustomOutlinedButton(
-                onPressed: () {},
-                text: 'Reorder Booking',
-                buttonSize: ButtonSize.large,
-                padding: const EdgeInsets.all(8),
+              Expanded(
+                child: CustomOutlinedButton(
+                  onPressed: () {},
+                  text: 'Reorder Booking',
+                  buttonSize: ButtonSize.large,
+                  padding: const EdgeInsets.all(8),
+                ),
               ),
             ],
           ),
