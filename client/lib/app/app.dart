@@ -2,7 +2,6 @@ import 'package:client/app/views/onboarding/onboarding.view.dart';
 import 'package:client/core/provider/multi_provider_init.dart';
 import 'package:client/core/theme/custom_theme.dart';
 import 'package:flutter/material.dart';
-
 import 'package:provider/provider.dart';
 
 class App extends StatelessWidget {
