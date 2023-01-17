@@ -1,5 +1,6 @@
 import 'package:client/app/views/home/widgets/services_gridview.dart';
 import 'package:client/app/widgets/buttons/widgets/offers_button.dart';
+import 'package:client/app/widgets/buttons/widgets/rating_button/rating_button.dart';
 import 'package:client/app/widgets/custom_appbar.dart';
 import 'package:client/app/widgets/inputs/inputs_widgets.dart';
 import 'package:client/core/constans/text_constants.dart';
@@ -71,13 +72,16 @@ class FilterList extends StatelessWidget {
   Widget build(BuildContext context) {
     List<String> genderList = ["Women", "Man"];
 
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-      children: [
-        CustomDropdownButton(list: genderList, hintText: DDHintText.gender),
-        CustomDropdownButton(list: genderList, hintText: DDHintText.price),
-        const OffersButton(),
-      ],
+    return FittedBox(
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          CustomDropdownButton(list: genderList, hintText: DDHintText.gender),
+          CustomDropdownButton(list: genderList, hintText: DDHintText.price),
+          const OffersButton(),
+          const RatingButton(),
+        ],
+      ),
     );
   }
 }

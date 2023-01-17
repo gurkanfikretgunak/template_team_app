@@ -15,7 +15,7 @@ class OffersButton extends BaseView {
     return InkWell(
       onTap: () {},
       child: Container(
-        height: context.dynamicHeight(0.035),
+        height: context.dynamicHeight(0.04),
         decoration: BoxDecoration(
           color: ColorConstant.instance.light2,
           borderRadius: const BorderRadius.all(Radius.circular(25)),
