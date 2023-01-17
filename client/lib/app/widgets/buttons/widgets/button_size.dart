@@ -23,16 +23,16 @@ class ButtonSizeLabel {
     }
   }
 
-  TextStyle buttonStyle(buttonSize) {
+  double textSize(buttonSize) {
     switch (buttonSize) {
       case ButtonSize.large:
-        return TextConstants.instance.button1;
+        return 16;
       case ButtonSize.medium:
-        return TextConstants.instance.button2;
+        return 14;
       case ButtonSize.small:
-        return TextConstants.instance.button3;
+        return 12;
       default:
-        return TextConstants.instance.button2;
+        return 14;
     }
   }
 }
