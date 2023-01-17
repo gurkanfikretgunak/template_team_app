@@ -13,4 +13,4 @@ class BaseViewModel extends ChangeNotifier {
   }
 }
 
-class SplashViewModel extends BaseViewModel {}
+// class SplashViewModel extends BaseViewModel {}

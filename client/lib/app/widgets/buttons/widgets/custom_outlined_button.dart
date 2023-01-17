@@ -1,46 +1,48 @@
-import 'package:client/core/constans/color_constants.dart';
+import 'package:client/app/widgets/buttons/widgets/button_color.dart';
+import 'package:client/app/widgets/buttons/widgets/button_size.dart';
 import 'package:flutter/material.dart';
 
 class CustomOutlinedButton extends StatelessWidget {
   const CustomOutlinedButton({
     Key? key,
     required this.onPressed,
+    this.buttonSize = ButtonSize.medium,
     this.text,
-    this.textColor,
     this.borderSideColor,
-    this.borderRadius,
-    this.fontSize,
-    this.fontWeight,
     this.child,
     this.padding,
+    this.textColor,
   }) : super(key: key);
   final EdgeInsetsGeometry? padding;
   final String? text;
-  final Color? textColor;
-  final Color? borderSideColor;
-  final double? borderRadius;
+  final ButtonColor? borderSideColor;
+  final ButtonColor? textColor;
   final VoidCallback? onPressed;
-  final double? fontSize;
-  final FontWeight? fontWeight;
   final Widget? child;
+  final ButtonSize? buttonSize;
 
   @override
   Widget build(BuildContext context) {
     return OutlinedButton(
       onPressed: onPressed,
       style: OutlinedButton.styleFrom(
-        elevation: 0,
-        shape: RoundedRectangleBorder(
-          side: BorderSide(color: borderSideColor ?? ColorConstant.instance.purple2),
-          borderRadius: BorderRadius.all(Radius.circular(borderRadius ?? 5)),
+        side: BorderSide(
+          color: ButtonColorLabel().color(borderSideColor),
+          width: 1.5,
         ),
+        fixedSize: ButtonSizeLabel().size(buttonSize),
         padding: padding ?? EdgeInsets.zero,
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(10.0),
+        ),
       ),
       child: child ??
           Text(
-            text ?? '',
+            text ?? "",
             style: TextStyle(
-                color: textColor ?? ColorConstant.instance.purple2, fontSize: fontSize, fontWeight: fontWeight),
+              color: ButtonColorLabel().color(borderSideColor),
+              fontSize: ButtonSizeLabel().textSize(buttonSize),
+            ),
           ),
     );
   }

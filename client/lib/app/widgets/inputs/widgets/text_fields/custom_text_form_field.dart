@@ -4,6 +4,7 @@ import 'package:client/core/base/base_view/base_view.dart';
 import 'package:client/core/constans/color_constants.dart';
 import 'package:client/core/extensions/common_extension.dart';
 import 'package:flutter/material.dart';
+import 'package:mask_text_input_formatter/mask_text_input_formatter.dart';
 
 class CustomTextFormField extends BaseView {
   const CustomTextFormField({
@@ -15,7 +16,6 @@ class CustomTextFormField extends BaseView {
     this.suffixIcon,
     this.prefixIcon,
     this.maxLength,
-    this.keyboardType,
     this.maxLines,
     this.onTap,
     this.validator,
@@ -32,6 +32,7 @@ class CustomTextFormField extends BaseView {
     this.enableBorder,
     this.enabledBorder,
     this.focusedBorder,
+    this.keyboardType = KeyboardType.name,
   }) : super(key: key);
 
   final int? maxLines;
@@ -40,7 +41,7 @@ class CustomTextFormField extends BaseView {
   final Color? hintTextColor;
   final Color? iconColor;
   final String? hintText;
-  final TextInputType? keyboardType;
+  final KeyboardType? keyboardType;
   final TextEditingController? controller;
   final String? Function(String?)? validator;
   final Function(String)? onChanged;
@@ -62,7 +63,6 @@ class CustomTextFormField extends BaseView {
   @override
   Widget build(BuildContext context) {
     return Wrap(
-      runSpacing: 10,
       crossAxisAlignment: WrapCrossAlignment.start,
       children: [
         CustomText(
@@ -76,18 +76,19 @@ class CustomTextFormField extends BaseView {
               : LabelTextLabel.lowOpacity(),
         ),
         TextFormField(
+          inputFormatters: [MaskTextInputFormatter(mask: "+### ###-##-##")],
           key: key,
           controller: controller,
           onTap: onTap,
           onChanged: onChanged,
           validator: validator,
-          keyboardType: keyboardType,
+          maxLength: maxLength,
+          keyboardType: KeyboardTypeLabel().keyboardType(keyboardType),
           style: TextStyle(
             color: inputTextOpacity == InputText.highOpacity
                 ? InputTextLabel.highOpacity()
                 : InputTextLabel.lowOpacity(),
           ),
-          maxLength: maxLength,
           decoration: InputDecoration(
             contentPadding: EdgeInsets.symmetric(
                 horizontal: context.normalValue, vertical: context.normalValue),
@@ -105,9 +106,8 @@ class CustomTextFormField extends BaseView {
             hintStyle: TextStyle(color: ColorConstant.instance.dark3),
             enabledBorder: enabledBorder ??
                 border(
-                  borderSideColor:
-                      TextFormFieldColorLabel().color(enabledBorderColor),
-                ),
+                    borderSideColor:
+                        TextFormFieldColorLabel().color(enabledBorderColor)),
             focusedBorder: focusedBorder ??
                 border(
                   borderSideColor:

@@ -1,49 +1,44 @@
-import 'package:client/core/constans/color_constants.dart';
+import 'package:client/app/widgets/buttons/widgets/button_color.dart';
+import 'package:client/app/widgets/buttons/widgets/button_size.dart';
 import 'package:flutter/material.dart';
 
 class CustomTextButton extends StatelessWidget {
   const CustomTextButton({
     Key? key,
     required this.onPressed,
-    this.text,
-    this.textColor,
-    this.fontSize,
-    this.fontWeight,
-    this.foregroundColor,
+    this.buttonSize = ButtonSize.medium,
+    required this.text,
     this.padding,
     this.child,
-    this.shadowColor,
     this.minimumSize,
+    this.color,
   }) : super(key: key);
 
-  final String? text;
-  final Color? foregroundColor;
-  final Color? textColor;
-  final double? fontSize;
-  final FontWeight? fontWeight;
+  final String text;
   final EdgeInsetsGeometry? padding;
   final VoidCallback? onPressed;
   final Widget? child;
-  final Color? shadowColor;
   final Size? minimumSize;
+  final ButtonSize? buttonSize;
+  final ButtonColor? color;
 
   @override
   Widget build(BuildContext context) {
     return TextButton(
       style: TextButton.styleFrom(
-        shadowColor: shadowColor,
         padding: padding,
-        elevation: 0,
+        textStyle: const TextStyle(
+          decoration: TextDecoration.underline,
+        ),
         tapTargetSize: MaterialTapTargetSize.shrinkWrap,
-        minimumSize: minimumSize,
+        fixedSize: ButtonSizeLabel().size(buttonSize),
       ),
       onPressed: onPressed,
       child: child ??
-          Text(
-            text ?? '',
-            style: TextStyle(
-                color: textColor ?? ColorConstant.instance.purple2, fontSize: fontSize, fontWeight: fontWeight),
-          ),
+          Text(text,
+              style: TextStyle(
+                color: ButtonColorLabel().color(color),
+              )),
     );
   }
 }
