@@ -1,6 +1,6 @@
 import 'package:client/app/widgets/buttons/buttons_widgets.dart';
 import 'package:client/app/widgets/buttons/widgets/button_color.dart';
-import 'package:client/app/widgets/icons/widgets/favorite_icon.dart';
+import 'package:client/app/widgets/image_viewer/icons/widgets/favorite_icon.dart';
 import 'package:flutter/material.dart';
 
 class OrderLists extends StatelessWidget {

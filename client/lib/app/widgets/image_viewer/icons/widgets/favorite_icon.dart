@@ -1,5 +1,5 @@
-import 'package:client/app/widgets/icons/widgets/custom_icons.dart';
-import 'package:client/app/widgets/icons/widgets/icon_size.dart';
+import 'package:client/app/widgets/image_viewer/icons/widgets/custom_icons.dart';
+import 'package:client/app/widgets/image_viewer/icons/widgets/icon_size.dart';
 import 'package:client/core/base/base_view/base_view.dart';
 import 'package:client/core/constans/color_constants.dart';
 import 'package:client/core/constans/text_constants.dart';

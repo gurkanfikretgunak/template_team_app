@@ -20,6 +20,7 @@ class CustomDropdownButton extends StatelessWidget {
     final provider = Provider.of<DropDownButtonNotifier>(context);
 
     return Container(
+      height: context.dynamicHeight(0.035),
       decoration: BoxDecoration(
         color: ColorConstant.instance.light2,
         borderRadius: const BorderRadius.all(Radius.circular(25)),
@@ -41,7 +42,7 @@ class CustomDropdownButton extends StatelessWidget {
           provider.dropDownSelectedValue = value;
         },
         hint: Padding(
-          padding: context.onlyLeftPaddingLow,
+          padding: context.onlyLeftPaddingNormal,
           child: Text(DDHintTextLabel().hintText(hintText)),
         ),
         icon: Container(

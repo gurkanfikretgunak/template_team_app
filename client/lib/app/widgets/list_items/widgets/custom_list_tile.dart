@@ -1,4 +1,4 @@
-import 'package:client/app/widgets/icons/icons_widgets.dart';
+import 'package:client/app/widgets/image_viewer/icons/icons_widgets.dart';
 import 'package:flutter/material.dart';
 
 class CustomListTile extends StatelessWidget {
