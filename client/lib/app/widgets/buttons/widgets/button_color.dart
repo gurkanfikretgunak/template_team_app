@@ -24,7 +24,7 @@ class ButtonColorLabel {
       case ButtonColor.purple:
         return ColorConstant.instance.purple2;
       default:
-        return ColorConstant.instance.dark0;
+        return ColorConstant.instance.purple2;
     }
   }
 }

@@ -22,7 +22,7 @@ class TextConstants {
   //Heading
   TextStyle get heading1 => TextStyle(
         fontSize: 93,
-        fontWeight: FontWeight.w300,
+        fontWeight: FontWeight.w600,
         color: ColorConstant.instance.dark0,
       );
 
@@ -32,7 +32,7 @@ class TextConstants {
 
   TextStyle get heading2 => TextStyle(
         fontSize: 58,
-        fontWeight: FontWeight.w300,
+        fontWeight: FontWeight.w600,
         color: ColorConstant.instance.dark0,
       );
 
@@ -42,7 +42,7 @@ class TextConstants {
 
   TextStyle get heading3 => TextStyle(
         fontSize: 46,
-        fontWeight: FontWeight.w400,
+        fontWeight: FontWeight.w600,
         color: ColorConstant.instance.dark0,
       );
 
@@ -52,7 +52,7 @@ class TextConstants {
 
   TextStyle get heading4 => TextStyle(
         fontSize: 33,
-        fontWeight: FontWeight.w400,
+        fontWeight: FontWeight.w600,
         color: ColorConstant.instance.dark0,
       );
   set heading4(TextStyle style) {
@@ -61,7 +61,7 @@ class TextConstants {
 
   TextStyle get heading5 => TextStyle(
         fontSize: 23,
-        fontWeight: FontWeight.w400,
+        fontWeight: FontWeight.w600,
         color: ColorConstant.instance.dark0,
       );
 
