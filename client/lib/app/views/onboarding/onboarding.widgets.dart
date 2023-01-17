@@ -2,8 +2,6 @@ import 'package:client/app/views/onboarding/onboarding.viewmodel.dart';
 import 'package:client/app/views/onboarding/widgets/indicator.dart';
 import 'package:client/app/widgets/buttons/widgets/button_color.dart';
 import 'package:client/app/widgets/buttons/widgets/button_size.dart';
-import 'package:client/app/widgets/custom_text.dart';
-
 import 'package:client/core/constans/color_constants.dart';
 import 'package:client/core/constans/text_constants.dart';
 import 'package:client/core/extensions/common_extension.dart';
@@ -62,7 +60,6 @@ class OnboardingWidgets {
               children: [
                 CustomOutlinedButton(
                   onPressed: () {
-                    print("kdfjdkff");
                     CustomNavigator.goToScreen(context, Routes.signin.name);
                   },
                   text: "Login",
@@ -70,9 +67,7 @@ class OnboardingWidgets {
                   buttonSize: ButtonSize.large,
                 ),
                 CustomElevatedButton(
-                  onPressed: () {
-                    print("kdfjdkff");
-                  },
+                  onPressed: () {},
                   text: "Get Started",
                   buttonColor: ButtonColor.light,
                   buttonSize: ButtonSize.large,

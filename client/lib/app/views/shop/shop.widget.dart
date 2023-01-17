@@ -17,20 +17,32 @@ class ShopWidgets {
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  NavigationsWidget(false, () {}, Navigations.back, "Woodlands Hill Salon"),
+                  NavigationsWidget(
+                      false, () {}, Navigations.back, "Woodlands Hill Salon"),
                   const Text("Haircut, Spa, Message"),
                   const Text("Keira throughway * 5.0 Kms, "),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceAround,
                     children: const [
-                      CustomIcon(imagePath: "assets/icons/phone.png", height: IconSize.large, width: IconSize.large),
                       CustomIcon(
-                          imagePath: "assets/icons/pin-outline.png", height: IconSize.large, width: IconSize.large),
-                      CustomIcon(imagePath: "assets/icons/share.png", height: IconSize.large, width: IconSize.large),
-                      CustomIcon(imagePath: "assets/icons/heart.png", height: IconSize.large, width: IconSize.large),
+                          imagePath: "assets/icons/phone.png",
+                          height: IconSize.large,
+                          width: IconSize.large),
+                      CustomIcon(
+                          imagePath: "assets/icons/pin-outline.png",
+                          height: IconSize.large,
+                          width: IconSize.large),
+                      CustomIcon(
+                          imagePath: "assets/icons/share.png",
+                          height: IconSize.large,
+                          width: IconSize.large),
+                      CustomIcon(
+                          imagePath: "assets/icons/heart.png",
+                          height: IconSize.large,
+                          width: IconSize.large),
                     ],
                   ),
-                  ShopListWidget()
+                  const ShopListWidget()
                 ],
               ),
             ],

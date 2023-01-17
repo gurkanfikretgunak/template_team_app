@@ -38,7 +38,7 @@ class CustomOutlinedButton extends StatelessWidget {
       ),
       child: child ??
           Text(
-            text ?? "",
+            text,
             style: TextStyle(
               color: ButtonColorLabel().color(borderSideColor),
               fontSize: ButtonSizeLabel().textSize(buttonSize),
