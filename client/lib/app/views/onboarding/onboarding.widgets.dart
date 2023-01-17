@@ -9,7 +9,7 @@ import 'package:flutter/material.dart';
 import '../../widgets/buttons/buttons_widgets.dart';
 
 class OnboardingWidgets {
-  Widget indicatorView(OnboardingViewModel provider, BuildContext context) {
+  Widget foregroundItem(OnboardingViewModel provider, BuildContext context) {
     return Padding(
       padding: context.paddingMedium,
       child: Transform(

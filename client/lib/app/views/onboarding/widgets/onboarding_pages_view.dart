@@ -1,4 +1,6 @@
 import 'package:client/app/views/onboarding/onboarding.viewmodel.dart';
+import 'package:client/app/widgets/image_viewer/custom_viewer_image.dart';
+import 'package:client/core/constans/color_constants.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -26,7 +28,11 @@ class _OnboardingPagesViewState extends State<OnboardingPagesView> {
     );
   }
 
-  Container imageContainer(String imagePath) {
+  Widget imageContainer(String imagePath) {
+    // return CustomImageViewer(
+    //   assetPath: imagePath,
+    //   color: Colors.transparent,
+    // );
     return Container(
       decoration: BoxDecoration(
         image: DecorationImage(
