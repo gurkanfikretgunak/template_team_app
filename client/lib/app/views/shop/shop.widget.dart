@@ -1,9 +1,8 @@
 import 'package:client/app/views/shop/widget/shop_tile.dart';
-import 'package:client/app/widgets/icons/widgets/custom_icons.dart';
 import 'package:client/app/widgets/system_ui_overlay/navigation/custom_navigation.dart';
 import 'package:client/core/extensions/common_extension.dart';
 import 'package:flutter/material.dart';
-import '../../widgets/icons/widgets/icon_size.dart';
+import '../../widgets/image_viewer/icons/icons_widgets.dart';
 import '../../widgets/system_ui_overlay/navigation/navigation_select.dart';
 
 class ShopWidgets {
