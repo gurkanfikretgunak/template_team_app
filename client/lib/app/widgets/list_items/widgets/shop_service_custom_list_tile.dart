@@ -38,8 +38,10 @@ class ShopServiceCustomListTile extends StatelessWidget {
           width: imgSize ?? 75,
           height: imgSize ?? 75,
           decoration: BoxDecoration(
-            image:
-                DecorationImage(fit: BoxFit.cover, image: NetworkImage(imgPath ?? 'https://picsum.photos/250?image=9')),
+            image: DecorationImage(
+                fit: BoxFit.cover,
+                image: NetworkImage(
+                    imgPath ?? 'https://picsum.photos/250?image=9')),
             borderRadius: BorderRadius.all(Radius.circular(imgRadius ?? 8)),
           ),
         ),
@@ -65,6 +67,7 @@ class ShopServiceCustomListTile extends StatelessWidget {
         isSelected
             ? ProductCountButton(onRemove: () {}, productCount: 1, onAdd: () {})
             : CustomOutlinedButton(
+                text: "",
                 onPressed: () {},
                 child: Row(
                   children: [
