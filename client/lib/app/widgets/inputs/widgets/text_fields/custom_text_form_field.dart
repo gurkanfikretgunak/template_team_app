@@ -4,6 +4,7 @@ import 'package:client/core/base/base_view/base_view.dart';
 import 'package:client/core/constans/color_constants.dart';
 import 'package:client/core/extensions/common_extension.dart';
 import 'package:flutter/material.dart';
+import 'package:mask_text_input_formatter/mask_text_input_formatter.dart';
 
 class CustomTextFormField extends BaseView {
   const CustomTextFormField({
@@ -62,7 +63,6 @@ class CustomTextFormField extends BaseView {
   @override
   Widget build(BuildContext context) {
     return Wrap(
-      runSpacing: 10,
       crossAxisAlignment: WrapCrossAlignment.start,
       children: [
         CustomText(
@@ -76,6 +76,7 @@ class CustomTextFormField extends BaseView {
               : LabelTextLabel.lowOpacity(),
         ),
         TextFormField(
+          inputFormatters: [MaskTextInputFormatter(mask: "+### ###-##-##")],
           key: key,
           controller: controller,
           onTap: onTap,
