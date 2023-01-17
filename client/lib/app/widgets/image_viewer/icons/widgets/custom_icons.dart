@@ -26,7 +26,6 @@ class CustomIcon extends StatelessWidget {
       imagePath!,
       height: IconSizeLabel().height(height),
       width: IconSizeLabel().width(width),
-      fit: fit ?? BoxFit.cover,
       alignment: alignment ?? Alignment.center,
     );
   }
