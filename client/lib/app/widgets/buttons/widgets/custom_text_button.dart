@@ -27,6 +27,9 @@ class CustomTextButton extends StatelessWidget {
     return TextButton(
       style: TextButton.styleFrom(
         padding: padding,
+        textStyle: const TextStyle(
+          decoration: TextDecoration.underline,
+        ),
         tapTargetSize: MaterialTapTargetSize.shrinkWrap,
         fixedSize: ButtonSizeLabel().size(buttonSize),
       ),

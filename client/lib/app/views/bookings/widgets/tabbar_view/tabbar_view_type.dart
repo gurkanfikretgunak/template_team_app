@@ -12,13 +12,13 @@ class TabBarViewTypeLabel {
   buildOrderCard(orderCardType) {
     switch (orderCardType) {
       case TabBarViewType.past:
-        return const OrderLists();
+        return const BookingCard();
 
       case TabBarViewType.unComing:
-        return const OrderLists(hasBooking: true);
+        return const BookingCard(hasBooking: true);
 
       case TabBarViewType.favorites:
-        return const OrderLists(isFavorite: true);
+        return const BookingCard(isFavorite: true);
     }
   }
 }

@@ -1,10 +1,11 @@
 import 'package:client/app/widgets/buttons/buttons_widgets.dart';
 import 'package:client/app/widgets/buttons/widgets/button_color.dart';
-import 'package:client/app/widgets/icons/widgets/favorite_icon.dart';
+import 'package:client/app/widgets/buttons/widgets/button_size.dart';
+import 'package:client/app/widgets/image_viewer/icons/widgets/favorite_icon.dart';
 import 'package:flutter/material.dart';
 
-class OrderLists extends StatelessWidget {
-  const OrderLists({
+class BookingCard extends StatelessWidget {
+  const BookingCard({
     super.key,
     this.hasBooking = false,
     this.isFavorite = false,
@@ -74,8 +75,8 @@ class OrderLists extends StatelessWidget {
               CustomOutlinedButton(
                 onPressed: () {},
                 text: 'Reorder Booking',
+                buttonSize: ButtonSize.large,
                 padding: const EdgeInsets.all(8),
-                borderSideColor: ButtonColor.purple,
               ),
             ],
           ),

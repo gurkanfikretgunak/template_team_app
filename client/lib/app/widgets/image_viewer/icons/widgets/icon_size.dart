@@ -5,7 +5,7 @@ class IconSizeLabel {
   width(iconWidth) {
     switch (iconWidth) {
       case IconSize.large:
-        return 24.0;
+        return 50.0;
       case IconSize.medium:
         return 16.0;
       case IconSize.payment:
@@ -19,7 +19,7 @@ class IconSizeLabel {
   height(iconHeight) {
     switch (iconHeight) {
       case IconSize.large:
-        return 24.0;
+        return 50.0;
       case IconSize.medium:
         return 16.0;
       case IconSize.payment:

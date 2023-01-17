@@ -1,5 +1,5 @@
 import 'package:client/app/widgets/buttons/buttons_widgets.dart';
-import 'package:client/app/widgets/icons/icons_widgets.dart';
+import 'package:client/app/widgets/image_viewer/icons/icons_widgets.dart';
 import 'package:flutter/material.dart';
 
 class AddressTile extends StatelessWidget {
@@ -32,7 +32,8 @@ class AddressTile extends StatelessWidget {
           child: CircleAvatar(
             radius: 24,
             backgroundColor: const Color(0xFFF1F1F1),
-            child: CustomIcon(imagePath: customIconPath ?? '../assets/icons/home.png'),
+            child: CustomIcon(
+                imagePath: customIconPath ?? 'assets/icons/home.png'),
           ),
         ),
         Wrap(

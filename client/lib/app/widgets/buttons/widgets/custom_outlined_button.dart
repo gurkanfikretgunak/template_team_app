@@ -11,10 +11,12 @@ class CustomOutlinedButton extends StatelessWidget {
     this.borderSideColor,
     this.child,
     this.padding,
+    this.textColor,
   }) : super(key: key);
   final EdgeInsetsGeometry? padding;
   final String? text;
   final ButtonColor? borderSideColor;
+  final ButtonColor? textColor;
   final VoidCallback? onPressed;
   final Widget? child;
   final ButtonSize? buttonSize;
@@ -24,16 +26,23 @@ class CustomOutlinedButton extends StatelessWidget {
     return OutlinedButton(
       onPressed: onPressed,
       style: OutlinedButton.styleFrom(
-        fixedSize: ButtonSizeLabel().size(buttonSize),
-        shape: RoundedRectangleBorder(
-          side: BorderSide(color: ButtonColorLabel().color(borderSideColor)),
+        side: BorderSide(
+          color: ButtonColorLabel().color(borderSideColor),
+          width: 1.5,
         ),
+        fixedSize: ButtonSizeLabel().size(buttonSize),
         padding: padding ?? EdgeInsets.zero,
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(10.0),
+        ),
       ),
       child: child ??
           Text(
-            text ?? '',
-            style: ButtonSizeLabel().buttonStyle(buttonSize),
+            text ?? "",
+            style: TextStyle(
+              color: ButtonColorLabel().color(borderSideColor),
+              fontSize: ButtonSizeLabel().textSize(buttonSize),
+            ),
           ),
     );
   }
