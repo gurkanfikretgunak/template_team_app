@@ -1,4 +1,4 @@
-import 'package:client/app/views/auth/sign_up.widgets.dart';
+import 'package:client/app/views/auth/sign_up/sign_up.widgets.dart';
 import 'package:client/app/views/auth/widgets/app_bar.dart';
 import 'package:client/core/base/base_view/base_view.dart';
 import 'package:client/core/constans/color_constants.dart';
