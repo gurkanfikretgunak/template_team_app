@@ -12,7 +12,7 @@ class ButtonSizeLabel {
   size(buttonSize) {
     switch (buttonSize) {
       case ButtonSize.large:
-        return const Size(157, 48);
+        return const Size(350, 48);
       case ButtonSize.medium:
         return const Size(119, 40);
       case ButtonSize.small:
