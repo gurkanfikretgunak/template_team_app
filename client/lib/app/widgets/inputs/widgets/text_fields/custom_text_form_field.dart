@@ -81,13 +81,13 @@ class CustomTextFormField extends BaseView {
           onTap: onTap,
           onChanged: onChanged,
           validator: validator,
+          maxLength: maxLength,
           keyboardType: KeyboardTypeLabel().keyboardType(keyboardType),
           style: TextStyle(
             color: inputTextOpacity == InputText.highOpacity
                 ? InputTextLabel.highOpacity()
                 : InputTextLabel.lowOpacity(),
           ),
-          maxLength: maxLength,
           decoration: InputDecoration(
             contentPadding: EdgeInsets.symmetric(
                 horizontal: context.normalValue, vertical: context.normalValue),
@@ -105,9 +105,8 @@ class CustomTextFormField extends BaseView {
             hintStyle: TextStyle(color: ColorConstant.instance.dark3),
             enabledBorder: enabledBorder ??
                 border(
-                  borderSideColor:
-                      TextFormFieldColorLabel().color(enabledBorderColor),
-                ),
+                    borderSideColor:
+                        TextFormFieldColorLabel().color(enabledBorderColor)),
             focusedBorder: focusedBorder ??
                 border(
                   borderSideColor:
