@@ -10,22 +10,32 @@ class CustomElevatedButton extends StatelessWidget {
     this.buttonColor,
     this.child,
     this.buttonSize = ButtonSize.medium,
+    this.textColor,
   }) : super(key: key);
 
   final String text;
   final ButtonColor? buttonColor;
+  final ButtonColor? textColor;
   final VoidCallback? onPressed;
   final Widget? child;
   final ButtonSize? buttonSize;
   @override
   Widget build(BuildContext context) {
     return ElevatedButton(
-        onPressed: onPressed,
-        style: ElevatedButton.styleFrom(
-          fixedSize: ButtonSizeLabel().size(buttonSize),
-          padding: EdgeInsets.zero,
-          backgroundColor: ButtonColorLabel().color(buttonColor),
-        ),
-        child: child ?? Text(text, style: ButtonSizeLabel().buttonStyle(buttonSize)));
+      onPressed: onPressed,
+      style: ElevatedButton.styleFrom(
+        fixedSize: ButtonSizeLabel().size(buttonSize),
+        padding: EdgeInsets.zero,
+        backgroundColor: ButtonColorLabel().color(buttonColor),
+      ),
+      child: child ??
+          Text(
+            text,
+            style: TextStyle(
+              color: ButtonColorLabel().color(textColor),
+              fontSize: ButtonSizeLabel().size(buttonSize),
+            ),
+          ),
+    );
   }
 }
