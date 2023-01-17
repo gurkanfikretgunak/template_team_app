@@ -72,16 +72,18 @@ class FilterList extends StatelessWidget {
   Widget build(BuildContext context) {
     List<String> genderList = ["Women", "Man"];
 
-    return FittedBox(
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [
-          CustomDropdownButton(list: genderList, hintText: DDHintText.gender),
-          CustomDropdownButton(list: genderList, hintText: DDHintText.price),
-          const OffersButton(),
-          const RatingButton(),
-        ],
-      ),
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      children: [
+        Expanded(
+            child: CustomDropdownButton(
+                list: genderList, hintText: DDHintText.gender)),
+        Expanded(
+            child: CustomDropdownButton(
+                list: genderList, hintText: DDHintText.price)),
+        const Expanded(child: OffersButton()),
+        const Expanded(child: RatingButton()),
+      ],
     );
   }
 }
