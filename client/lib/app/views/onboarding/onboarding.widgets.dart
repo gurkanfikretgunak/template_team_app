@@ -7,6 +7,8 @@ import 'package:client/app/widgets/custom_text.dart';
 import 'package:client/core/constans/color_constants.dart';
 import 'package:client/core/constans/text_constants.dart';
 import 'package:client/core/extensions/common_extension.dart';
+import 'package:client/core/routes/custom_navigator.dart';
+import 'package:client/core/routes/routes.dart';
 import 'package:flutter/material.dart';
 
 import '../../widgets/buttons/buttons_widgets.dart';
@@ -17,8 +19,8 @@ class OnboardingWidgets {
       padding: context.paddingMedium,
       child: Transform(
         transform: Matrix4.translationValues(0, context.dynamicHeight(0.56), 0),
-        child: Wrap(
-          runSpacing: 30,
+        child: Column(
+          // runSpacing: 30,
           children: [
             SizedBox(
               height: context.dynamicHeight(0.2),
@@ -28,6 +30,7 @@ class OnboardingWidgets {
                     color: ColorConstant.instance.light4, fontSize: 35),
               ),
             ),
+            context.emptySizedHeightBoxNormal,
             SizedBox(
               width: context.dynamicWidth(1),
               child: Wrap(
@@ -53,17 +56,23 @@ class OnboardingWidgets {
                 ],
               ),
             ),
+            context.emptySizedHeightBoxNormal,
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 CustomOutlinedButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    print("kdfjdkff");
+                    CustomNavigator.goToScreen(context, Routes.signin.name);
+                  },
                   text: "Login",
                   borderSideColor: ButtonColor.light,
                   buttonSize: ButtonSize.large,
                 ),
                 CustomElevatedButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    print("kdfjdkff");
+                  },
                   text: "Get Started",
                   buttonColor: ButtonColor.light,
                   buttonSize: ButtonSize.large,

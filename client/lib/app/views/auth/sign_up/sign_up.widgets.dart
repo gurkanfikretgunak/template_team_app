@@ -6,6 +6,7 @@ import 'package:client/app/widgets/divider/divider_widgets.dart';
 import 'package:client/app/widgets/divider/widgets/custom_divider.dart';
 import 'package:client/app/views/auth/widgets/social_image_path.dart';
 import 'package:client/app/widgets/inputs/widgets/text_fields/custom_text_form_field.dart';
+import 'package:client/core/constans/color_constants.dart';
 import 'package:client/core/extensions/common_extension.dart';
 
 import 'package:flutter/material.dart';
@@ -24,11 +25,16 @@ class SignUpWidgets {
               labelTextValue: "Email", hintText: "john@example.com"),
           const CustomTextFormField(
               labelTextValue: "Password", hintText: "Set a password"),
-          CustomElevatedButton(
+          SizedBox(
+            width: context.dynamicWidth(1),
+            child: CustomElevatedButton(
               onPressed: () {},
               text: "Sign Up",
               buttonSize: ButtonSize.large,
-              buttonColor: ButtonColor.purple),
+              buttonColor: ButtonColor.purple,
+              textColor: ButtonColor.light,
+            ),
+          ),
           Row(
             children: const [
               Expanded(child: CustomDivider()),

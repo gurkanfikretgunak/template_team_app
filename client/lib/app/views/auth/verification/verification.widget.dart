@@ -1,4 +1,4 @@
-import 'package:client/app/views/auth/verify_mobile/widget/otp_input.dart';
+import 'package:client/app/views/auth/verification/widget/otp_input.dart';
 import 'package:client/app/widgets/buttons/widgets/button_color.dart';
 import 'package:client/app/widgets/buttons/widgets/button_size.dart';
 import 'package:client/app/widgets/buttons/widgets/custom_elevated_button.dart';
@@ -8,7 +8,7 @@ import 'package:client/app/widgets/system_ui_overlay/navigation/navigation_selec
 import 'package:client/core/extensions/common_extension.dart';
 import 'package:flutter/material.dart';
 
-class OtpInputWidgets {
+class VerificationWidgets {
   Widget otpInputBody(BuildContext context) {
     return Padding(
       padding: context.onlyLRTBpaddingNormal,
@@ -27,7 +27,7 @@ class OtpInputWidgets {
                 ),
                 Row(
                   children: [
-                    Text(
+                    const Text(
                       "Didn't Receive the Code?",
                     ),
                     CustomTextButton(onPressed: () {}, text: "Resend")
@@ -37,7 +37,10 @@ class OtpInputWidgets {
             ),
           ),
           CustomElevatedButton(
-              onPressed: () {}, text: "Verify OTP", buttonSize: ButtonSize.large, buttonColor: ButtonColor.purple),
+              onPressed: () {},
+              text: "Verify OTP",
+              buttonSize: ButtonSize.large,
+              buttonColor: ButtonColor.purple),
         ],
       ),
     );
