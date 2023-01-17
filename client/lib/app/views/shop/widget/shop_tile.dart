@@ -6,27 +6,7 @@ import 'package:flutter/material.dart';
 class ShopListWidget extends StatelessWidget {
   const ShopListWidget({
     super.key,
-    this.imgSize,
-    this.imgPath,
-    this.imgRadius,
-    this.icon,
-    this.title,
-    this.subtitle,
-    this.time,
-    this.buttonText,
-    this.onPressed,
-    this.isSelected = false,
   });
-  final double? imgSize;
-  final String? imgPath;
-  final double? imgRadius;
-  final IconData? icon;
-  final String? title;
-  final String? subtitle;
-  final String? time;
-  final String? buttonText;
-  final Function()? onPressed;
-  final bool isSelected;
 
   @override
   Widget build(BuildContext context) {
