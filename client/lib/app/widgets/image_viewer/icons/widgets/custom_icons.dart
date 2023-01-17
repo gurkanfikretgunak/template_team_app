@@ -1,4 +1,4 @@
-import 'package:client/app/widgets/icons/widgets/icon_size.dart';
+import 'package:client/app/widgets/image_viewer/icons/widgets/icon_size.dart';
 import 'package:flutter/material.dart';
 
 class CustomIcon extends StatelessWidget {

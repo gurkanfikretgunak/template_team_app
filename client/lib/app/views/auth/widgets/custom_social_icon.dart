@@ -1,6 +1,7 @@
 import 'package:client/app/views/auth/widgets/social_image_path.dart';
-import 'package:client/app/widgets/icons/widgets/icon_size.dart';
 import 'package:flutter/material.dart';
+
+import '../../../widgets/image_viewer/icons/icons_widgets.dart';
 
 class CustomSocialIcon extends StatelessWidget {
   const CustomSocialIcon({

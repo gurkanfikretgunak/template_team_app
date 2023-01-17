@@ -2,7 +2,7 @@ import 'package:client/app/views/booking_detail/widgets/booking_date_and_locatio
 import 'package:client/app/widgets/buttons/buttons_widgets.dart';
 import 'package:client/app/widgets/custom_appbar.dart';
 import 'package:client/app/widgets/divider/divider_widgets.dart';
-import 'package:client/app/widgets/icons/widgets/favorite_icon.dart';
+import 'package:client/app/widgets/image_viewer/icons/widgets/favorite_icon.dart';
 import 'package:client/core/constans/color_constants.dart';
 import 'package:client/core/constans/text_constants.dart';
 import 'package:client/core/extensions/common_extension.dart';
