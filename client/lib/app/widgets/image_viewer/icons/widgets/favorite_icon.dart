@@ -26,7 +26,12 @@ class FavoriteIcon extends BaseView {
                   height: IconSize.large,
                   width: IconSize.large,
                 )
-              : const CustomIcon(imagePath: 'assets/icons/heart.png'),
+              : CustomIcon(
+                  imagePath: 'assets/icons/heart.png',
+                  iconColor: ColorConstant.instance.purple2,
+                  height: IconSize.large,
+                  width: IconSize.large,
+                ),
           isFavorite
               ? Text(
                   'Remove',
