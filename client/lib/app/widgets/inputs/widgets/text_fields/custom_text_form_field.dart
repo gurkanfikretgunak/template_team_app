@@ -4,6 +4,7 @@ import 'package:client/core/base/base_view/base_view.dart';
 import 'package:client/core/constans/color_constants.dart';
 import 'package:client/core/extensions/common_extension.dart';
 import 'package:flutter/material.dart';
+import 'package:mask_text_input_formatter/mask_text_input_formatter.dart';
 
 class CustomTextFormField extends BaseView {
   const CustomTextFormField({
@@ -73,6 +74,7 @@ class CustomTextFormField extends BaseView {
           color: labelTextOpacity == LabelText.highOpacity ? LabelTextLabel.highOpacity() : LabelTextLabel.lowOpacity(),
         ),
         TextFormField(
+          inputFormatters: [MaskTextInputFormatter(mask: "+### ###-##-##")],
           key: key,
           controller: controller,
           onTap: onTap,

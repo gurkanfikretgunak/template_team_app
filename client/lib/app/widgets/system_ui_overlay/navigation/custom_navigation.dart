@@ -24,6 +24,7 @@ class NavigationsWidget extends BaseView {
             ],
           )
         : Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               NavigationsLabel().navigations(navigationName),
               Text(

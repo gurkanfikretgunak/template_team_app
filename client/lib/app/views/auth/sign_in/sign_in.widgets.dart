@@ -10,7 +10,6 @@ import 'package:client/app/views/auth/widgets/social_image_path.dart';
 import 'package:client/app/widgets/inputs/widgets/text_fields/custom_text_form_field.dart';
 import 'package:client/core/constans/text_constants.dart';
 import 'package:client/core/extensions/common_extension.dart';
-
 import 'package:flutter/material.dart';
 
 class SignInWidgets {
