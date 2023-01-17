@@ -12,7 +12,7 @@ class BackgroundContainer extends StatelessWidget {
   Widget build(BuildContext context) {
     return CustomCard(
       child: Container(
-        height: context.dynamicHeight(0.04),
+        height: context.dynamicHeight(0.035),
         width: context.dynamicWidth(0.24),
         decoration: BoxDecoration(
           color: ColorConstant.instance.light2,
