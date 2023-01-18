@@ -224,13 +224,10 @@ class $AssetsImagesGen {
 
   $AssetsImagesOnboardingGen get onboarding =>
       const $AssetsImagesOnboardingGen();
-
-  /// File path: assets/images/salon_temp.png
-  AssetGenImage get salonTemp =>
-      const AssetGenImage('assets/images/salon_temp.png');
+  $AssetsImagesShopGen get shop => const $AssetsImagesShopGen();
 
   /// List of all assets
-  List<AssetGenImage> get values => [images, salonTemp];
+  List<AssetGenImage> get values => [images];
 }
 
 class $AssetsImagesHomeGen {
@@ -283,6 +280,29 @@ class $AssetsImagesOnboardingGen {
   /// List of all assets
   List<AssetGenImage> get values =>
       [background1, background2, background3, background4];
+}
+
+class $AssetsImagesShopGen {
+  const $AssetsImagesShopGen();
+
+  /// File path: assets/images/shop/shop_1.jpg
+  AssetGenImage get shop1 =>
+      const AssetGenImage('assets/images/shop/shop_1.jpg');
+
+  /// File path: assets/images/shop/shop_2.jpg
+  AssetGenImage get shop2 =>
+      const AssetGenImage('assets/images/shop/shop_2.jpg');
+
+  /// File path: assets/images/shop/shop_3.jpg
+  AssetGenImage get shop3 =>
+      const AssetGenImage('assets/images/shop/shop_3.jpg');
+
+  /// File path: assets/images/shop/shop_4.png
+  AssetGenImage get shop4 =>
+      const AssetGenImage('assets/images/shop/shop_4.png');
+
+  /// List of all assets
+  List<AssetGenImage> get values => [shop1, shop2, shop3, shop4];
 }
 
 class Assets {

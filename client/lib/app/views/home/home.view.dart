@@ -16,7 +16,7 @@ class HomeView extends BaseView with HomeWidgets {
     return dynamicBuild(
       context,
       error: backendError(),
-      appbar: appBar(context),
+      appbar: appbar(context),
       body: body(context),
       errorBody: const Text('errorrrr'),
     );

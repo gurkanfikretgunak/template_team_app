@@ -2,14 +2,22 @@ import 'package:client/app/widgets/image_viewer/custom_viewer_image.dart';
 import 'package:client/app/widgets/list_items/widgets/booking_card.dart';
 import 'package:client/core/constans/color_constants.dart';
 import 'package:client/core/constans/text_constants.dart';
-import 'package:client/gen/assets.gen.dart';
 import 'package:flutter/material.dart';
 
 class ShopCardWidgets {
-  CustomImageViewer shopImage() {
-    return CustomImageViewer(
-      fit: BoxFit.fitWidth,
-      assetPath: Assets.images.salonTemp.path,
+  Widget shopImage(imagePath) {
+    return Container(
+      // decoration: BoxDecoration(
+      //   borderRadius: const BorderRadius.all(Radius.circular(12)),
+      //   border: Border.all(width: 2, color: ColorConstant.instance.purple2),
+      // ),
+      child: ClipRRect(
+        borderRadius: const BorderRadius.all(Radius.circular(12)),
+        child: CustomImageViewer(
+          fit: BoxFit.contain,
+          assetPath: imagePath,
+        ),
+      ),
     );
   }
 

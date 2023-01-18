@@ -1,5 +1,6 @@
 import 'package:client/app/views/booking_detail/widgets/booking_date_and_location.dart';
 import 'package:client/app/widgets/buttons/buttons_widgets.dart';
+import 'package:client/app/widgets/buttons/widgets/button_color.dart';
 import 'package:client/app/widgets/custom_appbar.dart';
 import 'package:client/app/widgets/divider/divider_widgets.dart';
 import 'package:client/app/widgets/image_viewer/icons/widgets/favorite_icon.dart';
@@ -14,11 +15,11 @@ import '../../widgets/list_items/list_items_widget.dart';
 class BookingDetailWidgets {
   appBar(BuildContext context) {
     return CustomAppbar(
-      leading: IconButton(
-        onPressed: () {
+      leading: InkWell(
+        onTap: () {
           Navigator.pop(context);
         },
-        icon: Icon(
+        child: Icon(
           Icons.close,
           color: ColorConstant.instance.dark0,
         ),
@@ -49,6 +50,7 @@ class BookingDetailWidgets {
             child: CustomElevatedButton(
               onPressed: () {},
               text: "Reorder Booking",
+              textColor: ButtonColor.light,
             ),
           )
         ],
@@ -114,6 +116,7 @@ class BookingDetailWidgets {
 
   ListView orderItemList() {
     return ListView.builder(
+      physics: const NeverScrollableScrollPhysics(),
       shrinkWrap: true,
       itemCount: 2,
       itemBuilder: (context, index) {

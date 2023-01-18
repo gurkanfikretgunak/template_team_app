@@ -4,6 +4,7 @@ import 'package:client/app/widgets/buttons/widgets/button_size.dart';
 import 'package:client/app/widgets/image_viewer/icons/widgets/favorite_icon.dart';
 import 'package:client/core/constans/color_constants.dart';
 import 'package:client/core/constans/text_constants.dart';
+import 'package:client/core/extensions/common_extension.dart';
 import 'package:flutter/material.dart';
 
 class BookingCard extends StatelessWidget {
@@ -86,12 +87,12 @@ class BookingCard extends StatelessWidget {
                       color: ButtonColor.red,
                     )
                   : const SizedBox.shrink(),
-              Flexible(
+              SizedBox(
+                height: context.dynamicHeight(0.046),
                 child: CustomOutlinedButton(
                   onPressed: () {},
                   text: 'Reorder Booking',
                   buttonSize: ButtonSize.large,
-                  padding: const EdgeInsets.all(8),
                 ),
               ),
             ],
