@@ -1,4 +1,5 @@
 import 'package:client/app/widgets/image_viewer/custom_viewer_image.dart';
+import 'package:client/core/constans/color_constants.dart';
 import 'package:client/core/constans/text_constants.dart';
 import 'package:client/core/extensions/common_extension.dart';
 import 'package:client/gen/assets.gen.dart';
@@ -52,7 +53,13 @@ class ServicesGridView extends StatelessWidget {
             direction: Axis.vertical,
             spacing: 2,
             children: [
-              CustomImageViewer(assetPath: key['image']),
+              Container(
+                  decoration: BoxDecoration(
+                    borderRadius: const BorderRadius.all(Radius.circular(100)),
+                    border: Border.all(
+                        width: 2, color: ColorConstant.instance.purple2),
+                  ),
+                  child: CustomImageViewer(assetPath: key['image'])),
               Text(
                 key['text'],
                 style: TextConstants.instance.subtitle1.copyWith(

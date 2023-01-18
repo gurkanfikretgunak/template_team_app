@@ -32,17 +32,18 @@ class ShopCard extends StatelessWidget with ShopCardWidgets {
         crossAxisAlignment: CrossAxisAlignment.start,
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          Expanded(flex: 2, child: shopImage()),
+          Expanded(flex: 2, child: shopImage(imagePath)),
           context.emptySizedHeightBoxLow,
           Expanded(
-              child: shopInformation(
-            context,
-            shopName,
-            shopTypes,
-            rating,
-            address,
-            discountAmount,
-          )),
+            child: shopInformation(
+              context,
+              shopName,
+              shopTypes,
+              rating,
+              address,
+              discountAmount,
+            ),
+          ),
         ],
       )),
     );
