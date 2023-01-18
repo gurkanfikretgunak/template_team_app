@@ -1,3 +1,4 @@
+import 'package:client/app/l10n/app_l10n.dart';
 import 'package:client/app/views/home/widgets/services_gridview.dart';
 import 'package:client/app/widgets/buttons/widgets/offers_button.dart';
 import 'package:client/app/widgets/buttons/widgets/rating_button/rating_button.dart';
@@ -32,7 +33,9 @@ class HomeWidgets {
           children: [
             const CustomSearchField(),
             const FilterList(),
-            categoryTitle(title: "Beauty services"),
+            categoryTitle(
+              title: L10n.of(context)!.localeName,
+            ),
             const ServicesGridView(),
             categoryTitle(title: "Best Offers"),
             const SalonList()

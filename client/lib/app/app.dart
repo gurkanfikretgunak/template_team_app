@@ -1,3 +1,4 @@
+import 'package:client/app/l10n/app_l10n.dart';
 import 'package:client/app/views/onboarding/onboarding.view.dart';
 import 'package:client/core/provider/multi_provider_init.dart';
 import 'package:client/core/routes/app_routes.dart';
@@ -16,6 +17,8 @@ class App extends StatelessWidget {
         home: const OnboardingView(),
         title: "Survey App",
         theme: CustomTheme.customLightTheme(context),
+        localizationsDelegates: L10n.localizationsDelegates,
+        supportedLocales: L10n.supportedLocales,
         debugShowCheckedModeBanner: false,
         onGenerateRoute: AppRoutes.instance.onGenerateRoute,
       ),

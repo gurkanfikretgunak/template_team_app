@@ -1,0 +1,34 @@
+{
+    "@@locale": "tr",
+  "login" : "Giriş Yap"   ,
+    "getStarted":"Başla",
+    "onboardingTextOne" : "Şehrinizdeki en iyi saç modelleri tasarımcısından randevu alın.",
+    "onboardingTextTwo":"Randevuyu çocuklarınız için en iyi salonda planlayın.",
+    "onboardingTextThree":"Tüm stresinizi atmak için kendinize bir masaj terapisti ayırtın.",
+    "onboardingTextFour":"Tüm güzellik ihtiyaçlarınızı karşılamak için yakınınızdaki en iyi salonu arayın.",
+"signup":"Kayıt Ol",
+"haveAnAccount":"Zaten hesabınız var mı?",
+"name" : "isim",
+
+"email":"E-posta",
+"password" : "Şifre",
+"orSignupUsing" : "Veya farklı şekilde kaydolun",
+"twitter":"Twitter",
+"google":"Google",
+"facebook":"Facebook",
+"enterMobileNumber":"Telefon numaranızı giriniz.",
+"phoneNumber":"Telefon numarası",
+"sendOtb":"Doğrulama kodu gönder",
+"verifyOtp":"Kodu doğrula",
+"resend":"Yeniden gönder",
+"didntReceiveCode":"Kodu almadınız mı?",
+"welcomeBack":"Tekrar Hoşgeldiniz!",
+"haventAnAccount": "Hesabınız yok mu?",
+"forgotPassword":"Parolanızı mı unuttunuz??",
+"orLoginUsing":"veya farklı şekilde giriş yapın"
+
+
+
+
+ }
+
