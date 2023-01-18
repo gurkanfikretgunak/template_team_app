@@ -217,9 +217,7 @@ class $AssetsIconsGen {
 class $AssetsImagesGen {
   const $AssetsImagesGen();
 
-  /// File path: assets/images/beauty_service_temp.png
-  AssetGenImage get beautyServiceTemp =>
-      const AssetGenImage('assets/images/beauty_service_temp.png');
+  $AssetsImagesHomeGen get home => const $AssetsImagesHomeGen();
 
   /// File path: assets/images/images.png
   AssetGenImage get images => const AssetGenImage('assets/images/images.png');
@@ -232,7 +230,35 @@ class $AssetsImagesGen {
       const AssetGenImage('assets/images/salon_temp.png');
 
   /// List of all assets
-  List<AssetGenImage> get values => [beautyServiceTemp, images, salonTemp];
+  List<AssetGenImage> get values => [images, salonTemp];
+}
+
+class $AssetsImagesHomeGen {
+  const $AssetsImagesHomeGen();
+
+  /// File path: assets/images/home/home_temp_1.png
+  AssetGenImage get homeTemp1 =>
+      const AssetGenImage('assets/images/home/home_temp_1.png');
+
+  /// File path: assets/images/home/home_temp_2.png
+  AssetGenImage get homeTemp2 =>
+      const AssetGenImage('assets/images/home/home_temp_2.png');
+
+  /// File path: assets/images/home/home_temp_3.png
+  AssetGenImage get homeTemp3 =>
+      const AssetGenImage('assets/images/home/home_temp_3.png');
+
+  /// File path: assets/images/home/home_temp_4.png
+  AssetGenImage get homeTemp4 =>
+      const AssetGenImage('assets/images/home/home_temp_4.png');
+
+  /// File path: assets/images/home/home_temp_5.png
+  AssetGenImage get homeTemp5 =>
+      const AssetGenImage('assets/images/home/home_temp_5.png');
+
+  /// List of all assets
+  List<AssetGenImage> get values =>
+      [homeTemp1, homeTemp2, homeTemp3, homeTemp4, homeTemp5];
 }
 
 class $AssetsImagesOnboardingGen {

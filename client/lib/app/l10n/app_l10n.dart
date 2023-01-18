@@ -284,12 +284,6 @@ abstract class L10n {
   /// In en, this message translates to:
   /// **'see all >'**
   String get seeAll;
-
-  /// No description provided for @bestOffers.
-  ///
-  /// In en, this message translates to:
-  /// **'Best Offers'**
-  String get bestOffers;
 }
 
 class _L10nDelegate extends LocalizationsDelegate<L10n> {

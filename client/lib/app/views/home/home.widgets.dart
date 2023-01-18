@@ -7,19 +7,46 @@ import 'package:client/app/widgets/inputs/inputs_widgets.dart';
 import 'package:client/core/constans/text_constants.dart';
 import 'package:client/core/extensions/common_extension.dart';
 import 'package:client/gen/assets.gen.dart';
+import 'package:faker/faker.dart';
 import 'package:flutter/material.dart';
 
 import '../../widgets/buttons/buttons_widgets.dart';
 import '../../widgets/image_viewer/icons/icons_widgets.dart';
 
 class HomeWidgets {
-  appBar() {
+  appBar(context) {
+    var faker = Faker();
+    List<String> list = <String>[
+      'Open Ended',
+      'Single Choice',
+      'Slider',
+      'Multiple Choice',
+      'Dichotomous'
+    ];
+    String dropdownValue = "Open Ended";
+
     return CustomAppbar(
       leading: Wrap(
+        crossAxisAlignment: WrapCrossAlignment.center,
         spacing: 10,
         children: [
           CustomIcon(imagePath: Assets.icons.location.path),
-          Text("Munich Center", style: TextConstants.instance.button1),
+          DropdownButton<String>(
+            value: dropdownValue,
+            icon: const Icon(Icons.keyboard_arrow_down_outlined),
+            elevation: 16,
+            style: TextConstants.instance.button1,
+            underline: Container(height: 0),
+            onChanged: (String? value) {},
+            items: list.map<DropdownMenuItem<String>>((String value) {
+              return DropdownMenuItem<String>(
+                value: value,
+                child: Text(
+                  value,
+                ),
+              );
+            }).toList(),
+          ),
         ],
       ),
     );
@@ -34,10 +61,12 @@ class HomeWidgets {
           children: [
             const CustomSearchField(),
             const FilterList(),
-            categoryTitle(title: L10n.of(context)!.beautyServices),
+            categoryTitle(
+                title: L10n.of(context)!.beautyServices, context: context),
             const ServicesGridView(),
-            categoryTitle(title: L10n.of(context)!.popularNearYou),
-            const SalonList()
+            categoryTitle(
+                title: L10n.of(context)!.popularNearYou, context: context),
+            const ShopList(),
           ],
         ),
       ),
@@ -45,13 +74,14 @@ class HomeWidgets {
   }
 }
 
-class SalonList extends StatelessWidget {
-  const SalonList({
+class ShopList extends StatelessWidget {
+  const ShopList({
     Key? key,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    var fake = Faker();
     return SizedBox(
       height: context.dynamicHeight(0.25),
       child: ListView.builder(
@@ -59,8 +89,16 @@ class SalonList extends StatelessWidget {
         shrinkWrap: true,
         scrollDirection: Axis.horizontal,
         itemBuilder: (context, index) {
-          return FittedBox(
-            child: ShopCard(),
+          return ShopCard(
+            address: fake.address.city(),
+            distance: fake.randomGenerator.integer(20).toDouble(),
+            genderType: fake.person.random.string(20),
+            hasDiscount: fake.randomGenerator.boolean(),
+            imagePath: Assets.images.salonTemp.path,
+            rating: fake.randomGenerator.integer(20).toDouble(),
+            shopName: fake.company.name(),
+            shopTypes: fake.company.name(),
+            discountAmount: fake.randomGenerator.integer(20).toDouble(),
           );
         },
       ),
@@ -94,18 +132,21 @@ class FilterList extends StatelessWidget {
   }
 }
 
-Row categoryTitle({required String title}) {
-  return Row(
-    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-    children: [
-      Text(
-        title,
-        style: TextConstants.instance.heading6,
-      ),
-      CustomTextButton(
-        onPressed: () {},
-        text: " see all >",
-      )
-    ],
+Widget categoryTitle({required String title, required BuildContext context}) {
+  return Padding(
+    padding: context.verticalPaddingNormal,
+    child: Row(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      children: [
+        Text(
+          title,
+          style: TextConstants.instance.heading6,
+        ),
+        CustomTextButton(
+          onPressed: () {},
+          text: " see all >",
+        )
+      ],
+    ),
   );
 }

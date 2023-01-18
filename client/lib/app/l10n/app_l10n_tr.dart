@@ -99,7 +99,4 @@ class L10nTr extends L10n {
 
   @override
   String get seeAll => 'hepsini gör >';
-
-  @override
-  String get bestOffers => 'Best Offers';
 }
