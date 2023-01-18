@@ -24,11 +24,16 @@ class SignUpWidgets {
                 labelTextValue: "Email", hintText: "john@example.com"),
             const CustomTextFormField(
                 labelTextValue: "Password", hintText: "Set a password"),
-            CustomElevatedButton(
+            SizedBox(
+              width: context.dynamicWidth(1),
+              child: CustomElevatedButton(
                 onPressed: () {},
                 text: "Sign Up",
                 buttonSize: ButtonSize.large,
-                buttonColor: ButtonColor.purple),
+                buttonColor: ButtonColor.purple,
+                textColor: ButtonColor.light,
+              ),
+            ),
             Padding(
               padding: context.verticalPaddingMedium +
                   context.onlyBottomPaddingMedium,
