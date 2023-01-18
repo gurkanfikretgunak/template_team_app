@@ -3,6 +3,7 @@ import 'package:client/core/base/base_view/base_view.dart';
 import 'package:client/core/constans/color_constants.dart';
 import 'package:client/core/constans/text_constants.dart';
 import 'package:client/core/extensions/common_extension.dart';
+import 'package:client/gen/assets.gen.dart';
 import 'package:flutter/material.dart';
 
 class OffersButton extends BaseView {
@@ -27,7 +28,7 @@ class OffersButton extends BaseView {
               crossAxisAlignment: WrapCrossAlignment.center,
               spacing: 10,
               children: [
-                const CustomIcon(imagePath: 'assets/icons/offer.png'),
+                CustomIcon(imagePath: Assets.icons.offer.path),
                 Text("Offers", style: TextConstants.instance.subtitle1)
               ],
             ),

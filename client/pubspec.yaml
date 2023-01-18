@@ -23,6 +23,7 @@ dependencies:
   mask_text_input_formatter: ^2.4.0
   pin_code_fields: ^7.4.0
   logger: ^1.1.0
+  build_runner: ^2.3.3
 
 dev_dependencies:
   flutter_test:
@@ -31,7 +32,7 @@ dev_dependencies:
   flutter_lints: ^2.0.0
 
 flutter:
-  generate: true
+  generate: false
   uses-material-design: true  
   assets:
     - assets/icons/

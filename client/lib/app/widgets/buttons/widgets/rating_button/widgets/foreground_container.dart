@@ -2,6 +2,7 @@ import 'package:client/app/widgets/image_viewer/icons/icons_widgets.dart';
 import 'package:client/core/constans/color_constants.dart';
 import 'package:client/core/constans/shadow_effect_constants.dart';
 import 'package:client/core/extensions/common_extension.dart';
+import 'package:client/gen/assets.gen.dart';
 import 'package:flutter/material.dart';
 
 class ForegroundContainer extends StatelessWidget {
@@ -25,14 +26,14 @@ class ForegroundContainer extends StatelessWidget {
           crossAxisAlignment: WrapCrossAlignment.center,
           runAlignment: WrapAlignment.center,
           spacing: 6,
-          children: const [
+          children: [
             CustomIcon(
-              imagePath: 'assets/icons/arrow_up_arrow_down.png',
+              imagePath: Assets.icons.arrowUpArrowDown.path,
               height: IconSize.medium,
             ),
-            Text("Rating"),
+            const Text("Rating"),
             CustomIcon(
-              imagePath: 'assets/icons/arrow_up.png',
+              imagePath: Assets.icons.arrowUp.path,
               height: IconSize.medium,
             ),
           ],

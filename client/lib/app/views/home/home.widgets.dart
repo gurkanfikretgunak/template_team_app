@@ -6,6 +6,7 @@ import 'package:client/app/widgets/custom_appbar.dart';
 import 'package:client/app/widgets/inputs/inputs_widgets.dart';
 import 'package:client/core/constans/text_constants.dart';
 import 'package:client/core/extensions/common_extension.dart';
+import 'package:client/gen/assets.gen.dart';
 import 'package:flutter/material.dart';
 
 import '../../widgets/buttons/buttons_widgets.dart';
@@ -17,7 +18,7 @@ class HomeWidgets {
       leading: Wrap(
         spacing: 10,
         children: [
-          const CustomIcon(imagePath: 'assets/icons/location.png'),
+          CustomIcon(imagePath: Assets.icons.location.path),
           Text("Munich Center", style: TextConstants.instance.button1),
         ],
       ),
@@ -79,12 +80,8 @@ class FilterList extends StatelessWidget {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
-        Expanded(
-            child: CustomDropdownButton(
-                list: genderList, hintText: DDHintText.gender)),
-        Expanded(
-            child: CustomDropdownButton(
-                list: genderList, hintText: DDHintText.price)),
+        Expanded(child: CustomDropdownButton(list: genderList, hintText: DDHintText.gender)),
+        Expanded(child: CustomDropdownButton(list: genderList, hintText: DDHintText.price)),
         const Expanded(child: OffersButton()),
         const Expanded(child: RatingButton()),
       ],

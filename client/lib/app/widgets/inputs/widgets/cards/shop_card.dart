@@ -4,6 +4,7 @@ import 'package:client/app/widgets/list_items/list_items_widget.dart';
 import 'package:client/core/constans/color_constants.dart';
 import 'package:client/core/constans/text_constants.dart';
 import 'package:client/core/extensions/common_extension.dart';
+import 'package:client/gen/assets.gen.dart';
 import 'package:flutter/material.dart';
 
 class ShopCard extends StatelessWidget {
@@ -33,8 +34,8 @@ class ShopCard extends StatelessWidget {
         child: Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        const CustomImageViewer(
-          assetPath: 'assets/images/salon_temp.png',
+        CustomImageViewer(
+          assetPath: Assets.images.salonTemp.path,
         ),
         Padding(
           padding: context.verticalPaddingLow,

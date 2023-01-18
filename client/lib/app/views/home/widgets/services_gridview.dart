@@ -1,5 +1,6 @@
 import 'package:client/app/widgets/image_viewer/custom_viewer_image.dart';
 import 'package:client/core/extensions/common_extension.dart';
+import 'package:client/gen/assets.gen.dart';
 import 'package:flutter/material.dart';
 
 class ServicesGridView extends StatelessWidget {
@@ -21,12 +22,11 @@ class ServicesGridView extends StatelessWidget {
           child: Wrap(
             direction: Axis.vertical,
             spacing: 2,
-            children: const [
+            children: [
               CustomImageViewer(
-                assetPath: 'assets/images/beauty_service_temp.png',
+                assetPath: Assets.images.beautyServiceTemp.path,
               ),
-              Text("Haircut for men",
-                  style: TextStyle(fontWeight: FontWeight.w500))
+              const Text("Haircut for men", style: TextStyle(fontWeight: FontWeight.w500))
             ],
           ),
         );
