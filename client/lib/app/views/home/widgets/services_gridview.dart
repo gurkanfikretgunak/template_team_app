@@ -10,6 +10,7 @@ class ServicesGridView extends StatelessWidget {
   Widget build(BuildContext context) {
     return GridView.builder(
       itemCount: 6,
+      physics: const NeverScrollableScrollPhysics(),
       shrinkWrap: true,
       gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
         crossAxisCount: 3,
