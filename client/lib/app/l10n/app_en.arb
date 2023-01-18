@@ -24,7 +24,14 @@
     "welcomeBack":"Welcome Back!",
     "haventAnAccount": "Don’t have an account?",
     "forgotPassword":"Forgot your Password?",
-    "orLoginUsing":"Or Login using"
+    "orLoginUsing":"Or Login using",
+    "beautyServices":"Beauty services",
+    "popularNearYou":"Popular near you",
+    "gender":"Gender",
+    "price":"Price",
+    "offer":"Offers",
+   "rating":"Rating",
+   "seeAll":"see all >"
 
 
 

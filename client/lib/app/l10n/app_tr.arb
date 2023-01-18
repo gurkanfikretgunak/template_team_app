@@ -25,10 +25,17 @@
 "welcomeBack":"Tekrar Hoşgeldiniz!",
 "haventAnAccount": "Hesabınız yok mu?",
 "forgotPassword":"Parolanızı mı unuttunuz??",
-"orLoginUsing":"veya farklı şekilde giriş yapın"
+"orLoginUsing":"veya farklı şekilde giriş yapın",
 
+    "beautyServices":"Güzellik hizmetleri",
+    "popularNearYou":"Yakınınızdaki popülerler",
 
-
+    "gender":"Cinsiyet",
+    "price":"Fiyat",
+    "offer":"İndirimler",
+   "rating":"Değerlendirme",
+   "seeAll":"hepsini gör >"
+   
 
  }
 

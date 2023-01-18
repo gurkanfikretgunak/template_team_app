@@ -32,7 +32,9 @@ class CustomElevatedButton extends StatelessWidget {
           Text(
             text,
             style: TextStyle(
-              color: ButtonColorLabel().color(textColor),
+              color: ButtonColorLabel().color(
+                textColor ?? ButtonColor.light,
+              ),
               fontSize: ButtonSizeLabel().textSize(buttonSize),
             ),
           ),

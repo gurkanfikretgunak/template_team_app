@@ -1,6 +1,5 @@
 import 'package:client/app/views/booking_detail/widgets/booking_date_and_location.dart';
 import 'package:client/app/widgets/buttons/buttons_widgets.dart';
-import 'package:client/app/widgets/buttons/widgets/button_size.dart';
 import 'package:client/app/widgets/custom_appbar.dart';
 import 'package:client/app/widgets/divider/divider_widgets.dart';
 import 'package:client/app/widgets/image_viewer/icons/widgets/favorite_icon.dart';
@@ -30,23 +29,27 @@ class BookingDetailWidgets {
   body(BuildContext context) {
     return Padding(
       padding: context.paddingNormal,
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        crossAxisAlignment: CrossAxisAlignment.start,
+      child: Wrap(
+        alignment: WrapAlignment.spaceBetween,
+        runSpacing: 30,
         children: [
           Text("Order Details", style: TextConstants.instance.heading5),
           bookingTitle(),
-          BookingDateAndLocation(iconPath: Assets.icons.shop.path, text: "Shop Service"),
+          BookingDateAndLocation(
+              iconPath: Assets.icons.shop.path, text: "Shop Service"),
           const CustomDivider(type: DividerType.dashed),
-          BookingDateAndLocation(iconPath: Assets.icons.calender.path, text: "10 March 2021"),
+          BookingDateAndLocation(
+              iconPath: Assets.icons.calender.path, text: "10 March 2021"),
           const CustomDivider(type: DividerType.dashed),
           orderItemList(),
           const CustomDivider(type: DividerType.dashed),
           totalInformations(),
-          CustomElevatedButton(
-            onPressed: () {},
-            text: "Reorder Booking",
-            buttonSize: ButtonSize.medium,
+          SizedBox(
+            width: context.dynamicWidth(1),
+            child: CustomElevatedButton(
+              onPressed: () {},
+              text: "Reorder Booking",
+            ),
           )
         ],
       ),
@@ -63,19 +66,39 @@ class BookingDetailWidgets {
     );
   }
 
-  ListView totalInformations() {
-    return ListView.builder(
-      shrinkWrap: true,
-      itemCount: 2,
-      itemBuilder: (context, index) {
-        return Row(
+  Widget totalInformations() {
+    return Wrap(
+      runSpacing: 20,
+      children: [
+        totalRowStyle(text: "Item Total", price: "-\$210"),
+        totalRowStyle(text: "Item Total", price: "-\$210"),
+        const CustomDivider(),
+        totalRowStyle(text: "Item Total", price: "-\$210", isGrandTotal: true),
+      ],
+    );
+  }
+
+  Wrap totalRowStyle(
+      {required String text, required String price, bool? isGrandTotal}) {
+    return Wrap(
+      children: [
+        Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            const Text("Grand Total"),
-            Text("-\$210", style: TextStyle(color: ColorConstant.instance.green0)),
+            Text(
+              text,
+              style:
+                  isGrandTotal != null ? TextConstants.instance.button2 : null,
+            ),
+            Text(
+              price,
+              style: isGrandTotal != null
+                  ? TextConstants.instance.button1
+                  : TextStyle(color: ColorConstant.instance.green0),
+            ),
           ],
-        );
-      },
+        ),
+      ],
     );
   }
 

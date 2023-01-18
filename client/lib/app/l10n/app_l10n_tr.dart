@@ -78,4 +78,25 @@ class L10nTr extends L10n {
 
   @override
   String get orLoginUsing => 'veya farklı şekilde giriş yapın';
+
+  @override
+  String get beautyServices => 'Güzellik hizmetleri';
+
+  @override
+  String get popularNearYou => 'Yakınınızdaki popülerler';
+
+  @override
+  String get gender => 'Cinsiyet';
+
+  @override
+  String get price => 'Fiyat';
+
+  @override
+  String get offer => 'İndirimler';
+
+  @override
+  String get rating => 'Değerlendirme';
+
+  @override
+  String get seeAll => 'hepsini gör >';
 }

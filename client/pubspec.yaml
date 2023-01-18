@@ -24,6 +24,9 @@ dependencies:
   pin_code_fields: ^7.4.0
   logger: ^1.1.0
   build_runner: ^2.3.3
+  faker: ^2.1.0
+  flutter_gen_runner: ^5.1.0+1
+
 
 dev_dependencies:
   flutter_test:
@@ -38,4 +41,5 @@ flutter:
     - assets/icons/
     - assets/images/
     - assets/images/onboarding/
+    - assets/images/home/
  
