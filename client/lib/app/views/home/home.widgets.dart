@@ -25,6 +25,7 @@ class HomeWidgets {
 
   body(BuildContext context) {
     return SingleChildScrollView(
+      physics: const BouncingScrollPhysics(),
       child: Padding(
         padding: context.paddingNormal,
         child: Column(

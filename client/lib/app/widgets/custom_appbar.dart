@@ -1,8 +1,9 @@
+import 'package:client/core/base/base_view/base_view.dart';
 import 'package:client/core/constans/text_constants.dart';
 import 'package:client/core/extensions/common_extension.dart';
 import 'package:flutter/material.dart';
 
-class CustomAppbar extends StatelessWidget with PreferredSizeWidget {
+class CustomAppbar extends BaseView with PreferredSizeWidget {
   const CustomAppbar({
     Key? key,
     this.title,
@@ -13,18 +14,23 @@ class CustomAppbar extends StatelessWidget with PreferredSizeWidget {
   final Widget? leading;
   @override
   Widget build(BuildContext context) {
-    return Row(
-      children: [
-        Center(
-            child: Padding(
-          padding: context.horizontalPaddingNormal,
-          child: leading,
-        )),
-        Text(
-          title ?? "",
-          style: TextConstants.instance.heading6,
-        ),
-      ],
+    return dynamicBuild(
+      context,
+      error: HasError.off,
+      body: Row(
+        children: [
+          Center(
+              child: Padding(
+            padding: context.horizontalPaddingNormal,
+            child: leading,
+          )),
+          Text(
+            title ?? "",
+            style: TextConstants.instance.heading6,
+          ),
+        ],
+      ),
+      errorBody: const Text(""),
     );
   }
 

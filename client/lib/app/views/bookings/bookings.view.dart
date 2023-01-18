@@ -17,7 +17,7 @@ class BookingsView extends BaseView with BookingsWidgets {
       context,
       error: backendError(),
       appbar: appBar(),
-      body: body(),
+      body: body(context),
       errorBody: const Text('errorrrr'),
     );
   }

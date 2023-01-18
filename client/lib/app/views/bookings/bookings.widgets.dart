@@ -6,7 +6,7 @@ import 'package:flutter/cupertino.dart';
 import 'widgets/tabbar_widgets.dart';
 
 class BookingsWidgets {
-  Widget body() {
+  Widget body(BuildContext context) {
     return Column(
       children: [
         CustomTabBar(
