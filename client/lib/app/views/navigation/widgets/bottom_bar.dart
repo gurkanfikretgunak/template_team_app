@@ -1,4 +1,4 @@
-import 'package:client/app/widgets/bottom_bar/bottom_bar.viewmodel.dart';
+import 'package:client/app/views/navigation/navigation.viewmodel.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 

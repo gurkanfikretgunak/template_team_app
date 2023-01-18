@@ -9,7 +9,7 @@ class SignInView extends BaseView with SignInWidgets {
   Widget build(BuildContext context) {
     return baseBuild(
       context,
-      body: signInTextField(context),
+      body: body(context),
     );
   }
 }

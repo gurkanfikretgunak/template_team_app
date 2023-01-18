@@ -10,10 +10,12 @@ import 'package:client/app/widgets/image_viewer/icons/icons_widgets.dart';
 import 'package:client/app/widgets/inputs/widgets/text_fields/custom_text_form_field.dart';
 import 'package:client/core/constans/text_constants.dart';
 import 'package:client/core/extensions/common_extension.dart';
+import 'package:client/core/routes/custom_navigator.dart';
+import 'package:client/core/routes/routes.dart';
 import 'package:flutter/material.dart';
 
 class SignInWidgets {
-  Widget signInTextField(BuildContext context) {
+  Widget body(BuildContext context) {
     return SingleChildScrollView(
       child: Padding(
         padding: context.onlyLRTBpaddingNormal,
@@ -36,11 +38,14 @@ class SignInWidgets {
                         style: TextConstants.instance.subtitle1,
                       ),
                       CustomTextButton(
-                        onPressed: () {},
-                        text: "Sign Up",
+                        onPressed: () {
+                          CustomNavigator.goToScreen(
+                              context, Routes.signup.name);
+                        },
                         padding: EdgeInsets.zero,
                         buttonSize: ButtonSize.small,
                         hasUnderline: true,
+                        text: "Sign Up",
                       )
                     ],
                   ),
@@ -49,26 +54,40 @@ class SignInWidgets {
             ),
             Wrap(
               children: [
-                const CustomTextFormField(labelTextValue: "Email", hintText: "john@example.com"),
-                const CustomTextFormField(labelTextValue: "Password", hintText: "Set a password"),
-                CustomElevatedButton(
-                  onPressed: () {},
-                  text: "Login",
-                  buttonSize: ButtonSize.large,
-                  buttonColor: ButtonColor.purple,
+                const CustomTextFormField(
+                    labelTextValue: "Email", hintText: "john@example.com"),
+                const CustomTextFormField(
+                    labelTextValue: "Password", hintText: "Set a password"),
+                SizedBox(
+                  width: context.dynamicWidth(1),
+                  child: CustomElevatedButton(
+                    onPressed: () {
+                      CustomNavigator.goToScreen(
+                          context, Routes.navigation.name);
+                    },
+                    text: "Login",
+                    buttonSize: ButtonSize.large,
+                    buttonColor: ButtonColor.purple,
+                    textColor: ButtonColor.light,
+                  ),
                 ),
               ],
             ),
             Padding(
               padding: context.verticalPaddingNormal,
-              child: CustomTextButton(
-                onPressed: () {},
-                text: "Forgot your password",
-                buttonSize: ButtonSize.large,
+              child: Center(
+                child: CustomTextButton(
+                  onPressed: () {
+                    CustomNavigator.goToScreen(context, Routes.verification);
+                  },
+                  text: "Forgot your password",
+                  buttonSize: ButtonSize.large,
+                ),
               ),
             ),
             Padding(
-              padding: context.verticalPaddingMedium + context.onlyBottomPaddingMedium,
+              padding: context.verticalPaddingMedium +
+                  context.onlyBottomPaddingMedium,
               child: Row(
                 children: [
                   const Expanded(child: CustomDivider()),

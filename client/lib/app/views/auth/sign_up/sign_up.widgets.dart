@@ -20,12 +20,23 @@ class SignUpWidgets {
           alignment: WrapAlignment.center,
           children: [
             const CustomTextFormField(labelTextValue: "Name", hintText: "name"),
-            const CustomTextFormField(labelTextValue: "Email", hintText: "john@example.com"),
-            const CustomTextFormField(labelTextValue: "Password", hintText: "Set a password"),
-            CustomElevatedButton(
-                onPressed: () {}, text: "Sign Up", buttonSize: ButtonSize.large, buttonColor: ButtonColor.purple),
+            const CustomTextFormField(
+                labelTextValue: "Email", hintText: "john@example.com"),
+            const CustomTextFormField(
+                labelTextValue: "Password", hintText: "Set a password"),
+            SizedBox(
+              width: context.dynamicWidth(1),
+              child: CustomElevatedButton(
+                onPressed: () {},
+                text: "Sign Up",
+                buttonSize: ButtonSize.large,
+                buttonColor: ButtonColor.purple,
+                textColor: ButtonColor.light,
+              ),
+            ),
             Padding(
-              padding: context.verticalPaddingMedium + context.onlyBottomPaddingMedium,
+              padding: context.verticalPaddingMedium +
+                  context.onlyBottomPaddingMedium,
               child: Row(
                 children: [
                   const Expanded(child: CustomDivider()),

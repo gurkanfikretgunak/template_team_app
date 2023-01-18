@@ -1,5 +1,6 @@
-import 'package:client/app/widgets/bottom_bar/bottom_bar.view.dart';
+import 'package:client/app/views/onboarding/onboarding.view.dart';
 import 'package:client/core/provider/multi_provider_init.dart';
+import 'package:client/core/routes/app_routes.dart';
 import 'package:client/core/theme/custom_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -12,10 +13,11 @@ class App extends StatelessWidget {
     return MultiProvider(
       providers: MultiProviderInit().providers,
       child: MaterialApp(
-        home: const BottomBarView(false),
+        home: const OnboardingView(),
         title: "Survey App",
         theme: CustomTheme.customLightTheme(context),
         debugShowCheckedModeBanner: false,
+        onGenerateRoute: AppRoutes.instance.onGenerateRoute,
       ),
     );
   }
