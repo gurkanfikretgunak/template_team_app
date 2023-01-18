@@ -7,6 +7,7 @@ import 'package:client/app/widgets/image_viewer/icons/widgets/favorite_icon.dart
 import 'package:client/core/constans/color_constants.dart';
 import 'package:client/core/constans/text_constants.dart';
 import 'package:client/core/extensions/common_extension.dart';
+import 'package:client/gen/assets.gen.dart';
 import 'package:flutter/material.dart';
 
 import '../../widgets/list_items/list_items_widget.dart';
@@ -35,11 +36,9 @@ class BookingDetailWidgets {
         children: [
           Text("Order Details", style: TextConstants.instance.heading5),
           bookingTitle(),
-          const BookingDateAndLocation(
-              iconPath: "assets/icons/shop.png", text: "Shop Service"),
+          BookingDateAndLocation(iconPath: Assets.icons.shop.path, text: "Shop Service"),
           const CustomDivider(type: DividerType.dashed),
-          const BookingDateAndLocation(
-              iconPath: "assets/icons/calender.png", text: "10 March 2021"),
+          BookingDateAndLocation(iconPath: Assets.icons.calender.path, text: "10 March 2021"),
           const CustomDivider(type: DividerType.dashed),
           orderItemList(),
           const CustomDivider(type: DividerType.dashed),
@@ -73,8 +72,7 @@ class BookingDetailWidgets {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             const Text("Grand Total"),
-            Text("-\$210",
-                style: TextStyle(color: ColorConstant.instance.green0)),
+            Text("-\$210", style: TextStyle(color: ColorConstant.instance.green0)),
           ],
         );
       },

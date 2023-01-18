@@ -39,6 +39,7 @@ dependencies:
   provider: ^6.0.5
   mask_text_input_formatter: ^2.4.0
   pin_code_fields: ^7.4.0
+  build_runner: ^2.3.3
 
 dev_dependencies:
   flutter_test:
