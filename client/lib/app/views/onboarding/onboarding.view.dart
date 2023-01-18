@@ -16,7 +16,7 @@ class OnboardingView extends BaseView with OnboardingWidgets {
       body: Stack(
         children: <Widget>[
           const OnboardingPagesView(),
-          indicatorView(provider, context),
+          foregroundItem(provider, context),
         ],
       ),
     );

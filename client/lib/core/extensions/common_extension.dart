@@ -52,7 +52,7 @@ extension PaddingExtension on BuildContext {
   EdgeInsets get onlyTopPaddingHigh => EdgeInsets.only(top: highValue);
 
   EdgeInsets get onlyLRTBpaddingNormal =>
-      EdgeInsets.only(left: mediumValue, right: mediumValue, top: highValue, bottom: highValue);
+      EdgeInsets.only(left: mediumValue, right: mediumValue, top: highValue, bottom: lowValue);
   EdgeInsets get onlyTRpaddingNormal => EdgeInsets.only(left: normalValue, top: lowValue, bottom: lowValue);
   EdgeInsets get onlySignPaddingNormal =>
       EdgeInsets.only(left: normalValue, right: normalValue, top: normalValue, bottom: lowValue);

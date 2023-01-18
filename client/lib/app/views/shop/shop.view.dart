@@ -1,15 +1,15 @@
-import 'package:client/app/views/auth/sign_in/sign_in.widgets.dart';
+import 'package:client/app/views/shop/shop.widget.dart';
 import 'package:client/core/base/base_view/base_view.dart';
 import 'package:flutter/material.dart';
 
-class SignInView extends BaseView with SignInWidgets {
-  const SignInView({super.key});
+class ShopView extends BaseView with ShopWidgets {
+  const ShopView({super.key});
 
   @override
   Widget build(BuildContext context) {
     return baseBuild(
       context,
-      body: body(context),
+      body: shopBody(context),
     );
   }
 }

@@ -7,14 +7,14 @@ class CustomOutlinedButton extends StatelessWidget {
     Key? key,
     required this.onPressed,
     this.buttonSize = ButtonSize.medium,
-    this.text,
+    required this.text,
     this.borderSideColor,
     this.child,
     this.padding,
     this.textColor,
   }) : super(key: key);
   final EdgeInsetsGeometry? padding;
-  final String? text;
+  final String text;
   final ButtonColor? borderSideColor;
   final ButtonColor? textColor;
   final VoidCallback? onPressed;
@@ -38,7 +38,7 @@ class CustomOutlinedButton extends StatelessWidget {
       ),
       child: child ??
           Text(
-            text ?? "",
+            text,
             style: TextStyle(
               color: ButtonColorLabel().color(borderSideColor),
               fontSize: ButtonSizeLabel().textSize(buttonSize),

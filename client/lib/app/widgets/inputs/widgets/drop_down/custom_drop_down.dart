@@ -25,29 +25,28 @@ class CustomDropdownButton extends StatelessWidget {
         color: ColorConstant.instance.light2,
         borderRadius: const BorderRadius.all(Radius.circular(25)),
       ),
-      child: DropdownButton<String>(
-        iconEnabledColor: ColorConstant.instance.dark0,
-        underline: const SizedBox(),
-        alignment: Alignment.center,
-        style: TextConstants.instance.subtitle1,
-        value: provider.dropDownSelectedValue,
-        items: list
-            .map((e) => DropdownMenuItem(
-                  value: e,
-                  child: Text(e),
-                ))
-            .toList(),
-        onChanged: (String? value) {
-          provider.setDropDownSelectedValue(value!);
-          provider.dropDownSelectedValue = value;
-        },
-        hint: Padding(
-          padding: context.onlyLeftPaddingNormal,
-          child: Text(DDHintTextLabel().hintText(hintText)),
-        ),
-        icon: Container(
-          padding: context.onlyRightPaddingLow,
-          child: const Icon(Icons.keyboard_arrow_down),
+      child: Center(
+        child: DropdownButton<String>(
+          iconEnabledColor: ColorConstant.instance.dark0,
+          underline: const SizedBox(),
+          alignment: Alignment.center,
+          style: TextConstants.instance.subtitle1,
+          value: provider.dropDownSelectedValue,
+          items: list
+              .map((e) => DropdownMenuItem(
+                    value: e,
+                    child: Text(e),
+                  ))
+              .toList(),
+          onChanged: (String? value) {
+            provider.setDropDownSelectedValue(value!);
+            provider.dropDownSelectedValue = value;
+          },
+          hint: Padding(
+            padding: context.onlyLeftPaddingLow,
+            child: Text(DDHintTextLabel().hintText(hintText)),
+          ),
+          icon: const Icon(Icons.keyboard_arrow_down),
         ),
       ),
     );

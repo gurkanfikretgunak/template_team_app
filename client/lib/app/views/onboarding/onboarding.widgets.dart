@@ -1,27 +1,34 @@
 import 'package:client/app/views/onboarding/onboarding.viewmodel.dart';
 import 'package:client/app/views/onboarding/widgets/indicator.dart';
-import 'package:client/app/widgets/custom_text.dart';
-
+import 'package:client/app/widgets/buttons/widgets/button_color.dart';
+import 'package:client/app/widgets/buttons/widgets/button_size.dart';
 import 'package:client/core/constans/color_constants.dart';
+import 'package:client/core/constans/text_constants.dart';
 import 'package:client/core/extensions/common_extension.dart';
+import 'package:client/core/routes/custom_navigator.dart';
+import 'package:client/core/routes/routes.dart';
 import 'package:flutter/material.dart';
 
 import '../../widgets/buttons/buttons_widgets.dart';
 
 class OnboardingWidgets {
-  Widget indicatorView(OnboardingViewModel provider, BuildContext context) {
+  Widget foregroundItem(OnboardingViewModel provider, BuildContext context) {
     return Padding(
       padding: context.paddingMedium,
       child: Transform(
-        transform: Matrix4.translationValues(0, context.dynamicHeight(0.6), 0),
-        child: Wrap(
-          runSpacing: 20,
+        transform: Matrix4.translationValues(0, context.dynamicHeight(0.56), 0),
+        child: Column(
+          // runSpacing: 30,
           children: [
-            CustomText(
-              selectText(provider.currentIndex),
-              fontSize: 30,
-              color: ColorConstant.instance.light4,
+            SizedBox(
+              height: context.dynamicHeight(0.2),
+              child: Text(
+                selectText(provider.currentIndex),
+                style: TextConstants.instance.subtitle2.copyWith(
+                    color: ColorConstant.instance.light4, fontSize: 35),
+              ),
             ),
+            context.emptySizedHeightBoxNormal,
             SizedBox(
               width: context.dynamicWidth(1),
               child: Wrap(
@@ -47,11 +54,24 @@ class OnboardingWidgets {
                 ],
               ),
             ),
+            context.emptySizedHeightBoxNormal,
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                CustomElevatedButton(onPressed: () {}, text: "Login"),
-                CustomElevatedButton(onPressed: () {}, text: "Get Started"),
+                CustomOutlinedButton(
+                  onPressed: () {
+                    CustomNavigator.goToScreen(context, Routes.signin.name);
+                  },
+                  text: "Login",
+                  borderSideColor: ButtonColor.light,
+                  buttonSize: ButtonSize.large,
+                ),
+                CustomElevatedButton(
+                  onPressed: () {},
+                  text: "Get Started",
+                  buttonColor: ButtonColor.light,
+                  buttonSize: ButtonSize.large,
+                ),
               ],
             )
           ],

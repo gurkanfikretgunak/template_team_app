@@ -26,13 +26,14 @@ class _OnboardingPagesViewState extends State<OnboardingPagesView> {
     );
   }
 
-  Container imageContainer(String imagePath) {
+  Widget imageContainer(String imagePath) {
     return Container(
       decoration: BoxDecoration(
         image: DecorationImage(
           image: AssetImage(imagePath),
           fit: BoxFit.cover,
-          filterQuality: FilterQuality.high,
+          colorFilter: ColorFilter.mode(
+              Colors.black.withOpacity(0.5), BlendMode.srcOver),
         ),
       ),
     );

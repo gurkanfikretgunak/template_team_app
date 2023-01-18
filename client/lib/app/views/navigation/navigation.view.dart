@@ -1,11 +1,11 @@
-import 'package:client/app/widgets/bottom_bar/bottom_bar.viewmodel.dart';
-import 'package:client/app/widgets/bottom_bar/widgets/bottom_bar.dart';
+import 'package:client/app/views/navigation/navigation.viewmodel.dart';
+import 'package:client/app/views/navigation/widgets/bottom_bar.dart';
 import 'package:client/core/base/base_view/base_view.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-class BottomBarView extends BaseView {
-  const BottomBarView(this.error, {super.key});
+class NavigationView extends BaseView {
+  const NavigationView(this.error, {super.key});
 
   final bool? error;
 

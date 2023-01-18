@@ -12,9 +12,11 @@ class CustomTextButton extends StatelessWidget {
     this.child,
     this.minimumSize,
     this.color,
+    this.hasUnderline = false,
   }) : super(key: key);
 
   final String text;
+  final bool hasUnderline;
   final EdgeInsetsGeometry? padding;
   final VoidCallback? onPressed;
   final Widget? child;
@@ -27,18 +29,14 @@ class CustomTextButton extends StatelessWidget {
     return TextButton(
       style: TextButton.styleFrom(
         padding: padding,
-        textStyle: const TextStyle(
-          decoration: TextDecoration.underline,
-        ),
+        textStyle: TextStyle(
+            decoration:
+                hasUnderline ? TextDecoration.underline : TextDecoration.none),
         tapTargetSize: MaterialTapTargetSize.shrinkWrap,
         fixedSize: ButtonSizeLabel().size(buttonSize),
       ),
       onPressed: onPressed,
-      child: child ??
-          Text(text,
-              style: TextStyle(
-                color: ButtonColorLabel().color(color),
-              )),
+      child: child ?? Text(text, style: TextStyle()),
     );
   }
 }

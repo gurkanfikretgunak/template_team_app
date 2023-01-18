@@ -67,12 +67,13 @@ class ShopServiceCustomListTile extends StatelessWidget {
         isSelected
             ? ProductCountButton(onRemove: () {}, productCount: 1, onAdd: () {})
             : CustomOutlinedButton(
+                text: "",
                 onPressed: () {},
                 child: Row(
                   children: [
                     Text(buttonText ?? 'Select'),
                     const CustomIcon(
-                      imagePath: '../assets/icons/plus.png',
+                      imagePath: 'assets/icons/plus.png',
                     )
                   ],
                 ),
