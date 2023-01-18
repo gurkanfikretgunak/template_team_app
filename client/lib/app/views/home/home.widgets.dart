@@ -1,7 +1,8 @@
 import 'package:client/app/l10n/app_l10n.dart';
+import 'package:client/app/views/home/widgets/rating_button.dart';
 import 'package:client/app/views/home/widgets/services_gridview.dart';
-import 'package:client/app/widgets/buttons/widgets/offers_button.dart';
-import 'package:client/app/widgets/buttons/widgets/rating_button/rating_button.dart';
+import 'package:client/app/widgets/buttons/widgets/chip_button.dart';
+import 'package:client/app/views/home/widgets/offer_button.dart';
 import 'package:client/app/widgets/custom_appbar.dart';
 import 'package:client/app/widgets/inputs/inputs_widgets.dart';
 import 'package:client/core/constans/text_constants.dart';
@@ -34,11 +35,9 @@ class HomeWidgets {
           children: [
             const CustomSearchField(),
             const FilterList(),
-            categoryTitle(
-              title: L10n.of(context)!.localeName,
-            ),
+            categoryTitle(title: L10n.of(context)!.beautyServices),
             const ServicesGridView(),
-            categoryTitle(title: "Best Offers"),
+            categoryTitle(title: L10n.of(context)!.popularNearYou),
             const SalonList()
           ],
         ),
@@ -80,9 +79,16 @@ class FilterList extends StatelessWidget {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
-        Expanded(child: CustomDropdownButton(list: genderList, hintText: DDHintText.gender)),
-        Expanded(child: CustomDropdownButton(list: genderList, hintText: DDHintText.price)),
-        const Expanded(child: OffersButton()),
+        Expanded(
+            child: CustomDropdownButton(
+                list: genderList, hintText: DDHintText.gender)),
+        context.emptySizedWidthBoxLow,
+        Expanded(
+            child: CustomDropdownButton(
+                list: genderList, hintText: DDHintText.price)),
+        context.emptySizedWidthBoxLow,
+        const Expanded(child: OfferButton()),
+        context.emptySizedWidthBoxLow,
         const Expanded(child: RatingButton()),
       ],
     );
@@ -94,7 +100,7 @@ Row categoryTitle({required String title}) {
     mainAxisAlignment: MainAxisAlignment.spaceBetween,
     children: [
       Text(
-        "Beauty services",
+        title,
         style: TextConstants.instance.heading6,
       ),
       CustomTextButton(

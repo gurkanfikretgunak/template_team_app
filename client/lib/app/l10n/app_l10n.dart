@@ -242,6 +242,54 @@ abstract class L10n {
   /// In en, this message translates to:
   /// **'Or Login using'**
   String get orLoginUsing;
+
+  /// No description provided for @beautyServices.
+  ///
+  /// In en, this message translates to:
+  /// **'Beauty services'**
+  String get beautyServices;
+
+  /// No description provided for @popularNearYou.
+  ///
+  /// In en, this message translates to:
+  /// **'Popular near you'**
+  String get popularNearYou;
+
+  /// No description provided for @gender.
+  ///
+  /// In en, this message translates to:
+  /// **'Gender'**
+  String get gender;
+
+  /// No description provided for @price.
+  ///
+  /// In en, this message translates to:
+  /// **'Price'**
+  String get price;
+
+  /// No description provided for @offer.
+  ///
+  /// In en, this message translates to:
+  /// **'Offers'**
+  String get offer;
+
+  /// No description provided for @rating.
+  ///
+  /// In en, this message translates to:
+  /// **'Rating'**
+  String get rating;
+
+  /// No description provided for @seeAll.
+  ///
+  /// In en, this message translates to:
+  /// **'see all >'**
+  String get seeAll;
+
+  /// No description provided for @bestOffers.
+  ///
+  /// In en, this message translates to:
+  /// **'Best Offers'**
+  String get bestOffers;
 }
 
 class _L10nDelegate extends LocalizationsDelegate<L10n> {

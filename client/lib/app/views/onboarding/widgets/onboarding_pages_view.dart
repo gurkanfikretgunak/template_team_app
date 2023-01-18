@@ -33,13 +33,15 @@ class _OnboardingPagesViewState extends State<OnboardingPagesView> {
         image: DecorationImage(
           image: AssetImage(imagePath),
           fit: BoxFit.cover,
-          colorFilter: ColorFilter.mode(Colors.black.withOpacity(0.5), BlendMode.srcOver),
+          colorFilter: ColorFilter.mode(
+              Colors.black.withOpacity(0.5), BlendMode.srcOver),
         ),
       ),
     );
   }
 
   onChangedFunction(int index) {
-    Provider.of<OnboardingViewModel>(context, listen: false).currentIndex = index;
+    Provider.of<OnboardingViewModel>(context, listen: false).currentIndex =
+        index;
   }
 }

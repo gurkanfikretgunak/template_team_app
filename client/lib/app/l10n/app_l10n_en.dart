@@ -78,4 +78,28 @@ class L10nEn extends L10n {
 
   @override
   String get orLoginUsing => 'Or Login using';
+
+  @override
+  String get beautyServices => 'Beauty services';
+
+  @override
+  String get popularNearYou => 'Popular near you';
+
+  @override
+  String get gender => 'Gender';
+
+  @override
+  String get price => 'Price';
+
+  @override
+  String get offer => 'Offers';
+
+  @override
+  String get rating => 'Rating';
+
+  @override
+  String get seeAll => 'see all >';
+
+  @override
+  String get bestOffers => 'Best Offers';
 }
