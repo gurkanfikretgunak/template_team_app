@@ -26,7 +26,7 @@ class RatingButton extends BaseView {
             imagePath: Assets.icons.arrowUpArrowDown.path,
             height: IconSize.medium,
           ),
-          Text(L10n.of(context)!.rating, style: TextStyle(fontSize: 13)),
+          Text(L10n.of(context)!.rating, style: const TextStyle(fontSize: 13)),
           CustomIcon(
             imagePath: Assets.icons.arrowUp.path,
             height: IconSize.medium,

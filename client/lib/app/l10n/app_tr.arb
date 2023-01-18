@@ -32,10 +32,10 @@
 
     "gender":"Cinsiyet",
     "price":"Fiyat",
-    "offer":"Öneriler",
+    "offer":"İndirimler",
    "rating":"Değerlendirme",
-   "seeAll":"hepsini gör >",
-   "bestOffers":"En iyi öneriler"
+   "seeAll":"hepsini gör >"
+   
 
  }
 

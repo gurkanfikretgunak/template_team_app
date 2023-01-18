@@ -33,7 +33,6 @@ class SplashView extends BaseView with SplashWidgets {
             enabledBorderColor: TextFormFieldColor.green,
           ),
           const CustomSearchField(),
-          const CustomCheckbox(),
           const CustomDivider(type: DividerType.dashed),
           // CustomTabBar(
           //   tabBarList: tabbarList,

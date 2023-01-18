@@ -92,7 +92,7 @@ class L10nTr extends L10n {
   String get price => 'Fiyat';
 
   @override
-  String get offer => 'Öneriler';
+  String get offer => 'İndirimler';
 
   @override
   String get rating => 'Değerlendirme';
@@ -101,5 +101,5 @@ class L10nTr extends L10n {
   String get seeAll => 'hepsini gör >';
 
   @override
-  String get bestOffers => 'En iyi öneriler';
+  String get bestOffers => 'Best Offers';
 }

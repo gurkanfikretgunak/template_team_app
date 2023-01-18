@@ -1,7 +1,6 @@
 import 'package:client/app/l10n/app_l10n.dart';
 import 'package:client/app/views/home/widgets/rating_button.dart';
 import 'package:client/app/views/home/widgets/services_gridview.dart';
-import 'package:client/app/widgets/buttons/widgets/chip_button.dart';
 import 'package:client/app/views/home/widgets/offer_button.dart';
 import 'package:client/app/widgets/custom_appbar.dart';
 import 'package:client/app/widgets/inputs/inputs_widgets.dart';
