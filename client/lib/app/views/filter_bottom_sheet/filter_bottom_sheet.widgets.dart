@@ -5,6 +5,7 @@ import 'package:client/app/widgets/image_viewer/icons/icons_widgets.dart';
 import 'package:client/core/constans/color_constants.dart';
 import 'package:client/core/constans/text_constants.dart';
 import 'package:client/core/extensions/common_extension.dart';
+import 'package:client/gen/assets.gen.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -20,8 +21,8 @@ class FilterBottomSheetWidgets {
               crossAxisAlignment: WrapCrossAlignment.center,
               spacing: 10,
               children: [
-                const CustomIcon(
-                  imagePath: 'assets/icons/close.png',
+                CustomIcon(
+                  imagePath: Assets.icons.close.path,
                   height: IconSize.large,
                 ),
                 Text("Sort/Filters", style: TextConstants.instance.button1),
@@ -67,10 +68,9 @@ class FilterBottomSheetWidgets {
                     child: Text(
                   filterCetegoryList[index],
                   style: TextStyle(
-                    color:
-                        provider.selectedCategory == filterCetegoryList[index]
-                            ? ColorConstant.instance.dark0
-                            : ColorConstant.instance.dark3,
+                    color: provider.selectedCategory == filterCetegoryList[index]
+                        ? ColorConstant.instance.dark0
+                        : ColorConstant.instance.dark3,
                     fontWeight: FontWeight.w600,
                   ),
                 )),

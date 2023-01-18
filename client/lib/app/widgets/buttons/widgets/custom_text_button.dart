@@ -29,14 +29,12 @@ class CustomTextButton extends StatelessWidget {
     return TextButton(
       style: TextButton.styleFrom(
         padding: padding,
-        textStyle: TextStyle(
-            decoration:
-                hasUnderline ? TextDecoration.underline : TextDecoration.none),
+        textStyle: TextStyle(decoration: hasUnderline ? TextDecoration.underline : TextDecoration.none),
         tapTargetSize: MaterialTapTargetSize.shrinkWrap,
         fixedSize: ButtonSizeLabel().size(buttonSize),
       ),
       onPressed: onPressed,
-      child: child ?? Text(text, style: TextStyle()),
+      child: child ?? Text(text, style: const TextStyle()),
     );
   }
 }

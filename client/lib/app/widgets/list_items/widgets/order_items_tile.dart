@@ -1,5 +1,6 @@
 import 'package:client/app/widgets/image_viewer/icons/icons_widgets.dart';
 import 'package:client/core/constans/color_constants.dart';
+import 'package:client/gen/assets.gen.dart';
 import 'package:flutter/material.dart';
 
 class OrderItemsTile extends StatelessWidget {
@@ -94,9 +95,9 @@ class ProductCountButton extends StatelessWidget {
       child: Row(
         mainAxisSize: MainAxisSize.min,
         children: [
-          InkWell(onTap: onRemove, child: const CustomIcon(imagePath: 'assets/icons/minus.png')),
+          InkWell(onTap: onRemove, child: CustomIcon(imagePath: Assets.icons.minus.path)),
           Text('${productCount ?? 2}'),
-          InkWell(onTap: onAdd, child: const CustomIcon(imagePath: 'assets/icons/plus.png')),
+          InkWell(onTap: onAdd, child: CustomIcon(imagePath: Assets.icons.plus.path)),
         ],
       ),
     );
