@@ -1,4 +1,5 @@
 import 'package:client/app/views/booking_detail/booking_detail.viewmodel.dart';
+import 'package:client/app/views/bookings/bookings.viewmodel.dart';
 import 'package:client/app/views/filter_bottom_sheet/filter_bottom_sheet.viewmodel.dart';
 import 'package:client/app/views/filter_bottom_sheet/widgets/gender/gender_notifier.dart';
 import 'package:client/app/views/home/home.viewmodel.dart';
@@ -23,5 +24,6 @@ class MultiProviderInit {
     ChangeNotifierProvider(create: (_) => FilterBottomSheetViewModel()),
     ChangeNotifierProvider(create: (_) => GenderNotifier()),
     ChangeNotifierProvider(create: (_) => HomeViewModel()),
+    ChangeNotifierProvider(create: (_) => BookingViewModel()),
   ];
 }

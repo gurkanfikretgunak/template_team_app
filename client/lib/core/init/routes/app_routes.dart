@@ -5,7 +5,7 @@ import 'package:client/app/views/booking_detail/booking_detail.view.dart';
 import 'package:client/app/views/navigation/navigation.view.dart';
 import 'package:client/app/views/onboarding/onboarding.view.dart';
 import 'package:client/app/views/shop/shop.view.dart';
-import 'package:client/core/routes/routes.dart';
+import 'package:client/core/init/routes/routes.dart';
 import 'package:flutter/material.dart';
 
 class AppRoutes {

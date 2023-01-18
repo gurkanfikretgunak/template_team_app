@@ -10,8 +10,9 @@ import 'package:client/app/widgets/image_viewer/icons/icons_widgets.dart';
 import 'package:client/app/widgets/inputs/widgets/text_fields/custom_text_form_field.dart';
 import 'package:client/core/constans/text_constants.dart';
 import 'package:client/core/extensions/common_extension.dart';
-import 'package:client/core/routes/custom_navigator.dart';
-import 'package:client/core/routes/routes.dart';
+import 'package:client/core/init/routes/custom_navigator.dart';
+import 'package:client/core/init/routes/routes.dart';
+
 import 'package:flutter/material.dart';
 
 class SignInWidgets {

@@ -1,9 +1,5 @@
 import 'package:client/core/constans/color_constants.dart';
-import 'package:client/core/theme/themes/appbar_theme.dart';
-import 'package:client/core/theme/themes/bottom_nav_bar_theme.dart';
-import 'package:client/core/theme/themes/elevated_button_theme.dart';
-import 'package:client/core/theme/themes/icon_theme.dart';
-import 'package:client/core/theme/themes/tabbar_theme.dart';
+import 'package:client/core/init/theme/theme_widgets.dart';
 import 'package:flutter/material.dart';
 
 class CustomTheme {

@@ -1,8 +1,9 @@
 import 'package:client/app/l10n/app_l10n.dart';
 import 'package:client/app/views/onboarding/onboarding.view.dart';
+import 'package:client/core/init/routes/app_routes.dart';
+import 'package:client/core/init/theme/custom_theme.dart';
 import 'package:client/core/provider/multi_provider_init.dart';
-import 'package:client/core/routes/app_routes.dart';
-import 'package:client/core/theme/custom_theme.dart';
+
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
