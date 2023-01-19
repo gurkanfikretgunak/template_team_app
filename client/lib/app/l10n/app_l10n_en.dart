@@ -99,4 +99,70 @@ class L10nEn extends L10n {
 
   @override
   String get seeAll => 'see all >';
+
+  @override
+  String get search => 'Search';
+
+  @override
+  String get booking => 'Booking';
+
+  @override
+  String get account => 'Account';
+
+  @override
+  String get yourFavorites => 'Your Favorites';
+
+  @override
+  String get yourFavoritesDesc => 'Reorder your favorite service in a click';
+
+  @override
+  String get payment => 'Payment';
+
+  @override
+  String get paymentDesc => 'Payment methods, Transaction History ';
+
+  @override
+  String get manageAddress => 'Manage Address';
+
+  @override
+  String get notifications => 'Notifications';
+
+  @override
+  String get notificationsDesc => 'View your past notifications';
+
+  @override
+  String get registerAsPartner => 'Register as partner';
+
+  @override
+  String get registerAsPartnerDesc => 'Want to list your service? Register with us';
+
+  @override
+  String get about => 'About';
+
+  @override
+  String get aboutDesc => 'Privacy Policy, Terms of Services, Licenses';
+
+  @override
+  String get logout => 'Logout';
+
+  @override
+  String get edit => 'Edit';
+
+  @override
+  String get cancel => 'Cancel';
+
+  @override
+  String get delete => 'Delete';
+
+  @override
+  String get isDeleteAddress => 'Delete “Home” Address?';
+
+  @override
+  String get isDeleteAddressDesc => 'Are you sure want to delete this address?';
+
+  @override
+  String get isLogout => 'Logout?';
+
+  @override
+  String get logoutDesc => 'Are you sure want to logout from the app?';
 }

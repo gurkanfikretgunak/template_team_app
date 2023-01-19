@@ -28,6 +28,8 @@ dependencies:
   flutter_gen_runner: ^5.1.0+1
   freezed_annotation: ^2.2.0
   json_annotation: ^4.7.0
+  flavor: ^2.0.0
+  flutter_dotenv: ^5.0.2
 
 
 dev_dependencies:
@@ -47,4 +49,6 @@ flutter:
     - assets/images/onboarding/
     - assets/images/home/
     - assets/images/shop/
+    - assets/env/
+
  
