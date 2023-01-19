@@ -374,6 +374,48 @@ abstract class L10n {
   /// In en, this message translates to:
   /// **'Logout'**
   String get logout;
+
+  /// No description provided for @edit.
+  ///
+  /// In en, this message translates to:
+  /// **'Edit'**
+  String get edit;
+
+  /// No description provided for @cancel.
+  ///
+  /// In en, this message translates to:
+  /// **'Cancel'**
+  String get cancel;
+
+  /// No description provided for @delete.
+  ///
+  /// In en, this message translates to:
+  /// **'Delete'**
+  String get delete;
+
+  /// No description provided for @isDeleteAddress.
+  ///
+  /// In en, this message translates to:
+  /// **'Delete “Home” Address?'**
+  String get isDeleteAddress;
+
+  /// No description provided for @isDeleteAddressDesc.
+  ///
+  /// In en, this message translates to:
+  /// **'Are you sure want to delete this address?'**
+  String get isDeleteAddressDesc;
+
+  /// No description provided for @isLogout.
+  ///
+  /// In en, this message translates to:
+  /// **'Logout?'**
+  String get isLogout;
+
+  /// No description provided for @logoutDesc.
+  ///
+  /// In en, this message translates to:
+  /// **'Are you sure want to logout from the app?'**
+  String get logoutDesc;
 }
 
 class _L10nDelegate extends LocalizationsDelegate<L10n> {

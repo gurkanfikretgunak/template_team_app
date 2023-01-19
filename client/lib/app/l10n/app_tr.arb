@@ -46,10 +46,13 @@
     "registerAsPartnerDesc":"WHizmetinizi listelemek ister misiniz? Bize katılın",
     "about":"Hakkımızda",
     "logout":"Çıkış",
-    "aboutDesc":"Gizlilik Politikası, Hizmet Şartları, Lisanslar"
-
-   
-   
-
+    "aboutDesc":"Gizlilik Politikası, Hizmet Şartları, Lisanslar",
+    "edit":"Düzenle" ,
+    "cancel":"İptal",
+    "delete":"Sil",
+    "isDeleteAddress":"Adres silinsin mi??",
+    "isDeleteAddressDesc":"Bu adresi silmek istediğinizden emin misiniz?",
+    "isLogout":"Çıkış?",
+    "logoutDesc":"Uygulamadan çıkmak istediğinizden emin misiniz?"
  }
 

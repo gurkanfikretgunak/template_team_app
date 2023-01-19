@@ -46,8 +46,14 @@
     "registerAsPartnerDesc":"Want to list your service? Register with us",
     "about":"About",
     "aboutDesc":"Privacy Policy, Terms of Services, Licenses",
-    "logout":"Logout"
-   
+    "logout":"Logout",
+    "edit":"Edit",
+    "cancel":"Cancel",
+    "delete":"Delete",
+    "isDeleteAddress":"Delete “Home” Address?",
+    "isDeleteAddressDesc":"Are you sure want to delete this address?",
+    "isLogout":"Logout?",
+    "logoutDesc":"Are you sure want to logout from the app?" 
 
 
 

@@ -144,4 +144,25 @@ class L10nTr extends L10n {
 
   @override
   String get logout => 'Çıkış';
+
+  @override
+  String get edit => 'Düzenle';
+
+  @override
+  String get cancel => 'İptal';
+
+  @override
+  String get delete => 'Sil';
+
+  @override
+  String get isDeleteAddress => 'Adres silinsin mi??';
+
+  @override
+  String get isDeleteAddressDesc => 'Bu adresi silmek istediğinizden emin misiniz?';
+
+  @override
+  String get isLogout => 'Çıkış?';
+
+  @override
+  String get logoutDesc => 'Uygulamadan çıkmak istediğinizden emin misiniz?';
 }

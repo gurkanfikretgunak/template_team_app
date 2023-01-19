@@ -6,17 +6,11 @@ import 'package:flutter/material.dart';
 
 class ShopCardWidgets {
   Widget shopImage(imagePath) {
-    return Container(
-      // decoration: BoxDecoration(
-      //   borderRadius: const BorderRadius.all(Radius.circular(12)),
-      //   border: Border.all(width: 2, color: ColorConstant.instance.purple2),
-      // ),
-      child: ClipRRect(
-        borderRadius: const BorderRadius.all(Radius.circular(12)),
-        child: CustomImageViewer(
-          fit: BoxFit.contain,
-          assetPath: imagePath,
-        ),
+    return ClipRRect(
+      borderRadius: const BorderRadius.all(Radius.circular(12)),
+      child: CustomImageViewer(
+        fit: BoxFit.contain,
+        assetPath: imagePath,
       ),
     );
   }

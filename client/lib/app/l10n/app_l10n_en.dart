@@ -144,4 +144,25 @@ class L10nEn extends L10n {
 
   @override
   String get logout => 'Logout';
+
+  @override
+  String get edit => 'Edit';
+
+  @override
+  String get cancel => 'Cancel';
+
+  @override
+  String get delete => 'Delete';
+
+  @override
+  String get isDeleteAddress => 'Delete “Home” Address?';
+
+  @override
+  String get isDeleteAddressDesc => 'Are you sure want to delete this address?';
+
+  @override
+  String get isLogout => 'Logout?';
+
+  @override
+  String get logoutDesc => 'Are you sure want to logout from the app?';
 }

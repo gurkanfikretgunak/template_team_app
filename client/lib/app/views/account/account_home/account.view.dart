@@ -1,4 +1,4 @@
-import 'package:client/app/views/account/account.widgets.dart';
+import 'package:client/app/views/account/account_home/account.widgets.dart';
 import 'package:client/core/base/base_view/base_view.dart';
 import 'package:flutter/material.dart';
 
@@ -16,7 +16,7 @@ class AccountView extends BaseView with AccountWidgets {
     return dynamicBuild(
       context,
       error: backendError(),
-      appbar: appBar(),
+      appbar: appBar(context),
       body: body(context),
       errorBody: const Text('errorrrr'),
     );
