@@ -79,7 +79,8 @@ class SignInWidgets {
               child: Center(
                 child: CustomTextButton(
                   onPressed: () {
-                    CustomNavigator.goToScreen(context, Routes.verification);
+                    CustomNavigator.goToScreen(
+                        context, Routes.forgotPassword.name);
                   },
                   text: "Forgot your password",
                   buttonSize: ButtonSize.large,

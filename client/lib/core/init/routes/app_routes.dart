@@ -1,6 +1,7 @@
 import 'package:client/app/views/auth/sign_in/sign_in.view.dart';
 import 'package:client/app/views/auth/sign_up/sign_up.view.dart';
-import 'package:client/app/views/auth/verification/verification.view.dart';
+import 'package:client/app/views/auth/verification/forgot_password/forgot_password.view.dart';
+import 'package:client/app/views/auth/verification/verify_otp/verify_otp.view.dart';
 import 'package:client/app/views/booking_detail/booking_detail.view.dart';
 import 'package:client/app/views/navigation/navigation.view.dart';
 import 'package:client/app/views/onboarding/onboarding.view.dart';
@@ -22,18 +23,16 @@ class AppRoutes {
         return navigate(const SignInView());
       case Routes.signup:
         return navigate(const SignUpView());
-      case Routes.verification:
-        return navigate(const VerificationView());
-
+      case Routes.forgotPassword:
+        return navigate(const ForgotPasswordView());
+      case Routes.verifyOtb:
+        return navigate(const VerifyOtbView());
       case Routes.navigation:
         return navigate(const NavigationView(false));
-
       case Routes.shop:
         return navigate(const ShopView());
-
       case Routes.bookingDetail:
         return navigate(const BookingDetailView(false));
-
       default:
         return navigate(
           Text('No route defined for ${routes.name}'),

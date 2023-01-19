@@ -1,4 +1,3 @@
-import 'package:client/app/views/booking_detail/booking_detail.view.dart';
 import 'package:client/app/views/bookings/widgets/tabbar_view/tabbar_view_type.dart';
 import 'package:client/app/widgets/divider/divider_widgets.dart';
 import 'package:client/core/base/base_view/base_view.dart';
