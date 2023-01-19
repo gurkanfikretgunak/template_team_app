@@ -1,3 +1,5 @@
+import 'package:client/gen/assets.gen.dart';
+
 enum SocialPath { twitter, google, facebook }
 
 class SocialPathLabel {
@@ -5,11 +7,11 @@ class SocialPathLabel {
   paths(socialPath) {
     switch (socialPath) {
       case SocialPath.twitter:
-        return "assets/icons/twitter.png";
+        return Assets.icons.twitter.path;
       case SocialPath.google:
-        return "assets/icons/google.png";
+        return Assets.icons.google.path;
       case SocialPath.facebook:
-        return "assets/icons/facebook.png";
+        return Assets.icons.facebook.path;
     }
   }
 }

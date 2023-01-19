@@ -1,5 +1,6 @@
 import 'package:client/app/widgets/buttons/buttons_widgets.dart';
 import 'package:client/app/widgets/image_viewer/icons/icons_widgets.dart';
+import 'package:client/gen/assets.gen.dart';
 import 'package:flutter/material.dart';
 
 class ShopPromoTile extends StatelessWidget {
@@ -30,10 +31,10 @@ class ShopPromoTile extends StatelessWidget {
               : true
           : false,
       leading: isApplied
-          ? const CustomIcon(imagePath: '../assets/icons/input-correct.png')
+          ? CustomIcon(imagePath: Assets.icons.inputCorrect.path)
           : isInvalid
-              ? const CustomIcon(imagePath: '../assets/icons/input-wrong.png')
-              : const CustomIcon(imagePath: '../assets/icons/offer.png'),
+              ? CustomIcon(imagePath: Assets.icons.inputWrong.path)
+              : CustomIcon(imagePath: Assets.icons.offer.path),
       title: isApplied
           ? Text(title ?? 'Code ${promoCode ?? 'FREE10'} Applied!')
           : isInvalid

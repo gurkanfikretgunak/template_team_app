@@ -1,6 +1,7 @@
 import 'package:client/app/widgets/buttons/buttons_widgets.dart';
 import 'package:client/app/widgets/image_viewer/icons/icons_widgets.dart';
 import 'package:client/app/widgets/list_items/list_items_widget.dart';
+import 'package:client/gen/assets.gen.dart';
 import 'package:flutter/material.dart';
 
 class ShopServiceCustomListTile extends StatelessWidget {
@@ -38,10 +39,8 @@ class ShopServiceCustomListTile extends StatelessWidget {
           width: imgSize ?? 75,
           height: imgSize ?? 75,
           decoration: BoxDecoration(
-            image: DecorationImage(
-                fit: BoxFit.cover,
-                image: NetworkImage(
-                    imgPath ?? 'https://picsum.photos/250?image=9')),
+            image:
+                DecorationImage(fit: BoxFit.cover, image: NetworkImage(imgPath ?? 'https://picsum.photos/250?image=9')),
             borderRadius: BorderRadius.all(Radius.circular(imgRadius ?? 8)),
           ),
         ),
@@ -72,8 +71,8 @@ class ShopServiceCustomListTile extends StatelessWidget {
                 child: Row(
                   children: [
                     Text(buttonText ?? 'Select'),
-                    const CustomIcon(
-                      imagePath: 'assets/icons/plus.png',
+                    CustomIcon(
+                      imagePath: Assets.icons.plus.path,
                     )
                   ],
                 ),

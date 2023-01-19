@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 enum HasError { on, off }
 
@@ -34,11 +35,18 @@ abstract class BaseView extends StatelessWidget {
     Widget? bottomNavigationBar,
     PreferredSizeWidget? appbar,
   }) =>
-      SafeArea(
-        child: Scaffold(
-          body: body,
-          bottomNavigationBar: bottomNavigationBar,
-          appBar: appbar,
+      AnnotatedRegion<SystemUiOverlayStyle>(
+        value: SystemUiOverlayStyle.light,
+        child: SafeArea(
+          bottom: false,
+          top: true,
+          child: Scaffold(
+            // extendBody: true,
+            extendBodyBehindAppBar: false,
+            body: body,
+            bottomNavigationBar: bottomNavigationBar,
+            appBar: appbar,
+          ),
         ),
       );
 

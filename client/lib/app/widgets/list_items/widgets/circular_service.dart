@@ -1,4 +1,5 @@
 import 'package:client/app/widgets/image_viewer/icons/icons_widgets.dart';
+import 'package:client/gen/assets.gen.dart';
 import 'package:flutter/material.dart';
 
 class CircularService extends StatelessWidget {
@@ -32,17 +33,14 @@ class CircularService extends StatelessWidget {
           spacing: 5,
           crossAxisAlignment: WrapCrossAlignment.center,
           children: [
-            if (hasPrefixIcon ?? false)
-              prefixIcon ??
-                  const CustomIcon(imagePath: "assets/icons/offer.png"),
+            if (hasPrefixIcon ?? false) prefixIcon ?? CustomIcon(imagePath: Assets.icons.offer.path),
             Text(
               title,
               style: TextStyle(
                 color: textColor ?? Colors.black,
               ),
             ),
-            if (hasSuffixIcon ?? false)
-              suffixIcon ?? const Icon(Icons.keyboard_arrow_down),
+            if (hasSuffixIcon ?? false) suffixIcon ?? const Icon(Icons.keyboard_arrow_down),
           ],
         ),
       ),

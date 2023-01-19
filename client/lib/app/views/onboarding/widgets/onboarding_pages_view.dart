@@ -1,4 +1,5 @@
 import 'package:client/app/views/onboarding/onboarding.viewmodel.dart';
+import 'package:client/gen/assets.gen.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -18,10 +19,10 @@ class _OnboardingPagesViewState extends State<OnboardingPagesView> {
       controller: provider.pageController,
       onPageChanged: onChangedFunction,
       children: <Widget>[
-        imageContainer("assets/images/onboarding/background_1.png"),
-        imageContainer("assets/images/onboarding/background_2.png"),
-        imageContainer("assets/images/onboarding/background_3.png"),
-        imageContainer("assets/images/onboarding/background_4.png"),
+        imageContainer(Assets.images.onboarding.background1.path),
+        imageContainer(Assets.images.onboarding.background2.path),
+        imageContainer(Assets.images.onboarding.background3.path),
+        imageContainer(Assets.images.onboarding.background4.path),
       ],
     );
   }

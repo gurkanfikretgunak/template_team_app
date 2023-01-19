@@ -3,6 +3,7 @@ import 'package:client/app/widgets/image_viewer/icons/widgets/icon_size.dart';
 import 'package:client/core/base/base_view/base_view.dart';
 import 'package:client/core/constans/color_constants.dart';
 import 'package:client/core/constans/text_constants.dart';
+import 'package:client/gen/assets.gen.dart';
 import 'package:flutter/material.dart';
 
 class FavoriteIcon extends BaseView {
@@ -21,13 +22,13 @@ class FavoriteIcon extends BaseView {
         children: [
           isFavorite
               ? CustomIcon(
-                  imagePath: 'assets/icons/heart-full.png',
+                  imagePath: Assets.icons.heartFull.path,
                   iconColor: ColorConstant.instance.purple2,
                   height: IconSize.large,
                   width: IconSize.large,
                 )
               : CustomIcon(
-                  imagePath: 'assets/icons/heart.png',
+                  imagePath: Assets.icons.heart.path,
                   iconColor: ColorConstant.instance.purple2,
                   height: IconSize.large,
                   width: IconSize.large,

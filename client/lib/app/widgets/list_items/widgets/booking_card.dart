@@ -1,32 +1,24 @@
 import 'package:client/app/widgets/buttons/buttons_widgets.dart';
 import 'package:client/app/widgets/buttons/widgets/button_color.dart';
 import 'package:client/app/widgets/buttons/widgets/button_size.dart';
-import 'package:client/app/widgets/image_viewer/icons/widgets/favorite_icon.dart';
 import 'package:client/core/constans/color_constants.dart';
 import 'package:client/core/constans/text_constants.dart';
+import 'package:client/core/extensions/common_extension.dart';
+import 'package:client/core/model/booking_model.dart';
 import 'package:flutter/material.dart';
 
-class BookingCard extends StatelessWidget {
+class BookingCard extends StatefulWidget {
   const BookingCard({
     super.key,
-    this.hasBooking = false,
-    this.isFavorite = false,
-    this.title,
-    this.desc,
-    this.date,
-    this.price,
-    this.location,
-    this.distance,
+    required this.booking,
   });
-  final String? title;
-  final String? location;
-  final String? distance;
-  final String? desc;
-  final String? date;
-  final String? price;
-  final bool hasBooking;
-  final bool isFavorite;
+  final BookingModel booking;
 
+  @override
+  State<BookingCard> createState() => _BookingCardState();
+}
+
+class _BookingCardState extends State<BookingCard> {
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -39,37 +31,56 @@ class BookingCard extends StatelessWidget {
               direction: Axis.vertical,
               spacing: 4,
               children: [
-                Text(title ?? 'Woodlands Hills Salon',
+                Text(widget.booking.title!,
                     style: TextConstants.instance.label1
                         .copyWith(fontWeight: FontWeight.w600, fontSize: 16)),
                 Row(
                   children: [
-                    Text(location ?? 'Keira throughway',
+                    Text(widget.booking.location!,
                         style: TextConstants.instance.subtitle2
                             .copyWith(color: ColorConstant.instance.dark3)),
                     const DotIconWidget(),
-                    Text(distance ?? '5.0 Kms',
+                    Text(widget.booking.distance!,
                         style: TextConstants.instance.subtitle2
                             .copyWith(color: ColorConstant.instance.dark3)),
                   ],
                 ),
-                Text(desc ?? 'Haircut x 1 + Shave x 1',
+                Text(widget.booking.desc!,
                     style: TextConstants.instance.subtitle2
                         .copyWith(color: ColorConstant.instance.dark3)),
                 Row(
                   children: [
-                    Text(date ?? '8 Mar 2021',
+                    Text(widget.booking.date!,
                         style: TextConstants.instance.subtitle1
                             .copyWith(color: ColorConstant.instance.dark3)),
                     const DotIconWidget(),
-                    Text(price ?? '\$102',
+                    Text(widget.booking.price!,
                         style: TextConstants.instance.subtitle1
                             .copyWith(color: ColorConstant.instance.dark3)),
                   ],
                 ),
               ],
             ),
-            FavoriteIcon(isFavorite: isFavorite),
+            Column(
+              children: [
+                IconButton(
+                  onPressed: () {
+                    setState(() {
+                      widget.booking.isFavorite!
+                          ? widget.booking.isFavorite = false
+                          : widget.booking.isFavorite = true;
+                    });
+                  },
+                  icon: Icon(widget.booking.isFavorite!
+                      ? Icons.favorite
+                      : Icons.favorite_outline),
+                ),
+                Text(
+                  "Favorite",
+                  style: TextStyle(color: ColorConstant.instance.purple2),
+                )
+              ],
+            )
           ],
         ),
         Padding(
@@ -77,7 +88,7 @@ class BookingCard extends StatelessWidget {
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              hasBooking
+              widget.booking.isCancel!
                   ? CustomTextButton(
                       onPressed: () {},
                       text: 'Cancel Booking',
@@ -86,12 +97,12 @@ class BookingCard extends StatelessWidget {
                       color: ButtonColor.red,
                     )
                   : const SizedBox.shrink(),
-              Flexible(
+              SizedBox(
+                height: context.dynamicHeight(0.046),
                 child: CustomOutlinedButton(
                   onPressed: () {},
                   text: 'Reorder Booking',
                   buttonSize: ButtonSize.large,
-                  padding: const EdgeInsets.all(8),
                 ),
               ),
             ],

@@ -5,10 +5,9 @@ import 'package:client/app/widgets/buttons/widgets/button_size.dart';
 import 'package:client/core/constans/color_constants.dart';
 import 'package:client/core/constans/text_constants.dart';
 import 'package:client/core/extensions/common_extension.dart';
-import 'package:client/core/routes/custom_navigator.dart';
-import 'package:client/core/routes/routes.dart';
+import 'package:client/core/init/routes/navigation_service.dart';
+import 'package:client/core/init/routes/routes.dart';
 import 'package:flutter/material.dart';
-
 import '../../widgets/buttons/buttons_widgets.dart';
 
 class OnboardingWidgets {
@@ -60,7 +59,8 @@ class OnboardingWidgets {
               children: [
                 CustomOutlinedButton(
                   onPressed: () {
-                    CustomNavigator.goToScreen(context, Routes.signin.name);
+                    NavigationService.instance
+                        .navigateToPage(Routes.signin.name);
                   },
                   text: "Login",
                   borderSideColor: ButtonColor.light,
