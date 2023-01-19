@@ -9,6 +9,22 @@
 
 import 'package:flutter/widgets.dart';
 
+class $AssetsEnvGen {
+  const $AssetsEnvGen();
+
+  /// File path: assets/env/.env.dev
+  String get envDev => 'assets/env/.env.dev';
+
+  /// File path: assets/env/.env.prod
+  String get envProd => 'assets/env/.env.prod';
+
+  /// File path: assets/env/.env.test
+  String get envTest => 'assets/env/.env.test';
+
+  /// List of all assets
+  List<String> get values => [envDev, envProd, envTest];
+}
+
 class $AssetsIconsGen {
   const $AssetsIconsGen();
 
@@ -308,6 +324,7 @@ class $AssetsImagesShopGen {
 class Assets {
   Assets._();
 
+  static const $AssetsEnvGen env = $AssetsEnvGen();
   static const $AssetsIconsGen icons = $AssetsIconsGen();
   static const $AssetsImagesGen images = $AssetsImagesGen();
 }
