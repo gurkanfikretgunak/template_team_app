@@ -1,6 +1,7 @@
 import 'package:client/app/l10n/app_l10n.dart';
 import 'package:client/app/views/onboarding/onboarding.view.dart';
 import 'package:client/core/init/routes/app_routes.dart';
+import 'package:client/core/init/routes/navigation_service.dart';
 import 'package:client/core/init/theme/custom_theme.dart';
 import 'package:client/core/provider/multi_provider_init.dart';
 
@@ -22,6 +23,7 @@ class App extends StatelessWidget {
         supportedLocales: L10n.supportedLocales,
         debugShowCheckedModeBanner: false,
         onGenerateRoute: AppRoutes.instance.onGenerateRoute,
+        navigatorKey: NavigationService.instance.navigatorKey,
       ),
     );
   }
