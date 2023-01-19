@@ -34,7 +34,6 @@ class CustomTextButton extends StatelessWidget {
             decoration:
                 hasUnderline ? TextDecoration.underline : TextDecoration.none),
         tapTargetSize: MaterialTapTargetSize.shrinkWrap,
-        fixedSize: ButtonSizeLabel().size(buttonSize),
       ),
       onPressed: onPressed,
       child: child ??

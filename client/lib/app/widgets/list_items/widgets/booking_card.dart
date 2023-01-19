@@ -1,4 +1,3 @@
-import 'package:client/app/views/bookings/bookings.viewmodel.dart';
 import 'package:client/app/widgets/buttons/buttons_widgets.dart';
 import 'package:client/app/widgets/buttons/widgets/button_color.dart';
 import 'package:client/app/widgets/buttons/widgets/button_size.dart';
@@ -7,7 +6,6 @@ import 'package:client/core/constans/text_constants.dart';
 import 'package:client/core/extensions/common_extension.dart';
 import 'package:client/core/model/booking_model.dart';
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
 
 class BookingCard extends StatefulWidget {
   const BookingCard({
@@ -23,8 +21,6 @@ class BookingCard extends StatefulWidget {
 class _BookingCardState extends State<BookingCard> {
   @override
   Widget build(BuildContext context) {
-    final provider = Provider.of<BookingViewModel>(context);
-
     return Column(
       children: [
         Row(

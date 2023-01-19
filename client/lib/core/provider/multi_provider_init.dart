@@ -1,3 +1,4 @@
+import 'package:client/app/views/auth/verification/verify_otp/verify_otp.viewmodel.dart';
 import 'package:client/app/views/booking_detail/booking_detail.viewmodel.dart';
 import 'package:client/app/views/bookings/bookings.viewmodel.dart';
 import 'package:client/app/views/filter_bottom_sheet/filter_bottom_sheet.viewmodel.dart';
@@ -25,5 +26,6 @@ class MultiProviderInit {
     ChangeNotifierProvider(create: (_) => GenderNotifier()),
     ChangeNotifierProvider(create: (_) => HomeViewModel()),
     ChangeNotifierProvider(create: (_) => BookingViewModel()),
+    ChangeNotifierProvider(create: (_) => VerifyOtpViewModel()),
   ];
 }

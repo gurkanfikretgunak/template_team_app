@@ -1,9 +1,8 @@
-import 'package:client/app/views/booking_detail/booking_detail.view.dart';
 import 'package:client/app/views/bookings/widgets/tabbar_view/tabbar_view_type.dart';
 import 'package:client/app/widgets/divider/divider_widgets.dart';
 import 'package:client/core/base/base_view/base_view.dart';
 import 'package:client/core/extensions/common_extension.dart';
-import 'package:client/core/init/routes/custom_navigator.dart';
+import 'package:client/core/init/routes/navigation_service.dart';
 import 'package:client/core/init/routes/routes.dart';
 import 'package:flutter/material.dart';
 
@@ -34,7 +33,8 @@ class BookingsTabBarView extends BaseView {
           itemBuilder: (context, index) {
             return InkWell(
               onTap: () {
-                CustomNavigator.goToScreen(context, Routes.bookingDetail.name);
+                NavigationService.instance
+                    .navigateToPage(Routes.bookingDetail.name);
               },
               child: TabBarViewTypeLabel().buildOrderCard(tabBarViewType),
             );
