@@ -26,6 +26,8 @@ dependencies:
   build_runner: ^2.3.3
   faker: ^2.1.0
   flutter_gen_runner: ^5.1.0+1
+  freezed_annotation: ^2.2.0
+  json_annotation: ^4.7.0
 
 
 dev_dependencies:
@@ -33,6 +35,8 @@ dev_dependencies:
     sdk: flutter
 
   flutter_lints: ^2.0.0
+  freezed: ^2.3.2
+  json_serializable: ^6.5.4
 
 flutter:
   generate: false

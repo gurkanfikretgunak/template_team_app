@@ -3,6 +3,8 @@ import 'package:client/app/views/bookings/widgets/tabbar_view/tabbar_view_type.d
 import 'package:client/app/widgets/divider/divider_widgets.dart';
 import 'package:client/core/base/base_view/base_view.dart';
 import 'package:client/core/extensions/common_extension.dart';
+import 'package:client/core/init/routes/custom_navigator.dart';
+import 'package:client/core/init/routes/routes.dart';
 import 'package:flutter/material.dart';
 
 class BookingsTabBarView extends BaseView {
@@ -32,11 +34,7 @@ class BookingsTabBarView extends BaseView {
           itemBuilder: (context, index) {
             return InkWell(
               onTap: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                      builder: (context) => const BookingDetailView(false)),
-                );
+                CustomNavigator.goToScreen(context, Routes.bookingDetail.name);
               },
               child: TabBarViewTypeLabel().buildOrderCard(tabBarViewType),
             );
