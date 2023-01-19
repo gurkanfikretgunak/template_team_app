@@ -21,26 +21,23 @@ class CustomAppbar extends BaseView with PreferredSizeWidget {
       error: HasError.off,
       body: (specialAppbar != null)
           ? Container(child: specialAppbar!)
-          : Container(
-              color: Colors.amber,
-              child: Row(
-                children: [
-                  Center(
-                      child: Padding(
-                    padding: context.horizontalPaddingNormal,
-                    child: leading,
-                  )),
-                  Wrap(
-                    direction: Axis.vertical,
-                    children: [
-                      Text(
-                        title ?? "",
-                        style: TextConstants.instance.heading6,
-                      ),
-                    ],
-                  ),
-                ],
-              ),
+          : Row(
+              children: [
+                Center(
+                    child: Padding(
+                  padding: context.horizontalPaddingNormal,
+                  child: leading,
+                )),
+                Wrap(
+                  direction: Axis.vertical,
+                  children: [
+                    Text(
+                      title ?? "",
+                      style: TextConstants.instance.heading6,
+                    ),
+                  ],
+                ),
+              ],
             ),
       errorBody: const Text(""),
     );
