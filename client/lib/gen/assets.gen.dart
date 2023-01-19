@@ -240,10 +240,15 @@ class $AssetsImagesGen {
 
   $AssetsImagesOnboardingGen get onboarding =>
       const $AssetsImagesOnboardingGen();
+
+  /// File path: assets/images/profil_photo.png
+  AssetGenImage get profilPhoto =>
+      const AssetGenImage('assets/images/profil_photo.png');
+
   $AssetsImagesShopGen get shop => const $AssetsImagesShopGen();
 
   /// List of all assets
-  List<AssetGenImage> get values => [images];
+  List<AssetGenImage> get values => [images, profilPhoto];
 }
 
 class $AssetsImagesHomeGen {

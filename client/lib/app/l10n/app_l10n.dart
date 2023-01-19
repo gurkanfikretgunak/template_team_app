@@ -284,6 +284,96 @@ abstract class L10n {
   /// In en, this message translates to:
   /// **'see all >'**
   String get seeAll;
+
+  /// No description provided for @search.
+  ///
+  /// In en, this message translates to:
+  /// **'Search'**
+  String get search;
+
+  /// No description provided for @booking.
+  ///
+  /// In en, this message translates to:
+  /// **'Booking'**
+  String get booking;
+
+  /// No description provided for @account.
+  ///
+  /// In en, this message translates to:
+  /// **'Account'**
+  String get account;
+
+  /// No description provided for @yourFavorites.
+  ///
+  /// In en, this message translates to:
+  /// **'Your Favorites'**
+  String get yourFavorites;
+
+  /// No description provided for @yourFavoritesDesc.
+  ///
+  /// In en, this message translates to:
+  /// **'Reorder your favorite service in a click'**
+  String get yourFavoritesDesc;
+
+  /// No description provided for @payment.
+  ///
+  /// In en, this message translates to:
+  /// **'Payment'**
+  String get payment;
+
+  /// No description provided for @paymentDesc.
+  ///
+  /// In en, this message translates to:
+  /// **'Payment methods, Transaction History '**
+  String get paymentDesc;
+
+  /// No description provided for @manageAddress.
+  ///
+  /// In en, this message translates to:
+  /// **'Manage Address'**
+  String get manageAddress;
+
+  /// No description provided for @notifications.
+  ///
+  /// In en, this message translates to:
+  /// **'Notifications'**
+  String get notifications;
+
+  /// No description provided for @notificationsDesc.
+  ///
+  /// In en, this message translates to:
+  /// **'View your past notifications'**
+  String get notificationsDesc;
+
+  /// No description provided for @registerAsPartner.
+  ///
+  /// In en, this message translates to:
+  /// **'Register as partner'**
+  String get registerAsPartner;
+
+  /// No description provided for @registerAsPartnerDesc.
+  ///
+  /// In en, this message translates to:
+  /// **'Want to list your service? Register with us'**
+  String get registerAsPartnerDesc;
+
+  /// No description provided for @about.
+  ///
+  /// In en, this message translates to:
+  /// **'About'**
+  String get about;
+
+  /// No description provided for @aboutDesc.
+  ///
+  /// In en, this message translates to:
+  /// **'Privacy Policy, Terms of Services, Licenses'**
+  String get aboutDesc;
+
+  /// No description provided for @logout.
+  ///
+  /// In en, this message translates to:
+  /// **'Logout'**
+  String get logout;
 }
 
 class _L10nDelegate extends LocalizationsDelegate<L10n> {

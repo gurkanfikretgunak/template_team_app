@@ -99,4 +99,49 @@ class L10nEn extends L10n {
 
   @override
   String get seeAll => 'see all >';
+
+  @override
+  String get search => 'Search';
+
+  @override
+  String get booking => 'Booking';
+
+  @override
+  String get account => 'Account';
+
+  @override
+  String get yourFavorites => 'Your Favorites';
+
+  @override
+  String get yourFavoritesDesc => 'Reorder your favorite service in a click';
+
+  @override
+  String get payment => 'Payment';
+
+  @override
+  String get paymentDesc => 'Payment methods, Transaction History ';
+
+  @override
+  String get manageAddress => 'Manage Address';
+
+  @override
+  String get notifications => 'Notifications';
+
+  @override
+  String get notificationsDesc => 'View your past notifications';
+
+  @override
+  String get registerAsPartner => 'Register as partner';
+
+  @override
+  String get registerAsPartnerDesc => 'Want to list your service? Register with us';
+
+  @override
+  String get about => 'About';
+
+  @override
+  String get aboutDesc => 'Privacy Policy, Terms of Services, Licenses';
+
+  @override
+  String get logout => 'Logout';
 }

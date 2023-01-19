@@ -99,4 +99,49 @@ class L10nTr extends L10n {
 
   @override
   String get seeAll => 'hepsini gör >';
+
+  @override
+  String get search => 'Arama';
+
+  @override
+  String get booking => 'Rezervasyon';
+
+  @override
+  String get account => 'Hesap';
+
+  @override
+  String get yourFavorites => 'Fovoriler';
+
+  @override
+  String get yourFavoritesDesc => 'Favori hizmetinizi bir tıkla yeniden sıralayın';
+
+  @override
+  String get payment => 'Ödeme';
+
+  @override
+  String get paymentDesc => 'Ödeme Yöntemleri, İşlem Geçmişi';
+
+  @override
+  String get manageAddress => 'Adresleri yönet';
+
+  @override
+  String get notifications => 'Bildirimler';
+
+  @override
+  String get notificationsDesc => 'Geçmiş bildirimlerinizi görüntüleyin';
+
+  @override
+  String get registerAsPartner => 'Ortak olarak kaydolun';
+
+  @override
+  String get registerAsPartnerDesc => 'WHizmetinizi listelemek ister misiniz? Bize katılın';
+
+  @override
+  String get about => 'Hakkımızda';
+
+  @override
+  String get aboutDesc => 'Gizlilik Politikası, Hizmet Şartları, Lisanslar';
+
+  @override
+  String get logout => 'Çıkış';
 }

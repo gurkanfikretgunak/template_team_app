@@ -8,32 +8,46 @@ class CustomAppbar extends BaseView with PreferredSizeWidget {
     Key? key,
     this.title,
     this.leading,
+    this.specialAppbar,
   }) : super(key: key);
 
   final String? title;
   final Widget? leading;
+  final Widget? specialAppbar;
   @override
   Widget build(BuildContext context) {
     return dynamicBuild(
       context,
       error: HasError.off,
-      body: Row(
-        children: [
-          Center(
-              child: Padding(
-            padding: context.horizontalPaddingNormal,
-            child: leading,
-          )),
-          Text(
-            title ?? "",
-            style: TextConstants.instance.heading6,
-          ),
-        ],
-      ),
+      body: (specialAppbar != null)
+          ? Container(child: specialAppbar!)
+          : Container(
+              color: Colors.amber,
+              child: Row(
+                children: [
+                  Center(
+                      child: Padding(
+                    padding: context.horizontalPaddingNormal,
+                    child: leading,
+                  )),
+                  Wrap(
+                    direction: Axis.vertical,
+                    children: [
+                      Text(
+                        title ?? "",
+                        style: TextConstants.instance.heading6,
+                      ),
+                    ],
+                  ),
+                ],
+              ),
+            ),
       errorBody: const Text(""),
     );
   }
 
   @override
-  Size get preferredSize => const Size.fromHeight(60.0);
+  Size get preferredSize => specialAppbar == null
+      ? const Size.fromHeight(60.0)
+      : const Size.fromHeight(90.0);
 }

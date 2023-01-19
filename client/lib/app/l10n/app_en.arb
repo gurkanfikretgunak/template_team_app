@@ -30,8 +30,24 @@
     "gender":"Gender",
     "price":"Price",
     "offer":"Offers",
-   "rating":"Rating",
-   "seeAll":"see all >"
+    "rating":"Rating",
+    "seeAll":"see all >",
+    "search":"Search",
+    "booking":"Booking",
+    "account":"Account",
+    "yourFavorites":"Your Favorites",
+    "yourFavoritesDesc":"Reorder your favorite service in a click",
+    "payment":"Payment",
+    "paymentDesc":"Payment methods, Transaction History ",
+    "manageAddress":"Manage Address",
+    "notifications":"Notifications",
+    "notificationsDesc":"View your past notifications",
+    "registerAsPartner":"Register as partner",
+    "registerAsPartnerDesc":"Want to list your service? Register with us",
+    "about":"About",
+    "aboutDesc":"Privacy Policy, Terms of Services, Licenses",
+    "logout":"Logout"
+   
 
 
 
