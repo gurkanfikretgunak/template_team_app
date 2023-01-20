@@ -38,10 +38,7 @@ class SplashView extends BaseView with SplashWidgets {
           //   tabBarList: tabbarList,
           //   tabBarViewList: tabbarViewList,
           // ),
-          CustomDropdownButton(
-            list: list2,
-            hintText: DDHintText.gender,
-          ),
+
           CustomRadioButton(
             list: list2,
           )

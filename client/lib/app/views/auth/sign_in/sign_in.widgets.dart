@@ -1,3 +1,5 @@
+import 'package:client/app/l10n/app_l10n.dart';
+import 'package:client/app/routes/routes_widgets.dart';
 import 'package:client/app/views/auth/widgets/custom_social_icon.dart';
 import 'package:client/app/views/auth/widgets/social_image_path.dart';
 import 'package:client/app/widgets/buttons/widgets/button_color.dart';
@@ -10,8 +12,6 @@ import 'package:client/app/widgets/image_viewer/icons/icons_widgets.dart';
 import 'package:client/app/widgets/inputs/widgets/text_fields/custom_text_form_field.dart';
 import 'package:client/core/constans/text_constants.dart';
 import 'package:client/core/extensions/common_extension.dart';
-import 'package:client/core/init/routes/navigation_service.dart';
-import 'package:client/core/init/routes/routes.dart';
 
 import 'package:flutter/material.dart';
 
@@ -29,13 +29,13 @@ class SignInWidgets {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    "Welcome Back!",
+                    L10n.of(context)!.welcomeBack,
                     style: TextConstants.instance.heading4,
                   ),
                   Row(
                     children: [
                       Text(
-                        "Don't have an account?",
+                        L10n.of(context)!.haventAnAccount,
                         style: TextConstants.instance.subtitle1,
                       ),
                       CustomTextButton(
@@ -46,7 +46,7 @@ class SignInWidgets {
                         padding: EdgeInsets.zero,
                         buttonSize: ButtonSize.small,
                         hasUnderline: true,
-                        text: "Sign Up",
+                        text: L10n.of(context)!.signup,
                       )
                     ],
                   ),
@@ -55,10 +55,12 @@ class SignInWidgets {
             ),
             Wrap(
               children: [
-                const CustomTextFormField(
-                    labelTextValue: "Email", hintText: "john@example.com"),
-                const CustomTextFormField(
-                    labelTextValue: "Password", hintText: "Set a password"),
+                CustomTextFormField(
+                    labelTextValue: L10n.of(context)!.email,
+                    hintText: "john@example.com"),
+                CustomTextFormField(
+                    labelTextValue: L10n.of(context)!.password,
+                    hintText: "Set a password"),
                 SizedBox(
                   width: context.dynamicWidth(1),
                   child: CustomElevatedButton(
@@ -66,7 +68,7 @@ class SignInWidgets {
                       NavigationService.instance
                           .navigateToPageClear(path: Routes.navigation.name);
                     },
-                    text: "Login",
+                    text: L10n.of(context)!.login,
                     buttonSize: ButtonSize.large,
                     buttonColor: ButtonColor.purple,
                     textColor: ButtonColor.light,
@@ -82,7 +84,7 @@ class SignInWidgets {
                     NavigationService.instance
                         .navigateToPage(Routes.forgotPassword.name);
                   },
-                  text: "Forgot your password",
+                  text: L10n.of(context)!.forgotPassword,
                   buttonSize: ButtonSize.large,
                 ),
               ),
@@ -95,7 +97,7 @@ class SignInWidgets {
                   const Expanded(child: CustomDivider()),
                   Padding(
                     padding: context.horizontalPaddingMedium,
-                    child: const Text("Or Login using"),
+                    child: Text(L10n.of(context)!.orLoginUsing),
                   ),
                   const Expanded(child: CustomDivider()),
                 ],
@@ -103,24 +105,24 @@ class SignInWidgets {
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
-              children: const [
+              children: [
                 CustomSocialIcon(
                   imagePath: SocialPath.twitter,
                   height: IconSize.large,
                   width: IconSize.large,
-                  socialName: "Twitter",
+                  socialName: L10n.of(context)!.twitter,
                 ),
                 CustomSocialIcon(
                   imagePath: SocialPath.google,
                   height: IconSize.large,
                   width: IconSize.large,
-                  socialName: "Google",
+                  socialName: L10n.of(context)!.google,
                 ),
                 CustomSocialIcon(
                   imagePath: SocialPath.facebook,
                   height: IconSize.large,
                   width: IconSize.large,
-                  socialName: "Facebook",
+                  socialName: L10n.of(context)!.facebook,
                 )
               ],
             ),

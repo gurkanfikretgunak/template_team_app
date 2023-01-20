@@ -1,3 +1,4 @@
+import 'package:client/app/routes/routes_widgets.dart';
 import 'package:client/app/widgets/buttons/widgets/button_color.dart';
 import 'package:client/app/widgets/buttons/widgets/button_size.dart';
 import 'package:client/app/widgets/buttons/widgets/custom_text_button.dart';
@@ -20,16 +21,21 @@ class AppBarContent extends StatelessWidget {
             children: <Widget>[
               Text(
                 'Sign Up',
-                style: TextConstants.instance.heading4.copyWith(color: ColorConstant.instance.light4),
+                style: TextConstants.instance.heading4
+                    .copyWith(color: ColorConstant.instance.light4),
               ),
               Row(
                 children: [
                   Text(
                     'Already have an Account ?',
-                    style: TextConstants.instance.heading6.copyWith(color: ColorConstant.instance.light4),
+                    style: TextConstants.instance.heading6
+                        .copyWith(color: ColorConstant.instance.light4),
                   ),
                   CustomTextButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      NavigationService.instance
+                          .navigateToPage(Routes.signin.name);
+                    },
                     text: "Login",
                     buttonSize: ButtonSize.small,
                     hasUnderline: true,

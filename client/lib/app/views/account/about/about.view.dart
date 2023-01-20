@@ -1,0 +1,24 @@
+import 'package:client/app/views/account/about/about.widgets.dart';
+import 'package:client/core/base/base_view/base_view.dart';
+import 'package:flutter/material.dart';
+
+class AboutView extends BaseView with AboutWidgets {
+  const AboutView(this.error, {super.key});
+
+  final bool error;
+
+  HasError backendError() {
+    return error ? HasError.on : HasError.off;
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return dynamicBuild(
+      context,
+      error: backendError(),
+      appbar: appBar(context),
+      body: body(context),
+      errorBody: const Text('errorrrr'),
+    );
+  }
+}

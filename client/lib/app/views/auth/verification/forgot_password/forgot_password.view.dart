@@ -10,14 +10,7 @@ class ForgotPasswordView extends BaseView with ForgotPasswordWidgets {
   Widget build(BuildContext context) {
     return baseBuild(
       context,
-      appbar: CustomAppbar(
-        leading: IconButton(
-          onPressed: () {},
-          icon: const Icon(
-            Icons.close,
-          ),
-        ),
-      ),
+      appbar: const CustomAppbar(),
       body: enterMobileNumberBody(context),
     );
   }

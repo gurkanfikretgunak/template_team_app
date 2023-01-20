@@ -42,6 +42,7 @@ abstract class BaseView extends StatelessWidget {
           top: true,
           child: Scaffold(
             // extendBody: true,
+
             extendBodyBehindAppBar: false,
             body: body,
             bottomNavigationBar: bottomNavigationBar,

@@ -29,7 +29,7 @@ class L10nTr extends L10n {
   String get haveAnAccount => 'Zaten hesabınız var mı?';
 
   @override
-  String get name => 'isim';
+  String get fullName => 'İsim-Soyisim ';
 
   @override
   String get email => 'E-posta';

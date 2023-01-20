@@ -1,8 +1,7 @@
+import 'package:client/app/routes/routes_widgets.dart';
 import 'package:client/app/views/bookings/widgets/tabbar_view/tabbar_view_type.dart';
 import 'package:client/core/base/base_view/base_view.dart';
 import 'package:client/core/extensions/common_extension.dart';
-import 'package:client/core/init/routes/navigation_service.dart';
-import 'package:client/core/init/routes/routes.dart';
 import 'package:flutter/material.dart';
 
 class BookingsTabBarView extends BaseView {

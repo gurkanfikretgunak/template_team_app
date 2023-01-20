@@ -1,3 +1,4 @@
+import 'package:client/app/l10n/app_l10n.dart';
 import 'package:client/app/views/auth/widgets/custom_social_icon.dart';
 import 'package:client/app/views/auth/widgets/social_image_path.dart';
 import 'package:client/app/widgets/buttons/widgets/button_color.dart';
@@ -19,16 +20,20 @@ class SignUpWidgets {
         child: Wrap(
           alignment: WrapAlignment.center,
           children: [
-            const CustomTextFormField(labelTextValue: "Name", hintText: "name"),
-            const CustomTextFormField(
-                labelTextValue: "Email", hintText: "john@example.com"),
-            const CustomTextFormField(
-                labelTextValue: "Password", hintText: "Set a password"),
+            CustomTextFormField(
+                labelTextValue: L10n.of(context)!.fullName,
+                hintText: L10n.of(context)!.fullName),
+            CustomTextFormField(
+                labelTextValue: L10n.of(context)!.email,
+                hintText: "john@example.com"),
+            CustomTextFormField(
+                labelTextValue: L10n.of(context)!.password,
+                hintText: "Set a password"),
             SizedBox(
               width: context.dynamicWidth(1),
               child: CustomElevatedButton(
                 onPressed: () {},
-                text: "Sign Up",
+                text: L10n.of(context)!.signup,
                 buttonSize: ButtonSize.large,
                 buttonColor: ButtonColor.purple,
                 textColor: ButtonColor.light,
@@ -42,7 +47,7 @@ class SignUpWidgets {
                   const Expanded(child: CustomDivider()),
                   Padding(
                     padding: context.horizontalPaddingMedium,
-                    child: const Text("Or Sign up using"),
+                    child: Text(L10n.of(context)!.orSignupUsing),
                   ),
                   const Expanded(child: CustomDivider()),
                 ],

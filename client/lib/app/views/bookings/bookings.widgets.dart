@@ -6,6 +6,14 @@ import 'package:flutter/cupertino.dart';
 import 'widgets/tabbar_widgets.dart';
 
 class BookingsWidgets {
+  appBar() {
+    return CustomAppbar(
+        leading: Text(
+      "Your Bookings",
+      style: TextConstants.instance.heading6,
+    ));
+  }
+
   Widget body(BuildContext context) {
     return Column(
       children: [
@@ -15,13 +23,5 @@ class BookingsWidgets {
         ),
       ],
     );
-  }
-
-  appBar() {
-    return CustomAppbar(
-        leading: Text(
-      "Your Bookings",
-      style: TextConstants.instance.heading6,
-    ));
   }
 }

@@ -1,6 +1,5 @@
+import 'package:client/app/l10n/app_l10n.dart';
 import 'package:client/app/widgets/buttons/buttons_widgets.dart';
-import 'package:client/app/widgets/buttons/widgets/button_color.dart';
-import 'package:client/app/widgets/buttons/widgets/button_size.dart';
 import 'package:client/core/constans/color_constants.dart';
 import 'package:client/core/constans/text_constants.dart';
 import 'package:client/core/extensions/common_extension.dart';
@@ -88,30 +87,33 @@ class _BookingCardState extends State<BookingCard> {
           ],
         ),
         Padding(
-          padding: const EdgeInsets.only(top: 24),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              widget.booking.isCancel!
-                  ? CustomTextButton(
-                      onPressed: () {},
-                      text: 'Cancel Booking',
-                      padding: EdgeInsets.zero,
-                      minimumSize: Size.zero,
-                      color: ButtonColor.red,
-                    )
-                  : const SizedBox.shrink(),
-              SizedBox(
-                height: context.dynamicHeight(0.046),
-                child: CustomOutlinedButton(
-                  onPressed: () {},
-                  text: 'Reorder Booking',
-                  buttonSize: ButtonSize.large,
+            padding: context.onlyTopPaddingNormal,
+            child: Row(
+              children: [
+                Expanded(
+                  flex: widget.booking.isCancel! ? 2 : 4,
+                  child: widget.booking.isCancel!
+                      ? CustomOutlinedButton(
+                          onPressed: () {},
+                          text: L10n.of(context)!.cancel,
+                          borderSideColor: ButtonColor.red,
+                        )
+                      : const SizedBox(),
                 ),
-              ),
-            ],
-          ),
-        ),
+                context.emptySizedWidthBoxNormal,
+                Expanded(
+                  flex: 3,
+                  child: SizedBox(
+                    height: context.dynamicHeight(0.046),
+                    child: CustomOutlinedButton(
+                      onPressed: () {},
+                      text: 'Reorder Booking',
+                      buttonSize: ButtonSize.large,
+                    ),
+                  ),
+                )
+              ],
+            )),
       ],
     );
   }

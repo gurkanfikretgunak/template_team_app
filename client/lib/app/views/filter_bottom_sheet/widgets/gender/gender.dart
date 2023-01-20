@@ -4,14 +4,9 @@ import 'package:client/core/extensions/common_extension.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-class GenderFilter extends StatefulWidget {
+class GenderFilter extends StatelessWidget {
   const GenderFilter({super.key});
 
-  @override
-  State<GenderFilter> createState() => _GenderFilterState();
-}
-
-class _GenderFilterState extends State<GenderFilter> {
   @override
   Widget build(BuildContext context) {
     final checkboxNotifier = Provider.of<GenderNotifier>(context);

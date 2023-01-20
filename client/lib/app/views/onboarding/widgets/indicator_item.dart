@@ -2,9 +2,9 @@ import 'package:client/core/base/base_view/base_view.dart';
 import 'package:client/core/constans/color_constants.dart';
 import 'package:flutter/material.dart';
 
-class Indicator extends BaseView {
+class IndicatorItem extends BaseView {
   final int positionIndex, currentIndex;
-  const Indicator({
+  const IndicatorItem({
     super.key,
     required this.currentIndex,
     required this.positionIndex,
