@@ -14,6 +14,7 @@ class ShopListWidget extends StatelessWidget {
       width: context.dynamicWidth(0.85),
       height: context.dynamicHeight(0.8),
       child: ListView.builder(
+        physics: const NeverScrollableScrollPhysics(),
         itemCount: 5,
         itemBuilder: (context, index) {
           return Column(

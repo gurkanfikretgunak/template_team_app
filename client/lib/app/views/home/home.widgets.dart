@@ -20,30 +20,36 @@ class HomeWidgets {
     final provider = Provider.of<HomeViewModel>(context);
 
     return CustomAppbar(
-      leading: Wrap(
-        crossAxisAlignment: WrapCrossAlignment.center,
-        spacing: 10,
-        children: [
-          CustomIcon(imagePath: Assets.icons.location.path),
-          DropdownButton<String>(
-            value: provider.dropdownValue,
-            icon: const Icon(Icons.keyboard_arrow_down_outlined),
-            elevation: 16,
-            style: TextConstants.instance.button1,
-            underline: Container(height: 0),
-            onChanged: (String? value) {
-              provider.dropdownValue = value!;
-            },
-            items: provider.locationList.map<DropdownMenuItem<String>>((String value) {
-              return DropdownMenuItem<String>(
-                value: value,
-                child: Text(
-                  value,
-                ),
-              );
-            }).toList(),
-          ),
-        ],
+      leading: FittedBox(
+        child: Wrap(
+          crossAxisAlignment: WrapCrossAlignment.center,
+          spacing: 10,
+          children: [
+            CustomIcon(imagePath: Assets.icons.location.path),
+            SizedBox(
+              width: context.dynamicWidth(0.6),
+              child: DropdownButton<String>(
+                value: provider.ddLocationValue,
+                icon: const Icon(Icons.keyboard_arrow_down_outlined),
+                elevation: 16,
+                style: TextConstants.instance.button1,
+                underline: Container(height: 0),
+                onChanged: (String? value) {
+                  provider.ddLocationValue = value!;
+                },
+                items: provider.locationList
+                    .map<DropdownMenuItem<String>>((String value) {
+                  return DropdownMenuItem<String>(
+                    value: value,
+                    child: Text(
+                      value,
+                    ),
+                  );
+                }).toList(),
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }
@@ -57,9 +63,11 @@ class HomeWidgets {
           children: [
             const CustomSearchField(),
             const FilterList(),
-            categoryTitle(title: L10n.of(context)!.beautyServices, context: context),
+            categoryTitle(
+                title: L10n.of(context)!.beautyServices, context: context),
             const ServicesGridView(),
-            categoryTitle(title: L10n.of(context)!.popularNearYou, context: context),
+            categoryTitle(
+                title: L10n.of(context)!.popularNearYou, context: context),
             ShopList(
               isHorizontal: true,
               cardHeight: context.dynamicHeight(0.3),
@@ -102,7 +110,7 @@ class ShopList extends StatelessWidget {
             distance: fake.randomGenerator.integer(20).toDouble(),
             genderType: fake.person.random.string(20),
             hasDiscount: fake.randomGenerator.boolean(),
-            imagePath: buildShopCardImage(provider.dropdownValue),
+            imagePath: buildShopCardImage(provider.ddLocationValue),
             rating: fake.randomGenerator.integer(20).toDouble(),
             shopName: fake.company.name(),
             shopTypes: fake.company.name(),
@@ -136,13 +144,35 @@ class FilterList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     List<String> genderList = ["Women", "Man"];
+    List<String> priceList = ["a", "b"];
+    final provider = Provider.of<HomeViewModel>(context);
 
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
-        Expanded(child: CustomDropdownButton(list: genderList, hintText: DDHintText.gender)),
+        Expanded(
+          child: CustomDropdownButton(
+            value: provider.ddGenderValue,
+            onChanged: (String? value) {
+              provider.setDropDownGenderValue(value!);
+              provider.ddGenderValue = value;
+            },
+            list: genderList,
+            hintText: DDHintText.gender,
+          ),
+        ),
         context.emptySizedWidthBoxLow,
-        Expanded(child: CustomDropdownButton(list: genderList, hintText: DDHintText.price)),
+        Expanded(
+          child: CustomDropdownButton<String>(
+            value: provider.ddPriceValue,
+            onChanged: (String? value) {
+              provider.setDropDownPriceValue(value!);
+              provider.ddPriceValue = value;
+            },
+            list: priceList,
+            hintText: DDHintText.price,
+          ),
+        ),
         context.emptySizedWidthBoxLow,
         const Expanded(child: OfferButton()),
         context.emptySizedWidthBoxLow,

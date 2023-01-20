@@ -24,7 +24,6 @@ class GenderNotifier extends ChangeNotifier {
             !genderFilterOptions[1]['isSelected'];
         notifyListeners();
         break;
-
       default:
     }
   }

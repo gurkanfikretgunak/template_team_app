@@ -1,9 +1,8 @@
+import 'package:client/app/routes/routes_widgets.dart';
 import 'package:client/app/widgets/image_viewer/custom_viewer_image.dart';
 import 'package:client/core/constans/color_constants.dart';
 import 'package:client/core/constans/text_constants.dart';
 import 'package:client/core/extensions/common_extension.dart';
-import 'package:client/core/init/routes/navigation_service.dart';
-import 'package:client/core/init/routes/routes.dart';
 import 'package:client/gen/assets.gen.dart';
 import 'package:flutter/material.dart';
 
@@ -61,8 +60,10 @@ class ServicesGridView extends StatelessWidget {
               children: [
                 Container(
                     decoration: BoxDecoration(
-                      borderRadius: const BorderRadius.all(Radius.circular(100)),
-                      border: Border.all(width: 2, color: ColorConstant.instance.purple2),
+                      borderRadius:
+                          const BorderRadius.all(Radius.circular(100)),
+                      border: Border.all(
+                          width: 2, color: ColorConstant.instance.purple2),
                     ),
                     child: CustomImageViewer(assetPath: key['image'])),
                 Text(

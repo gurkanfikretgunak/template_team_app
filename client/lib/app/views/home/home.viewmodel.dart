@@ -8,10 +8,24 @@ class HomeViewModel extends BaseViewModel {
     'Trudering/Riem'
   ];
 
-  String _dropdownValue = 'Munich Center';
-  String get dropdownValue => _dropdownValue;
-  set dropdownValue(newValue) {
-    _dropdownValue = newValue;
+  String _ddLocationValue = 'Munich Center';
+  String get ddLocationValue => _ddLocationValue;
+  set ddLocationValue(newValue) {
+    _ddLocationValue = newValue;
+    notifyListeners();
+  }
+
+  String? ddGenderValue;
+
+  setDropDownGenderValue(String newValue) {
+    ddGenderValue = newValue;
+    notifyListeners();
+  }
+
+  String? ddPriceValue;
+
+  setDropDownPriceValue(String newValue) {
+    ddPriceValue = newValue;
     notifyListeners();
   }
 }
