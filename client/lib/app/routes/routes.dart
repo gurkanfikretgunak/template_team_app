@@ -1,10 +1,1 @@
-enum Routes {
-  onboarding,
-  signin,
-  signup,
-  verifyOtb,
-  forgotPassword,
-  navigation,
-  shop,
-  bookingDetail,
-}
+enum Routes { onboarding, signin, signup, verifyOtb, forgotPassword, navigation, shop, bookingDetail, shopDetail }

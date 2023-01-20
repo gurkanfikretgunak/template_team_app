@@ -1,51 +1,91 @@
-import 'package:client/app/views/shop/widget/shop_tile.dart';
+import 'package:client/app/views/home/home.viewmodel.dart';
+import 'package:client/app/views/home/home.widgets.dart';
 import 'package:client/app/widgets/system_ui_overlay/navigation/custom_navigation.dart';
+import 'package:client/app/widgets/system_ui_overlay/navigation/navigation_select.dart';
+import 'package:client/core/constans/color_constants.dart';
+import 'package:client/core/constans/text_constants.dart';
 import 'package:client/core/extensions/common_extension.dart';
+import 'package:client/gen/assets.gen.dart';
 import 'package:flutter/material.dart';
-import '../../widgets/image_viewer/icons/icons_widgets.dart';
-import '../../widgets/system_ui_overlay/navigation/navigation_select.dart';
+import 'package:provider/provider.dart';
 
-class ShopWidgets {
-  Widget shopBody(BuildContext context) {
-    return Padding(
-      padding: context.onlyLRTBpaddingNormal,
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
+import '../../../core/init/routes/navigation_service.dart';
+import '../../../core/init/routes/routes.dart';
+import '../../widgets/image_viewer/icons/widgets/custom_icons.dart';
+
+class ShopHomeWidgets {
+  Widget appBarBody(BuildContext context) {
+    return Stack(
+      children: [
+        SizedBox(width: context.width, child: Image.asset(Assets.images.shop.homeShop1.path, fit: BoxFit.cover)),
+        NavigationsWidget(
+          true,
+          () {
+            Navigator.pop(context);
+          },
+          Navigations.back,
+          "null",
+          Align(alignment: Alignment.topCenter, child: dropDownCity(context)),
+        ),
+        Align(
+            alignment: Alignment.bottomLeft,
+            child: Text(
+              "Haircut for Men",
+              style: TextConstants.instance.heading3.copyWith(color: ColorConstant.instance.light4),
+            )),
+      ],
+    );
+  }
+
+  Widget body(BuildContext context) {
+    return SingleChildScrollView(
+      physics: const BouncingScrollPhysics(),
+      child: Padding(
+        padding: context.paddingNormal,
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            const FilterList(),
+            Text("102 shops giving Haircut service", style: TextConstants.instance.label1),
+            GestureDetector(
+                onTap: () {
+                  NavigationService.instance.navigateToPage(Routes.shopDetail.name);
+                },
+                child: ShopList(
+                    cardHeight: 300, cardWidth: context.dynamicWidth(0.3), isHorizontal: false, listHeight: 500)),
+          ],
+        ),
+      ),
+    );
+  }
+
+  Widget dropDownCity(BuildContext context) {
+    final provider = Provider.of<HomeViewModel>(context);
+
+    return Align(
+      alignment: Alignment.topCenter,
+      child: Wrap(
+        crossAxisAlignment: WrapCrossAlignment.center,
+        spacing: 10,
         children: [
-          Row(
-            children: [
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  NavigationsWidget(
-                      false, () {}, Navigations.back, "Woodlands Hill Salon"),
-                  const Text("Haircut, Spa, Message"),
-                  const Text("Keira throughway * 5.0 Kms, "),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceAround,
-                    children: const [
-                      CustomIcon(
-                          imagePath: "assets/icons/phone.png",
-                          height: IconSize.large,
-                          width: IconSize.large),
-                      CustomIcon(
-                          imagePath: "assets/icons/pin-outline.png",
-                          height: IconSize.large,
-                          width: IconSize.large),
-                      CustomIcon(
-                          imagePath: "assets/icons/share.png",
-                          height: IconSize.large,
-                          width: IconSize.large),
-                      CustomIcon(
-                          imagePath: "assets/icons/heart.png",
-                          height: IconSize.large,
-                          width: IconSize.large),
-                    ],
-                  ),
-                  const ShopListWidget()
-                ],
-              ),
-            ],
+          CustomIcon(imagePath: Assets.icons.location.path, iconColor: ColorConstant.instance.light4),
+          DropdownButton<String>(
+            value: provider.dropdownValue,
+            icon: const Icon(Icons.keyboard_arrow_down_outlined),
+            elevation: 16,
+            style: TextConstants.instance.button1.copyWith(color: ColorConstant.instance.light4),
+            underline: Container(height: 0),
+            onChanged: (String? value) {
+              provider.dropdownValue = value!;
+            },
+            items: provider.locationList.map<DropdownMenuItem<String>>((String value) {
+              return DropdownMenuItem<String>(
+                value: value,
+                child: Text(
+                  value,
+                ),
+              );
+            }).toList(),
           ),
         ],
       ),

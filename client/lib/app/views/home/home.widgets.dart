@@ -63,12 +63,15 @@ class HomeWidgets {
           children: [
             const CustomSearchField(),
             const FilterList(),
-            categoryTitle(
-                title: L10n.of(context)!.beautyServices, context: context),
+            categoryTitle(title: L10n.of(context)!.beautyServices, context: context),
             const ServicesGridView(),
-            categoryTitle(
-                title: L10n.of(context)!.popularNearYou, context: context),
-            const ShopList(),
+            categoryTitle(title: L10n.of(context)!.popularNearYou, context: context),
+            ShopList(
+              isHorizontal: true,
+              cardHeight: context.dynamicHeight(0.3),
+              cardWidth: context.dynamicHeight(0.3),
+              listHeight: context.dynamicHeight(0.25),
+            ),
           ],
         ),
       ),
@@ -79,19 +82,26 @@ class HomeWidgets {
 class ShopList extends StatelessWidget {
   const ShopList({
     Key? key,
+    required this.isHorizontal,
+    required this.cardHeight,
+    required this.cardWidth,
+    required this.listHeight,
   }) : super(key: key);
-
+  final bool isHorizontal;
+  final double cardHeight;
+  final double cardWidth;
+  final double listHeight;
   @override
   Widget build(BuildContext context) {
     final provider = Provider.of<HomeViewModel>(context);
 
     var fake = Faker();
     return SizedBox(
-      height: context.dynamicHeight(0.25),
+      height: listHeight,
       child: ListView.builder(
         itemCount: 3,
         shrinkWrap: true,
-        scrollDirection: Axis.horizontal,
+        scrollDirection: isHorizontal ? Axis.horizontal : Axis.vertical,
         itemBuilder: (context, index) {
           return ShopCard(
             address: fake.address.city(),
@@ -103,6 +113,8 @@ class ShopList extends StatelessWidget {
             shopName: fake.company.name(),
             shopTypes: fake.company.name(),
             discountAmount: fake.randomGenerator.integer(20).toDouble(),
+            cardHeight: cardHeight,
+            cardWidth: cardWidth,
           );
         },
       ),
@@ -136,6 +148,7 @@ class FilterList extends StatelessWidget {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
+<<<<<<< HEAD
         Expanded(
           child: CustomDropdownButton(
             value: provider.ddGenderValue,
@@ -159,6 +172,11 @@ class FilterList extends StatelessWidget {
             hintText: DDHintText.price,
           ),
         ),
+=======
+        Expanded(child: CustomDropdownButton(list: genderList, hintText: DDHintText.gender)),
+        context.emptySizedWidthBoxLow,
+        Expanded(child: CustomDropdownButton(list: genderList, hintText: DDHintText.price)),
+>>>>>>> 5ba220af86722241d1c9575146b520a461da617c
         context.emptySizedWidthBoxLow,
         const Expanded(child: OfferButton()),
         context.emptySizedWidthBoxLow,
