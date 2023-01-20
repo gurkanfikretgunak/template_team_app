@@ -306,6 +306,14 @@ class $AssetsImagesOnboardingGen {
 class $AssetsImagesShopGen {
   const $AssetsImagesShopGen();
 
+  /// File path: assets/images/shop/home_shop_1.png
+  AssetGenImage get homeShop1 =>
+      const AssetGenImage('assets/images/shop/home_shop_1.png');
+
+  /// File path: assets/images/shop/home_shop_2.png
+  AssetGenImage get homeShop2 =>
+      const AssetGenImage('assets/images/shop/home_shop_2.png');
+
   /// File path: assets/images/shop/shop_1.jpg
   AssetGenImage get shop1 =>
       const AssetGenImage('assets/images/shop/shop_1.jpg');
@@ -322,8 +330,70 @@ class $AssetsImagesShopGen {
   AssetGenImage get shop4 =>
       const AssetGenImage('assets/images/shop/shop_4.png');
 
+  /// File path: assets/images/shop/shop_detail_1.png
+  AssetGenImage get shopDetail1 =>
+      const AssetGenImage('assets/images/shop/shop_detail_1.png');
+
+  /// File path: assets/images/shop/shop_detail_10.png
+  AssetGenImage get shopDetail10 =>
+      const AssetGenImage('assets/images/shop/shop_detail_10.png');
+
+  /// File path: assets/images/shop/shop_detail_11.png
+  AssetGenImage get shopDetail11 =>
+      const AssetGenImage('assets/images/shop/shop_detail_11.png');
+
+  /// File path: assets/images/shop/shop_detail_2.png
+  AssetGenImage get shopDetail2 =>
+      const AssetGenImage('assets/images/shop/shop_detail_2.png');
+
+  /// File path: assets/images/shop/shop_detail_3.png
+  AssetGenImage get shopDetail3 =>
+      const AssetGenImage('assets/images/shop/shop_detail_3.png');
+
+  /// File path: assets/images/shop/shop_detail_4.png
+  AssetGenImage get shopDetail4 =>
+      const AssetGenImage('assets/images/shop/shop_detail_4.png');
+
+  /// File path: assets/images/shop/shop_detail_5.png
+  AssetGenImage get shopDetail5 =>
+      const AssetGenImage('assets/images/shop/shop_detail_5.png');
+
+  /// File path: assets/images/shop/shop_detail_6.png
+  AssetGenImage get shopDetail6 =>
+      const AssetGenImage('assets/images/shop/shop_detail_6.png');
+
+  /// File path: assets/images/shop/shop_detail_7.png
+  AssetGenImage get shopDetail7 =>
+      const AssetGenImage('assets/images/shop/shop_detail_7.png');
+
+  /// File path: assets/images/shop/shop_detail_8.png
+  AssetGenImage get shopDetail8 =>
+      const AssetGenImage('assets/images/shop/shop_detail_8.png');
+
+  /// File path: assets/images/shop/shop_detail_9.png
+  AssetGenImage get shopDetail9 =>
+      const AssetGenImage('assets/images/shop/shop_detail_9.png');
+
   /// List of all assets
-  List<AssetGenImage> get values => [shop1, shop2, shop3, shop4];
+  List<AssetGenImage> get values => [
+        homeShop1,
+        homeShop2,
+        shop1,
+        shop2,
+        shop3,
+        shop4,
+        shopDetail1,
+        shopDetail10,
+        shopDetail11,
+        shopDetail2,
+        shopDetail3,
+        shopDetail4,
+        shopDetail5,
+        shopDetail6,
+        shopDetail7,
+        shopDetail8,
+        shopDetail9
+      ];
 }
 
 class Assets {

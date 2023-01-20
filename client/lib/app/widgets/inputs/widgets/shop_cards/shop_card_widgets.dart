@@ -15,8 +15,7 @@ class ShopCardWidgets {
     );
   }
 
-  Widget shopInformation(BuildContext context, shopName, shopTypes, rating,
-      address, discountAmount) {
+  Widget shopInformation(BuildContext context, shopName, shopTypes, rating, address, discountAmount, bool isStack) {
     return FittedBox(
       child: Wrap(
         direction: Axis.vertical,
@@ -25,25 +24,27 @@ class ShopCardWidgets {
           Text(
             "FOR MEN & WOMEN",
             style: TextConstants.instance.subtitle1
-                .copyWith(fontSize: 12, color: ColorConstant.instance.dark3),
+                .copyWith(fontSize: 12, color: isStack ? ColorConstant.instance.light4 : ColorConstant.instance.dark3),
           ),
           Text(shopName,
-              style: TextConstants.instance.subtitle1
-                  .copyWith(fontSize: 17, fontWeight: FontWeight.w600)),
+              style: TextConstants.instance.subtitle1.copyWith(
+                  fontSize: 17,
+                  fontWeight: FontWeight.w600,
+                  color: isStack ? ColorConstant.instance.light4 : ColorConstant.instance.dark3)),
           Wrap(
             crossAxisAlignment: WrapCrossAlignment.center,
             spacing: 5,
             children: [
               Text(shopTypes,
                   style: TextConstants.instance.subtitle2
-                      .copyWith(color: ColorConstant.instance.dark3)),
+                      .copyWith(color: isStack ? ColorConstant.instance.light4 : ColorConstant.instance.dark3)),
               const DotIconWidget(),
               Icon(Icons.star_outline,
-                  size: 16, color: ColorConstant.instance.dark3),
+                  size: 16, color: isStack ? ColorConstant.instance.light4 : ColorConstant.instance.dark3),
               Text(
                 rating.toString(),
                 style: TextConstants.instance.subtitle2
-                    .copyWith(color: ColorConstant.instance.dark3),
+                    .copyWith(color: isStack ? ColorConstant.instance.light4 : ColorConstant.instance.dark3),
               ),
             ],
           ),
@@ -52,13 +53,13 @@ class ShopCardWidgets {
               Text(
                 address,
                 style: TextConstants.instance.subtitle2
-                    .copyWith(color: ColorConstant.instance.dark3),
+                    .copyWith(color: isStack ? ColorConstant.instance.light4 : ColorConstant.instance.dark3),
               ),
               const DotIconWidget(),
               Text(
                 "${discountAmount.toString()} Kms",
                 style: TextConstants.instance.subtitle2
-                    .copyWith(color: ColorConstant.instance.dark3),
+                    .copyWith(color: isStack ? ColorConstant.instance.light4 : ColorConstant.instance.dark3),
               ),
             ],
           ),

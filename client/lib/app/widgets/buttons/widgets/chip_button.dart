@@ -9,6 +9,7 @@ class ChipButton extends BaseView {
     required this.widget,
     this.isBorder = false,
     required this.onTap,
+    this.height,
     this.color,
   });
 
@@ -16,19 +17,18 @@ class ChipButton extends BaseView {
   final bool? isBorder;
   final VoidCallback onTap;
   final Color? color;
+  final double? height;
   @override
   Widget build(BuildContext context) {
     return InkWell(
       onTap: onTap,
       child: Container(
-        height: context.dynamicHeight(0.035),
+        height: height,
         decoration: BoxDecoration(
           color: color ?? ColorConstant.instance.light2,
           borderRadius: const BorderRadius.all(Radius.circular(25)),
           border: Border.all(
-            color: isBorder!
-                ? ColorConstant.instance.purple2
-                : ColorConstant.instance.transparent,
+            color: isBorder! ? ColorConstant.instance.purple2 : ColorConstant.instance.transparent,
           ),
         ),
         child: Padding(
