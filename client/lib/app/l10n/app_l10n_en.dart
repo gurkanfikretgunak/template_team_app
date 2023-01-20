@@ -168,4 +168,13 @@ class L10nEn extends L10n {
 
   @override
   String get apply => 'Apply';
+
+  @override
+  String get select => 'Select';
+
+  @override
+  String get home => 'Home';
+
+  @override
+  String get yourSavedAddress => 'Your saved address';
 }

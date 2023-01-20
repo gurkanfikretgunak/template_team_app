@@ -168,4 +168,13 @@ class L10nTr extends L10n {
 
   @override
   String get apply => 'Uygula';
+
+  @override
+  String get select => 'Seç';
+
+  @override
+  String get home => 'Home';
+
+  @override
+  String get yourSavedAddress => 'Your saved address';
 }

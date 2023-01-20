@@ -1,9 +1,10 @@
-import 'package:client/app/views/splash/splash.widgets.dart';
+import 'package:client/app/views/account/manage_address/manage_address.widgets.dart';
+import 'package:client/app/widgets/custom_appbar.dart';
 import 'package:client/core/base/base_view/base_view.dart';
 import 'package:flutter/material.dart';
 
-class SplashView extends BaseView with SplashWidgets {
-  const SplashView(this.error, {super.key});
+class ManageAddressView extends BaseView with ManageAddressWidgets {
+  const ManageAddressView(this.error, {super.key});
 
   final bool error;
 
@@ -16,7 +17,8 @@ class SplashView extends BaseView with SplashWidgets {
     return dynamicBuild(
       context,
       error: backendError(),
-      body: body(context),
+      appbar: const CustomAppbar(),
+      body: body(),
       errorBody: const Text('errorrrr'),
     );
   }

@@ -1,3 +1,5 @@
+import 'package:client/app/views/account/manage_address/manage_address.view.dart';
+import 'package:client/app/views/account/manage_address/manage_address.viewmodel.dart';
 import 'package:client/app/views/auth/sign_in/sign_in.view.dart';
 import 'package:client/app/views/auth/sign_up/sign_up.view.dart';
 import 'package:client/app/views/auth/verification/forgot_password/forgot_password.view.dart';
@@ -45,6 +47,10 @@ class AppRoutes {
         return FadeTransitionPageRoute(const ShopDetailView(), settings: args);
       case Routes.bookingDetail:
         return FadeTransitionPageRoute(const BookingDetailView(false),
+            settings: args);
+
+      case Routes.manageAddress:
+        return FadeTransitionPageRoute(const ManageAddressView(false),
             settings: args);
 
       default:

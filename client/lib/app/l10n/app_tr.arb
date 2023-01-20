@@ -54,7 +54,12 @@
     "isDeleteAddressDesc":"Bu adresi silmek istediğinizden emin misiniz?",
     "isLogout":"Çıkış?",
     "logoutDesc":"Uygulamadan çıkmak istediğinizden emin misiniz?", 
-    "apply":"Uygula"
+    "apply":"Uygula",
+    "select":"Seç",
+    "home":"Home", 
+    "yourSavedAddress":"Your saved address"
+
+
 
  }
 

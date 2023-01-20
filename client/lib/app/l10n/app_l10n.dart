@@ -422,6 +422,24 @@ abstract class L10n {
   /// In en, this message translates to:
   /// **'Apply'**
   String get apply;
+
+  /// No description provided for @select.
+  ///
+  /// In en, this message translates to:
+  /// **'Select'**
+  String get select;
+
+  /// No description provided for @home.
+  ///
+  /// In en, this message translates to:
+  /// **'Home'**
+  String get home;
+
+  /// No description provided for @yourSavedAddress.
+  ///
+  /// In en, this message translates to:
+  /// **'Your saved address'**
+  String get yourSavedAddress;
 }
 
 class _L10nDelegate extends LocalizationsDelegate<L10n> {

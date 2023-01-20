@@ -54,7 +54,10 @@
     "isDeleteAddressDesc":"Are you sure want to delete this address?",
     "isLogout":"Logout?",
     "logoutDesc":"Are you sure want to logout from the app?" ,
-    "apply":"Apply"
+    "apply":"Apply",
+    "select":"Select",
+    "home":"Home", 
+    "yourSavedAddress":"Your saved address"
 
 
 
