@@ -20,31 +20,36 @@ class HomeWidgets {
     final provider = Provider.of<HomeViewModel>(context);
 
     return CustomAppbar(
-      leading: Wrap(
-        crossAxisAlignment: WrapCrossAlignment.center,
-        spacing: 10,
-        children: [
-          CustomIcon(imagePath: Assets.icons.location.path),
-          DropdownButton<String>(
-            value: provider.dropdownValue,
-            icon: const Icon(Icons.keyboard_arrow_down_outlined),
-            elevation: 16,
-            style: TextConstants.instance.button1,
-            underline: Container(height: 0),
-            onChanged: (String? value) {
-              provider.dropdownValue = value!;
-            },
-            items: provider.locationList
-                .map<DropdownMenuItem<String>>((String value) {
-              return DropdownMenuItem<String>(
-                value: value,
-                child: Text(
-                  value,
-                ),
-              );
-            }).toList(),
-          ),
-        ],
+      leading: FittedBox(
+        child: Wrap(
+          crossAxisAlignment: WrapCrossAlignment.center,
+          spacing: 10,
+          children: [
+            CustomIcon(imagePath: Assets.icons.location.path),
+            SizedBox(
+              width: context.dynamicWidth(0.6),
+              child: DropdownButton<String>(
+                value: provider.ddLocationValue,
+                icon: const Icon(Icons.keyboard_arrow_down_outlined),
+                elevation: 16,
+                style: TextConstants.instance.button1,
+                underline: Container(height: 0),
+                onChanged: (String? value) {
+                  provider.ddLocationValue = value!;
+                },
+                items: provider.locationList
+                    .map<DropdownMenuItem<String>>((String value) {
+                  return DropdownMenuItem<String>(
+                    value: value,
+                    child: Text(
+                      value,
+                    ),
+                  );
+                }).toList(),
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }
@@ -63,7 +68,12 @@ class HomeWidgets {
             const ServicesGridView(),
             categoryTitle(
                 title: L10n.of(context)!.popularNearYou, context: context),
-            const ShopList(),
+            ShopList(
+              isHorizontal: true,
+              cardHeight: context.dynamicHeight(0.3),
+              cardWidth: context.dynamicHeight(0.3),
+              listHeight: context.dynamicHeight(0.25),
+            ),
           ],
         ),
       ),
@@ -74,30 +84,39 @@ class HomeWidgets {
 class ShopList extends StatelessWidget {
   const ShopList({
     Key? key,
+    required this.isHorizontal,
+    required this.cardHeight,
+    required this.cardWidth,
+    required this.listHeight,
   }) : super(key: key);
-
+  final bool isHorizontal;
+  final double cardHeight;
+  final double cardWidth;
+  final double listHeight;
   @override
   Widget build(BuildContext context) {
     final provider = Provider.of<HomeViewModel>(context);
 
     var fake = Faker();
     return SizedBox(
-      height: context.dynamicHeight(0.25),
+      height: listHeight,
       child: ListView.builder(
         itemCount: 3,
         shrinkWrap: true,
-        scrollDirection: Axis.horizontal,
+        scrollDirection: isHorizontal ? Axis.horizontal : Axis.vertical,
         itemBuilder: (context, index) {
           return ShopCard(
             address: fake.address.city(),
             distance: fake.randomGenerator.integer(20).toDouble(),
             genderType: fake.person.random.string(20),
             hasDiscount: fake.randomGenerator.boolean(),
-            imagePath: buildShopCardImage(provider.dropdownValue),
+            imagePath: buildShopCardImage(provider.ddLocationValue),
             rating: fake.randomGenerator.integer(20).toDouble(),
             shopName: fake.company.name(),
             shopTypes: fake.company.name(),
             discountAmount: fake.randomGenerator.integer(20).toDouble(),
+            cardHeight: cardHeight,
+            cardWidth: cardWidth,
           );
         },
       ),
@@ -125,17 +144,35 @@ class FilterList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     List<String> genderList = ["Women", "Man"];
+    List<String> priceList = ["a", "b"];
+    final provider = Provider.of<HomeViewModel>(context);
 
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
         Expanded(
-            child: CustomDropdownButton(
-                list: genderList, hintText: DDHintText.gender)),
+          child: CustomDropdownButton(
+            value: provider.ddGenderValue,
+            onChanged: (String? value) {
+              provider.setDropDownGenderValue(value!);
+              provider.ddGenderValue = value;
+            },
+            list: genderList,
+            hintText: DDHintText.gender,
+          ),
+        ),
         context.emptySizedWidthBoxLow,
         Expanded(
-            child: CustomDropdownButton(
-                list: genderList, hintText: DDHintText.price)),
+          child: CustomDropdownButton<String>(
+            value: provider.ddPriceValue,
+            onChanged: (String? value) {
+              provider.setDropDownPriceValue(value!);
+              provider.ddPriceValue = value;
+            },
+            list: priceList,
+            hintText: DDHintText.price,
+          ),
+        ),
         context.emptySizedWidthBoxLow,
         const Expanded(child: OfferButton()),
         context.emptySizedWidthBoxLow,

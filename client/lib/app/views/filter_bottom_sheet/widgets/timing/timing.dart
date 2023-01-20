@@ -4,14 +4,9 @@ import 'package:client/core/extensions/common_extension.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-class TimingFilter extends StatefulWidget {
+class TimingFilter extends StatelessWidget {
   const TimingFilter({super.key});
 
-  @override
-  State<TimingFilter> createState() => _TimingFilterState();
-}
-
-class _TimingFilterState extends State<TimingFilter> {
   @override
   Widget build(BuildContext context) {
     final checkboxNotifier = Provider.of<TimingNotifier>(context);

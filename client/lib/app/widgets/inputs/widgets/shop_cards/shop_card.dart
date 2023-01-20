@@ -15,34 +15,32 @@ class ShopCard extends StatelessWidget with ShopCardWidgets {
     required this.distance,
     required this.hasDiscount,
     this.discountAmount,
+    required this.cardHeight,
+    required this.cardWidth,
   });
 
   final String genderType, shopName, imagePath, address, shopTypes;
   final double rating, distance;
   final double? discountAmount;
   final bool hasDiscount;
+  final double cardHeight;
+  final double cardWidth;
 
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: context.dynamicHeight(0.3),
-      width: context.dynamicHeight(0.3),
+      height: cardHeight,
+      width: cardWidth,
       child: CustomCard(
           child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          Expanded(flex: 2, child: shopImage(imagePath)),
+          Expanded(flex: 3, child: shopImage(imagePath)),
           context.emptySizedHeightBoxLow,
           Expanded(
-            child: shopInformation(
-              context,
-              shopName,
-              shopTypes,
-              rating,
-              address,
-              discountAmount,
-            ),
+            flex: 1,
+            child: shopInformation(context, shopName, shopTypes, rating, address, discountAmount, false),
           ),
         ],
       )),

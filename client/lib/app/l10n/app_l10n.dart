@@ -141,11 +141,11 @@ abstract class L10n {
   /// **'Already have an Account?'**
   String get haveAnAccount;
 
-  /// No description provided for @name.
+  /// No description provided for @fullName.
   ///
   /// In en, this message translates to:
-  /// **'name'**
-  String get name;
+  /// **'Full name'**
+  String get fullName;
 
   /// No description provided for @email.
   ///
