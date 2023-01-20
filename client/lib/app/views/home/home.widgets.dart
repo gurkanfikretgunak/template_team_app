@@ -63,9 +63,11 @@ class HomeWidgets {
           children: [
             const CustomSearchField(),
             const FilterList(),
-            categoryTitle(title: L10n.of(context)!.beautyServices, context: context),
+            categoryTitle(
+                title: L10n.of(context)!.beautyServices, context: context),
             const ServicesGridView(),
-            categoryTitle(title: L10n.of(context)!.popularNearYou, context: context),
+            categoryTitle(
+                title: L10n.of(context)!.popularNearYou, context: context),
             ShopList(
               isHorizontal: true,
               cardHeight: context.dynamicHeight(0.3),
@@ -148,7 +150,6 @@ class FilterList extends StatelessWidget {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
-<<<<<<< HEAD
         Expanded(
           child: CustomDropdownButton(
             value: provider.ddGenderValue,
@@ -172,11 +173,6 @@ class FilterList extends StatelessWidget {
             hintText: DDHintText.price,
           ),
         ),
-=======
-        Expanded(child: CustomDropdownButton(list: genderList, hintText: DDHintText.gender)),
-        context.emptySizedWidthBoxLow,
-        Expanded(child: CustomDropdownButton(list: genderList, hintText: DDHintText.price)),
->>>>>>> 5ba220af86722241d1c9575146b520a461da617c
         context.emptySizedWidthBoxLow,
         const Expanded(child: OfferButton()),
         context.emptySizedWidthBoxLow,
