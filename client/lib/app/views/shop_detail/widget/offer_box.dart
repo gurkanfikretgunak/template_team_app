@@ -16,7 +16,7 @@ class OfferBoxWidget extends StatelessWidget {
     return Column(
       children: [
         CustomOutlinedButton(
-          borderSideColor: ButtonColor.dark,
+          borderSideColor: ButtonColor.transparent,
           onPressed: () {},
           child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,

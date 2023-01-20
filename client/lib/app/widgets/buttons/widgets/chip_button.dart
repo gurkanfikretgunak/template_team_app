@@ -23,7 +23,7 @@ class ChipButton extends BaseView {
     return InkWell(
       onTap: onTap,
       child: Container(
-        height: height,
+        height: 30,
         decoration: BoxDecoration(
           color: color ?? ColorConstant.instance.light2,
           borderRadius: const BorderRadius.all(Radius.circular(25)),
