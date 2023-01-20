@@ -14,46 +14,39 @@ import '../../widgets/list_items/list_items_widget.dart';
 
 class BookingDetailWidgets {
   appBar(BuildContext context) {
-    return CustomAppbar(
-      leading: InkWell(
-        onTap: () {
-          Navigator.pop(context);
-        },
-        child: Icon(
-          Icons.close,
-          color: ColorConstant.instance.dark0,
-        ),
-      ),
-    );
+    return const CustomAppbar();
   }
 
   body(BuildContext context) {
-    return Padding(
-      padding: context.paddingNormal,
-      child: Wrap(
-        alignment: WrapAlignment.spaceBetween,
-        runSpacing: 30,
-        children: [
-          Text("Order Details", style: TextConstants.instance.heading5),
-          bookingTitle(),
-          BookingDateAndLocation(
-              iconPath: Assets.icons.shop.path, text: "Shop Service"),
-          const CustomDivider(type: DividerType.dashed),
-          BookingDateAndLocation(
-              iconPath: Assets.icons.calender.path, text: "10 March 2021"),
-          const CustomDivider(type: DividerType.dashed),
-          orderItemList(),
-          const CustomDivider(type: DividerType.dashed),
-          totalInformations(),
-          SizedBox(
-            width: context.dynamicWidth(1),
-            child: CustomElevatedButton(
-              onPressed: () {},
-              text: "Reorder Booking",
-              textColor: ButtonColor.light,
-            ),
-          )
-        ],
+    return SingleChildScrollView(
+      physics: const BouncingScrollPhysics(),
+      child: Padding(
+        padding: context.paddingNormal,
+        child: Wrap(
+          alignment: WrapAlignment.spaceBetween,
+          runSpacing: 30,
+          children: [
+            Text("Order Details", style: TextConstants.instance.heading5),
+            bookingTitle(),
+            BookingDateAndLocation(
+                iconPath: Assets.icons.shop.path, text: "Shop Service"),
+            const CustomDivider(type: DividerType.dashed),
+            BookingDateAndLocation(
+                iconPath: Assets.icons.calender.path, text: "10 March 2021"),
+            const CustomDivider(type: DividerType.dashed),
+            orderItemList(),
+            const CustomDivider(type: DividerType.dashed),
+            totalInformations(),
+            SizedBox(
+              width: context.dynamicWidth(1),
+              child: CustomElevatedButton(
+                onPressed: () {},
+                text: "Reorder Booking",
+                textColor: ButtonColor.light,
+              ),
+            )
+          ],
+        ),
       ),
     );
   }
