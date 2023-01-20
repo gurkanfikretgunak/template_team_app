@@ -1,8 +1,10 @@
+import 'package:client/app/views/onboarding/onboarding.view.dart';
 import 'package:client/app/views/splash/splash.widgets.dart';
-import 'package:client/app/widgets/divider/widgets/custom_divider.dart';
 import 'package:client/core/base/base_view/base_view.dart';
+import 'package:client/core/constans/color_constants.dart';
+import 'package:client/core/constans/text_constants.dart';
+import 'package:client/core/extensions/common_extension.dart';
 import 'package:flutter/material.dart';
-import '../../widgets/inputs/inputs_widgets.dart';
 
 class SplashView extends BaseView with SplashWidgets {
   const SplashView(this.error, {super.key});
@@ -15,35 +17,10 @@ class SplashView extends BaseView with SplashWidgets {
 
   @override
   Widget build(BuildContext context) {
-    List<String> list2 = <String>[
-      "a",
-      "b",
-      "c",
-    ];
     return dynamicBuild(
       context,
       error: backendError(),
-      body: Column(
-        children: [
-          const Text('not errror'),
-          const CustomTextFormField(
-            labelTextValue: "xlkv",
-            labelTextRequired: LabelText.required,
-            focusedBorderColor: TextFormFieldColor.purple,
-            enabledBorderColor: TextFormFieldColor.green,
-          ),
-          const CustomSearchField(),
-          const CustomDivider(type: DividerType.dashed),
-          // CustomTabBar(
-          //   tabBarList: tabbarList,
-          //   tabBarViewList: tabbarViewList,
-          // ),
-
-          CustomRadioButton(
-            list: list2,
-          )
-        ],
-      ),
+      body: body(context),
       errorBody: const Text('errorrrr'),
     );
   }

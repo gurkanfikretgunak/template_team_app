@@ -10,6 +10,7 @@ import 'package:client/app/widgets/divider/divider_widgets.dart';
 import 'package:client/app/widgets/divider/widgets/custom_divider.dart';
 import 'package:client/app/widgets/image_viewer/icons/icons_widgets.dart';
 import 'package:client/app/widgets/inputs/widgets/text_fields/custom_text_form_field.dart';
+import 'package:client/app/widgets/inputs/widgets/text_fields/keyboard_type.dart';
 import 'package:client/core/constans/text_constants.dart';
 import 'package:client/core/extensions/common_extension.dart';
 
@@ -56,11 +57,14 @@ class SignInWidgets {
             Wrap(
               children: [
                 CustomTextFormField(
-                    labelTextValue: L10n.of(context)!.email,
-                    hintText: "john@example.com"),
+                  labelTextValue: L10n.of(context)!.email,
+                  hintText: "john@example.com",
+                  keyboardType: KeyboardType.email,
+                ),
                 CustomTextFormField(
-                    labelTextValue: L10n.of(context)!.password,
-                    hintText: "Set a password"),
+                  labelTextValue: L10n.of(context)!.password,
+                  hintText: "Set a password",
+                ),
                 SizedBox(
                   width: context.dynamicWidth(1),
                   child: CustomElevatedButton(

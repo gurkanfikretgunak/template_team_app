@@ -165,4 +165,7 @@ class L10nTr extends L10n {
 
   @override
   String get logoutDesc => 'Uygulamadan çıkmak istediğinizden emin misiniz?';
+
+  @override
+  String get apply => 'Uygula';
 }

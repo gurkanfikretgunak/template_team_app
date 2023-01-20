@@ -416,6 +416,12 @@ abstract class L10n {
   /// In en, this message translates to:
   /// **'Are you sure want to logout from the app?'**
   String get logoutDesc;
+
+  /// No description provided for @apply.
+  ///
+  /// In en, this message translates to:
+  /// **'Apply'**
+  String get apply;
 }
 
 class _L10nDelegate extends LocalizationsDelegate<L10n> {

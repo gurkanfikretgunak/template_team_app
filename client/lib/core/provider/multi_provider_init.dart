@@ -27,5 +27,6 @@ class MultiProviderInit {
     ChangeNotifierProvider(create: (_) => BookingViewModel()),
     ChangeNotifierProvider(create: (_) => VerifyOtpViewModel()),
     ChangeNotifierProvider(create: (_) => ShopDetailViewModel()),
+    // ChangeNotifierProvider(create: (_) => SortViewModel()),
   ];
 }

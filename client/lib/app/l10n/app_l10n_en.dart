@@ -165,4 +165,7 @@ class L10nEn extends L10n {
 
   @override
   String get logoutDesc => 'Are you sure want to logout from the app?';
+
+  @override
+  String get apply => 'Apply';
 }

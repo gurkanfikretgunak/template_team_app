@@ -10,14 +10,7 @@ class VerifyOtbView extends BaseView with VerifyOtpWidgets {
   Widget build(BuildContext context) {
     return baseBuild(
       context,
-      appbar: CustomAppbar(
-        leading: IconButton(
-          onPressed: () {},
-          icon: const Icon(
-            Icons.arrow_back,
-          ),
-        ),
-      ),
+      appbar: const CustomAppbar(),
       body: otpInputBody(context),
     );
   }
