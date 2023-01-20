@@ -37,8 +37,7 @@ class HomeWidgets {
                 onChanged: (String? value) {
                   provider.ddLocationValue = value!;
                 },
-                items: provider.locationList
-                    .map<DropdownMenuItem<String>>((String value) {
+                items: provider.locationList.map<DropdownMenuItem<String>>((String value) {
                   return DropdownMenuItem<String>(
                     value: value,
                     child: Text(
@@ -63,12 +62,11 @@ class HomeWidgets {
           children: [
             const CustomSearchField(),
             const FilterList(),
-            categoryTitle(
-                title: L10n.of(context)!.beautyServices, context: context),
+            categoryTitle(title: L10n.of(context)!.beautyServices, context: context),
             const ServicesGridView(),
-            categoryTitle(
-                title: L10n.of(context)!.popularNearYou, context: context),
+            categoryTitle(title: L10n.of(context)!.popularNearYou, context: context),
             ShopList(
+              imageFlex: 2,
               isHorizontal: true,
               cardHeight: context.dynamicHeight(0.3),
               cardWidth: context.dynamicHeight(0.3),
@@ -88,11 +86,13 @@ class ShopList extends StatelessWidget {
     required this.cardHeight,
     required this.cardWidth,
     required this.listHeight,
+    required this.imageFlex,
   }) : super(key: key);
   final bool isHorizontal;
   final double cardHeight;
   final double cardWidth;
   final double listHeight;
+  final int imageFlex;
   @override
   Widget build(BuildContext context) {
     final provider = Provider.of<HomeViewModel>(context);
@@ -106,6 +106,7 @@ class ShopList extends StatelessWidget {
         scrollDirection: isHorizontal ? Axis.horizontal : Axis.vertical,
         itemBuilder: (context, index) {
           return ShopCard(
+            imageFlex: imageFlex,
             address: fake.address.city(),
             distance: fake.randomGenerator.integer(20).toDouble(),
             genderType: fake.person.random.string(20),
