@@ -1,5 +1,4 @@
 import 'package:client/app/views/bookings/widgets/tabbar_view/tabbar_view_type.dart';
-import 'package:client/app/widgets/divider/divider_widgets.dart';
 import 'package:client/core/base/base_view/base_view.dart';
 import 'package:client/core/extensions/common_extension.dart';
 import 'package:client/core/init/routes/navigation_service.dart';
@@ -20,25 +19,11 @@ class BookingsTabBarView extends BaseView {
       error: HasError.off,
       body: Padding(
         padding: context.paddingNormal,
-        child: ListView.separated(
-          physics: const BouncingScrollPhysics(),
-          shrinkWrap: true,
-          itemCount: 5,
-          separatorBuilder: (context, index) {
-            return Padding(
-              padding: context.verticalPaddingNormal,
-              child: const CustomDivider(type: DividerType.dashed),
-            );
+        child: InkWell(
+          onTap: () {
+            NavigationService.instance.navigateToPage(Routes.bookingDetail.name);
           },
-          itemBuilder: (context, index) {
-            return InkWell(
-              onTap: () {
-                NavigationService.instance
-                    .navigateToPage(Routes.bookingDetail.name);
-              },
-              child: TabBarViewTypeLabel().buildOrderCard(tabBarViewType),
-            );
-          },
+          child: TabBarViewTypeLabel().buildOrderCard(tabBarViewType),
         ),
       ),
       errorBody: const Text("df"),
