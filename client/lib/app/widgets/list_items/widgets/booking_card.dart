@@ -65,7 +65,7 @@ class _BookingCardState extends State<BookingCard> {
 
                     return IconButton(
                         onPressed: () {
-                          value.favMovies(widget.booking, !favoriteMovies);
+                          value.favBooking(widget.booking, !favoriteMovies);
                         },
                         icon: AnimatedCrossFade(
                           firstChild: Icon(

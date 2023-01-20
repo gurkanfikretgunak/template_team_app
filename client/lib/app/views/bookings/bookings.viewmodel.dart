@@ -9,18 +9,18 @@ class BookingViewModel extends BaseViewModel {
     notifyListeners();
   }
 
-  List<BookingModel> favoriteMovies = [];
+  List<BookingModel> favoriteBookings = [];
 
-  void favMovies(BookingModel movies, bool isFavorite) {
+  void favBooking(BookingModel booking, bool isFavorite) {
     if (isFavorite) {
-      favoriteMovies.add(movies);
+      favoriteBookings.add(booking);
     } else {
-      favoriteMovies.remove(movies);
+      favoriteBookings.remove(booking);
     }
     notifyListeners();
   }
 
-  bool isFavorite(BookingModel movies) {
-    return favoriteMovies.contains(movies);
+  bool isFavorite(BookingModel booking) {
+    return favoriteBookings.contains(booking);
   }
 }

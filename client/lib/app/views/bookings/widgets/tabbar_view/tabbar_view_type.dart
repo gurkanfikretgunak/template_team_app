@@ -53,9 +53,9 @@ class TabBarViewTypeLabel {
         return Consumer<BookingViewModel>(builder: (context, value, child) {
           return ListView.builder(
             shrinkWrap: true,
-            itemCount: value.favoriteMovies.length,
+            itemCount: value.favoriteBookings.length,
             itemBuilder: (context, index) {
-              return BookingCard(booking: value.favoriteMovies[index]);
+              return BookingCard(booking: value.favoriteBookings[index]);
             },
           );
         });
