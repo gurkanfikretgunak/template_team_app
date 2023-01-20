@@ -1,7 +1,6 @@
 import 'package:client/app/l10n/app_l10n.dart';
 import 'package:client/app/widgets/buttons/buttons_widgets.dart';
-import 'package:client/app/widgets/buttons/widgets/button_color.dart';
-import 'package:client/app/widgets/buttons/widgets/button_size.dart';
+
 import 'package:client/core/constans/color_constants.dart';
 import 'package:client/core/constans/text_constants.dart';
 import 'package:client/core/extensions/common_extension.dart';

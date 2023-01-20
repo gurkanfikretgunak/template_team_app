@@ -1,10 +1,9 @@
+import 'package:client/app/routes/routes_widgets.dart';
 import 'package:client/app/widgets/buttons/widgets/button_color.dart';
 import 'package:client/app/widgets/buttons/widgets/button_size.dart';
 import 'package:client/app/widgets/buttons/widgets/custom_text_button.dart';
 import 'package:client/core/constans/color_constants.dart';
 import 'package:client/core/constans/text_constants.dart';
-import 'package:client/core/init/routes/navigation_service.dart';
-import 'package:client/core/init/routes/routes.dart';
 import 'package:flutter/material.dart';
 
 class AppBarContent extends StatelessWidget {

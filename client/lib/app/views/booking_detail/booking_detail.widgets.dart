@@ -1,6 +1,5 @@
 import 'package:client/app/views/booking_detail/widgets/booking_date_and_location.dart';
 import 'package:client/app/widgets/buttons/buttons_widgets.dart';
-import 'package:client/app/widgets/buttons/widgets/button_color.dart';
 import 'package:client/app/widgets/custom_appbar.dart';
 import 'package:client/app/widgets/divider/divider_widgets.dart';
 import 'package:client/app/widgets/image_viewer/icons/widgets/favorite_icon.dart';

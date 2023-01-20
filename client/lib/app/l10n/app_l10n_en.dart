@@ -29,7 +29,7 @@ class L10nEn extends L10n {
   String get haveAnAccount => 'Already have an Account?';
 
   @override
-  String get name => 'name';
+  String get fullName => 'Full name';
 
   @override
   String get email => 'email';

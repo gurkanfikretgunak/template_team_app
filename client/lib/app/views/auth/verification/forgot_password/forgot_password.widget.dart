@@ -1,12 +1,11 @@
 import 'package:client/app/l10n/app_l10n.dart';
+import 'package:client/app/routes/routes_widgets.dart';
 import 'package:client/app/widgets/buttons/widgets/button_color.dart';
 import 'package:client/app/widgets/buttons/widgets/custom_elevated_button.dart';
 import 'package:client/app/widgets/inputs/widgets/text_fields/custom_text_form_field.dart';
 import 'package:client/app/widgets/inputs/widgets/text_fields/keyboard_type.dart';
 import 'package:client/core/constans/text_constants.dart';
 import 'package:client/core/extensions/common_extension.dart';
-import 'package:client/core/init/routes/navigation_service.dart';
-import 'package:client/core/init/routes/routes.dart';
 import 'package:flutter/material.dart';
 
 class ForgotPasswordWidgets {
