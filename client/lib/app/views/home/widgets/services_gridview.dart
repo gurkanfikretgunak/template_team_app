@@ -2,6 +2,8 @@ import 'package:client/app/widgets/image_viewer/custom_viewer_image.dart';
 import 'package:client/core/constans/color_constants.dart';
 import 'package:client/core/constans/text_constants.dart';
 import 'package:client/core/extensions/common_extension.dart';
+import 'package:client/core/init/routes/navigation_service.dart';
+import 'package:client/core/init/routes/routes.dart';
 import 'package:client/gen/assets.gen.dart';
 import 'package:flutter/material.dart';
 
@@ -36,40 +38,44 @@ class ServicesGridView extends StatelessWidget {
         "text": "Bleach for women",
       },
     ];
-    return GridView.builder(
-      itemCount: beautyServiceList.length,
-      physics: const NeverScrollableScrollPhysics(),
-      shrinkWrap: true,
-      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-        crossAxisCount: 3,
-        mainAxisSpacing: context.lowValue,
-        crossAxisSpacing: context.lowValue,
-      ),
-      itemBuilder: (context, index) {
-        var key = beautyServiceList[index];
-
-        return Center(
-          child: Wrap(
-            direction: Axis.vertical,
-            spacing: 2,
-            children: [
-              Container(
-                  decoration: BoxDecoration(
-                    borderRadius: const BorderRadius.all(Radius.circular(100)),
-                    border: Border.all(
-                        width: 2, color: ColorConstant.instance.purple2),
-                  ),
-                  child: CustomImageViewer(assetPath: key['image'])),
-              Text(
-                key['text'],
-                style: TextConstants.instance.subtitle1.copyWith(
-                  fontSize: 13,
-                ),
-              )
-            ],
-          ),
-        );
+    return GestureDetector(
+      onTap: () {
+        NavigationService.instance.navigateToPage(Routes.shop.name);
       },
+      child: GridView.builder(
+        itemCount: beautyServiceList.length,
+        physics: const NeverScrollableScrollPhysics(),
+        shrinkWrap: true,
+        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+          crossAxisCount: 3,
+          mainAxisSpacing: context.lowValue,
+          crossAxisSpacing: context.lowValue,
+        ),
+        itemBuilder: (context, index) {
+          var key = beautyServiceList[index];
+
+          return Center(
+            child: Wrap(
+              direction: Axis.vertical,
+              spacing: 2,
+              children: [
+                Container(
+                    decoration: BoxDecoration(
+                      borderRadius: const BorderRadius.all(Radius.circular(100)),
+                      border: Border.all(width: 2, color: ColorConstant.instance.purple2),
+                    ),
+                    child: CustomImageViewer(assetPath: key['image'])),
+                Text(
+                  key['text'],
+                  style: TextConstants.instance.subtitle1.copyWith(
+                    fontSize: 13,
+                  ),
+                )
+              ],
+            ),
+          );
+        },
+      ),
     );
   }
 }
