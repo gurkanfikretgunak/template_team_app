@@ -1,8 +1,6 @@
 import 'package:client/app/routes/routes_widgets.dart';
 import 'package:client/app/views/home/home.viewmodel.dart';
 import 'package:client/app/views/home/home.widgets.dart';
-import 'package:client/app/widgets/system_ui_overlay/navigation/custom_navigation.dart';
-import 'package:client/app/widgets/system_ui_overlay/navigation/navigation_select.dart';
 import 'package:client/core/constans/color_constants.dart';
 import 'package:client/core/constans/text_constants.dart';
 import 'package:client/core/extensions/common_extension.dart';
@@ -15,25 +13,25 @@ class ShopHomeWidgets {
   Widget appBarBody(BuildContext context) {
     return Stack(
       children: [
-        SizedBox(
-            width: context.width,
-            child: Image.asset(Assets.images.shop.homeShop1.path,
-                fit: BoxFit.cover)),
-        NavigationsWidget(
-          true,
-          () {
+        SizedBox(width: context.width, child: Image.asset(Assets.images.shop.homeShop1.path, fit: BoxFit.cover)),
+        BackButton(
+          color: ColorConstant.instance.light4,
+          onPressed: () {
             Navigator.pop(context);
           },
-          Navigations.back,
-          "null",
-          Align(alignment: Alignment.topCenter, child: dropDownCity(context)),
         ),
+        dropDownCity(context),
         Align(
             alignment: Alignment.bottomLeft,
-            child: Text(
-              "Haircut for Men",
-              style: TextConstants.instance.heading3
-                  .copyWith(color: ColorConstant.instance.light4),
+            child: Padding(
+              padding: context.paddingNormal,
+              child: SizedBox(
+                width: 300,
+                child: Text(
+                  "Haircut for Men",
+                  style: TextConstants.instance.heading3.copyWith(color: ColorConstant.instance.light4),
+                ),
+              ),
             )),
       ],
     );
@@ -47,15 +45,16 @@ class ShopHomeWidgets {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            const FilterList(),
-            Text("102 shops giving Haircut service",
-                style: TextConstants.instance.label1),
+            const SizedBox(height: 50, child: FilterList()),
+            context.emptySizedHeightBoxLow,
+            Text("102 shops giving Haircut service", style: TextConstants.instance.label1),
+            context.emptySizedHeightBoxLow,
             GestureDetector(
                 onTap: () {
-                  NavigationService.instance
-                      .navigateToPage(Routes.shopDetail.name);
+                  NavigationService.instance.navigateToPage(Routes.shopDetail.name);
                 },
                 child: ShopList(
+                    imageFlex: 3,
                     cardHeight: 300,
                     cardWidth: context.dynamicWidth(0.3),
                     isHorizontal: false,
@@ -75,29 +74,25 @@ class ShopHomeWidgets {
         crossAxisAlignment: WrapCrossAlignment.center,
         spacing: 10,
         children: [
-          CustomIcon(
-              imagePath: Assets.icons.location.path,
-              iconColor: ColorConstant.instance.light4),
-          // DropdownButton<String>(
-          //   value: provider.dropdownValue,
-          //   icon: const Icon(Icons.keyboard_arrow_down_outlined),
-          //   elevation: 16,
-          //   style: TextConstants.instance.button1
-          //       .copyWith(color: ColorConstant.instance.light4),
-          //   underline: Container(height: 0),
-          //   onChanged: (String? value) {
-          //     provider.dropdownValue = value!;
-          //   },
-          //   items: provider.locationList
-          //       .map<DropdownMenuItem<String>>((String value) {
-          //     return DropdownMenuItem<String>(
-          //       value: value,
-          //       child: Text(
-          //         value,
-          //       ),
-          //     );
-          //   }).toList(),
-          // ),
+          CustomIcon(imagePath: Assets.icons.location.path, iconColor: ColorConstant.instance.light4),
+          DropdownButton<String>(
+            value: provider.ddLocationValue,
+            icon: const Icon(Icons.keyboard_arrow_down_outlined),
+            elevation: 16,
+            style: TextConstants.instance.button1.copyWith(color: ColorConstant.instance.light4),
+            underline: Container(height: 0),
+            onChanged: (String? value) {
+              provider.ddLocationValue = value!;
+            },
+            items: provider.locationList.map<DropdownMenuItem<String>>((String value) {
+              return DropdownMenuItem<String>(
+                value: value,
+                child: Text(
+                  value,
+                ),
+              );
+            }).toList(),
+          ),
         ],
       ),
     );
