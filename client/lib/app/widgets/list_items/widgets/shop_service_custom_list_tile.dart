@@ -1,12 +1,10 @@
+import 'package:client/app/l10n/app_l10n.dart';
 import 'package:client/app/widgets/buttons/buttons_widgets.dart';
-import 'package:client/app/widgets/image_viewer/icons/icons_widgets.dart';
 import 'package:client/app/widgets/list_items/list_items_widget.dart';
 import 'package:client/core/constans/color_constants.dart';
-import 'package:client/core/constans/shadow_effect_constants.dart';
+import 'package:client/core/constans/text_constants.dart';
 import 'package:client/gen/assets.gen.dart';
 import 'package:flutter/material.dart';
-
-import '../../custom_text.dart';
 
 class ShopServiceCustomListTile extends StatelessWidget {
   const ShopServiceCustomListTile({
@@ -43,8 +41,10 @@ class ShopServiceCustomListTile extends StatelessWidget {
           width: imgSize ?? 75,
           height: imgSize ?? 75,
           decoration: BoxDecoration(
-            image:
-                DecorationImage(fit: BoxFit.cover, image: AssetImage(imgPath ?? Assets.images.shop.shopDetail2.path)),
+            image: DecorationImage(
+                fit: BoxFit.cover,
+                image:
+                    AssetImage(imgPath ?? Assets.images.shop.shopDetail2.path)),
             borderRadius: BorderRadius.all(Radius.circular(imgRadius ?? 8)),
           ),
         ),
@@ -66,32 +66,21 @@ class ShopServiceCustomListTile extends StatelessWidget {
             ],
           ),
         ),
-        // buttonText ?? 'Select'
         isSelected
             ? ProductCountButton(onRemove: () {}, productCount: 1, onAdd: () {})
-            : SizedBox(
-                child: Container(
-                  width: 80,
-                  height: 30,
-                  decoration: BoxDecoration(boxShadow: [
-                    ShadowEffectConstants.instance.elevationBase[0],
-                  ]),
-                  child: CustomElevatedButton(
-                    buttonColor: ButtonColor.light,
-                    text: "",
-                    onPressed: () {},
-                    child: Row(
-                      children: [
-                        CustomText(
-                          buttonText ?? 'Select',
-                          color: ColorConstant.instance.purple2,
-                        ),
-                        CustomIcon(
-                          imagePath: Assets.icons.plus.path,
-                          iconColor: ColorConstant.instance.purple2,
-                        )
-                      ],
-                    ),
+            : CustomOutlinedButton(
+                onPressed: () {},
+                child: Center(
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text(
+                        L10n.of(context)!.select,
+                        style: TextConstants.instance.label1
+                            .copyWith(color: ColorConstant.instance.purple2),
+                      ),
+                      Icon(Icons.add, color: ColorConstant.instance.purple2),
+                    ],
                   ),
                 ),
               ),

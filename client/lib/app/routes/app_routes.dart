@@ -1,13 +1,4 @@
-import 'package:client/app/views/auth/sign_in/sign_in.view.dart';
-import 'package:client/app/views/auth/sign_up/sign_up.view.dart';
-import 'package:client/app/views/auth/verification/forgot_password/forgot_password.view.dart';
-import 'package:client/app/views/auth/verification/verify_otp/verify_otp.view.dart';
-import 'package:client/app/views/booking_detail/booking_detail.view.dart';
-import 'package:client/app/views/navigation/navigation.view.dart';
-import 'package:client/app/views/onboarding/onboarding.view.dart';
-import 'package:client/app/views/shop/shop.view.dart';
-import 'package:client/app/routes/routes.dart';
-import 'package:client/app/views/shop_detail/shop_detail.view.dart';
+import 'package:client/app/routes/routes_widgets.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -42,10 +33,30 @@ class AppRoutes {
 
       case Routes.shop:
         return FadeTransitionPageRoute(const ShopView(), settings: args);
+
       case Routes.shopDetail:
         return FadeTransitionPageRoute(const ShopDetailView(), settings: args);
+
       case Routes.bookingDetail:
         return FadeTransitionPageRoute(const BookingDetailView(false), settings: args);
+
+      case Routes.manageAddress:
+        return FadeTransitionPageRoute(const ManageAddressView(false),
+            settings: args);
+
+      case Routes.favorites:
+        return FadeTransitionPageRoute(const FavoritesView(false),
+            settings: args);
+
+      case Routes.payment:
+        return FadeTransitionPageRoute(const PaymentView(false),
+            settings: args);
+
+      case Routes.notification:
+        return FadeTransitionPageRoute(const SizedBox(), settings: args);
+
+      case Routes.about:
+        return FadeTransitionPageRoute(const AboutView(false), settings: args);
 
       default:
         return MaterialPageRoute(

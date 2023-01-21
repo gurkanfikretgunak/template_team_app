@@ -39,4 +39,11 @@ class TimingNotifier extends ChangeNotifier {
       default:
     }
   }
+
+  clear() {
+    for (var element in timingFilterOptions) {
+      element['isSelected'] = false;
+    }
+    notifyListeners();
+  }
 }

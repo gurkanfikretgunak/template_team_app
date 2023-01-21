@@ -14,17 +14,25 @@ class GenderNotifier extends ChangeNotifier {
 
   setChange(String title) {
     switch (title) {
-      case "Women":
+      case "Male":
         genderFilterOptions[0]['isSelected'] =
             !genderFilterOptions[0]['isSelected'];
         notifyListeners();
         break;
-      case "Man":
+      case "Female":
         genderFilterOptions[1]['isSelected'] =
             !genderFilterOptions[1]['isSelected'];
         notifyListeners();
         break;
+
       default:
     }
+  }
+
+  clear() {
+    for (var element in genderFilterOptions) {
+      element['isSelected'] = false;
+    }
+    notifyListeners();
   }
 }

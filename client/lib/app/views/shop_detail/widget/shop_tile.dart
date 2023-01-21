@@ -11,7 +11,6 @@ class ShopListWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      width: context.dynamicWidth(0.85),
       height: context.dynamicHeight(0.8),
       child: ListView.builder(
         physics: const NeverScrollableScrollPhysics(),

@@ -238,6 +238,9 @@ class $AssetsImagesGen {
   /// File path: assets/images/images.png
   AssetGenImage get images => const AssetGenImage('assets/images/images.png');
 
+  /// File path: assets/images/logo.png
+  AssetGenImage get logo => const AssetGenImage('assets/images/logo.png');
+
   $AssetsImagesOnboardingGen get onboarding =>
       const $AssetsImagesOnboardingGen();
 
@@ -248,7 +251,7 @@ class $AssetsImagesGen {
   $AssetsImagesShopGen get shop => const $AssetsImagesShopGen();
 
   /// List of all assets
-  List<AssetGenImage> get values => [images, profilPhoto];
+  List<AssetGenImage> get values => [images, logo, profilPhoto];
 }
 
 class $AssetsImagesHomeGen {

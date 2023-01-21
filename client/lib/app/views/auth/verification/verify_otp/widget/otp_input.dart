@@ -1,5 +1,6 @@
 import 'package:client/app/views/auth/verification/verify_otp/verify_otp.viewmodel.dart';
 import 'package:client/core/constans/color_constants.dart';
+import 'package:client/core/extensions/common_extension.dart';
 import 'package:flutter/material.dart';
 import 'package:logger/logger.dart';
 import 'package:pin_code_fields/pin_code_fields.dart';
@@ -22,13 +23,14 @@ class _OtpInputState extends State<OtpInput> {
         obscureText: false,
         animationType: AnimationType.fade,
         pinTheme: pinTheme(),
-        animationDuration: const Duration(milliseconds: 300),
+        animationDuration: context.durationNormal,
         enableActiveFill: true,
         controller: textEditingController,
         onCompleted: onComplated,
         onChanged: onChanged,
         beforeTextPaste: beforeTextPaste,
         appContext: context,
+        keyboardType: TextInputType.number,
       ),
     );
   }
