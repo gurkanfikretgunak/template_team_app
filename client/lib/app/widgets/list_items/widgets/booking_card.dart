@@ -34,31 +34,25 @@ class _BookingCardState extends State<BookingCard> {
               spacing: 4,
               children: [
                 Text(widget.booking.title!,
-                    style: TextConstants.instance.label1
-                        .copyWith(fontWeight: FontWeight.w600, fontSize: 16)),
+                    style: TextConstants.instance.label1.copyWith(fontWeight: FontWeight.w600, fontSize: 16)),
                 Row(
                   children: [
                     Text(widget.booking.location!,
-                        style: TextConstants.instance.subtitle2
-                            .copyWith(color: ColorConstant.instance.dark3)),
+                        style: TextConstants.instance.subtitle2.copyWith(color: ColorConstant.instance.dark3)),
                     const DotIconWidget(),
                     Text(widget.booking.distance!,
-                        style: TextConstants.instance.subtitle2
-                            .copyWith(color: ColorConstant.instance.dark3)),
+                        style: TextConstants.instance.subtitle2.copyWith(color: ColorConstant.instance.dark3)),
                   ],
                 ),
                 Text(widget.booking.desc!,
-                    style: TextConstants.instance.subtitle2
-                        .copyWith(color: ColorConstant.instance.dark3)),
+                    style: TextConstants.instance.subtitle2.copyWith(color: ColorConstant.instance.dark3)),
                 Row(
                   children: [
                     Text(widget.booking.date!,
-                        style: TextConstants.instance.subtitle1
-                            .copyWith(color: ColorConstant.instance.dark3)),
+                        style: TextConstants.instance.subtitle1.copyWith(color: ColorConstant.instance.dark3)),
                     const DotIconWidget(),
                     Text(widget.booking.price!,
-                        style: TextConstants.instance.subtitle1
-                            .copyWith(color: ColorConstant.instance.dark3)),
+                        style: TextConstants.instance.subtitle1.copyWith(color: ColorConstant.instance.dark3)),
                   ],
                 ),
               ],
@@ -79,9 +73,7 @@ class _BookingCardState extends State<BookingCard> {
                             color: ColorConstant.instance.purple2,
                           ),
                           secondChild: const Icon(Icons.favorite_border),
-                          crossFadeState: favoriteMovies
-                              ? CrossFadeState.showFirst
-                              : CrossFadeState.showSecond,
+                          crossFadeState: favoriteMovies ? CrossFadeState.showFirst : CrossFadeState.showSecond,
                           duration: const Duration(seconds: 1),
                         ));
                   },
@@ -111,7 +103,7 @@ class _BookingCardState extends State<BookingCard> {
                     height: context.dynamicHeight(0.046),
                     child: CustomOutlinedButton(
                       onPressed: () {},
-                      text: L10n.of(context)!.edit,
+                      text: L10n.of(context)!.reorderBooking,
                       buttonSize: ButtonSize.large,
                     ),
                   ),

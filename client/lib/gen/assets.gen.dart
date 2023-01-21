@@ -317,6 +317,10 @@ class $AssetsImagesShopGen {
   AssetGenImage get homeShop2 =>
       const AssetGenImage('assets/images/shop/home_shop_2.png');
 
+  /// File path: assets/images/shop/offer.png
+  AssetGenImage get offer =>
+      const AssetGenImage('assets/images/shop/offer.png');
+
   /// File path: assets/images/shop/shop_1.jpg
   AssetGenImage get shop1 =>
       const AssetGenImage('assets/images/shop/shop_1.jpg');
@@ -381,6 +385,7 @@ class $AssetsImagesShopGen {
   List<AssetGenImage> get values => [
         homeShop1,
         homeShop2,
+        offer,
         shop1,
         shop2,
         shop3,

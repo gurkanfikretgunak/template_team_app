@@ -1,6 +1,6 @@
 import 'package:client/app/widgets/buttons/widgets/button_color.dart';
 import 'package:client/app/widgets/buttons/widgets/custom_outlined_button.dart';
-import 'package:client/core/constans/color_constants.dart';
+import 'package:client/core/extensions/common_extension.dart';
 import 'package:flutter/material.dart';
 
 import '../../../../core/constans/text_constants.dart';
@@ -23,12 +23,12 @@ class OfferBoxWidget extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
               Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   CustomIcon(
-                    imagePath: Assets.icons.offer.path,
-                    iconColor: ColorConstant.instance.purple2,
+                    imagePath: Assets.images.shop.offer.path,
                   ),
+                  context.emptySizedWidthBoxLow,
                   Text(
                     "50% off",
                     style: TextConstants.instance.button1,
