@@ -1,4 +1,3 @@
-import 'package:client/app/l10n/app_l10n.dart';
 import 'package:client/app/routes/routes_widgets.dart';
 import 'package:client/app/views/home/home.viewmodel.dart';
 import 'package:client/app/views/shop/shop_card_widget.dart';
@@ -8,6 +7,8 @@ import 'package:client/core/extensions/common_extension.dart';
 import 'package:client/gen/assets.gen.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+
+import '../../widgets/image_viewer/icons/widgets/custom_icons.dart';
 
 class ShopHomeWidgets {
   Widget body(BuildContext context) {

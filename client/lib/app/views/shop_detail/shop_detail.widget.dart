@@ -10,6 +10,7 @@ import 'package:client/core/constans/color_constants.dart';
 import 'package:client/core/extensions/common_extension.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import '../../../core/constans/text_constants.dart';
 import '../../widgets/image_viewer/icons/icons_widgets.dart';
 
 class ShopDetailWidgets {
