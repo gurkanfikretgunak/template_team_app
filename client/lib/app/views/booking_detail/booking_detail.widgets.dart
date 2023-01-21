@@ -1,3 +1,4 @@
+import 'package:client/app/l10n/app_l10n.dart';
 import 'package:client/app/views/booking_detail/widgets/booking_date_and_location.dart';
 import 'package:client/app/widgets/buttons/buttons_widgets.dart';
 import 'package:client/app/widgets/custom_appbar.dart';
@@ -13,7 +14,7 @@ import '../../widgets/list_items/list_items_widget.dart';
 
 class BookingDetailWidgets {
   appBar(BuildContext context) {
-    return const CustomAppbar();
+    return CustomAppbar(title: L10n.of(context)!.bookingDetail);
   }
 
   body(BuildContext context) {
@@ -25,7 +26,6 @@ class BookingDetailWidgets {
           alignment: WrapAlignment.spaceBetween,
           runSpacing: 30,
           children: [
-            Text("Order Details", style: TextConstants.instance.heading5),
             bookingTitle(),
             BookingDateAndLocation(
                 iconPath: Assets.icons.shop.path, text: "Shop Service"),
@@ -35,12 +35,12 @@ class BookingDetailWidgets {
             const CustomDivider(type: DividerType.dashed),
             orderItemList(),
             const CustomDivider(type: DividerType.dashed),
-            totalInformations(),
+            totalInformations(context),
             SizedBox(
               width: context.dynamicWidth(1),
               child: CustomElevatedButton(
                 onPressed: () {},
-                text: "Reorder Booking",
+                text: L10n.of(context)!.reorderBooking,
                 textColor: ButtonColor.light,
               ),
             )
@@ -60,14 +60,17 @@ class BookingDetailWidgets {
     );
   }
 
-  Widget totalInformations() {
+  Widget totalInformations(BuildContext context) {
     return Wrap(
       runSpacing: 20,
       children: [
-        totalRowStyle(text: "Item Total", price: "-\$210"),
-        totalRowStyle(text: "Item Total", price: "-\$210"),
+        totalRowStyle(text: L10n.of(context)!.itemTotal, price: "-\$210"),
+        totalRowStyle(text: L10n.of(context)!.couponDiscount, price: "-\$210"),
         const CustomDivider(),
-        totalRowStyle(text: "Item Total", price: "-\$210", isGrandTotal: true),
+        totalRowStyle(
+            text: L10n.of(context)!.grandTotal,
+            price: "-\$210",
+            isGrandTotal: true),
       ],
     );
   }
@@ -112,7 +115,7 @@ class BookingDetailWidgets {
       shrinkWrap: true,
       itemCount: 2,
       itemBuilder: (context, index) {
-        return const OrderItemsTile(productName: "Haircut");
+        return OrderItemsTile(productName: L10n.of(context)!.haircut);
       },
     );
   }
