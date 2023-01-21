@@ -116,7 +116,7 @@ class L10nEn extends L10n {
   String get yourFavoritesDesc => 'Reorder your favorite service in a click';
 
   @override
-  String get payment => 'Payment';
+  String get payment => 'Payments';
 
   @override
   String get paymentDesc => 'Payment methods, Transaction History ';
@@ -177,4 +177,28 @@ class L10nEn extends L10n {
 
   @override
   String get yourSavedAddress => 'Your saved address';
+
+  @override
+  String get termsOfService => 'Terms of Services';
+
+  @override
+  String get privacyPolicy => 'Privacy Policy';
+
+  @override
+  String get licenses => 'Licenses';
+
+  @override
+  String get paymentMethods => 'Payment Methods';
+
+  @override
+  String get applePay => 'Apple Pay';
+
+  @override
+  String get remove => 'Remove';
+
+  @override
+  String get cash => 'Cash';
+
+  @override
+  String get addPaymentMehod => 'Add payment method';
 }

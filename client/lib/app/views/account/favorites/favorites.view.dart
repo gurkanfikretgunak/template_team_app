@@ -1,11 +1,11 @@
 import 'package:client/app/l10n/app_l10n.dart';
-import 'package:client/app/views/account/about/about.widgets.dart';
+import 'package:client/app/views/account/favorites/favorites.widgets.dart';
 import 'package:client/app/widgets/custom_appbar.dart';
 import 'package:client/core/base/base_view/base_view.dart';
 import 'package:flutter/material.dart';
 
-class AboutView extends BaseView with AboutWidgets {
-  const AboutView(this.error, {super.key});
+class FavoritesView extends BaseView with FavoritesWidgets {
+  const FavoritesView(this.error, {super.key});
 
   final bool error;
 
@@ -18,7 +18,9 @@ class AboutView extends BaseView with AboutWidgets {
     return dynamicBuild(
       context,
       error: backendError(),
-      appbar: CustomAppbar(title: L10n.of(context)!.about),
+      appbar: CustomAppbar(
+        title: L10n.of(context)!.yourFavorites,
+      ),
       body: body(context),
       errorBody: const Text('errorrrr'),
     );

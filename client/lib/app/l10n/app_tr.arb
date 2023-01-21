@@ -57,7 +57,17 @@
     "apply":"Uygula",
     "select":"Seç",
     "home":"Home", 
-    "yourSavedAddress":"Your saved address"
+    "yourSavedAddress":"Your saved address",
+    "termsOfService":"Hizmet Koşulları",
+    "privacyPolicy":"Gizlilik Politikası",
+    "licenses":"Lisanslar",
+    "paymentMethods":"Ödeme Yöntemleri",
+    "applePay":"-", 
+    "remove":"Kaldır",
+    "cash":"Nakit",
+    "addPaymentMehod":"Ödeme yöntemi ekle"
+
+
 
 
 

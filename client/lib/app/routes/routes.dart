@@ -9,4 +9,8 @@ enum Routes {
   bookingDetail,
   shopDetail,
   manageAddress,
+  favorites,
+  payment,
+  notification,
+  about,
 }

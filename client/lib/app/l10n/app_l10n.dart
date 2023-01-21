@@ -318,7 +318,7 @@ abstract class L10n {
   /// No description provided for @payment.
   ///
   /// In en, this message translates to:
-  /// **'Payment'**
+  /// **'Payments'**
   String get payment;
 
   /// No description provided for @paymentDesc.
@@ -440,6 +440,54 @@ abstract class L10n {
   /// In en, this message translates to:
   /// **'Your saved address'**
   String get yourSavedAddress;
+
+  /// No description provided for @termsOfService.
+  ///
+  /// In en, this message translates to:
+  /// **'Terms of Services'**
+  String get termsOfService;
+
+  /// No description provided for @privacyPolicy.
+  ///
+  /// In en, this message translates to:
+  /// **'Privacy Policy'**
+  String get privacyPolicy;
+
+  /// No description provided for @licenses.
+  ///
+  /// In en, this message translates to:
+  /// **'Licenses'**
+  String get licenses;
+
+  /// No description provided for @paymentMethods.
+  ///
+  /// In en, this message translates to:
+  /// **'Payment Methods'**
+  String get paymentMethods;
+
+  /// No description provided for @applePay.
+  ///
+  /// In en, this message translates to:
+  /// **'Apple Pay'**
+  String get applePay;
+
+  /// No description provided for @remove.
+  ///
+  /// In en, this message translates to:
+  /// **'Remove'**
+  String get remove;
+
+  /// No description provided for @cash.
+  ///
+  /// In en, this message translates to:
+  /// **'Cash'**
+  String get cash;
+
+  /// No description provided for @addPaymentMehod.
+  ///
+  /// In en, this message translates to:
+  /// **'Add payment method'**
+  String get addPaymentMehod;
 }
 
 class _L10nDelegate extends LocalizationsDelegate<L10n> {
