@@ -1,5 +1,6 @@
 import 'package:client/app/widgets/buttons/widgets/button_color.dart';
 import 'package:client/app/widgets/buttons/widgets/custom_outlined_button.dart';
+import 'package:client/core/constans/color_constants.dart';
 import 'package:flutter/material.dart';
 
 import '../../../../core/constans/text_constants.dart';
@@ -16,7 +17,7 @@ class OfferBoxWidget extends StatelessWidget {
     return Column(
       children: [
         CustomOutlinedButton(
-          borderSideColor: ButtonColor.transparent,
+          borderSideColor: ButtonColor.dark,
           onPressed: () {},
           child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -24,7 +25,10 @@ class OfferBoxWidget extends StatelessWidget {
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
-                  CustomIcon(imagePath: Assets.icons.offer.path),
+                  CustomIcon(
+                    imagePath: Assets.icons.offer.path,
+                    iconColor: ColorConstant.instance.purple2,
+                  ),
                   Text(
                     "50% off",
                     style: TextConstants.instance.button1,

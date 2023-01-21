@@ -165,4 +165,40 @@ class L10nTr extends L10n {
 
   @override
   String get logoutDesc => 'Uygulamadan çıkmak istediğinizden emin misiniz?';
+
+  @override
+  String get apply => 'Uygula';
+
+  @override
+  String get select => 'Seç';
+
+  @override
+  String get home => 'Home';
+
+  @override
+  String get yourSavedAddress => 'Your saved address';
+
+  @override
+  String get termsOfService => 'Hizmet Koşulları';
+
+  @override
+  String get privacyPolicy => 'Gizlilik Politikası';
+
+  @override
+  String get licenses => 'Lisanslar';
+
+  @override
+  String get paymentMethods => 'Ödeme Yöntemleri';
+
+  @override
+  String get applePay => '-';
+
+  @override
+  String get remove => 'Kaldır';
+
+  @override
+  String get cash => 'Nakit';
+
+  @override
+  String get addPaymentMehod => 'Ödeme yöntemi ekle';
 }

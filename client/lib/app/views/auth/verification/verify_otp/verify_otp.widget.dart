@@ -1,3 +1,4 @@
+import 'package:client/app/l10n/app_l10n.dart';
 import 'package:client/app/views/auth/verification/verify_otp/widget/otp_input.dart';
 import 'package:client/app/widgets/buttons/widgets/button_color.dart';
 import 'package:client/app/widgets/buttons/widgets/button_size.dart';
@@ -20,14 +21,16 @@ class VerifyOtpWidgets {
             child: Wrap(
               runSpacing: 30,
               children: [
-                Text("Verify OTP", style: TextConstants.instance.heading6),
+                Text(L10n.of(context)!.verifyOtp,
+                    style: TextConstants.instance.heading6),
                 const OtpInput(),
                 Row(
                   children: [
-                    Text("Didn't Receive the Code?",
+                    Text(L10n.of(context)!.didntReceiveCode,
                         style: TextConstants.instance.label1
                             .copyWith(color: ColorConstant.instance.dark3)),
-                    CustomTextButton(onPressed: () {}, text: "Resend")
+                    CustomTextButton(
+                        onPressed: () {}, text: L10n.of(context)!.resend)
                   ],
                 ),
               ],
@@ -37,7 +40,7 @@ class VerifyOtpWidgets {
             width: context.dynamicWidth(1),
             child: CustomElevatedButton(
               onPressed: () {},
-              text: "Verify OTP",
+              text: L10n.of(context)!.verifyOtp,
               buttonSize: ButtonSize.large,
               textColor: ButtonColor.light,
             ),

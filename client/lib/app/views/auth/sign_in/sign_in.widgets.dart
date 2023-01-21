@@ -10,6 +10,7 @@ import 'package:client/app/widgets/divider/divider_widgets.dart';
 import 'package:client/app/widgets/divider/widgets/custom_divider.dart';
 import 'package:client/app/widgets/image_viewer/icons/icons_widgets.dart';
 import 'package:client/app/widgets/inputs/widgets/text_fields/custom_text_form_field.dart';
+import 'package:client/app/widgets/inputs/widgets/text_fields/keyboard_type.dart';
 import 'package:client/core/constans/text_constants.dart';
 import 'package:client/core/extensions/common_extension.dart';
 
@@ -24,7 +25,7 @@ class SignInWidgets {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Padding(
-              padding: context.onlyBottomPaddingHigh,
+              padding: context.onlyBottomPaddingNormal,
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
@@ -41,7 +42,7 @@ class SignInWidgets {
                       CustomTextButton(
                         onPressed: () {
                           NavigationService.instance
-                              .navigateToPage(Routes.signup.name);
+                              .navigateToPage(Routes.withSignUp.name);
                         },
                         padding: EdgeInsets.zero,
                         buttonSize: ButtonSize.small,
@@ -90,8 +91,7 @@ class SignInWidgets {
               ),
             ),
             Padding(
-              padding: context.verticalPaddingMedium +
-                  context.onlyBottomPaddingMedium,
+              padding: context.verticalPaddingNormal,
               child: Row(
                 children: [
                   const Expanded(child: CustomDivider()),
@@ -103,28 +103,30 @@ class SignInWidgets {
                 ],
               ),
             ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
-              children: [
-                CustomSocialIcon(
-                  imagePath: SocialPath.twitter,
-                  height: IconSize.large,
-                  width: IconSize.large,
-                  socialName: L10n.of(context)!.twitter,
-                ),
-                CustomSocialIcon(
-                  imagePath: SocialPath.google,
-                  height: IconSize.large,
-                  width: IconSize.large,
-                  socialName: L10n.of(context)!.google,
-                ),
-                CustomSocialIcon(
-                  imagePath: SocialPath.facebook,
-                  height: IconSize.large,
-                  width: IconSize.large,
-                  socialName: L10n.of(context)!.facebook,
-                )
-              ],
+            Center(
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                children: const [
+                  CustomSocialIcon(
+                    imagePath: SocialPath.twitter,
+                    height: IconSize.large,
+                    width: IconSize.large,
+                    socialName: "Continue with Twitter",
+                  ),
+                  CustomSocialIcon(
+                    imagePath: SocialPath.google,
+                    height: IconSize.large,
+                    width: IconSize.large,
+                    socialName: "Continue with Google",
+                  ),
+                  CustomSocialIcon(
+                    imagePath: SocialPath.facebook,
+                    height: IconSize.large,
+                    width: IconSize.large,
+                    socialName: "Continue with Facebook",
+                  )
+                ],
+              ),
             ),
           ],
         ),

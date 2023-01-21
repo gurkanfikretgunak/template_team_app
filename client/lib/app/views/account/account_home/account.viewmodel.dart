@@ -1,4 +1,5 @@
 import 'package:client/app/l10n/app_l10n.dart';
+import 'package:client/app/routes/routes_widgets.dart';
 import 'package:client/app/views/account/widgets/alert_bottom_sheet.dart';
 import 'package:client/app/widgets/custom_bottom_sheet.dart';
 import 'package:client/core/base/view_model/base_view_model.dart';
@@ -11,19 +12,25 @@ class AccountViewModel extends BaseViewModel {
         "icon": Icons.favorite_border,
         "title": L10n.of(context)!.yourFavorites,
         "subTitle": L10n.of(context)!.yourFavoritesDesc,
-        "onTap": () {},
+        "onTap": () {
+          NavigationService.instance.navigateToPage(Routes.favorites.name);
+        },
       },
       {
         "icon": Icons.payment,
         "title": L10n.of(context)!.payment,
         "subTitle": L10n.of(context)!.paymentDesc,
-        "onTap": () {},
+        "onTap": () {
+          NavigationService.instance.navigateToPage(Routes.payment.name);
+        },
       },
       {
         "icon": Icons.library_books_outlined,
         "title": L10n.of(context)!.manageAddress,
         "subTitle": "",
-        "onTap": () {},
+        "onTap": () {
+          NavigationService.instance.navigateToPage(Routes.manageAddress.name);
+        },
       },
       {
         "icon": Icons.notifications_none,
@@ -41,7 +48,9 @@ class AccountViewModel extends BaseViewModel {
         "icon": Icons.info_outline_rounded,
         "title": L10n.of(context)!.about,
         "subTitle": L10n.of(context)!.aboutDesc,
-        "onTap": () {},
+        "onTap": () {
+          NavigationService.instance.navigateToPage(Routes.about.name);
+        },
       },
       {
         "icon": Icons.logout,

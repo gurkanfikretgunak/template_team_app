@@ -6,7 +6,6 @@ part of 'booking_model.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-// ignore: non_constant_identifier_names
 _$_BookingModel _$$_BookingModelFromJson(Map<String, dynamic> json) =>
     _$_BookingModel(
       title: json['title'] as String?,
@@ -19,7 +18,6 @@ _$_BookingModel _$$_BookingModelFromJson(Map<String, dynamic> json) =>
       isCancel: json['isCancel'] as bool?,
     );
 
-// ignore: non_constant_identifier_names
 Map<String, dynamic> _$$_BookingModelToJson(_$_BookingModel instance) =>
     <String, dynamic>{
       'title': instance.title,

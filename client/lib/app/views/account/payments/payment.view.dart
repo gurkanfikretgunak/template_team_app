@@ -1,9 +1,11 @@
-import 'package:client/app/views/splash/splash.widgets.dart';
+import 'package:client/app/l10n/app_l10n.dart';
+import 'package:client/app/views/account/payments/payment.widgets.dart';
+import 'package:client/app/widgets/custom_appbar.dart';
 import 'package:client/core/base/base_view/base_view.dart';
 import 'package:flutter/material.dart';
 
-class SplashView extends BaseView with SplashWidgets {
-  const SplashView(this.error, {super.key});
+class PaymentView extends BaseView with PaymentsWidgets {
+  const PaymentView(this.error, {super.key});
 
   final bool error;
 
@@ -16,6 +18,7 @@ class SplashView extends BaseView with SplashWidgets {
     return dynamicBuild(
       context,
       error: backendError(),
+      appbar: CustomAppbar(title: L10n.of(context)!.payment),
       body: body(context),
       errorBody: const Text('errorrrr'),
     );

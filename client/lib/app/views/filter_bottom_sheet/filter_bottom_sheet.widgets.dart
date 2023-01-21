@@ -1,9 +1,12 @@
 import 'package:client/app/views/filter_bottom_sheet/filter_bottom_sheet.viewmodel.dart';
 import 'package:client/app/views/filter_bottom_sheet/widgets/gender/gender.dart';
+import 'package:client/app/views/filter_bottom_sheet/widgets/gender/gender_notifier.dart';
 import 'package:client/app/views/filter_bottom_sheet/widgets/sort/sort.dart';
 import 'package:client/app/views/filter_bottom_sheet/widgets/timing/timing.dart';
+import 'package:client/app/views/filter_bottom_sheet/widgets/timing/timing_notifier.dart';
 import 'package:client/app/widgets/buttons/buttons_widgets.dart';
 import 'package:client/app/widgets/image_viewer/icons/icons_widgets.dart';
+import 'package:client/app/widgets/inputs/inputs_widgets.dart';
 import 'package:client/core/constans/color_constants.dart';
 import 'package:client/core/constans/text_constants.dart';
 import 'package:client/core/extensions/common_extension.dart';
@@ -20,8 +23,6 @@ class FilterBottomSheetWidgets {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             Row(
-              // crossAxisAlignment: WrapCrossAlignment.center,
-              // spacing: 10,
               children: [
                 IconButton(
                   onPressed: () {
@@ -37,7 +38,10 @@ class FilterBottomSheetWidgets {
               ],
             ),
             CustomTextButton(
-              onPressed: () {},
+              onPressed: () {
+                Provider.of<GenderNotifier>(context, listen: false).clear();
+                Provider.of<TimingNotifier>(context, listen: false).clear();
+              },
               text: " Clear all",
             )
           ],
@@ -63,7 +67,7 @@ class FilterBottomSheetWidgets {
                 provider.selectedCategory = filterCetegoryList[index];
               },
               child: Container(
-                height: context.dynamicHeight(0.06),
+                height: context.dynamicHeight(0.07),
                 decoration: BoxDecoration(
                   color: provider.selectedCategory == filterCetegoryList[index]
                       ? ColorConstant.instance.light4
