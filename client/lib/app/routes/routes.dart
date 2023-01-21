@@ -8,5 +8,6 @@ enum Routes {
   shop,
   bookingDetail,
   shopDetail,
-  withSignUp
+  withSignUp,
+  search
 }

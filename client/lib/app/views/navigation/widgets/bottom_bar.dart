@@ -14,6 +14,10 @@ class _CustomBottomNavigationBarState extends State<CustomBottomNavigationBar> {
     return BottomNavigationBar(
       items: const <BottomNavigationBarItem>[
         BottomNavigationBarItem(
+          label: "Home",
+          icon: Icon(Icons.home_outlined),
+        ),
+        BottomNavigationBarItem(
           label: "Search",
           icon: Icon(Icons.search),
         ),

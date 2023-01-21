@@ -3,6 +3,7 @@ import 'package:client/app/widgets/divider/widgets/custom_divider.dart';
 import 'package:client/core/base/base_view/base_view.dart';
 import 'package:flutter/material.dart';
 import '../../widgets/inputs/inputs_widgets.dart';
+import '../search/widgets/search_bar.widget.dart';
 
 class SplashView extends BaseView with SplashWidgets {
   const SplashView(this.error, {super.key});
@@ -32,7 +33,9 @@ class SplashView extends BaseView with SplashWidgets {
             focusedBorderColor: TextFormFieldColor.purple,
             enabledBorderColor: TextFormFieldColor.green,
           ),
-          const CustomSearchField(),
+          CustomSearchField(() {
+            Navigator.push(context, MaterialPageRoute(builder: (context) => const SearchBarWidget()));
+          }),
           const CustomDivider(type: DividerType.dashed),
           // CustomTabBar(
           //   tabBarList: tabbarList,

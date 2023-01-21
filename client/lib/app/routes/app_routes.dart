@@ -12,6 +12,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 import '../views/auth/sign_up/sign_up_with.dart';
+import '../views/search/search.view.dart';
 
 class AppRoutes {
   AppRoutes._init();
@@ -36,6 +37,8 @@ class AppRoutes {
 
       case Routes.forgotPassword:
         return FadeTransitionPageRoute(const ForgotPasswordView(), settings: args);
+      case Routes.search:
+        return FadeTransitionPageRoute(const SearchView(false), settings: args);
 
       case Routes.navigation:
         return FadeTransitionPageRoute(const NavigationView(false), settings: args);

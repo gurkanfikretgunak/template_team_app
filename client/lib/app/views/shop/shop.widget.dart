@@ -20,7 +20,7 @@ class ShopHomeWidgets {
             Navigator.pop(context);
           },
         ),
-        dropDownCity(context),
+        dropDownCity(context, true),
         Align(
             alignment: Alignment.bottomLeft,
             child: Padding(
@@ -65,7 +65,7 @@ class ShopHomeWidgets {
     );
   }
 
-  Widget dropDownCity(BuildContext context) {
+  Widget dropDownCity(BuildContext context, bool isLight) {
     final provider = Provider.of<HomeViewModel>(context);
 
     return Align(
@@ -74,12 +74,15 @@ class ShopHomeWidgets {
         crossAxisAlignment: WrapCrossAlignment.center,
         spacing: 10,
         children: [
-          CustomIcon(imagePath: Assets.icons.location.path, iconColor: ColorConstant.instance.light4),
+          CustomIcon(
+              imagePath: Assets.icons.location.path,
+              iconColor: isLight ? ColorConstant.instance.light4 : ColorConstant.instance.dark0),
           DropdownButton<String>(
             value: provider.ddLocationValue,
             icon: const Icon(Icons.keyboard_arrow_down_outlined),
             elevation: 16,
-            style: TextConstants.instance.button1.copyWith(color: ColorConstant.instance.light4),
+            style: TextConstants.instance.button1
+                .copyWith(color: isLight ? ColorConstant.instance.light4 : ColorConstant.instance.dark0),
             underline: Container(height: 0),
             onChanged: (String? value) {
               provider.ddLocationValue = value!;
