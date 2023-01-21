@@ -5,29 +5,38 @@ import 'package:provider/provider.dart';
 class CustomBottomNavigationBar extends StatefulWidget {
   const CustomBottomNavigationBar({super.key});
   @override
-  State<CustomBottomNavigationBar> createState() => _CustomBottomNavigationBarState();
+  State<CustomBottomNavigationBar> createState() =>
+      _CustomBottomNavigationBarState();
 }
 
 class _CustomBottomNavigationBarState extends State<CustomBottomNavigationBar> {
   @override
   Widget build(BuildContext context) {
-    return BottomNavigationBar(
-      items: const <BottomNavigationBarItem>[
-        BottomNavigationBarItem(
-          label: "Search",
-          icon: Icon(Icons.search),
-        ),
-        BottomNavigationBarItem(
-          label: "Booking",
-          icon: Icon(Icons.add),
-        ),
-        BottomNavigationBarItem(
-          label: "Account",
-          icon: Icon(Icons.person_outline),
-        ),
-      ],
-      currentIndex: context.watch<BottomNavBarViewModel>().currentPage,
-      onTap: context.read<BottomNavBarViewModel>().changePage,
+    return Container(
+      decoration: BoxDecoration(
+        border: Border(
+            top: BorderSide(
+          color: Colors.blueGrey,
+        )),
+      ),
+      child: BottomNavigationBar(
+        items: const <BottomNavigationBarItem>[
+          BottomNavigationBarItem(
+            label: "Search",
+            icon: Icon(Icons.search),
+          ),
+          BottomNavigationBarItem(
+            label: "Booking",
+            icon: Icon(Icons.add),
+          ),
+          BottomNavigationBarItem(
+            label: "Account",
+            icon: Icon(Icons.person_outline),
+          ),
+        ],
+        currentIndex: context.watch<BottomNavBarViewModel>().currentPage,
+        onTap: context.read<BottomNavBarViewModel>().changePage,
+      ),
     );
   }
 }
