@@ -75,7 +75,7 @@ class CustomDropdownButton<T> extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: context.dynamicHeight(0.035),
+      height: context.dynamicHeight(0.04),
       decoration: BoxDecoration(
         color: ColorConstant.instance.light2,
         borderRadius: const BorderRadius.all(Radius.circular(25)),

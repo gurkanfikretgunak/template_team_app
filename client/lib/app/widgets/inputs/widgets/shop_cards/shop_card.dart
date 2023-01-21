@@ -18,6 +18,8 @@ class ShopCard extends StatelessWidget with ShopCardWidgets {
     required this.cardHeight,
     required this.cardWidth,
     required this.imageFlex,
+    this.imageWidth,
+    required this.isBig,
   });
 
   final String genderType, shopName, imagePath, address, shopTypes;
@@ -27,6 +29,8 @@ class ShopCard extends StatelessWidget with ShopCardWidgets {
   final double cardHeight;
   final double cardWidth;
   final int imageFlex;
+  final double? imageWidth;
+  final bool isBig;
 
   @override
   Widget build(BuildContext context) {
@@ -38,11 +42,32 @@ class ShopCard extends StatelessWidget with ShopCardWidgets {
         crossAxisAlignment: CrossAxisAlignment.start,
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          Expanded(flex: imageFlex, child: shopImage(imagePath)),
+          Expanded(flex: imageFlex, child: SizedBox(width: imageWidth, child: shopImage(imagePath))),
           context.emptySizedHeightBoxLow,
           Expanded(
             flex: 1,
-            child: shopInformation(context, shopName, shopTypes, rating, address, discountAmount, false),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                shopInformation(
+                  context,
+                  shopName,
+                  shopTypes,
+                  rating,
+                  address,
+                  discountAmount,
+                  false,
+                ),
+                isBig
+                    ? IconButton(
+                        onPressed: () {},
+                        icon: const Icon(
+                          Icons.favorite_border,
+                          size: 25,
+                        ))
+                    : SizedBox()
+              ],
+            ),
           ),
         ],
       )),

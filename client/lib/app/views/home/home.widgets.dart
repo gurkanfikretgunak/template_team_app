@@ -27,26 +27,23 @@ class HomeWidgets {
           spacing: 10,
           children: [
             CustomIcon(imagePath: Assets.icons.location.path),
-            SizedBox(
-              width: context.dynamicWidth(0.6),
-              child: DropdownButton<String>(
-                value: provider.ddLocationValue,
-                icon: const Icon(Icons.keyboard_arrow_down_outlined),
-                elevation: 16,
-                style: TextConstants.instance.button1,
-                underline: Container(height: 0),
-                onChanged: (String? value) {
-                  provider.ddLocationValue = value!;
-                },
-                items: provider.locationList.map<DropdownMenuItem<String>>((String value) {
-                  return DropdownMenuItem<String>(
-                    value: value,
-                    child: Text(
-                      value,
-                    ),
-                  );
-                }).toList(),
-              ),
+            DropdownButton<String>(
+              value: provider.ddLocationValue,
+              icon: const Icon(Icons.keyboard_arrow_down_outlined),
+              elevation: 16,
+              style: TextConstants.instance.button1,
+              underline: Container(height: 0),
+              onChanged: (String? value) {
+                provider.ddLocationValue = value!;
+              },
+              items: provider.locationList.map<DropdownMenuItem<String>>((String value) {
+                return DropdownMenuItem<String>(
+                  value: value,
+                  child: Text(
+                    value,
+                  ),
+                );
+              }).toList(),
             ),
           ],
         ),
@@ -74,6 +71,7 @@ class HomeWidgets {
               cardHeight: context.dynamicHeight(0.3),
               cardWidth: context.dynamicHeight(0.3),
               listHeight: context.dynamicHeight(0.25),
+              imageWidth: 180,
             ),
           ],
         ),
@@ -90,12 +88,14 @@ class ShopList extends StatelessWidget {
     required this.cardWidth,
     required this.listHeight,
     required this.imageFlex,
+    required this.imageWidth,
   }) : super(key: key);
   final bool isHorizontal;
   final double cardHeight;
   final double cardWidth;
   final double listHeight;
   final int imageFlex;
+  final double imageWidth;
   @override
   Widget build(BuildContext context) {
     final provider = Provider.of<HomeViewModel>(context);
@@ -108,19 +108,24 @@ class ShopList extends StatelessWidget {
         shrinkWrap: true,
         scrollDirection: isHorizontal ? Axis.horizontal : Axis.vertical,
         itemBuilder: (context, index) {
-          return ShopCard(
-            imageFlex: imageFlex,
-            address: fake.address.city(),
-            distance: fake.randomGenerator.integer(20).toDouble(),
-            genderType: fake.person.random.string(20),
-            hasDiscount: fake.randomGenerator.boolean(),
-            imagePath: buildShopCardImage(provider.ddLocationValue),
-            rating: fake.randomGenerator.integer(20).toDouble(),
-            shopName: fake.company.name(),
-            shopTypes: fake.company.name(),
-            discountAmount: fake.randomGenerator.integer(20).toDouble(),
-            cardHeight: cardHeight,
-            cardWidth: cardWidth,
+          return Padding(
+            padding: context.onlyTopPaddingNormal,
+            child: ShopCard(
+              isBig: false,
+              imageFlex: imageFlex,
+              address: fake.address.city(),
+              distance: fake.randomGenerator.integer(20).toDouble(),
+              genderType: fake.person.random.string(20),
+              hasDiscount: fake.randomGenerator.boolean(),
+              imagePath: buildShopCardImage(provider.ddLocationValue),
+              rating: fake.randomGenerator.integer(20).toDouble(),
+              shopName: fake.company.name(),
+              shopTypes: fake.company.name(),
+              discountAmount: fake.randomGenerator.integer(20).toDouble(),
+              cardHeight: cardHeight,
+              cardWidth: cardWidth,
+              imageWidth: imageWidth,
+            ),
           );
         },
       ),

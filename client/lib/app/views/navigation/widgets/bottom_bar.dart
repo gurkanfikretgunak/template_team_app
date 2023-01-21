@@ -12,7 +12,7 @@ class _CustomBottomNavigationBarState extends State<CustomBottomNavigationBar> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      decoration: BoxDecoration(
+      decoration: const BoxDecoration(
         border: Border(
             top: BorderSide(
           color: Colors.blueGrey,
@@ -20,6 +20,10 @@ class _CustomBottomNavigationBarState extends State<CustomBottomNavigationBar> {
       ),
       child: BottomNavigationBar(
         items: const <BottomNavigationBarItem>[
+          BottomNavigationBarItem(
+            label: "Home",
+            icon: Icon(Icons.home_outlined),
+          ),
           BottomNavigationBarItem(
             label: "Search",
             icon: Icon(Icons.search),
