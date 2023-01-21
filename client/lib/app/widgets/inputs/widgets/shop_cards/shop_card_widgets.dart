@@ -23,14 +23,14 @@ class ShopCardWidgets {
         children: [
           Text(
             "FOR MEN & WOMEN",
-            style: TextConstants.instance.subtitle1
+            style: TextConstants.instance.label1
                 .copyWith(fontSize: 12, color: isStack ? ColorConstant.instance.light4 : ColorConstant.instance.dark3),
           ),
           Text(shopName,
               style: TextConstants.instance.subtitle1.copyWith(
                   fontSize: 17,
-                  fontWeight: FontWeight.w600,
-                  color: isStack ? ColorConstant.instance.light4 : ColorConstant.instance.dark3)),
+                  fontWeight: FontWeight.w700,
+                  color: isStack ? ColorConstant.instance.light4 : ColorConstant.instance.dark2)),
           Wrap(
             crossAxisAlignment: WrapCrossAlignment.center,
             spacing: 5,

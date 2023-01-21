@@ -1,76 +1,56 @@
-import 'package:client/app/l10n/app_l10n.dart';
 import 'package:client/app/views/home/home.viewmodel.dart';
 import 'package:client/app/views/home/widgets/rating_button.dart';
 import 'package:client/app/views/home/widgets/services_gridview.dart';
 import 'package:client/app/views/home/widgets/offer_button.dart';
-import 'package:client/app/widgets/custom_appbar.dart';
+import 'package:client/app/views/search/widgets/search_bar.widget.dart';
+import 'package:client/app/widgets/divider/divider_widgets.dart';
 import 'package:client/app/widgets/inputs/inputs_widgets.dart';
+import 'package:client/core/constans/color_constants.dart';
 import 'package:client/core/constans/text_constants.dart';
 import 'package:client/core/extensions/common_extension.dart';
 import 'package:client/gen/assets.gen.dart';
 import 'package:faker/faker.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-
 import '../../widgets/buttons/buttons_widgets.dart';
-import '../../widgets/image_viewer/icons/icons_widgets.dart';
-import '../search/widgets/search_bar.widget.dart';
 
-class HomeWidgets {
-  CustomAppbar appbar(BuildContext context) {
-    final provider = Provider.of<HomeViewModel>(context);
-
-    return CustomAppbar(
-      leading: FittedBox(
-        child: Wrap(
-          crossAxisAlignment: WrapCrossAlignment.center,
-          spacing: 10,
-          children: [
-            CustomIcon(imagePath: Assets.icons.location.path),
-            SizedBox(
-              width: context.dynamicWidth(0.6),
-              child: DropdownButton<String>(
-                value: provider.ddLocationValue,
-                icon: const Icon(Icons.keyboard_arrow_down_outlined),
-                elevation: 16,
-                style: TextConstants.instance.button1,
-                underline: Container(height: 0),
-                onChanged: (String? value) {
-                  provider.ddLocationValue = value!;
-                },
-                items: provider.locationList
-                    .map<DropdownMenuItem<String>>((String value) {
-                  return DropdownMenuItem<String>(
-                    value: value,
-                    child: Text(
-                      value,
-                    ),
-                  );
-                }).toList(),
-              ),
-            ),
-          ],
-        ),
-      ),
-    );
-  }
-
-  body(BuildContext context) {
+class SearchWidgets {
+  searchBody(BuildContext context) {
     return SingleChildScrollView(
       physics: const BouncingScrollPhysics(),
       child: Padding(
         padding: context.paddingNormal,
-        child: Column(
+        child: Wrap(
           children: [
             CustomSearchField(() {
               Navigator.push(context, MaterialPageRoute(builder: (context) => const SearchBarWidget()));
             }),
-            const FilterList(),
-            categoryTitle(
-                title: L10n.of(context)!.beautyServices, context: context),
-            const ServicesGridView(),
-            categoryTitle(
-                title: L10n.of(context)!.popularNearYou, context: context),
+            categoryTitle(title: "Recently searched", context: context, buttonText: "Clear all"),
+            Row(
+              children: [
+                Image.asset(
+                  Assets.icons.search.path,
+                  color: ColorConstant.instance.dark3,
+                ),
+                context.emptySizedWidthBoxNormal,
+                Text(
+                  "Haircut",
+                  style: TextConstants.instance.button1.copyWith(color: ColorConstant.instance.dark3),
+                )
+              ],
+            ),
+            Row(
+              children: [
+                Image.asset(
+                  Assets.icons.search.path,
+                  color: ColorConstant.instance.dark3,
+                ),
+                context.emptySizedWidthBoxNormal,
+                Text("Shave", style: TextConstants.instance.button1.copyWith(color: ColorConstant.instance.dark3))
+              ],
+            ),
+            const CustomDivider(type: DividerType.normal),
+            categoryTitle(title: "Trending near you", context: context, buttonText: ""),
             ShopList(
               imageFlex: 2,
               isHorizontal: true,
@@ -78,6 +58,9 @@ class HomeWidgets {
               cardWidth: context.dynamicHeight(0.3),
               listHeight: context.dynamicHeight(0.25),
             ),
+            const CustomDivider(type: DividerType.normal),
+            categoryTitle(title: "Try these services", context: context, buttonText: ""),
+            const ServicesGridView(),
           ],
         ),
       ),
@@ -189,21 +172,18 @@ class FilterList extends StatelessWidget {
   }
 }
 
-Widget categoryTitle({required String title, required BuildContext context}) {
-  return Padding(
-    padding: context.verticalPaddingNormal,
-    child: Row(
-      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-      children: [
-        Text(
-          title,
-          style: TextConstants.instance.heading6,
-        ),
-        CustomTextButton(
-          onPressed: () {},
-          text: L10n.of(context)!.seeAll,
-        )
-      ],
-    ),
+Widget categoryTitle({required String title, String? buttonText, required BuildContext context}) {
+  return Row(
+    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+    children: [
+      Text(
+        title,
+        style: TextConstants.instance.heading6,
+      ),
+      CustomTextButton(
+        onPressed: () {},
+        text: buttonText ?? " see all >",
+      )
+    ],
   );
 }
