@@ -27,23 +27,26 @@ class HomeWidgets {
           spacing: 10,
           children: [
             CustomIcon(imagePath: Assets.icons.location.path),
-            DropdownButton<String>(
-              value: provider.ddLocationValue,
-              icon: const Icon(Icons.keyboard_arrow_down_outlined),
-              elevation: 16,
-              style: TextConstants.instance.button1,
-              underline: Container(height: 0),
-              onChanged: (String? value) {
-                provider.ddLocationValue = value!;
-              },
-              items: provider.locationList.map<DropdownMenuItem<String>>((String value) {
-                return DropdownMenuItem<String>(
-                  value: value,
-                  child: Text(
-                    value,
-                  ),
-                );
-              }).toList(),
+            SizedBox(
+              width: context.dynamicWidth(0.6),
+              child: DropdownButton<String>(
+                value: provider.ddLocationValue,
+                icon: const Icon(Icons.keyboard_arrow_down_outlined),
+                elevation: 16,
+                style: TextConstants.instance.button1,
+                underline: Container(height: 0),
+                onChanged: (String? value) {
+                  provider.ddLocationValue = value!;
+                },
+                items: provider.locationList.map<DropdownMenuItem<String>>((String value) {
+                  return DropdownMenuItem<String>(
+                    value: value,
+                    child: Text(
+                      value,
+                    ),
+                  );
+                }).toList(),
+              ),
             ),
           ],
         ),
@@ -203,7 +206,7 @@ Widget categoryTitle({required String title, required BuildContext context}) {
         ),
         CustomTextButton(
           onPressed: () {},
-          text: " see all >",
+          text: L10n.of(context)!.seeAll,
         )
       ],
     ),

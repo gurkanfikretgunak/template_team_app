@@ -38,9 +38,6 @@ class L10nEn extends L10n {
   String get password => 'password';
 
   @override
-  String get orSignupUsing => 'Or SignUp using';
-
-  @override
   String get twitter => 'Twitter';
 
   @override
@@ -77,7 +74,7 @@ class L10nEn extends L10n {
   String get forgotPassword => 'Forgot your Password?';
 
   @override
-  String get orLoginUsing => 'Or Login using';
+  String get or => 'or';
 
   @override
   String get beautyServices => 'Beauty services';
@@ -201,4 +198,100 @@ class L10nEn extends L10n {
 
   @override
   String get addPaymentMehod => 'Add payment method';
+
+  @override
+  String get forward => 'Forward';
+
+  @override
+  String get continueWithTwitter => 'Continue with Twitter';
+
+  @override
+  String get continueWithFacebook => 'Continue with Facebook';
+
+  @override
+  String get continueWithGoogle => 'Continue with Google';
+
+  @override
+  String get profile => 'Profile';
+
+  @override
+  String get haircutForMen => 'Haircut for men';
+
+  @override
+  String get shops => 'Shops';
+
+  @override
+  String get sortFilters => 'Sort/Filters';
+
+  @override
+  String get clearAll => 'Clear all';
+
+  @override
+  String get timing => 'Timing';
+
+  @override
+  String get sort => 'Sort';
+
+  @override
+  String get past => 'Past';
+
+  @override
+  String get upcoming => 'Upcoming';
+
+  @override
+  String get reorderBooking => 'Reorder Booking';
+
+  @override
+  String get bookingDetail => 'Booking Detail';
+
+  @override
+  String get haircut => 'Haircut';
+
+  @override
+  String get itemTotal => 'ItemTotal';
+
+  @override
+  String get couponDiscount => 'CouponDiscount';
+
+  @override
+  String get grandTotal => 'Grand Total';
+
+  @override
+  String get favorites => 'Favorites';
+
+  @override
+  String get yourBookings => 'Your Bookings';
+
+  @override
+  String get recommended => 'Recommended';
+
+  @override
+  String get packages => 'Packages';
+
+  @override
+  String get faceCare => 'Face Care';
+
+  @override
+  String get call => 'Call';
+
+  @override
+  String get directions => 'Directions';
+
+  @override
+  String get share => 'Share';
+
+  @override
+  String get ratings => 'Ratings';
+
+  @override
+  String get popularity => 'Popularity';
+
+  @override
+  String get ratingHighToLow => 'Rating : High to Low';
+
+  @override
+  String get costHighToLow => 'Cost : High to Low';
+
+  @override
+  String get costLowToHigh => 'Cost : Low to High';
 }

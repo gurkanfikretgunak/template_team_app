@@ -1,18 +1,16 @@
+import 'package:client/app/l10n/app_l10n.dart';
+import 'package:client/app/routes/routes_widgets.dart';
 import 'package:client/app/views/auth/widgets/custom_social_icon.dart';
 import 'package:client/app/views/auth/widgets/social_image_path.dart';
+import 'package:client/app/widgets/buttons/buttons_widgets.dart';
+import 'package:client/app/widgets/divider/divider_widgets.dart';
+import 'package:client/app/widgets/image_viewer/icons/icons_widgets.dart';
 import 'package:client/core/base/base_view/base_view.dart';
+import 'package:client/core/constans/color_constants.dart';
 import 'package:client/core/extensions/common_extension.dart';
 import 'package:flutter/material.dart';
-import '../../../../core/constans/color_constants.dart';
-import '../../../l10n/app_l10n.dart';
-import '../../../routes/navigation_service.dart';
-import '../../../routes/routes.dart';
-import '../../../widgets/buttons/widgets/button_color.dart';
-import '../../../widgets/buttons/widgets/button_size.dart';
-import '../../../widgets/buttons/widgets/custom_elevated_button.dart';
-import '../../../widgets/divider/widgets/custom_divider.dart';
-import '../../../widgets/image_viewer/icons/icons_widgets.dart';
-import '../widgets/app_bar.dart';
+
+import 'widgets/app_bar.dart';
 
 class CustomSignUpWith extends BaseView {
   const CustomSignUpWith({
@@ -37,25 +35,25 @@ class CustomSignUpWith extends BaseView {
           children: [
             Column(
               children: [
-                const CustomSocialIcon(
+                CustomSocialIcon(
                   imagePath: SocialPath.twitter,
                   height: IconSize.large,
                   width: IconSize.large,
-                  socialName: "Continue with Twitter",
+                  socialName: L10n.of(context)!.continueWithTwitter,
                 ),
                 context.emptySizedHeightBoxNormal,
-                const CustomSocialIcon(
+                CustomSocialIcon(
                   imagePath: SocialPath.google,
                   height: IconSize.large,
                   width: IconSize.large,
-                  socialName: "Continue with Google",
+                  socialName: L10n.of(context)!.continueWithGoogle,
                 ),
                 context.emptySizedHeightBoxNormal,
-                const CustomSocialIcon(
+                CustomSocialIcon(
                   imagePath: SocialPath.facebook,
                   height: IconSize.large,
                   width: IconSize.large,
-                  socialName: "Continue with Facebook",
+                  socialName: L10n.of(context)!.continueWithFacebook,
                 ),
               ],
             ),
@@ -66,7 +64,7 @@ class CustomSignUpWith extends BaseView {
                   const Expanded(child: CustomDivider()),
                   Padding(
                     padding: context.horizontalPaddingMedium,
-                    child: Text(L10n.of(context)!.orSignupUsing),
+                    child: Text(L10n.of(context)!.or),
                   ),
                   const Expanded(child: CustomDivider()),
                 ],

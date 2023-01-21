@@ -1,3 +1,4 @@
+import 'package:client/app/l10n/app_l10n.dart';
 import 'package:client/app/views/navigation/navigation.viewmodel.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -19,22 +20,22 @@ class _CustomBottomNavigationBarState extends State<CustomBottomNavigationBar> {
         )),
       ),
       child: BottomNavigationBar(
-        items: const <BottomNavigationBarItem>[
-          BottomNavigationBarItem(
+        items: <BottomNavigationBarItem>[
+          const BottomNavigationBarItem(
             label: "Home",
             icon: Icon(Icons.home_outlined),
           ),
           BottomNavigationBarItem(
-            label: "Search",
-            icon: Icon(Icons.search),
+            label: L10n.of(context)!.search,
+            icon: const Icon(Icons.search),
           ),
           BottomNavigationBarItem(
-            label: "Booking",
-            icon: Icon(Icons.add),
+            label: L10n.of(context)!.booking,
+            icon: const Icon(Icons.add),
           ),
           BottomNavigationBarItem(
-            label: "Account",
-            icon: Icon(Icons.person_outline),
+            label: L10n.of(context)!.profile,
+            icon: const Icon(Icons.person_outline),
           ),
         ],
         currentIndex: context.watch<BottomNavBarViewModel>().currentPage,

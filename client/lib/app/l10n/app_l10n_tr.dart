@@ -11,7 +11,7 @@ class L10nTr extends L10n {
   String get getStarted => 'Başla';
 
   @override
-  String get onboardingTextOne => 'Şehrinizdeki en iyi saç modelleri tasarımcısından randevu alın.';
+  String get onboardingTextOne => 'Şehrinizdeki en iyi saç tasarımcısından randevu alın.';
 
   @override
   String get onboardingTextTwo => 'Randevuyu çocuklarınız için en iyi salonda planlayın.';
@@ -35,10 +35,7 @@ class L10nTr extends L10n {
   String get email => 'E-posta';
 
   @override
-  String get password => 'Şifre';
-
-  @override
-  String get orSignupUsing => 'Veya farklı şekilde kaydolun';
+  String get password => 'Parola';
 
   @override
   String get twitter => 'Twitter';
@@ -74,16 +71,16 @@ class L10nTr extends L10n {
   String get haventAnAccount => 'Hesabınız yok mu?';
 
   @override
-  String get forgotPassword => 'Parolanızı mı unuttunuz??';
+  String get forgotPassword => 'Parolanızı mı unuttunuz?';
 
   @override
-  String get orLoginUsing => 'veya farklı şekilde giriş yapın';
+  String get or => 'veya';
 
   @override
   String get beautyServices => 'Güzellik hizmetleri';
 
   @override
-  String get popularNearYou => 'Yakınınızdaki popülerler';
+  String get popularNearYou => 'Yakınınızdakiler';
 
   @override
   String get gender => 'Cinsiyet';
@@ -110,7 +107,7 @@ class L10nTr extends L10n {
   String get account => 'Hesap';
 
   @override
-  String get yourFavorites => 'Fovoriler';
+  String get yourFavorites => 'Favoriler';
 
   @override
   String get yourFavoritesDesc => 'Favori hizmetinizi bir tıkla yeniden sıralayın';
@@ -134,7 +131,7 @@ class L10nTr extends L10n {
   String get registerAsPartner => 'Ortak olarak kaydolun';
 
   @override
-  String get registerAsPartnerDesc => 'WHizmetinizi listelemek ister misiniz? Bize katılın';
+  String get registerAsPartnerDesc => 'Hizmetinizi listelemek ister misiniz? Bize katılın';
 
   @override
   String get about => 'Hakkımızda';
@@ -155,7 +152,7 @@ class L10nTr extends L10n {
   String get delete => 'Sil';
 
   @override
-  String get isDeleteAddress => 'Adres silinsin mi??';
+  String get isDeleteAddress => 'Adres silinsin mi?';
 
   @override
   String get isDeleteAddressDesc => 'Bu adresi silmek istediğinizden emin misiniz?';
@@ -176,7 +173,7 @@ class L10nTr extends L10n {
   String get home => 'Home';
 
   @override
-  String get yourSavedAddress => 'Your saved address';
+  String get yourSavedAddress => 'Adresi Kaydet';
 
   @override
   String get termsOfService => 'Hizmet Koşulları';
@@ -201,4 +198,100 @@ class L10nTr extends L10n {
 
   @override
   String get addPaymentMehod => 'Ödeme yöntemi ekle';
+
+  @override
+  String get forward => 'İleri';
+
+  @override
+  String get continueWithTwitter => 'Twitter ile devam et';
+
+  @override
+  String get continueWithFacebook => 'Google ile devam et';
+
+  @override
+  String get continueWithGoogle => 'Facebook ile devam et';
+
+  @override
+  String get profile => 'Profil';
+
+  @override
+  String get haircutForMen => 'Erkekler için saç kesimi';
+
+  @override
+  String get shops => 'Mağazalar';
+
+  @override
+  String get sortFilters => 'Sırala/Filtrele';
+
+  @override
+  String get clearAll => 'Hepsini Temizle';
+
+  @override
+  String get timing => 'Zaman';
+
+  @override
+  String get sort => 'Sırala';
+
+  @override
+  String get past => 'Geçmiş';
+
+  @override
+  String get upcoming => 'Yaklaşan';
+
+  @override
+  String get reorderBooking => 'Rezervasyonu Düzenle';
+
+  @override
+  String get bookingDetail => 'Rezervasyon Detayı';
+
+  @override
+  String get haircut => 'Saç kesimi';
+
+  @override
+  String get itemTotal => 'Öğe Toplamı';
+
+  @override
+  String get couponDiscount => 'Kupon İndirimi';
+
+  @override
+  String get grandTotal => 'Genel Toplam';
+
+  @override
+  String get favorites => 'Favoriler';
+
+  @override
+  String get yourBookings => 'Rezervasyonlar';
+
+  @override
+  String get recommended => 'Önerilen';
+
+  @override
+  String get packages => 'Paketler';
+
+  @override
+  String get faceCare => 'Yüz bakımı';
+
+  @override
+  String get call => 'Ara';
+
+  @override
+  String get directions => 'Yol tarifi';
+
+  @override
+  String get share => 'Paylaş';
+
+  @override
+  String get ratings => 'Değerlendirme';
+
+  @override
+  String get popularity => 'Popülerlik';
+
+  @override
+  String get ratingHighToLow => 'Değerlendirme : Yüksekten Düşüğe';
+
+  @override
+  String get costHighToLow => 'Maliyet : Yüksekten Düşüğe';
+
+  @override
+  String get costLowToHigh => 'Maliyet : Düşükten Yükseğe';
 }

@@ -11,7 +11,6 @@
     "fullName" : "Full name",
     "email":"email",
     "password" : "password",
-    "orSignupUsing" : "Or SignUp using",
     "twitter":"Twitter",
     "google":"Google",
     "facebook":"Facebook",
@@ -24,7 +23,7 @@
     "welcomeBack":"Welcome Back!",
     "haventAnAccount": "Don’t have an account?",
     "forgotPassword":"Forgot your Password?",
-    "orLoginUsing":"Or Login using",
+    "or":"or",
     "beautyServices":"Beauty services",
     "popularNearYou":"Popular near you",
     "gender":"Gender",
@@ -65,7 +64,47 @@
     "applePay":"Apple Pay", 
     "remove":"Remove",
     "cash":"Cash",
-    "addPaymentMehod":"Add payment method"
+    "addPaymentMehod":"Add payment method",
+    "forward":"Forward",
+    "continueWithTwitter":"Continue with Twitter",
+    "continueWithFacebook":"Continue with Facebook",
+    "continueWithGoogle":"Continue with Google",
+    "profile":"Profile",
+    "haircutForMen":"Haircut for men",
+    "shops":"Shops",
+    "sortFilters":"Sort/Filters",
+    "clearAll":"Clear all",
+    "timing": "Timing",
+    "sort" : "Sort",
+    "past":"Past",
+    "upcoming":"Upcoming",
+    "reorderBooking":"Reorder Booking",
+    "bookingDetail":"Booking Detail",
+    "haircut":"Haircut",
+    "itemTotal":"ItemTotal",
+    "couponDiscount":"CouponDiscount",
+    "grandTotal":"Grand Total",
+    "favorites":"Favorites",
+    "yourBookings":"Your Bookings",
+     "recommended":"Recommended",
+    "packages":"Packages",
+    "faceCare":"Face Care",
+    "call":"Call",
+    "directions":"Directions",
+    "share":"Share",
+    "ratings":"Ratings",
+    "popularity": "Popularity",
+    "ratingHighToLow": "Rating : High to Low",
+    "costHighToLow": "Cost : High to Low",
+    "costLowToHigh":"Cost : Low to High"
+
+
+
+    
+
+
+
+
 
 
 
