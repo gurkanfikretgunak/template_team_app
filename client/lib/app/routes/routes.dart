@@ -13,4 +13,5 @@ enum Routes {
   payment,
   notification,
   about,
+  withSignUp
 }

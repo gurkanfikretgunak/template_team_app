@@ -2,6 +2,8 @@ import 'package:client/app/routes/routes_widgets.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
+import '../views/auth/sign_up/sign_up_with.dart';
+
 class AppRoutes {
   AppRoutes._init();
   static final AppRoutes _instance = AppRoutes._init();
@@ -18,17 +20,16 @@ class AppRoutes {
 
       case Routes.signup:
         return FadeTransitionPageRoute(const SignUpView(), settings: args);
-
+      case Routes.withSignUp:
+        return FadeTransitionPageRoute(const CustomSignUpWith(), settings: args);
       case Routes.verifyOtb:
         return FadeTransitionPageRoute(const VerifyOtbView(), settings: args);
 
       case Routes.forgotPassword:
-        return FadeTransitionPageRoute(const ForgotPasswordView(),
-            settings: args);
+        return FadeTransitionPageRoute(const ForgotPasswordView(), settings: args);
 
       case Routes.navigation:
-        return FadeTransitionPageRoute(const NavigationView(false),
-            settings: args);
+        return FadeTransitionPageRoute(const NavigationView(false), settings: args);
 
       case Routes.shop:
         return FadeTransitionPageRoute(const ShopView(), settings: args);
@@ -37,8 +38,7 @@ class AppRoutes {
         return FadeTransitionPageRoute(const ShopDetailView(), settings: args);
 
       case Routes.bookingDetail:
-        return FadeTransitionPageRoute(const BookingDetailView(false),
-            settings: args);
+        return FadeTransitionPageRoute(const BookingDetailView(false), settings: args);
 
       case Routes.manageAddress:
         return FadeTransitionPageRoute(const ManageAddressView(false),
@@ -73,8 +73,7 @@ class FadeTransitionPageRoute extends CupertinoPageRoute {
       : super(settings: settings, builder: (BuildContext context) => widget);
 
   @override
-  Widget buildPage(BuildContext context, Animation<double> animation,
-      Animation<double> secondaryAnimation) {
+  Widget buildPage(BuildContext context, Animation<double> animation, Animation<double> secondaryAnimation) {
     return FadeTransition(opacity: animation, child: widget);
   }
 
@@ -82,8 +81,8 @@ class FadeTransitionPageRoute extends CupertinoPageRoute {
   Duration get transitionDuration => const Duration(milliseconds: 650);
 
   @override
-  Widget buildTransitions(BuildContext context, Animation<double> animation,
-      Animation<double> secondaryAnimation, Widget child) {
+  Widget buildTransitions(
+      BuildContext context, Animation<double> animation, Animation<double> secondaryAnimation, Widget child) {
     final PageTransitionsTheme theme = Theme.of(context).pageTransitionsTheme;
     Animation<double> onlyForwardAnimation;
     switch (animation.status) {
@@ -96,7 +95,6 @@ class FadeTransitionPageRoute extends CupertinoPageRoute {
         onlyForwardAnimation = animation;
         break;
     }
-    return theme.buildTransitions(
-        this, context, onlyForwardAnimation, secondaryAnimation, child);
+    return theme.buildTransitions(this, context, onlyForwardAnimation, secondaryAnimation, child);
   }
 }

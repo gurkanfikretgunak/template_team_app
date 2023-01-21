@@ -1,4 +1,6 @@
 import 'package:client/app/views/auth/widgets/social_image_path.dart';
+import 'package:client/app/widgets/buttons/buttons_widgets.dart';
+import 'package:client/core/extensions/common_extension.dart';
 import 'package:flutter/material.dart';
 
 import '../../../widgets/image_viewer/icons/icons_widgets.dart';
@@ -23,16 +25,24 @@ class CustomSocialIcon extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        Image.asset(
-          SocialPathLabel().paths(imagePath),
-          alignment: alignment ?? Alignment.center,
-          height: IconSizeLabel().height(height),
-          width: IconSizeLabel().width(width),
+    return SizedBox(
+      width: 500,
+      child: CustomOutlinedButton(
+        onPressed: () {},
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Image.asset(
+              SocialPathLabel().paths(imagePath),
+              alignment: alignment ?? Alignment.center,
+              height: IconSizeLabel().height(height),
+              width: IconSizeLabel().width(width),
+            ),
+            context.emptySizedWidthBoxNormal,
+            Text(socialName)
+          ],
         ),
-        Text(socialName)
-      ],
+      ),
     );
   }
 }

@@ -25,7 +25,7 @@ class SignInWidgets {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Padding(
-              padding: context.onlyBottomPaddingHigh,
+              padding: context.onlyBottomPaddingNormal,
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
@@ -42,7 +42,7 @@ class SignInWidgets {
                       CustomTextButton(
                         onPressed: () {
                           NavigationService.instance
-                              .navigateToPage(Routes.signup.name);
+                              .navigateToPage(Routes.withSignUp.name);
                         },
                         padding: EdgeInsets.zero,
                         buttonSize: ButtonSize.small,
@@ -57,14 +57,11 @@ class SignInWidgets {
             Wrap(
               children: [
                 CustomTextFormField(
-                  labelTextValue: L10n.of(context)!.email,
-                  hintText: "john@example.com",
-                  keyboardType: KeyboardType.email,
-                ),
+                    labelTextValue: L10n.of(context)!.email,
+                    hintText: "john@example.com"),
                 CustomTextFormField(
-                  labelTextValue: L10n.of(context)!.password,
-                  hintText: "Set a password",
-                ),
+                    labelTextValue: L10n.of(context)!.password,
+                    hintText: "Set a password"),
                 SizedBox(
                   width: context.dynamicWidth(1),
                   child: CustomElevatedButton(
@@ -94,8 +91,7 @@ class SignInWidgets {
               ),
             ),
             Padding(
-              padding: context.verticalPaddingMedium +
-                  context.onlyBottomPaddingMedium,
+              padding: context.verticalPaddingNormal,
               child: Row(
                 children: [
                   const Expanded(child: CustomDivider()),
@@ -107,28 +103,30 @@ class SignInWidgets {
                 ],
               ),
             ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
-              children: [
-                CustomSocialIcon(
-                  imagePath: SocialPath.twitter,
-                  height: IconSize.large,
-                  width: IconSize.large,
-                  socialName: L10n.of(context)!.twitter,
-                ),
-                CustomSocialIcon(
-                  imagePath: SocialPath.google,
-                  height: IconSize.large,
-                  width: IconSize.large,
-                  socialName: L10n.of(context)!.google,
-                ),
-                CustomSocialIcon(
-                  imagePath: SocialPath.facebook,
-                  height: IconSize.large,
-                  width: IconSize.large,
-                  socialName: L10n.of(context)!.facebook,
-                )
-              ],
+            Center(
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                children: const [
+                  CustomSocialIcon(
+                    imagePath: SocialPath.twitter,
+                    height: IconSize.large,
+                    width: IconSize.large,
+                    socialName: "Continue with Twitter",
+                  ),
+                  CustomSocialIcon(
+                    imagePath: SocialPath.google,
+                    height: IconSize.large,
+                    width: IconSize.large,
+                    socialName: "Continue with Google",
+                  ),
+                  CustomSocialIcon(
+                    imagePath: SocialPath.facebook,
+                    height: IconSize.large,
+                    width: IconSize.large,
+                    socialName: "Continue with Facebook",
+                  )
+                ],
+              ),
             ),
           ],
         ),
