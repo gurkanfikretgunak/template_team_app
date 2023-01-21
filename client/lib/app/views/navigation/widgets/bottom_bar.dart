@@ -11,27 +11,31 @@ class CustomBottomNavigationBar extends StatefulWidget {
 class _CustomBottomNavigationBarState extends State<CustomBottomNavigationBar> {
   @override
   Widget build(BuildContext context) {
-    return BottomNavigationBar(
-      items: const <BottomNavigationBarItem>[
-        BottomNavigationBarItem(
-          label: "Home",
-          icon: Icon(Icons.home_outlined),
-        ),
-        BottomNavigationBarItem(
-          label: "Search",
-          icon: Icon(Icons.search),
-        ),
-        BottomNavigationBarItem(
-          label: "Booking",
-          icon: Icon(Icons.add),
-        ),
-        BottomNavigationBarItem(
-          label: "Account",
-          icon: Icon(Icons.person_outline),
-        ),
-      ],
-      currentIndex: context.watch<BottomNavBarViewModel>().currentPage,
-      onTap: context.read<BottomNavBarViewModel>().changePage,
+    return Container(
+      decoration: BoxDecoration(
+        border: Border(
+            top: BorderSide(
+          color: Colors.blueGrey,
+        )),
+      ),
+      child: BottomNavigationBar(
+        items: const <BottomNavigationBarItem>[
+          BottomNavigationBarItem(
+            label: "Search",
+            icon: Icon(Icons.search),
+          ),
+          BottomNavigationBarItem(
+            label: "Booking",
+            icon: Icon(Icons.add),
+          ),
+          BottomNavigationBarItem(
+            label: "Account",
+            icon: Icon(Icons.person_outline),
+          ),
+        ],
+        currentIndex: context.watch<BottomNavBarViewModel>().currentPage,
+        onTap: context.read<BottomNavBarViewModel>().changePage,
+      ),
     );
   }
 }
