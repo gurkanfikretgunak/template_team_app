@@ -37,7 +37,7 @@
     "account":"Account",
     "yourFavorites":"Your Favorites",
     "yourFavoritesDesc":"Reorder your favorite service in a click",
-    "payment":"Payment",
+    "payment":"Payments",
     "paymentDesc":"Payment methods, Transaction History ",
     "manageAddress":"Manage Address",
     "notifications":"Notifications",
@@ -53,7 +53,20 @@
     "isDeleteAddress":"Delete “Home” Address?",
     "isDeleteAddressDesc":"Are you sure want to delete this address?",
     "isLogout":"Logout?",
-    "logoutDesc":"Are you sure want to logout from the app?" 
+    "logoutDesc":"Are you sure want to logout from the app?" ,
+    "apply":"Apply",
+    "select":"Select",
+    "home":"Home", 
+    "yourSavedAddress":"Your saved address",
+    "termsOfService":"Terms of Services",
+    "privacyPolicy":"Privacy Policy",
+    "licenses":"Licenses",
+    "paymentMethods":"Payment Methods",
+    "applePay":"Apple Pay", 
+    "remove":"Remove",
+    "cash":"Cash",
+    "addPaymentMehod":"Add payment method"
+
 
 
 

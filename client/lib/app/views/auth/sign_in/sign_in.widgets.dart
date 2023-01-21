@@ -10,6 +10,7 @@ import 'package:client/app/widgets/divider/divider_widgets.dart';
 import 'package:client/app/widgets/divider/widgets/custom_divider.dart';
 import 'package:client/app/widgets/image_viewer/icons/icons_widgets.dart';
 import 'package:client/app/widgets/inputs/widgets/text_fields/custom_text_form_field.dart';
+import 'package:client/app/widgets/inputs/widgets/text_fields/keyboard_type.dart';
 import 'package:client/core/constans/text_constants.dart';
 import 'package:client/core/extensions/common_extension.dart';
 
@@ -40,7 +41,8 @@ class SignInWidgets {
                       ),
                       CustomTextButton(
                         onPressed: () {
-                          NavigationService.instance.navigateToPage(Routes.withSignUp.name);
+                          NavigationService.instance
+                              .navigateToPage(Routes.withSignUp.name);
                         },
                         padding: EdgeInsets.zero,
                         buttonSize: ButtonSize.small,
@@ -54,13 +56,18 @@ class SignInWidgets {
             ),
             Wrap(
               children: [
-                CustomTextFormField(labelTextValue: L10n.of(context)!.email, hintText: "john@example.com"),
-                CustomTextFormField(labelTextValue: L10n.of(context)!.password, hintText: "Set a password"),
+                CustomTextFormField(
+                    labelTextValue: L10n.of(context)!.email,
+                    hintText: "john@example.com"),
+                CustomTextFormField(
+                    labelTextValue: L10n.of(context)!.password,
+                    hintText: "Set a password"),
                 SizedBox(
                   width: context.dynamicWidth(1),
                   child: CustomElevatedButton(
                     onPressed: () {
-                      NavigationService.instance.navigateToPageClear(path: Routes.navigation.name);
+                      NavigationService.instance
+                          .navigateToPageClear(path: Routes.navigation.name);
                     },
                     text: L10n.of(context)!.login,
                     buttonSize: ButtonSize.large,
@@ -75,7 +82,8 @@ class SignInWidgets {
               child: Center(
                 child: CustomTextButton(
                   onPressed: () {
-                    NavigationService.instance.navigateToPage(Routes.forgotPassword.name);
+                    NavigationService.instance
+                        .navigateToPage(Routes.forgotPassword.name);
                   },
                   text: L10n.of(context)!.forgotPassword,
                   buttonSize: ButtonSize.large,

@@ -30,8 +30,9 @@ class OnboardingButton extends StatelessWidget {
             child: CustomOutlinedButton(
               onPressed: () {
                 provider.pageController!.nextPage(
-                    duration: const Duration(milliseconds: 300),
-                    curve: Curves.linear);
+                  duration: context.durationLow,
+                  curve: Curves.linear,
+                );
                 provider.currentIndex = provider.currentIndex + 1;
               },
               text: L10n.of(context)!.getStarted,

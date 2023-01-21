@@ -2,6 +2,7 @@ import 'package:client/app/l10n/app_l10n.dart';
 import 'package:client/app/views/onboarding/onboarding.view.dart';
 import 'package:client/app/routes/app_routes.dart';
 import 'package:client/app/routes/navigation_service.dart';
+import 'package:client/app/views/splash/splash.view.dart';
 import 'package:client/core/init/theme/custom_theme.dart';
 import 'package:client/core/provider/multi_provider_init.dart';
 
@@ -16,7 +17,7 @@ class App extends StatelessWidget {
     return MultiProvider(
       providers: MultiProviderInit().providers,
       child: MaterialApp(
-        home: const OnboardingView(),
+        home: const SplashView(false),
         title: "Survey App",
         theme: CustomTheme.customLightTheme(context),
         localizationsDelegates: L10n.localizationsDelegates,

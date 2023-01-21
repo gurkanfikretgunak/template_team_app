@@ -8,6 +8,13 @@ enum Routes {
   shop,
   bookingDetail,
   shopDetail,
+
   withSignUp,
-  search
+  search,
+
+  manageAddress,
+  favorites,
+  payment,
+  notification,
+  about,
 }
