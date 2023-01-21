@@ -16,27 +16,7 @@ class SplashView extends BaseView with SplashWidgets {
     return dynamicBuild(
       context,
       error: backendError(),
-      body: Column(
-        children: [
-          const Text('not errror'),
-          const CustomTextFormField(
-            labelTextValue: "xlkv",
-            labelTextRequired: LabelText.required,
-            focusedBorderColor: TextFormFieldColor.purple,
-            enabledBorderColor: TextFormFieldColor.green,
-          ),
-          const CustomSearchField(),
-          const CustomDivider(type: DividerType.dashed),
-          // CustomTabBar(
-          //   tabBarList: tabbarList,
-          //   tabBarViewList: tabbarViewList,
-          // ),
-
-          CustomRadioButton(
-            list: list2,
-          )
-        ],
-      ),
+      body: body(context),
       errorBody: const Text('errorrrr'),
     );
   }
