@@ -53,7 +53,7 @@ class ShopServiceCustomListTile extends StatelessWidget {
             spacing: 8,
             direction: Axis.vertical,
             children: [
-              Text(title ?? 'Haircut'),
+              Text(title ?? L10n.of(context)!.haircut),
               Text(subtitle ?? '\$40'),
               Wrap(
                 crossAxisAlignment: WrapCrossAlignment.center,

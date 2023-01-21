@@ -37,7 +37,8 @@ class HomeWidgets {
                 onChanged: (String? value) {
                   provider.ddLocationValue = value!;
                 },
-                items: provider.locationList.map<DropdownMenuItem<String>>((String value) {
+                items: provider.locationList
+                    .map<DropdownMenuItem<String>>((String value) {
                   return DropdownMenuItem<String>(
                     value: value,
                     child: Text(
@@ -62,9 +63,11 @@ class HomeWidgets {
           children: [
             const CustomSearchField(),
             const FilterList(),
-            categoryTitle(title: L10n.of(context)!.beautyServices, context: context),
+            categoryTitle(
+                title: L10n.of(context)!.beautyServices, context: context),
             const ServicesGridView(),
-            categoryTitle(title: L10n.of(context)!.popularNearYou, context: context),
+            categoryTitle(
+                title: L10n.of(context)!.popularNearYou, context: context),
             ShopList(
               imageFlex: 2,
               isHorizontal: true,
@@ -195,7 +198,7 @@ Widget categoryTitle({required String title, required BuildContext context}) {
         ),
         CustomTextButton(
           onPressed: () {},
-          text: " see all >",
+          text: L10n.of(context)!.seeAll,
         )
       ],
     ),

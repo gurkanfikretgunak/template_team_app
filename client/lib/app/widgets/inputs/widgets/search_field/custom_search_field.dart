@@ -1,3 +1,4 @@
+import 'package:client/app/l10n/app_l10n.dart';
 import 'package:client/app/widgets/image_viewer/icons/icons_widgets.dart';
 import 'package:client/app/widgets/inputs/inputs_widgets.dart';
 import 'package:client/core/base/base_view/base_view.dart';
@@ -14,8 +15,7 @@ class CustomSearchField extends BaseView {
   Widget build(BuildContext context) {
     final provider = Provider.of<SearchFieldNotifier>(context);
     return CustomTextFormField(
-      //IconButton içinde kullanmayınca boyutlandırma sorunu yaşıyorum.
-      hintText: "Search",
+      hintText: L10n.of(context)!.search,
       onChanged: (value) {
         value.isNotEmpty ? provider.active = true : provider.active = false;
       },

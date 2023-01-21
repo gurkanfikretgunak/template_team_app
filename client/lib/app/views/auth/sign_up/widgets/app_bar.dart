@@ -1,3 +1,4 @@
+import 'package:client/app/l10n/app_l10n.dart';
 import 'package:client/app/routes/routes_widgets.dart';
 import 'package:client/app/widgets/buttons/widgets/button_color.dart';
 import 'package:client/app/widgets/buttons/widgets/button_size.dart';
@@ -20,14 +21,14 @@ class AppBarContent extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
               Text(
-                'Sign Up',
+                L10n.of(context)!.signup,
                 style: TextConstants.instance.heading4
                     .copyWith(color: ColorConstant.instance.light4),
               ),
               Row(
                 children: [
                   Text(
-                    'Already have an Account ?',
+                    L10n.of(context)!.haveAnAccount,
                     style: TextConstants.instance.heading6
                         .copyWith(color: ColorConstant.instance.light4),
                   ),
@@ -36,7 +37,7 @@ class AppBarContent extends StatelessWidget {
                       NavigationService.instance
                           .navigateToPage(Routes.signin.name);
                     },
-                    text: "Login",
+                    text: L10n.of(context)!.login,
                     buttonSize: ButtonSize.small,
                     hasUnderline: true,
                     color: ButtonColor.dark,

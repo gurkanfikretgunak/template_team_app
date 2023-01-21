@@ -159,12 +159,6 @@ abstract class L10n {
   /// **'password'**
   String get password;
 
-  /// No description provided for @orSignupUsing.
-  ///
-  /// In en, this message translates to:
-  /// **'Or SignUp using'**
-  String get orSignupUsing;
-
   /// No description provided for @twitter.
   ///
   /// In en, this message translates to:
@@ -237,11 +231,11 @@ abstract class L10n {
   /// **'Forgot your Password?'**
   String get forgotPassword;
 
-  /// No description provided for @orLoginUsing.
+  /// No description provided for @or.
   ///
   /// In en, this message translates to:
-  /// **'Or Login using'**
-  String get orLoginUsing;
+  /// **'or'**
+  String get or;
 
   /// No description provided for @beautyServices.
   ///
@@ -488,6 +482,198 @@ abstract class L10n {
   /// In en, this message translates to:
   /// **'Add payment method'**
   String get addPaymentMehod;
+
+  /// No description provided for @forward.
+  ///
+  /// In en, this message translates to:
+  /// **'Forward'**
+  String get forward;
+
+  /// No description provided for @continueWithTwitter.
+  ///
+  /// In en, this message translates to:
+  /// **'Continue with Twitter'**
+  String get continueWithTwitter;
+
+  /// No description provided for @continueWithFacebook.
+  ///
+  /// In en, this message translates to:
+  /// **'Continue with Facebook'**
+  String get continueWithFacebook;
+
+  /// No description provided for @continueWithGoogle.
+  ///
+  /// In en, this message translates to:
+  /// **'Continue with Google'**
+  String get continueWithGoogle;
+
+  /// No description provided for @profile.
+  ///
+  /// In en, this message translates to:
+  /// **'Profile'**
+  String get profile;
+
+  /// No description provided for @haircutForMen.
+  ///
+  /// In en, this message translates to:
+  /// **'Haircut for men'**
+  String get haircutForMen;
+
+  /// No description provided for @shops.
+  ///
+  /// In en, this message translates to:
+  /// **'Shops'**
+  String get shops;
+
+  /// No description provided for @sortFilters.
+  ///
+  /// In en, this message translates to:
+  /// **'Sort/Filters'**
+  String get sortFilters;
+
+  /// No description provided for @clearAll.
+  ///
+  /// In en, this message translates to:
+  /// **'Clear all'**
+  String get clearAll;
+
+  /// No description provided for @timing.
+  ///
+  /// In en, this message translates to:
+  /// **'Timing'**
+  String get timing;
+
+  /// No description provided for @sort.
+  ///
+  /// In en, this message translates to:
+  /// **'Sort'**
+  String get sort;
+
+  /// No description provided for @past.
+  ///
+  /// In en, this message translates to:
+  /// **'Past'**
+  String get past;
+
+  /// No description provided for @upcoming.
+  ///
+  /// In en, this message translates to:
+  /// **'Upcoming'**
+  String get upcoming;
+
+  /// No description provided for @reorderBooking.
+  ///
+  /// In en, this message translates to:
+  /// **'Reorder Booking'**
+  String get reorderBooking;
+
+  /// No description provided for @bookingDetail.
+  ///
+  /// In en, this message translates to:
+  /// **'Booking Detail'**
+  String get bookingDetail;
+
+  /// No description provided for @haircut.
+  ///
+  /// In en, this message translates to:
+  /// **'Haircut'**
+  String get haircut;
+
+  /// No description provided for @itemTotal.
+  ///
+  /// In en, this message translates to:
+  /// **'ItemTotal'**
+  String get itemTotal;
+
+  /// No description provided for @couponDiscount.
+  ///
+  /// In en, this message translates to:
+  /// **'CouponDiscount'**
+  String get couponDiscount;
+
+  /// No description provided for @grandTotal.
+  ///
+  /// In en, this message translates to:
+  /// **'Grand Total'**
+  String get grandTotal;
+
+  /// No description provided for @favorites.
+  ///
+  /// In en, this message translates to:
+  /// **'Favorites'**
+  String get favorites;
+
+  /// No description provided for @yourBookings.
+  ///
+  /// In en, this message translates to:
+  /// **'Your Bookings'**
+  String get yourBookings;
+
+  /// No description provided for @recommended.
+  ///
+  /// In en, this message translates to:
+  /// **'Recommended'**
+  String get recommended;
+
+  /// No description provided for @packages.
+  ///
+  /// In en, this message translates to:
+  /// **'Packages'**
+  String get packages;
+
+  /// No description provided for @faceCare.
+  ///
+  /// In en, this message translates to:
+  /// **'Face Care'**
+  String get faceCare;
+
+  /// No description provided for @call.
+  ///
+  /// In en, this message translates to:
+  /// **'Call'**
+  String get call;
+
+  /// No description provided for @directions.
+  ///
+  /// In en, this message translates to:
+  /// **'Directions'**
+  String get directions;
+
+  /// No description provided for @share.
+  ///
+  /// In en, this message translates to:
+  /// **'Share'**
+  String get share;
+
+  /// No description provided for @ratings.
+  ///
+  /// In en, this message translates to:
+  /// **'Ratings'**
+  String get ratings;
+
+  /// No description provided for @popularity.
+  ///
+  /// In en, this message translates to:
+  /// **'Popularity'**
+  String get popularity;
+
+  /// No description provided for @ratingHighToLow.
+  ///
+  /// In en, this message translates to:
+  /// **'Rating : High to Low'**
+  String get ratingHighToLow;
+
+  /// No description provided for @costHighToLow.
+  ///
+  /// In en, this message translates to:
+  /// **'Cost : High to Low'**
+  String get costHighToLow;
+
+  /// No description provided for @costLowToHigh.
+  ///
+  /// In en, this message translates to:
+  /// **'Cost : Low to High'**
+  String get costLowToHigh;
 }
 
 class _L10nDelegate extends LocalizationsDelegate<L10n> {
