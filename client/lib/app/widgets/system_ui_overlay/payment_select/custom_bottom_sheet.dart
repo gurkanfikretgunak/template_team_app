@@ -4,13 +4,19 @@ import 'package:client/core/base/base_view/base_view.dart';
 import 'package:flutter/material.dart';
 
 class BottomSheetWidget extends BaseView {
-  const BottomSheetWidget(this.paymentMethods, this.paymentName, this.onPressed, this.hasButton, this.buttonOnPressed,
-      {super.key});
+  const BottomSheetWidget({
+    super.key,
+    required this.paymentMethods,
+    required this.paymentName,
+    required this.onPressed,
+    required this.hasButton,
+    required this.buttonOnPressed,
+  });
 
-  final List<Payments?> paymentMethods;
-  final List<String?> paymentName;
-  final List<VoidCallback?> onPressed;
-  final bool? hasButton;
+  final List<Payments> paymentMethods;
+  final List<String> paymentName;
+  final List<VoidCallback> onPressed;
+  final bool hasButton;
   final VoidCallback buttonOnPressed;
 
   @override
@@ -18,10 +24,12 @@ class BottomSheetWidget extends BaseView {
     return Column(
       children: [
         ListView.builder(
+          shrinkWrap: true,
           itemCount: paymentMethods.length,
           itemBuilder: (context, index) {
             return ListTile(
-                leading: PaymentSelectLabel().paymentIcons(paymentMethods[index]),
+                leading:
+                    PaymentSelectLabel().paymentIcons(paymentMethods[index]),
                 title: Text(paymentName[index]!),
                 trailing: const Icon(Icons.arrow_forward_ios_outlined),
                 onTap: onPressed[index]);

@@ -24,7 +24,9 @@ class CustomAppbar extends StatelessWidget with PreferredSizeWidget {
             height: specialAppbar == null
                 ? context.dynamicHeight(0.25)
                 : context.dynamicHeight(0.2),
-            child: Row(
+            child: Wrap(
+              crossAxisAlignment: WrapCrossAlignment.center,
+              spacing: 10,
               children: [
                 leading == null
                     ? IconButton(
@@ -49,31 +51,6 @@ class CustomAppbar extends StatelessWidget with PreferredSizeWidget {
               ],
             ),
           );
-    // AppBar(
-    //   leading: leading == null
-    //       ? IconButton(
-    //           onPressed: () {
-    //             Navigator.pop(context);
-    //           },
-    //           icon: const Icon(
-    //             Icons.arrow_back,
-    //           ),
-    //         )
-    //       : Padding(
-    //           padding: context.horizontalPaddingNormal,
-    //           child: Center(child: leading),
-    //         ),
-    //   leadingWidth: leading == null
-    //       ? context.dynamicWidth(0.12)
-    //       : context.dynamicWidth(1),
-    //   automaticallyImplyLeading: false,
-    //   title: titleWidget ??
-    //       Text(
-    //         title ?? '',
-    //         style: TextConstants.instance.heading6,
-    //         maxLines: 1,
-    //       ),
-    // );
   }
 
   @override

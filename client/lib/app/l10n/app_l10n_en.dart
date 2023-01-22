@@ -297,4 +297,25 @@ class L10nEn extends L10n {
 
   @override
   String get emptyFavoritedList => 'Nothing has been favorited yet. Favorites will appear here.';
+
+  @override
+  String get creditCard => 'Credit card';
+
+  @override
+  String get giftCard => 'Gift card';
+
+  @override
+  String get addCard => 'Add a card';
+
+  @override
+  String get nameOnCard => 'Name on card';
+
+  @override
+  String get cardNumber => 'Card number';
+
+  @override
+  String get expDate => 'Exp. Date';
+
+  @override
+  String get cvv => 'CVV';
 }
