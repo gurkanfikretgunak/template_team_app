@@ -16,8 +16,8 @@ class BookingsView extends BaseView with BookingsWidgets {
     return dynamicBuild(
       context,
       error: backendError(),
-      appbar: appBar(),
-      body: body(),
+      appbar: appBar(context),
+      body: body(context),
       errorBody: const Text('errorrrr'),
     );
   }

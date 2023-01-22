@@ -9,5 +9,5 @@ class OnboardingViewModel extends ChangeNotifier {
     notifyListeners();
   }
 
-  PageController? pageController;
+  PageController? pageController = PageController(initialPage: 0);
 }

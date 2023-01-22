@@ -76,7 +76,7 @@ class CustomTextFormField extends BaseView {
               : LabelTextLabel.lowOpacity(),
         ),
         TextFormField(
-          inputFormatters: [MaskTextInputFormatter(mask: "+### ###-##-##")],
+          // inputFormatters: [MaskTextInputFormatter(mask: "+### ###-##-##")],
           key: key,
           controller: controller,
           onTap: onTap,

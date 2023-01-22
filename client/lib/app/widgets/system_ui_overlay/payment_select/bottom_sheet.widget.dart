@@ -2,7 +2,10 @@ import 'package:flutter/material.dart';
 
 class CustomOverlayWidget {
   static void settingModalBottomSheet(context, Widget widgetSheet) {
-    showModalBottomSheet(isScrollControlled: true, context: context, builder: (context) => widgetSheet);
+    showModalBottomSheet(
+        isScrollControlled: false,
+        context: context,
+        builder: (context) => widgetSheet);
   }
 
   static EdgeInsetsDirectional sheetBottomValue() {

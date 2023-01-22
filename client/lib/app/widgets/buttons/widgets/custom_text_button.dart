@@ -1,5 +1,6 @@
 import 'package:client/app/widgets/buttons/widgets/button_color.dart';
 import 'package:client/app/widgets/buttons/widgets/button_size.dart';
+import 'package:client/core/constans/text_constants.dart';
 import 'package:flutter/material.dart';
 
 class CustomTextButton extends StatelessWidget {
@@ -12,9 +13,11 @@ class CustomTextButton extends StatelessWidget {
     this.child,
     this.minimumSize,
     this.color,
+    this.hasUnderline = false,
   }) : super(key: key);
 
   final String text;
+  final bool hasUnderline;
   final EdgeInsetsGeometry? padding;
   final VoidCallback? onPressed;
   final Widget? child;
@@ -27,18 +30,18 @@ class CustomTextButton extends StatelessWidget {
     return TextButton(
       style: TextButton.styleFrom(
         padding: padding,
-        textStyle: const TextStyle(
-          decoration: TextDecoration.underline,
-        ),
+        textStyle: TextStyle(
+            decoration:
+                hasUnderline ? TextDecoration.underline : TextDecoration.none),
         tapTargetSize: MaterialTapTargetSize.shrinkWrap,
-        fixedSize: ButtonSizeLabel().size(buttonSize),
       ),
       onPressed: onPressed,
       child: child ??
-          Text(text,
-              style: TextStyle(
-                color: ButtonColorLabel().color(color),
-              )),
+          Text(
+            text,
+            style: TextConstants.instance.button2.copyWith(
+                color: ButtonColorLabel().color(color ?? ButtonColor.purple)),
+          ),
     );
   }
 }

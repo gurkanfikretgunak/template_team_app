@@ -1,39 +1,73 @@
-import 'package:client/app/views/shop/widget/shop_tile.dart';
-import 'package:client/app/widgets/system_ui_overlay/navigation/custom_navigation.dart';
+import 'package:client/app/routes/routes_widgets.dart';
+import 'package:client/app/views/home/home.viewmodel.dart';
+import 'package:client/app/views/shop/shop_card_widget.dart';
+import 'package:client/core/constans/color_constants.dart';
+import 'package:client/core/constans/text_constants.dart';
 import 'package:client/core/extensions/common_extension.dart';
+import 'package:client/gen/assets.gen.dart';
 import 'package:flutter/material.dart';
-import '../../widgets/image_viewer/icons/icons_widgets.dart';
-import '../../widgets/system_ui_overlay/navigation/navigation_select.dart';
+import 'package:provider/provider.dart';
 
-class ShopWidgets {
-  Widget shopBody(BuildContext context) {
-    return Padding(
-      padding: context.onlyLRTBpaddingNormal,
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Row(
-            children: [
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  NavigationsWidget(false, () {}, Navigations.back, "Woodlands Hill Salon"),
-                  const Text("Haircut, Spa, Message"),
-                  const Text("Keira throughway * 5.0 Kms, "),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceAround,
-                    children: const [
-                      CustomIcon(imagePath: "assets/icons/phone.png", height: IconSize.large, width: IconSize.large),
-                      CustomIcon(
-                          imagePath: "assets/icons/pin-outline.png", height: IconSize.large, width: IconSize.large),
-                      CustomIcon(imagePath: "assets/icons/share.png", height: IconSize.large, width: IconSize.large),
-                      CustomIcon(imagePath: "assets/icons/heart.png", height: IconSize.large, width: IconSize.large),
-                    ],
-                  ),
-                  ShopListWidget()
-                ],
+import '../../widgets/image_viewer/icons/widgets/custom_icons.dart';
+
+class ShopHomeWidgets {
+  Widget body(BuildContext context) {
+    return SliverList(
+      delegate: SliverChildBuilderDelegate(
+        (context, index) {
+          return GestureDetector(
+            onTap: () {
+              NavigationService.instance.navigateToPage(Routes.shopDetail.name);
+            },
+            child: Padding(
+              padding: context.paddingNormal,
+              child: ShopSpeacialCard(
+                imageFlex: 3,
+                cardHeight: 260,
+                cardWidth: context.dynamicWidth(0.3),
+                imageWidth: 500,
               ),
-            ],
+            ),
+          );
+        },
+        childCount: 4,
+      ),
+    );
+  }
+
+  Widget dropDownCity(BuildContext context, bool isLight) {
+    final provider = Provider.of<HomeViewModel>(context);
+
+    return Align(
+      alignment: Alignment.topCenter,
+      child: Wrap(
+        crossAxisAlignment: WrapCrossAlignment.center,
+        spacing: 10,
+        children: [
+          CustomIcon(
+              imagePath: Assets.icons.location.path,
+              iconColor: isLight ? ColorConstant.instance.light4 : ColorConstant.instance.dark0),
+          DropdownButton<String>(
+            value: provider.ddLocationValue,
+            icon: const Icon(Icons.keyboard_arrow_down_outlined),
+            elevation: 16,
+            style: TextConstants.instance.button1.copyWith(color: ColorConstant.instance.light4),
+            underline: Container(height: 0),
+            onChanged: (String? value) {
+              provider.ddLocationValue = value!;
+            },
+            items: provider.locationList.map<DropdownMenuItem<String>>((String value) {
+              return DropdownMenuItem<String>(
+                value: value,
+                child: Text(
+                  value,
+                  style: TextConstants.instance.button1.copyWith(
+                      color: value == provider.ddLocationValue
+                          ? ColorConstant.instance.light4
+                          : ColorConstant.instance.dark0),
+                ),
+              );
+            }).toList(),
           ),
         ],
       ),

@@ -1,5 +1,6 @@
 import 'package:client/app/widgets/buttons/buttons_widgets.dart';
 import 'package:client/app/widgets/image_viewer/icons/icons_widgets.dart';
+import 'package:client/gen/assets.gen.dart';
 import 'package:flutter/material.dart';
 
 class ShopPromoTile extends StatelessWidget {
@@ -12,6 +13,9 @@ class ShopPromoTile extends StatelessWidget {
     this.isInvalid = false,
     this.promoCode,
     this.profit,
+    this.onTap,
+    this.onTryAgainTap,
+    this.onRemoveTap,
   });
   final String? title;
   final String? subtitle;
@@ -20,20 +24,25 @@ class ShopPromoTile extends StatelessWidget {
   final String? buttonText;
   final bool isApplied;
   final bool isInvalid;
+  final VoidCallback? onTap;
+  final VoidCallback? onTryAgainTap;
+  final VoidCallback? onRemoveTap;
 
   @override
   Widget build(BuildContext context) {
     return ListTile(
+      contentPadding: EdgeInsets.zero,
+      visualDensity: VisualDensity(horizontal: 0, vertical: isApplied ? 4 : -4),
       isThreeLine: isApplied
           ? isInvalid
               ? false
               : true
           : false,
       leading: isApplied
-          ? const CustomIcon(imagePath: '../assets/icons/input-correct.png')
+          ? CustomIcon(imagePath: Assets.icons.inputCorrect.path)
           : isInvalid
-              ? const CustomIcon(imagePath: '../assets/icons/input-wrong.png')
-              : const CustomIcon(imagePath: '../assets/icons/offer.png'),
+              ? CustomIcon(imagePath: Assets.icons.inputWrong.path)
+              : CustomIcon(imagePath: Assets.icons.offer.path),
       title: isApplied
           ? Text(title ?? 'Code ${promoCode ?? 'FREE10'} Applied!')
           : isInvalid
@@ -50,7 +59,7 @@ class ShopPromoTile extends StatelessWidget {
               children: [
                 Text('-\$${profit ?? 40}'),
                 CustomTextButton(
-                  onPressed: () {},
+                  onPressed: onRemoveTap,
                   text: 'Remove',
                   padding: EdgeInsets.zero,
                 )
@@ -58,16 +67,20 @@ class ShopPromoTile extends StatelessWidget {
             )
           : isInvalid
               ? CustomTextButton(
-                  onPressed: () {},
+                  onPressed: onTryAgainTap,
                   text: 'Try Again',
                   padding: EdgeInsets.zero,
+                  buttonSize: ButtonSize.small,
                 )
-              : Row(
-                  mainAxisSize: MainAxisSize.min,
-                  children: const [
-                    Text('View offers'),
-                    Icon(Icons.arrow_forward_ios),
-                  ],
+              : InkWell(
+                  onTap: onTap,
+                  child: Row(
+                    mainAxisSize: MainAxisSize.min,
+                    children: const [
+                      Text('View offers'),
+                      Icon(Icons.arrow_forward_ios),
+                    ],
+                  ),
                 ),
     );
   }

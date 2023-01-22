@@ -1,30 +1,26 @@
+import 'package:client/app/l10n/app_l10n.dart';
 import 'package:client/app/widgets/buttons/buttons_widgets.dart';
-import 'package:client/app/widgets/buttons/widgets/button_color.dart';
-import 'package:client/app/widgets/buttons/widgets/button_size.dart';
-import 'package:client/app/widgets/image_viewer/icons/widgets/favorite_icon.dart';
+import 'package:client/core/constans/color_constants.dart';
+import 'package:client/core/constans/text_constants.dart';
+import 'package:client/core/extensions/common_extension.dart';
+import 'package:client/core/model/booking_model.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
-class BookingCard extends StatelessWidget {
+import '../../../views/bookings/bookings.viewmodel.dart';
+
+class BookingCard extends StatefulWidget {
   const BookingCard({
     super.key,
-    this.hasBooking = false,
-    this.isFavorite = false,
-    this.title,
-    this.desc,
-    this.date,
-    this.price,
-    this.location,
-    this.distance,
+    required this.booking,
   });
-  final String? title;
-  final String? location;
-  final String? distance;
-  final String? desc;
-  final String? date;
-  final String? price;
-  final bool hasBooking;
-  final bool isFavorite;
+  final BookingModel booking;
 
+  @override
+  State<BookingCard> createState() => _BookingCardState();
+}
+
+class _BookingCardState extends State<BookingCard> {
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -37,50 +33,83 @@ class BookingCard extends StatelessWidget {
               direction: Axis.vertical,
               spacing: 4,
               children: [
-                Text(title ?? 'Woodlands Hills Salon'),
+                Text(widget.booking.title!,
+                    style: TextConstants.instance.label1.copyWith(fontWeight: FontWeight.w600, fontSize: 16)),
                 Row(
                   children: [
-                    Text(location ?? 'Keira throughway'),
+                    Text(widget.booking.location!,
+                        style: TextConstants.instance.subtitle2.copyWith(color: ColorConstant.instance.dark3)),
                     const DotIconWidget(),
-                    Text(distance ?? '5.0 Kms'),
+                    Text(widget.booking.distance!,
+                        style: TextConstants.instance.subtitle2.copyWith(color: ColorConstant.instance.dark3)),
                   ],
                 ),
-                Text(desc ?? 'Haircut x 1 + Shave x 1'),
+                Text(widget.booking.desc!,
+                    style: TextConstants.instance.subtitle2.copyWith(color: ColorConstant.instance.dark3)),
                 Row(
                   children: [
-                    Text(date ?? '8 Mar 2021'),
+                    Text(widget.booking.date!,
+                        style: TextConstants.instance.subtitle1.copyWith(color: ColorConstant.instance.dark3)),
                     const DotIconWidget(),
-                    Text(price ?? '\$102'),
+                    Text(widget.booking.price!,
+                        style: TextConstants.instance.subtitle1.copyWith(color: ColorConstant.instance.dark3)),
                   ],
                 ),
               ],
             ),
-            FavoriteIcon(isFavorite: isFavorite),
+            Column(
+              children: [
+                Consumer<BookingViewModel>(
+                  builder: (context, value, child) {
+                    bool favoriteMovies = value.isFavorite(widget.booking);
+
+                    return IconButton(
+                        onPressed: () {
+                          value.favBooking(widget.booking, !favoriteMovies);
+                        },
+                        icon: AnimatedCrossFade(
+                          firstChild: Icon(
+                            Icons.favorite,
+                            color: ColorConstant.instance.purple2,
+                          ),
+                          secondChild: const Icon(Icons.favorite_border),
+                          crossFadeState: favoriteMovies ? CrossFadeState.showFirst : CrossFadeState.showSecond,
+                          duration: const Duration(seconds: 1),
+                        ));
+                  },
+                ),
+              ],
+            )
           ],
         ),
         Padding(
-          padding: const EdgeInsets.only(top: 24),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              hasBooking
-                  ? CustomTextButton(
+            padding: context.onlyTopPaddingNormal,
+            child: Row(
+              children: [
+                Expanded(
+                  flex: widget.booking.isCancel! ? 2 : 4,
+                  child: widget.booking.isCancel!
+                      ? CustomOutlinedButton(
+                          onPressed: () {},
+                          text: L10n.of(context)!.cancel,
+                          borderSideColor: ButtonColor.red,
+                        )
+                      : const SizedBox(),
+                ),
+                context.emptySizedWidthBoxNormal,
+                Expanded(
+                  flex: 3,
+                  child: SizedBox(
+                    height: context.dynamicHeight(0.046),
+                    child: CustomOutlinedButton(
                       onPressed: () {},
-                      text: 'Cancel Booking',
-                      padding: EdgeInsets.zero,
-                      minimumSize: Size.zero,
-                      color: ButtonColor.red,
-                    )
-                  : const SizedBox.shrink(),
-              CustomOutlinedButton(
-                onPressed: () {},
-                text: 'Reorder Booking',
-                buttonSize: ButtonSize.large,
-                padding: const EdgeInsets.all(8),
-              ),
-            ],
-          ),
-        ),
+                      text: L10n.of(context)!.reorderBooking,
+                      buttonSize: ButtonSize.large,
+                    ),
+                  ),
+                )
+              ],
+            )),
       ],
     );
   }

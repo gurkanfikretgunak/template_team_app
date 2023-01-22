@@ -1,6 +1,9 @@
+import 'package:client/app/l10n/app_l10n.dart';
 import 'package:client/app/widgets/buttons/buttons_widgets.dart';
-import 'package:client/app/widgets/image_viewer/icons/icons_widgets.dart';
 import 'package:client/app/widgets/list_items/list_items_widget.dart';
+import 'package:client/core/constans/color_constants.dart';
+import 'package:client/core/constans/text_constants.dart';
+import 'package:client/gen/assets.gen.dart';
 import 'package:flutter/material.dart';
 
 class ShopServiceCustomListTile extends StatelessWidget {
@@ -31,7 +34,7 @@ class ShopServiceCustomListTile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Row(
-      crossAxisAlignment: CrossAxisAlignment.center,
+      crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Container(
           margin: const EdgeInsets.only(right: 8),
@@ -39,7 +42,7 @@ class ShopServiceCustomListTile extends StatelessWidget {
           height: imgSize ?? 75,
           decoration: BoxDecoration(
             image:
-                DecorationImage(fit: BoxFit.cover, image: NetworkImage(imgPath ?? 'https://picsum.photos/250?image=9')),
+                DecorationImage(fit: BoxFit.cover, image: AssetImage(imgPath ?? Assets.images.shop.shopDetail2.path)),
             borderRadius: BorderRadius.all(Radius.circular(imgRadius ?? 8)),
           ),
         ),
@@ -48,7 +51,7 @@ class ShopServiceCustomListTile extends StatelessWidget {
             spacing: 8,
             direction: Axis.vertical,
             children: [
-              Text(title ?? 'Haircut'),
+              Text(title ?? L10n.of(context)!.haircut),
               Text(subtitle ?? '\$40'),
               Wrap(
                 crossAxisAlignment: WrapCrossAlignment.center,
@@ -61,18 +64,25 @@ class ShopServiceCustomListTile extends StatelessWidget {
             ],
           ),
         ),
-        // buttonText ?? 'Select'
         isSelected
             ? ProductCountButton(onRemove: () {}, productCount: 1, onAdd: () {})
-            : CustomOutlinedButton(
-                onPressed: () {},
-                child: Row(
-                  children: [
-                    Text(buttonText ?? 'Select'),
-                    const CustomIcon(
-                      imagePath: 'assets/icons/plus.png',
-                    )
-                  ],
+            : SizedBox(
+                width: 100,
+                height: 35,
+                child: CustomOutlinedButton(
+                  onPressed: () {},
+                  child: Center(
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Text(
+                          L10n.of(context)!.select,
+                          style: TextConstants.instance.label1.copyWith(color: ColorConstant.instance.purple2),
+                        ),
+                        Icon(Icons.add, color: ColorConstant.instance.purple2),
+                      ],
+                    ),
+                  ),
                 ),
               ),
       ],
