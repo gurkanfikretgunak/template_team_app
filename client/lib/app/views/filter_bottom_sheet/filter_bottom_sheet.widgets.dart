@@ -1,3 +1,4 @@
+import 'package:client/app/l10n/app_l10n.dart';
 import 'package:client/app/views/filter_bottom_sheet/filter_bottom_sheet.viewmodel.dart';
 import 'package:client/app/views/filter_bottom_sheet/widgets/gender/gender.dart';
 import 'package:client/app/views/filter_bottom_sheet/widgets/gender/gender_notifier.dart';
@@ -6,7 +7,6 @@ import 'package:client/app/views/filter_bottom_sheet/widgets/timing/timing.dart'
 import 'package:client/app/views/filter_bottom_sheet/widgets/timing/timing_notifier.dart';
 import 'package:client/app/widgets/buttons/buttons_widgets.dart';
 import 'package:client/app/widgets/image_viewer/icons/icons_widgets.dart';
-import 'package:client/app/widgets/inputs/inputs_widgets.dart';
 import 'package:client/core/constans/color_constants.dart';
 import 'package:client/core/constans/text_constants.dart';
 import 'package:client/core/extensions/common_extension.dart';
@@ -34,7 +34,8 @@ class FilterBottomSheetWidgets {
                     width: IconSize.large,
                   ),
                 ),
-                Text("Sort/Filters", style: TextConstants.instance.button1),
+                Text(L10n.of(context)!.sortFilters,
+                    style: TextConstants.instance.button1),
               ],
             ),
             CustomTextButton(
@@ -42,7 +43,7 @@ class FilterBottomSheetWidgets {
                 Provider.of<GenderNotifier>(context, listen: false).clear();
                 Provider.of<TimingNotifier>(context, listen: false).clear();
               },
-              text: " Clear all",
+              text: L10n.of(context)!.clearAll,
             )
           ],
         ),

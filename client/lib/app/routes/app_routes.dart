@@ -2,6 +2,7 @@ import 'package:client/app/routes/routes_widgets.dart';
 import 'package:client/app/views/checkout/checkout.view.dart';
 import 'package:client/app/views/checkout_detail/checkout_detail.view.dart';
 import 'package:client/app/views/promo/promo.view.dart';
+import 'package:client/app/views/account/payments/payment_home/payment.view.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -25,17 +26,20 @@ class AppRoutes {
       case Routes.signup:
         return FadeTransitionPageRoute(const SignUpView(), settings: args);
       case Routes.withSignUp:
-        return FadeTransitionPageRoute(const CustomSignUpWith(), settings: args);
+        return FadeTransitionPageRoute(const CustomSignUpWith(),
+            settings: args);
       case Routes.verifyOtb:
         return FadeTransitionPageRoute(const VerifyOtbView(), settings: args);
 
       case Routes.forgotPassword:
-        return FadeTransitionPageRoute(const ForgotPasswordView(), settings: args);
+        return FadeTransitionPageRoute(const ForgotPasswordView(),
+            settings: args);
       case Routes.search:
         return FadeTransitionPageRoute(const SearchView(false), settings: args);
 
       case Routes.navigation:
-        return FadeTransitionPageRoute(const NavigationView(false), settings: args);
+        return FadeTransitionPageRoute(const NavigationView(false),
+            settings: args);
 
       case Routes.shop:
         return FadeTransitionPageRoute(const ShopView(), settings: args);
@@ -44,7 +48,8 @@ class AppRoutes {
         return FadeTransitionPageRoute(const ShopDetailView(), settings: args);
 
       case Routes.bookingDetail:
-        return FadeTransitionPageRoute(const BookingDetailView(false), settings: args);
+        return FadeTransitionPageRoute(const BookingDetailView(false),
+            settings: args);
 
       case Routes.manageAddress:
         return FadeTransitionPageRoute(const ManageAddressView(false), settings: args);
@@ -67,6 +72,10 @@ class AppRoutes {
       case Routes.promo:
         return FadeTransitionPageRoute(const PromoView(false), settings: args);
 
+      case Routes.addCard:
+        return FadeTransitionPageRoute(const AddCardView(false),
+            settings: args);
+
       default:
         return MaterialPageRoute(
           builder: (context) => Text('No route defined for ${routes.name}'),
@@ -82,7 +91,8 @@ class FadeTransitionPageRoute extends CupertinoPageRoute {
       : super(settings: settings, builder: (BuildContext context) => widget);
 
   @override
-  Widget buildPage(BuildContext context, Animation<double> animation, Animation<double> secondaryAnimation) {
+  Widget buildPage(BuildContext context, Animation<double> animation,
+      Animation<double> secondaryAnimation) {
     return FadeTransition(opacity: animation, child: widget);
   }
 
@@ -90,8 +100,8 @@ class FadeTransitionPageRoute extends CupertinoPageRoute {
   Duration get transitionDuration => const Duration(milliseconds: 650);
 
   @override
-  Widget buildTransitions(
-      BuildContext context, Animation<double> animation, Animation<double> secondaryAnimation, Widget child) {
+  Widget buildTransitions(BuildContext context, Animation<double> animation,
+      Animation<double> secondaryAnimation, Widget child) {
     final PageTransitionsTheme theme = Theme.of(context).pageTransitionsTheme;
     Animation<double> onlyForwardAnimation;
     switch (animation.status) {
@@ -104,6 +114,7 @@ class FadeTransitionPageRoute extends CupertinoPageRoute {
         onlyForwardAnimation = animation;
         break;
     }
-    return theme.buildTransitions(this, context, onlyForwardAnimation, secondaryAnimation, child);
+    return theme.buildTransitions(
+        this, context, onlyForwardAnimation, secondaryAnimation, child);
   }
 }

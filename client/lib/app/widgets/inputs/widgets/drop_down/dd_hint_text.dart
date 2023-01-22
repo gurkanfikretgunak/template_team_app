@@ -1,3 +1,6 @@
+import 'package:client/app/l10n/app_l10n.dart';
+import 'package:flutter/widgets.dart';
+
 enum DDHintText {
   gender,
   price,
@@ -7,14 +10,15 @@ enum DDHintText {
 class DDHintTextLabel {
   DDHintTextLabel();
 
-  hintText(hintText) {
+  hintText(hintText, BuildContext context) {
     switch (hintText) {
       case DDHintText.gender:
-        return "Gender";
+        return L10n.of(context)!.gender;
+
       case DDHintText.price:
-        return "Price";
+        return L10n.of(context)!.price;
       case DDHintText.rating:
-        return "Rating";
+        return L10n.of(context)!.rating;
     }
   }
 }

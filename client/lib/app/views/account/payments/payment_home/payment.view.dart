@@ -1,9 +1,11 @@
-import 'package:client/app/views/bookings/bookings.widgets.dart';
+import 'package:client/app/l10n/app_l10n.dart';
+import 'package:client/app/views/account/payments/payment_home/payment.widgets.dart';
+import 'package:client/app/widgets/custom_appbar.dart';
 import 'package:client/core/base/base_view/base_view.dart';
 import 'package:flutter/material.dart';
 
-class BookingsView extends BaseView with BookingsWidgets {
-  const BookingsView(this.error, {super.key});
+class PaymentView extends BaseView with PaymentsWidgets {
+  const PaymentView(this.error, {super.key});
 
   final bool error;
 
@@ -16,7 +18,7 @@ class BookingsView extends BaseView with BookingsWidgets {
     return dynamicBuild(
       context,
       error: backendError(),
-      appbar: appBar(context),
+      appbar: CustomAppbar(title: L10n.of(context)!.payment),
       body: body(context),
       errorBody: const Text('errorrrr'),
     );

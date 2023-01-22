@@ -24,8 +24,7 @@ class CustomImageViewer extends StatelessWidget {
   Widget build(BuildContext context) {
     if (assetPath == null || (assetPath!).isEmpty) {
       return Image.network(
-        url ??
-            "https://www.arceyazilim.com/uploads/images/201702/error-code-18.jpeg",
+        url ?? "https://www.arceyazilim.com/uploads/images/201702/error-code-18.jpeg",
         fit: BoxFit.contain,
       );
     } else {

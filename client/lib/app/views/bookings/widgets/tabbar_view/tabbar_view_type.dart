@@ -1,12 +1,11 @@
 import 'package:client/app/views/bookings/bookings.viewmodel.dart';
 import 'package:client/app/views/bookings/widgets/list_booking.dart';
+import 'package:client/app/widgets/divider/divider_widgets.dart';
 import 'package:client/app/widgets/list_items/list_items_widget.dart';
 import 'package:client/core/extensions/common_extension.dart';
 import 'package:client/core/model/booking_model.dart';
 import 'package:flutter/widgets.dart';
 import 'package:provider/provider.dart';
-
-import '../../../../widgets/divider/divider_widgets.dart';
 
 enum TabBarViewType {
   past,

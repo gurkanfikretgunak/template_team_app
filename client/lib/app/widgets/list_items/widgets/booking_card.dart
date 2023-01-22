@@ -78,10 +78,6 @@ class _BookingCardState extends State<BookingCard> {
                         ));
                   },
                 ),
-                Text(
-                  "Favorite",
-                  style: TextStyle(color: ColorConstant.instance.purple2),
-                )
               ],
             )
           ],
@@ -107,7 +103,7 @@ class _BookingCardState extends State<BookingCard> {
                     height: context.dynamicHeight(0.046),
                     child: CustomOutlinedButton(
                       onPressed: () {},
-                      text: 'Reorder Booking',
+                      text: L10n.of(context)!.reorderBooking,
                       buttonSize: ButtonSize.large,
                     ),
                   ),

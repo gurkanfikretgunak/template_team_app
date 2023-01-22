@@ -1,3 +1,4 @@
+import 'package:client/app/l10n/app_l10n.dart';
 import 'package:client/app/widgets/inputs/inputs_widgets.dart';
 import 'package:client/core/base/base_view/base_view.dart';
 import 'package:flutter/material.dart';
@@ -8,10 +9,10 @@ class SortFilter extends BaseView {
   @override
   Widget build(BuildContext context) {
     List sortFilterOptions = [
-      "Popularity",
-      "Rating : High to Low",
-      "Cost : High to Low",
-      "Cost : Low to High",
+      L10n.of(context)!.popularity,
+      L10n.of(context)!.ratingHighToLow,
+      L10n.of(context)!.costHighToLow,
+      L10n.of(context)!.costLowToHigh,
     ];
 
     return dynamicBuild(

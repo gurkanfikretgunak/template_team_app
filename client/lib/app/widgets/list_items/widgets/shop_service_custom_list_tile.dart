@@ -34,17 +34,15 @@ class ShopServiceCustomListTile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Row(
-      crossAxisAlignment: CrossAxisAlignment.center,
+      crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Container(
           margin: const EdgeInsets.only(right: 8),
           width: imgSize ?? 75,
           height: imgSize ?? 75,
           decoration: BoxDecoration(
-            image: DecorationImage(
-                fit: BoxFit.cover,
-                image:
-                    AssetImage(imgPath ?? Assets.images.shop.shopDetail2.path)),
+            image:
+                DecorationImage(fit: BoxFit.cover, image: AssetImage(imgPath ?? Assets.images.shop.shopDetail2.path)),
             borderRadius: BorderRadius.all(Radius.circular(imgRadius ?? 8)),
           ),
         ),
@@ -53,7 +51,7 @@ class ShopServiceCustomListTile extends StatelessWidget {
             spacing: 8,
             direction: Axis.vertical,
             children: [
-              Text(title ?? 'Haircut'),
+              Text(title ?? L10n.of(context)!.haircut),
               Text(subtitle ?? '\$40'),
               Wrap(
                 crossAxisAlignment: WrapCrossAlignment.center,
@@ -68,19 +66,22 @@ class ShopServiceCustomListTile extends StatelessWidget {
         ),
         isSelected
             ? ProductCountButton(onRemove: () {}, productCount: 1, onAdd: () {})
-            : CustomOutlinedButton(
-                onPressed: () {},
-                child: Center(
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Text(
-                        L10n.of(context)!.select,
-                        style: TextConstants.instance.label1
-                            .copyWith(color: ColorConstant.instance.purple2),
-                      ),
-                      Icon(Icons.add, color: ColorConstant.instance.purple2),
-                    ],
+            : SizedBox(
+                width: 100,
+                height: 35,
+                child: CustomOutlinedButton(
+                  onPressed: () {},
+                  child: Center(
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Text(
+                          L10n.of(context)!.select,
+                          style: TextConstants.instance.label1.copyWith(color: ColorConstant.instance.purple2),
+                        ),
+                        Icon(Icons.add, color: ColorConstant.instance.purple2),
+                      ],
+                    ),
                   ),
                 ),
               ),

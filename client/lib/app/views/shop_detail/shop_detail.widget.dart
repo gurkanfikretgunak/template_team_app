@@ -1,55 +1,21 @@
+import 'package:client/app/l10n/app_l10n.dart';
 import 'package:client/app/views/shop_detail/shop_detail.viewmodel.dart';
 import 'package:client/app/views/shop_detail/widget/offer_box.dart';
 import 'package:client/app/views/shop_detail/widget/tabbar_view/face_care.dart';
 import 'package:client/app/views/shop_detail/widget/tabbar_view/packages.dart';
 import 'package:client/app/views/shop_detail/widget/tabbar_view/recommended.dart';
 import 'package:client/app/widgets/buttons/buttons_widgets.dart';
-
 import 'package:client/app/widgets/divider/divider_widgets.dart';
-import 'package:client/app/widgets/inputs/widgets/shop_cards/shop_card_widgets.dart';
 import 'package:client/core/constans/color_constants.dart';
-import 'package:client/core/constans/text_constants.dart';
 import 'package:client/core/extensions/common_extension.dart';
-import 'package:client/gen/assets.gen.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import '../../../core/constans/text_constants.dart';
 import '../../widgets/image_viewer/icons/icons_widgets.dart';
 
 class ShopDetailWidgets {
-  Widget shopDetailAppBar(
-      BuildContext context, String shopName, String address, String shopTypes, double rating, double? discountAmount) {
-    return Stack(
-      children: [
-        SizedBox(width: context.width, child: Image.asset(Assets.images.shop.homeShop1.path, fit: BoxFit.cover)),
-        BackButton(
-          color: ColorConstant.instance.light4,
-          onPressed: () {
-            Navigator.pop(context);
-          },
-        ),
-        Padding(
-          padding: context.paddingNormal,
-          child: Align(
-              alignment: Alignment.bottomLeft,
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  ShopCardWidgets()
-                      .shopInformation(context, shopName, shopTypes, rating, address, discountAmount, true),
-                  CustomIcon(
-                      imagePath: "assets/icons/heart.png",
-                      height: IconSize.large,
-                      width: IconSize.large,
-                      iconColor: ColorConstant.instance.light4),
-                ],
-              )),
-        ),
-      ],
-    );
-  }
-
   Widget shopDetailBody(BuildContext context) {
-    return SingleChildScrollView(
+    return SliverToBoxAdapter(
       child: Padding(
         padding: context.paddingNormal,
         child: Column(
@@ -63,24 +29,24 @@ class ShopDetailWidgets {
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
                       Column(
-                        children: const [
-                          CustomIcon(
+                        children: [
+                          const CustomIcon(
                               imagePath: "assets/icons/phone.png", height: IconSize.large, width: IconSize.large),
-                          Text("Call")
+                          Text(L10n.of(context)!.call)
                         ],
                       ),
                       Column(
-                        children: const [
-                          CustomIcon(
+                        children: [
+                          const CustomIcon(
                               imagePath: "assets/icons/pin-outline.png", height: IconSize.large, width: IconSize.large),
-                          Text("Directions")
+                          Text(L10n.of(context)!.directions)
                         ],
                       ),
                       Column(
-                        children: const [
-                          CustomIcon(
+                        children: [
+                          const CustomIcon(
                               imagePath: "assets/icons/share.png", height: IconSize.large, width: IconSize.large),
-                          Text("Share")
+                          Text(L10n.of(context)!.share)
                         ],
                       ),
                     ],
@@ -119,8 +85,6 @@ class ShopDetailWidgets {
             ),
             const Divider(thickness: 5.0),
             buildTabbar(context),
-            context.emptySizedHeightBoxNormal,
-            buildTabbarView(context),
           ],
         ),
       ),
