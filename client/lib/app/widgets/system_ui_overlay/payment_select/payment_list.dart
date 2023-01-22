@@ -1,7 +1,7 @@
 import 'package:client/gen/assets.gen.dart';
 import 'package:flutter/material.dart';
 
-enum Payments { apple, cash, payPal, visa, gift, credit }
+enum Payments { apple, cash, payPal, visa, gift, credit, add }
 
 class PaymentSelectLabel {
   PaymentSelectLabel();
@@ -17,6 +17,8 @@ class PaymentSelectLabel {
         return Image.asset(Assets.icons.giftCard.path);
       case Payments.credit:
         return Image.asset(Assets.icons.creditCard.path);
+      case Payments.add:
+        return Image.asset(Assets.icons.addMethod.path);
     }
   }
 }
