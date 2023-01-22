@@ -294,4 +294,7 @@ class L10nTr extends L10n {
 
   @override
   String get costLowToHigh => 'Maliyet : Düşükten Yükseğe';
+
+  @override
+  String get emptyFavoritedList => 'Henüz  favorilere eklenen hiçbir şey yok. Favorilere eklenenler burada görüntülenecektir.';
 }

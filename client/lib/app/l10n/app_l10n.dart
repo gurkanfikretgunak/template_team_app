@@ -674,6 +674,12 @@ abstract class L10n {
   /// In en, this message translates to:
   /// **'Cost : Low to High'**
   String get costLowToHigh;
+
+  /// No description provided for @emptyFavoritedList.
+  ///
+  /// In en, this message translates to:
+  /// **'Nothing has been favorited yet. Favorites will appear here.'**
+  String get emptyFavoritedList;
 }
 
 class _L10nDelegate extends LocalizationsDelegate<L10n> {

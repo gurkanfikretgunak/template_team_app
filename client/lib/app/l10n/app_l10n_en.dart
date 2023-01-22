@@ -294,4 +294,7 @@ class L10nEn extends L10n {
 
   @override
   String get costLowToHigh => 'Cost : Low to High';
+
+  @override
+  String get emptyFavoritedList => 'Nothing has been favorited yet. Favorites will appear here.';
 }
