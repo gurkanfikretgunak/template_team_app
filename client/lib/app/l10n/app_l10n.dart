@@ -674,6 +674,54 @@ abstract class L10n {
   /// In en, this message translates to:
   /// **'Cost : Low to High'**
   String get costLowToHigh;
+
+  /// No description provided for @emptyFavoritedList.
+  ///
+  /// In en, this message translates to:
+  /// **'Nothing has been favorited yet. Favorites will appear here.'**
+  String get emptyFavoritedList;
+
+  /// No description provided for @creditCard.
+  ///
+  /// In en, this message translates to:
+  /// **'Credit card'**
+  String get creditCard;
+
+  /// No description provided for @giftCard.
+  ///
+  /// In en, this message translates to:
+  /// **'Gift card'**
+  String get giftCard;
+
+  /// No description provided for @addCard.
+  ///
+  /// In en, this message translates to:
+  /// **'Add a card'**
+  String get addCard;
+
+  /// No description provided for @nameOnCard.
+  ///
+  /// In en, this message translates to:
+  /// **'Name on card'**
+  String get nameOnCard;
+
+  /// No description provided for @cardNumber.
+  ///
+  /// In en, this message translates to:
+  /// **'Card number'**
+  String get cardNumber;
+
+  /// No description provided for @expDate.
+  ///
+  /// In en, this message translates to:
+  /// **'Exp. Date'**
+  String get expDate;
+
+  /// No description provided for @cvv.
+  ///
+  /// In en, this message translates to:
+  /// **'CVV'**
+  String get cvv;
 }
 
 class _L10nDelegate extends LocalizationsDelegate<L10n> {

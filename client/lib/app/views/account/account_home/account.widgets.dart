@@ -34,33 +34,25 @@ class AccountWidgets {
   body(BuildContext context) {
     return Padding(
       padding: context.verticalPaddingNormal,
-      child: SingleChildScrollView(
-        physics: const BouncingScrollPhysics(),
-        child: Column(
-          children: [
-            ListView.builder(
-              shrinkWrap: true,
-              physics: const NeverScrollableScrollPhysics(),
-              itemCount: AccountViewModel().accountItems(context).length,
-              itemBuilder: (context, index) {
-                var key = AccountViewModel().accountItems(context)[index];
-                return InkWell(
-                  onTap: key['onTap'],
-                  child: ListTile(
-                    leading: Icon(key['icon'],
-                        color: buildItemColor(context, key['title'])),
-                    title: Text(key['title'],
-                        style: TextConstants.instance.button1.copyWith(
-                            color: buildItemColor(context, key['title']))),
-                    subtitle: Text(key['subTitle']),
-                    trailing: Icon(Icons.arrow_forward_ios_outlined,
-                        size: 15, color: buildItemColor(context, key['title'])),
-                  ),
-                );
-              },
-            )
-          ],
-        ),
+      child: ListView.builder(
+        shrinkWrap: true,
+        itemCount: AccountViewModel().accountItems(context).length,
+        itemBuilder: (context, index) {
+          var key = AccountViewModel().accountItems(context)[index];
+          return InkWell(
+            onTap: key['onTap'],
+            child: ListTile(
+              leading: Icon(key['icon'],
+                  color: buildItemColor(context, key['title'])),
+              title: Text(key['title'],
+                  style: TextConstants.instance.button1
+                      .copyWith(color: buildItemColor(context, key['title']))),
+              subtitle: Text(key['subTitle']),
+              trailing: Icon(Icons.arrow_forward_ios_outlined,
+                  size: 15, color: buildItemColor(context, key['title'])),
+            ),
+          );
+        },
       ),
     );
   }

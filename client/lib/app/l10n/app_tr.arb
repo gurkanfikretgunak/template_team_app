@@ -96,14 +96,15 @@
     "popularity": "Popülerlik",
     "ratingHighToLow":    "Değerlendirme : Yüksekten Düşüğe",
     "costHighToLow":   "Maliyet : Yüksekten Düşüğe",
-    "costLowToHigh":  "Maliyet : Düşükten Yükseğe"
-
-
-
-
-
-
-
+    "costLowToHigh":  "Maliyet : Düşükten Yükseğe",
+    "emptyFavoritedList" : "Henüz  favorilere eklenen hiçbir şey yok. Favorilere eklenenler burada görüntülenecektir.",
+    "creditCard":"Kredi kartı",
+    "giftCard":"Hediye kartı",
+    "addCard":"Kart ekle",
+    "nameOnCard":"Kart üzerindeki isim-soyisim",
+    "cardNumber":"Kart numarası",
+    "ExpDate":"Son kullanım tarihi",
+    "cvv":"CVV"
 
 
  }
