@@ -16,7 +16,6 @@ class CustomRadioButton extends StatelessWidget {
     final provider = Provider.of<RadioButtonNotifier>(context);
 
     return ListView.builder(
-      physics: const NeverScrollableScrollPhysics(),
       shrinkWrap: true,
       itemCount: list.length,
       itemBuilder: (context, index) {

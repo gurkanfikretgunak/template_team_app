@@ -14,6 +14,8 @@ import 'package:client/gen/assets.gen.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
+import '../../widgets/inputs/widgets/radio_button/radio_button_notifier.dart';
+
 class FilterBottomSheetWidgets {
   Widget appBar(BuildContext context) {
     return Center(
@@ -34,14 +36,15 @@ class FilterBottomSheetWidgets {
                     width: IconSize.large,
                   ),
                 ),
-                Text(L10n.of(context)!.sortFilters,
-                    style: TextConstants.instance.button1),
+                Text(L10n.of(context)!.sortFilters, style: TextConstants.instance.button1),
               ],
             ),
             CustomTextButton(
               onPressed: () {
                 Provider.of<GenderNotifier>(context, listen: false).clear();
                 Provider.of<TimingNotifier>(context, listen: false).clear();
+                Provider.of<RadioButtonNotifier>(context, listen: false)
+                    .setSelectedOption(L10n.of(context)!.popularity);
               },
               text: L10n.of(context)!.clearAll,
             )
@@ -84,8 +87,7 @@ class FilterBottomSheetWidgets {
                     child: Text(
                       filterCetegoryList[index],
                       style: TextStyle(
-                        color: provider.selectedCategory ==
-                                filterCetegoryList[index]
+                        color: provider.selectedCategory == filterCetegoryList[index]
                             ? ColorConstant.instance.dark0
                             : ColorConstant.instance.dark3,
                         fontWeight: FontWeight.w600,
