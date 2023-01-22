@@ -7,7 +7,6 @@ import 'package:client/core/extensions/common_extension.dart';
 import 'package:client/gen/assets.gen.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-
 import '../../widgets/image_viewer/icons/widgets/custom_icons.dart';
 
 class ShopHomeWidgets {
@@ -48,10 +47,11 @@ class ShopHomeWidgets {
               imagePath: Assets.icons.location.path,
               iconColor: isLight ? ColorConstant.instance.light4 : ColorConstant.instance.dark0),
           DropdownButton<String>(
+            dropdownColor: ColorConstant.instance.light0,
             value: provider.ddLocationValue,
             icon: const Icon(Icons.keyboard_arrow_down_outlined),
             elevation: 16,
-            style: TextConstants.instance.button1.copyWith(color: ColorConstant.instance.light4),
+            style: TextConstants.instance.button1.copyWith(color: ColorConstant.instance.dark0),
             underline: Container(height: 0),
             onChanged: (String? value) {
               provider.ddLocationValue = value!;

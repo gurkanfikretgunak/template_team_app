@@ -46,27 +46,29 @@ class ShopCard extends StatelessWidget with ShopCardWidgets {
           context.emptySizedHeightBoxLow,
           Expanded(
             flex: 1,
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                shopInformation(
-                  context,
-                  shopName,
-                  shopTypes,
-                  rating,
-                  address,
-                  discountAmount,
-                  false,
-                ),
-                isBig
-                    ? IconButton(
-                        onPressed: () {},
-                        icon: const Icon(
-                          Icons.favorite_border,
-                          size: 25,
-                        ))
-                    : SizedBox()
-              ],
+            child: FittedBox(
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  shopInformation(
+                    context,
+                    shopName,
+                    shopTypes,
+                    rating,
+                    address,
+                    discountAmount,
+                    false,
+                  ),
+                  isBig
+                      ? IconButton(
+                          onPressed: () {},
+                          icon: const Icon(
+                            Icons.favorite_border,
+                            size: 25,
+                          ))
+                      : SizedBox()
+                ],
+              ),
             ),
           ),
         ],
