@@ -96,7 +96,15 @@
     "popularity": "Popularity",
     "ratingHighToLow": "Rating : High to Low",
     "costHighToLow": "Cost : High to Low",
-    "costLowToHigh":"Cost : Low to High"
+    "costLowToHigh":"Cost : Low to High",
+    "emptyFavoritedList" : "Nothing has been favorited yet. Favorites will appear here.",
+    "creditCard":"Credit card",
+    "giftCard":"Gift card",
+    "addCard":"Add a card",
+    "nameOnCard":"Name on card",
+    "cardNumber":"Card number",
+    "expDate":"Exp. Date",
+    "cvv":"CVV"
 
 
 

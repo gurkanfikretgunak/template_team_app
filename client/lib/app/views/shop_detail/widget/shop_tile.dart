@@ -10,23 +10,17 @@ class ShopListWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      height: context.dynamicHeight(0.8),
-      child: ListView.builder(
-        physics: const NeverScrollableScrollPhysics(),
-        itemCount: 5,
-        itemBuilder: (context, index) {
-          return Column(
-            children: const [
-              ShopServiceCustomListTile(),
-              SizedBox(
-                height: 20,
-                child: CustomDivider(),
-              )
-            ],
-          );
-        },
-      ),
+    return Column(
+      children: [
+        const ShopServiceCustomListTile(),
+        SizedBox(
+          height: 5,
+          child: Padding(
+            padding: context.onlyTopPaddingNormal,
+            child: const CustomDivider(),
+          ),
+        )
+      ],
     );
   }
 }

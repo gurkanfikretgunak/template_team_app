@@ -13,31 +13,28 @@ class RatingButton extends BaseView {
 
   @override
   Widget build(BuildContext context) {
-    return FittedBox(
-      child: SizedBox(
-        height: context.dynamicHeight(0.035),
-        child: ChipButton(
-          color: ColorConstant.instance.light4,
-          isBorder: true,
-          onTap: () {
-            bottomSheet(context);
-          },
-          widget: Wrap(
-            crossAxisAlignment: WrapCrossAlignment.center,
-            runAlignment: WrapAlignment.center,
-            children: [
-              CustomIcon(
-                imagePath: Assets.icons.arrowUpArrowDown.path,
-                height: IconSize.medium,
-              ),
-              Text(L10n.of(context)!.rating,
-                  style: const TextStyle(fontSize: 13)),
-              CustomIcon(
-                imagePath: Assets.icons.arrowUp.path,
-                height: IconSize.medium,
-              ),
-            ],
-          ),
+    return SizedBox(
+      height: context.dynamicHeight(0.04),
+      child: ChipButton(
+        color: ColorConstant.instance.light4,
+        isBorder: true,
+        onTap: () {
+          bottomSheet(context);
+        },
+        widget: Wrap(
+          crossAxisAlignment: WrapCrossAlignment.center,
+          runAlignment: WrapAlignment.center,
+          children: [
+            CustomIcon(
+              imagePath: Assets.icons.arrowUpArrowDown.path,
+              height: IconSize.medium,
+            ),
+            Text(L10n.of(context)!.rating, style: const TextStyle(fontSize: 13)),
+            CustomIcon(
+              imagePath: Assets.icons.arrowUp.path,
+              height: IconSize.medium,
+            ),
+          ],
         ),
       ),
     );

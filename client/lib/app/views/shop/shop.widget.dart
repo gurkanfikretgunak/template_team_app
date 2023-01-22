@@ -1,8 +1,6 @@
-import 'package:client/app/l10n/app_l10n.dart';
 import 'package:client/app/routes/routes_widgets.dart';
 import 'package:client/app/views/home/home.viewmodel.dart';
-import 'package:client/app/views/home/home.widgets.dart';
-import 'package:client/app/widgets/image_viewer/icons/icons_widgets.dart';
+import 'package:client/app/views/shop/shop_card_widget.dart';
 import 'package:client/core/constans/color_constants.dart';
 import 'package:client/core/constans/text_constants.dart';
 import 'package:client/core/extensions/common_extension.dart';
@@ -10,63 +8,29 @@ import 'package:client/gen/assets.gen.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
+import '../../widgets/image_viewer/icons/widgets/custom_icons.dart';
+
 class ShopHomeWidgets {
-  Widget appBarBody(BuildContext context) {
-    return Stack(
-      children: [
-        SizedBox(
-            width: context.width,
-            child: Image.asset(Assets.images.shop.homeShop1.path,
-                fit: BoxFit.cover)),
-        BackButton(
-          color: ColorConstant.instance.light4,
-          onPressed: () {
-            Navigator.pop(context);
-          },
-        ),
-        dropDownCity(context, true),
-        Align(
-            alignment: Alignment.bottomLeft,
+  Widget body(BuildContext context) {
+    return SliverList(
+      delegate: SliverChildBuilderDelegate(
+        (context, index) {
+          return GestureDetector(
+            onTap: () {
+              NavigationService.instance.navigateToPage(Routes.shopDetail.name);
+            },
             child: Padding(
               padding: context.paddingNormal,
-              child: SizedBox(
-                width: 300,
-                child: Text(
-                  L10n.of(context)!.haircutForMen,
-                  style: TextConstants.instance.heading3
-                      .copyWith(color: ColorConstant.instance.light4),
-                ),
+              child: ShopSpeacialCard(
+                imageFlex: 3,
+                cardHeight: 260,
+                cardWidth: context.dynamicWidth(0.3),
+                imageWidth: 500,
               ),
-            )),
-      ],
-    );
-  }
-
-  Widget body(BuildContext context) {
-    return SingleChildScrollView(
-      physics: const BouncingScrollPhysics(),
-      child: Padding(
-        padding: context.paddingNormal,
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            const SizedBox(height: 50, child: FilterList()),
-            context.emptySizedHeightBoxLow,
-            Text(L10n.of(context)!.shops, style: TextConstants.instance.label1),
-            context.emptySizedHeightBoxLow,
-            GestureDetector(
-                onTap: () {
-                  NavigationService.instance
-                      .navigateToPage(Routes.shopDetail.name);
-                },
-                child: ShopList(
-                    imageFlex: 3,
-                    cardHeight: 300,
-                    cardWidth: context.dynamicWidth(0.3),
-                    isHorizontal: false,
-                    listHeight: 500)),
-          ],
-        ),
+            ),
+          );
+        },
+        childCount: 4,
       ),
     );
   }
@@ -82,27 +46,25 @@ class ShopHomeWidgets {
         children: [
           CustomIcon(
               imagePath: Assets.icons.location.path,
-              iconColor: isLight
-                  ? ColorConstant.instance.light4
-                  : ColorConstant.instance.dark0),
+              iconColor: isLight ? ColorConstant.instance.light4 : ColorConstant.instance.dark0),
           DropdownButton<String>(
             value: provider.ddLocationValue,
             icon: const Icon(Icons.keyboard_arrow_down_outlined),
             elevation: 16,
-            style: TextConstants.instance.button1.copyWith(
-                color: isLight
-                    ? ColorConstant.instance.light4
-                    : ColorConstant.instance.dark0),
+            style: TextConstants.instance.button1.copyWith(color: ColorConstant.instance.light4),
             underline: Container(height: 0),
             onChanged: (String? value) {
               provider.ddLocationValue = value!;
             },
-            items: provider.locationList
-                .map<DropdownMenuItem<String>>((String value) {
+            items: provider.locationList.map<DropdownMenuItem<String>>((String value) {
               return DropdownMenuItem<String>(
                 value: value,
                 child: Text(
                   value,
+                  style: TextConstants.instance.button1.copyWith(
+                      color: value == provider.ddLocationValue
+                          ? ColorConstant.instance.light4
+                          : ColorConstant.instance.dark0),
                 ),
               );
             }).toList(),

@@ -1,11 +1,9 @@
-import 'package:client/app/l10n/app_l10n.dart';
-import 'package:client/app/views/account/payments/payment.widgets.dart';
-import 'package:client/app/widgets/custom_appbar.dart';
+import 'package:client/app/views/checkout/checkout.widgets.dart';
 import 'package:client/core/base/base_view/base_view.dart';
 import 'package:flutter/material.dart';
 
-class PaymentView extends BaseView with PaymentsWidgets {
-  const PaymentView(this.error, {super.key});
+class CheckoutView extends BaseView with CheckoutWidgets {
+  const CheckoutView(this.error, {super.key});
 
   final bool error;
 
@@ -18,7 +16,7 @@ class PaymentView extends BaseView with PaymentsWidgets {
     return dynamicBuild(
       context,
       error: backendError(),
-      appbar: CustomAppbar(title: L10n.of(context)!.payment),
+      appbar: appBar(context),
       body: body(context),
       errorBody: const Text('errorrrr'),
     );

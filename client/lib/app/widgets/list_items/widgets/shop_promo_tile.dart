@@ -13,6 +13,9 @@ class ShopPromoTile extends StatelessWidget {
     this.isInvalid = false,
     this.promoCode,
     this.profit,
+    this.onTap,
+    this.onTryAgainTap,
+    this.onRemoveTap,
   });
   final String? title;
   final String? subtitle;
@@ -21,10 +24,15 @@ class ShopPromoTile extends StatelessWidget {
   final String? buttonText;
   final bool isApplied;
   final bool isInvalid;
+  final VoidCallback? onTap;
+  final VoidCallback? onTryAgainTap;
+  final VoidCallback? onRemoveTap;
 
   @override
   Widget build(BuildContext context) {
     return ListTile(
+      contentPadding: EdgeInsets.zero,
+      visualDensity: VisualDensity(horizontal: 0, vertical: isApplied ? 4 : -4),
       isThreeLine: isApplied
           ? isInvalid
               ? false
@@ -51,7 +59,7 @@ class ShopPromoTile extends StatelessWidget {
               children: [
                 Text('-\$${profit ?? 40}'),
                 CustomTextButton(
-                  onPressed: () {},
+                  onPressed: onRemoveTap,
                   text: 'Remove',
                   padding: EdgeInsets.zero,
                 )
@@ -59,16 +67,20 @@ class ShopPromoTile extends StatelessWidget {
             )
           : isInvalid
               ? CustomTextButton(
-                  onPressed: () {},
+                  onPressed: onTryAgainTap,
                   text: 'Try Again',
                   padding: EdgeInsets.zero,
+                  buttonSize: ButtonSize.small,
                 )
-              : Row(
-                  mainAxisSize: MainAxisSize.min,
-                  children: const [
-                    Text('View offers'),
-                    Icon(Icons.arrow_forward_ios),
-                  ],
+              : InkWell(
+                  onTap: onTap,
+                  child: Row(
+                    mainAxisSize: MainAxisSize.min,
+                    children: const [
+                      Text('View offers'),
+                      Icon(Icons.arrow_forward_ios),
+                    ],
+                  ),
                 ),
     );
   }

@@ -95,6 +95,7 @@ class ShopList extends StatelessWidget {
         scrollDirection: isHorizontal ? Axis.horizontal : Axis.vertical,
         itemBuilder: (context, index) {
           return ShopCard(
+            isBig: false,
             imageFlex: imageFlex,
             address: fake.address.city(),
             distance: fake.randomGenerator.integer(20).toDouble(),

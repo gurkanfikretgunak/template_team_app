@@ -9,7 +9,7 @@ class ShopCardWidgets {
     return ClipRRect(
       borderRadius: const BorderRadius.all(Radius.circular(12)),
       child: CustomImageViewer(
-        fit: BoxFit.contain,
+        fit: BoxFit.fitWidth,
         assetPath: imagePath,
       ),
     );
@@ -24,11 +24,11 @@ class ShopCardWidgets {
           Text(
             "FOR MEN & WOMEN",
             style: TextConstants.instance.label1
-                .copyWith(fontSize: 12, color: isStack ? ColorConstant.instance.light4 : ColorConstant.instance.dark3),
+                .copyWith(fontSize: 25, color: isStack ? ColorConstant.instance.light4 : ColorConstant.instance.dark3),
           ),
           Text(shopName,
               style: TextConstants.instance.subtitle1.copyWith(
-                  fontSize: 17,
+                  fontSize: 40,
                   fontWeight: FontWeight.w700,
                   color: isStack ? ColorConstant.instance.light4 : ColorConstant.instance.dark2)),
           Wrap(
@@ -36,15 +36,15 @@ class ShopCardWidgets {
             spacing: 5,
             children: [
               Text(shopTypes,
-                  style: TextConstants.instance.subtitle2
-                      .copyWith(color: isStack ? ColorConstant.instance.light4 : ColorConstant.instance.dark3)),
+                  style: TextConstants.instance.subtitle2.copyWith(
+                      fontSize: 30, color: isStack ? ColorConstant.instance.light4 : ColorConstant.instance.dark3)),
               const DotIconWidget(),
               Icon(Icons.star_outline,
-                  size: 16, color: isStack ? ColorConstant.instance.light4 : ColorConstant.instance.dark3),
+                  size: 25, color: isStack ? ColorConstant.instance.light4 : ColorConstant.instance.dark3),
               Text(
                 rating.toString(),
-                style: TextConstants.instance.subtitle2
-                    .copyWith(color: isStack ? ColorConstant.instance.light4 : ColorConstant.instance.dark3),
+                style: TextConstants.instance.subtitle2.copyWith(
+                    fontSize: 30, color: isStack ? ColorConstant.instance.light4 : ColorConstant.instance.dark3),
               ),
             ],
           ),
@@ -52,14 +52,14 @@ class ShopCardWidgets {
             children: [
               Text(
                 address,
-                style: TextConstants.instance.subtitle2
-                    .copyWith(color: isStack ? ColorConstant.instance.light4 : ColorConstant.instance.dark3),
+                style: TextConstants.instance.subtitle2.copyWith(
+                    fontSize: 30, color: isStack ? ColorConstant.instance.light4 : ColorConstant.instance.dark3),
               ),
               const DotIconWidget(),
               Text(
                 "${discountAmount.toString()} Kms",
-                style: TextConstants.instance.subtitle2
-                    .copyWith(color: isStack ? ColorConstant.instance.light4 : ColorConstant.instance.dark3),
+                style: TextConstants.instance.subtitle2.copyWith(
+                    fontSize: 30, color: isStack ? ColorConstant.instance.light4 : ColorConstant.instance.dark3),
               ),
             ],
           ),
