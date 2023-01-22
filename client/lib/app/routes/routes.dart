@@ -17,4 +17,8 @@ enum Routes {
   payment,
   notification,
   about,
+
+  checkout,
+  checkoutDetail,
+  promo,
 }
