@@ -294,4 +294,28 @@ class L10nTr extends L10n {
 
   @override
   String get costLowToHigh => 'Maliyet : Düşükten Yükseğe';
+
+  @override
+  String get emptyFavoritedList => 'Henüz  favorilere eklenen hiçbir şey yok. Favorilere eklenenler burada görüntülenecektir.';
+
+  @override
+  String get creditCard => 'Kredi kartı';
+
+  @override
+  String get giftCard => 'Hediye kartı';
+
+  @override
+  String get addCard => 'Kart ekle';
+
+  @override
+  String get nameOnCard => 'Kart üzerindeki isim-soyisim';
+
+  @override
+  String get cardNumber => 'Kart numarası';
+
+  @override
+  String get expDate => 'Exp. Date';
+
+  @override
+  String get cvv => 'CVV';
 }
