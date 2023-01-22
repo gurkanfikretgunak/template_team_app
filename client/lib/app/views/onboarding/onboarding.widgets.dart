@@ -15,17 +15,12 @@ class OnboardingWidgets {
         transform: Matrix4.translationValues(0, context.dynamicHeight(0.56), 0),
         child: Column(
           children: [
-            SizedBox(
-              height: context.dynamicHeight(0.2),
-              child: Text(
-                selectText(provider.currentIndex, context),
-                style: TextConstants.instance.subtitle2.copyWith(
-                    color: ColorConstant.instance.light4, fontSize: 35),
-              ),
+            Text(
+              selectText(provider.currentIndex, context),
+              style: TextConstants.instance.subtitle2.copyWith(color: ColorConstant.instance.light4, fontSize: 35),
             ),
             context.emptySizedHeightBoxNormal,
             const IndicatorList(),
-            context.emptySizedHeightBoxNormal,
             context.emptySizedHeightBoxNormal,
             const OnboardingButton(),
           ],

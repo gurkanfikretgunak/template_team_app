@@ -25,20 +25,37 @@ class OnboardingButton extends StatelessWidget {
               buttonSize: ButtonSize.large,
             ),
           )
-        : SizedBox(
-            width: context.dynamicWidth(1),
-            child: CustomOutlinedButton(
-              onPressed: () {
-                provider.pageController!.nextPage(
-                  duration: context.durationLow,
-                  curve: Curves.linear,
-                );
-                provider.currentIndex = provider.currentIndex + 1;
-              },
-              text: L10n.of(context)!.getStarted,
-              borderSideColor: ButtonColor.light,
-              buttonSize: ButtonSize.large,
-            ),
-          );
+        : provider.currentIndex == 1 || provider.currentIndex == 2
+            ? SizedBox(
+                width: context.dynamicWidth(1),
+                child: CustomOutlinedButton(
+                  onPressed: () {
+                    provider.pageController!.nextPage(
+                      duration: context.durationLow,
+                      curve: Curves.easeInOut,
+                    );
+                    provider.currentIndex = provider.currentIndex + 1;
+                  },
+                  //L10 a aktarılacak
+                  text: 'Next',
+                  borderSideColor: ButtonColor.light,
+                  buttonSize: ButtonSize.large,
+                ),
+              )
+            : SizedBox(
+                width: context.dynamicWidth(1),
+                child: CustomOutlinedButton(
+                  onPressed: () {
+                    provider.pageController!.nextPage(
+                      duration: context.durationLow,
+                      curve: Curves.easeInOut,
+                    );
+                    provider.currentIndex = provider.currentIndex + 1;
+                  },
+                  text: L10n.of(context)!.getStarted,
+                  borderSideColor: ButtonColor.light,
+                  buttonSize: ButtonSize.large,
+                ),
+              );
   }
 }
