@@ -14,14 +14,16 @@ class OfferButton extends BaseView {
   Widget build(BuildContext context) {
     return SizedBox(
       height: context.dynamicHeight(0.04),
-      child: ChipButton(
-        onTap: () {},
-        widget: Wrap(
-          spacing: 10,
-          children: [
-            CustomIcon(imagePath: Assets.icons.offer.path),
-            Text(L10n.of(context)!.offer, style: TextConstants.instance.subtitle1)
-          ],
+      child: FittedBox(
+        child: ChipButton(
+          onTap: () {},
+          widget: Wrap(
+            spacing: 10,
+            children: [
+              CustomIcon(imagePath: Assets.icons.offer.path),
+              Text(L10n.of(context)!.offer, style: TextConstants.instance.subtitle1)
+            ],
+          ),
         ),
       ),
     );

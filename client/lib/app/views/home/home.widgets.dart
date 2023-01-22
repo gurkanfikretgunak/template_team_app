@@ -5,6 +5,7 @@ import 'package:client/app/views/home/widgets/services_gridview.dart';
 import 'package:client/app/views/home/widgets/offer_button.dart';
 import 'package:client/app/widgets/custom_appbar.dart';
 import 'package:client/app/widgets/inputs/inputs_widgets.dart';
+import 'package:client/core/constans/color_constants.dart';
 import 'package:client/core/constans/text_constants.dart';
 import 'package:client/core/extensions/common_extension.dart';
 import 'package:client/gen/assets.gen.dart';
@@ -111,24 +112,21 @@ class ShopList extends StatelessWidget {
         shrinkWrap: true,
         scrollDirection: isHorizontal ? Axis.horizontal : Axis.vertical,
         itemBuilder: (context, index) {
-          return Padding(
-            padding: context.onlyTopPaddingNormal,
-            child: ShopCard(
-              isBig: false,
-              imageFlex: imageFlex,
-              address: fake.address.city(),
-              distance: fake.randomGenerator.integer(20).toDouble(),
-              genderType: fake.person.random.string(20),
-              hasDiscount: fake.randomGenerator.boolean(),
-              imagePath: buildShopCardImage(provider.ddLocationValue),
-              rating: fake.randomGenerator.integer(20).toDouble(),
-              shopName: fake.company.name(),
-              shopTypes: fake.company.name(),
-              discountAmount: fake.randomGenerator.integer(20).toDouble(),
-              cardHeight: cardHeight,
-              cardWidth: cardWidth,
-              imageWidth: imageWidth,
-            ),
+          return ShopCard(
+            isBig: false,
+            imageFlex: imageFlex,
+            address: fake.address.city(),
+            distance: fake.randomGenerator.integer(20).toDouble(),
+            genderType: fake.person.random.string(20),
+            hasDiscount: fake.randomGenerator.boolean(),
+            imagePath: buildShopCardImage(provider.ddLocationValue),
+            rating: fake.randomGenerator.integer(20).toDouble(),
+            shopName: fake.company.name(),
+            shopTypes: fake.company.name(),
+            discountAmount: fake.randomGenerator.integer(20).toDouble(),
+            cardHeight: cardHeight,
+            cardWidth: cardWidth,
+            imageWidth: imageWidth,
           );
         },
       ),
