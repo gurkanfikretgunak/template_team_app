@@ -104,7 +104,12 @@
     "nameOnCard":"Kart üzerindeki isim-soyisim",
     "cardNumber":"Kart numarası",
     "ExpDate":"Son kullanım tarihi",
-    "cvv":"CVV"
+    "cvv":"CVV",
+    "women":"Kadın",
+    "man":"Erkek",
+    "lowestPrice":"En düşük fiyat",
+    "highestPrice":"En yüksek fiyat"
+
 
 
  }

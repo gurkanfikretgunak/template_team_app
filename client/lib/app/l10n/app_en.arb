@@ -104,7 +104,12 @@
     "nameOnCard":"Name on card",
     "cardNumber":"Card number",
     "expDate":"Exp. Date",
-    "cvv":"CVV"
+    "cvv":"CVV",
+    "women":"Women",
+    "man":"Man",
+    "lowestPrice":"Lowest price",
+    "highestPrice":"Highest Price"
+
 
 
 

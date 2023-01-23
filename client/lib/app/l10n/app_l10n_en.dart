@@ -318,4 +318,16 @@ class L10nEn extends L10n {
 
   @override
   String get cvv => 'CVV';
+
+  @override
+  String get women => 'Women';
+
+  @override
+  String get man => 'Man';
+
+  @override
+  String get lowestPrice => 'Lowest price';
+
+  @override
+  String get highestPrice => 'Highest Price';
 }

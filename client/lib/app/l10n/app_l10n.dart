@@ -722,6 +722,30 @@ abstract class L10n {
   /// In en, this message translates to:
   /// **'CVV'**
   String get cvv;
+
+  /// No description provided for @women.
+  ///
+  /// In en, this message translates to:
+  /// **'Women'**
+  String get women;
+
+  /// No description provided for @man.
+  ///
+  /// In en, this message translates to:
+  /// **'Man'**
+  String get man;
+
+  /// No description provided for @lowestPrice.
+  ///
+  /// In en, this message translates to:
+  /// **'Lowest price'**
+  String get lowestPrice;
+
+  /// No description provided for @highestPrice.
+  ///
+  /// In en, this message translates to:
+  /// **'Highest Price'**
+  String get highestPrice;
 }
 
 class _L10nDelegate extends LocalizationsDelegate<L10n> {

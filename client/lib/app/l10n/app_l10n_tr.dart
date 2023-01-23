@@ -318,4 +318,16 @@ class L10nTr extends L10n {
 
   @override
   String get cvv => 'CVV';
+
+  @override
+  String get women => 'Kadın';
+
+  @override
+  String get man => 'Erkek';
+
+  @override
+  String get lowestPrice => 'En düşük fiyat';
+
+  @override
+  String get highestPrice => 'En yüksek fiyat';
 }

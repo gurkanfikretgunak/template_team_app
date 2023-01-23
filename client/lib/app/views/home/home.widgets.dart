@@ -39,7 +39,8 @@ class HomeWidgets {
                 onChanged: (String? value) {
                   provider.ddLocationValue = value!;
                 },
-                items: provider.locationList.map<DropdownMenuItem<String>>((String value) {
+                items: provider.locationList
+                    .map<DropdownMenuItem<String>>((String value) {
                   return DropdownMenuItem<String>(
                     value: value,
                     child: Text(
@@ -63,12 +64,17 @@ class HomeWidgets {
         child: Column(
           children: [
             CustomSearchField(() {
-              Navigator.push(context, MaterialPageRoute(builder: (context) => const SearchBarWidget()));
+              Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => const SearchBarWidget()));
             }),
             const FilterList(),
-            categoryTitle(title: L10n.of(context)!.beautyServices, context: context),
+            categoryTitle(
+                title: L10n.of(context)!.beautyServices, context: context),
             const ServicesGridView(),
-            categoryTitle(title: L10n.of(context)!.popularNearYou, context: context),
+            categoryTitle(
+                title: L10n.of(context)!.popularNearYou, context: context),
             ShopList(
               imageFlex: 2,
               isHorizontal: true,
@@ -153,8 +159,14 @@ class FilterList extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    List<String> genderList = ["Women", "Man"];
-    List<String> priceList = ["a", "b"];
+    List<String> genderList = [
+      L10n.of(context)!.women,
+      L10n.of(context)!.man,
+    ];
+    List<String> priceList = [
+      L10n.of(context)!.lowestPrice,
+      L10n.of(context)!.highestPrice,
+    ];
     final provider = Provider.of<HomeViewModel>(context);
 
     return Row(
