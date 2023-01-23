@@ -36,6 +36,9 @@ class $AssetsIconsGen {
   AssetGenImage get applePay =>
       const AssetGenImage('assets/icons/apple-pay.png');
 
+  /// File path: assets/icons/apple.png
+  AssetGenImage get apple => const AssetGenImage('assets/icons/apple.png');
+
   /// File path: assets/icons/arrow_up.png
   AssetGenImage get arrowUp => const AssetGenImage('assets/icons/arrow_up.png');
 
@@ -184,6 +187,7 @@ class $AssetsIconsGen {
   List<AssetGenImage> get values => [
         addMethod,
         applePay,
+        apple,
         arrowUp,
         arrowUpArrowDown,
         back,

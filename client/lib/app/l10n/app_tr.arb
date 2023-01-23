@@ -66,7 +66,7 @@
     "cash":"Nakit",
     "addPaymentMehod":"Ödeme yöntemi ekle",
     "forward":"İleri",
-    "continueWithTwitter":"Twitter ile devam et",
+    "continueWithApple":"Apple ile devam et",
     "continueWithFacebook":"Facebook ile devam et",
     "continueWithGoogle":"Google ile devam et",
     "profile":"Profil",
@@ -124,7 +124,9 @@
     "female":"Kadın",
     "morning":"Sabah",
     "midDay":"Öğlen",
-    "night":"Akşam"
+    "night":"Akşam",
+    "enterPassword":"Parolanızı girin",
+    "setPassword":"Bir parola belirleyin"
 
  }
 

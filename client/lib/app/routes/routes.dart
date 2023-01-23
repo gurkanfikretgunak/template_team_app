@@ -8,7 +8,7 @@ enum Routes {
   shop,
   bookingDetail,
   shopDetail,
-  withSignUp,
+
   search,
   manageAddress,
   favorites,
