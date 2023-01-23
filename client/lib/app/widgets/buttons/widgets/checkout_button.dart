@@ -7,10 +7,12 @@ import 'package:flutter/material.dart';
 class CheckoutButton extends StatelessWidget {
   final int? itemCount;
   final double? totalPrice;
+  final VoidCallback? onPressed;
   const CheckoutButton({
     Key? key,
     this.itemCount,
     this.totalPrice,
+    this.onPressed,
   }) : super(key: key);
 
   @override
@@ -23,7 +25,7 @@ class CheckoutButton extends StatelessWidget {
             width: context.dynamicWidth(1),
             child: CustomElevatedButton(
               buttonSize: ButtonSize.large,
-              onPressed: () {},
+              onPressed: onPressed,
               text: '',
               child: Padding(
                 padding: context.horizontalPaddingNormal,
