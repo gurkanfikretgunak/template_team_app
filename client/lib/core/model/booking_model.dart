@@ -16,6 +16,5 @@ class BookingModel with _$BookingModel {
     bool? isCancel,
   }) = _BookingModel;
 
-  factory BookingModel.fromJson(Map<String, dynamic> json) =>
-      _$BookingModelFromJson(json);
+  factory BookingModel.fromJson(Map<String, dynamic> json) => _$BookingModelFromJson(json);
 }

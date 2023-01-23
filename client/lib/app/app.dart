@@ -1,5 +1,4 @@
 import 'package:client/app/l10n/app_l10n.dart';
-import 'package:client/app/views/onboarding/onboarding.view.dart';
 import 'package:client/app/routes/app_routes.dart';
 import 'package:client/app/routes/navigation_service.dart';
 import 'package:client/app/views/splash/splash.view.dart';

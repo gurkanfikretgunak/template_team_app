@@ -309,6 +309,10 @@ class $AssetsImagesOnboardingGen {
 class $AssetsImagesShopGen {
   const $AssetsImagesShopGen();
 
+  /// File path: assets/images/shop/barber_shop.jpg
+  AssetGenImage get barberShop =>
+      const AssetGenImage('assets/images/shop/barber_shop.jpg');
+
   /// File path: assets/images/shop/home_shop_1.png
   AssetGenImage get homeShop1 =>
       const AssetGenImage('assets/images/shop/home_shop_1.png');
@@ -381,8 +385,13 @@ class $AssetsImagesShopGen {
   AssetGenImage get shopDetail9 =>
       const AssetGenImage('assets/images/shop/shop_detail_9.png');
 
+  /// File path: assets/images/shop/shopping.jpg
+  AssetGenImage get shopping =>
+      const AssetGenImage('assets/images/shop/shopping.jpg');
+
   /// List of all assets
   List<AssetGenImage> get values => [
+        barberShop,
         homeShop1,
         homeShop2,
         offer,
@@ -400,7 +409,8 @@ class $AssetsImagesShopGen {
         shopDetail6,
         shopDetail7,
         shopDetail8,
-        shopDetail9
+        shopDetail9,
+        shopping
       ];
 }
 
