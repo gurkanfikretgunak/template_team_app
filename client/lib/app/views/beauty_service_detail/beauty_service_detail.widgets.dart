@@ -7,30 +7,37 @@ import 'package:client/core/constans/text_constants.dart';
 import 'package:client/core/extensions/common_extension.dart';
 import 'package:flutter/material.dart';
 
+import '../../routes/navigation_service.dart';
+import '../../routes/routes.dart';
+
 class BeautyServiceDetailWidgets {
-  PreferredSizeWidget appbar(BuildContext context) =>
-      CustomAppbar(title: L10n.of(context)!.beautyServices);
+  PreferredSizeWidget appbar(BuildContext context) => CustomAppbar(title: L10n.of(context)!.beautyServices);
 
   Widget body(BuildContext context) {
-    return Padding(
-      padding: context.verticalPaddingNormal,
-      child: ListView.separated(
-        separatorBuilder: (context, index) {
-          return Padding(
-            padding: context.horizontalPaddingNormal,
-            child: const CustomDivider(),
-          );
-        },
-        itemCount: HomeViewModel().beautyServiceList.length,
-        shrinkWrap: true,
-        itemBuilder: (context, index) {
-          var key = HomeViewModel().beautyServiceList[index];
+    return GestureDetector(
+      onTap: () {
+        NavigationService.instance.navigateToPage(Routes.shop.name);
+      },
+      child: Padding(
+        padding: context.verticalPaddingNormal,
+        child: ListView.separated(
+          separatorBuilder: (context, index) {
+            return Padding(
+              padding: context.horizontalPaddingNormal,
+              child: const CustomDivider(),
+            );
+          },
+          itemCount: HomeViewModel().beautyServiceList(context).length,
+          shrinkWrap: true,
+          itemBuilder: (context, index) {
+            var key = HomeViewModel().beautyServiceList(context)[index];
 
-          return ListTile(
-            leading: CustomImageViewer(assetPath: key['image']),
-            title: Text(key['text'], style: TextConstants.instance.label1),
-          );
-        },
+            return ListTile(
+              leading: CustomImageViewer(assetPath: key['image']),
+              title: Text(key['text'], style: TextConstants.instance.label1),
+            );
+          },
+        ),
       ),
     );
   }

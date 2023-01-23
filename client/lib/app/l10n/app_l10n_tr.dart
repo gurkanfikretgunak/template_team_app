@@ -326,10 +326,10 @@ class L10nTr extends L10n {
   String get man => 'Erkek';
 
   @override
-  String get lowestPrice => 'En düşük fiyat';
+  String get lowestPrice => 'Azalan fiyat';
 
   @override
-  String get highestPrice => 'En yüksek fiyat';
+  String get highestPrice => 'Artan fiyat';
 
   @override
   String get next => 'İleri';
@@ -378,4 +378,22 @@ class L10nTr extends L10n {
 
   @override
   String get night => 'Akşam';
+
+  @override
+  String get bleachForWomen => 'Kadınlar için Beyazlatma';
+
+  @override
+  String get waxingForWomen => 'Kadınlar için Ağda';
+
+  @override
+  String get facialForWomen => 'Kadınlar için Yüz Bakımı';
+
+  @override
+  String get shaveForMen => 'Erkekler için Tıraş';
+
+  @override
+  String get resultSearch => '102 tane sonuç bulundu';
+
+  @override
+  String get timingValues => '06.00 - 10.00';
 }

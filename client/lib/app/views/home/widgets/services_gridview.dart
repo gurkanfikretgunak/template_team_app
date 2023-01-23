@@ -16,34 +16,34 @@ class ServicesGridView extends StatelessWidget {
         NavigationService.instance.navigateToPage(Routes.shop.name);
       },
       child: GridView.builder(
-        itemCount: HomeViewModel().beautyServiceList.length,
+        itemCount: HomeViewModel().beautyServiceList(context).length,
         physics: const NeverScrollableScrollPhysics(),
         shrinkWrap: true,
         gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
           crossAxisCount: 3,
-          mainAxisSpacing: context.lowValue,
+          mainAxisSpacing: context.mediumValue,
           crossAxisSpacing: context.lowValue,
         ),
         itemBuilder: (context, index) {
-          var key = HomeViewModel().beautyServiceList[index];
+          var key = HomeViewModel().beautyServiceList(context)[index];
 
           return Center(
-            child: Wrap(
-              direction: Axis.vertical,
-              spacing: 2,
+            child: Column(
               children: [
                 Container(
                     decoration: BoxDecoration(
-                      borderRadius:
-                          const BorderRadius.all(Radius.circular(100)),
-                      border: Border.all(
-                          width: 2, color: ColorConstant.instance.purple2),
+                      borderRadius: const BorderRadius.all(Radius.circular(100)),
+                      border: Border.all(width: 2, color: ColorConstant.instance.purple2),
                     ),
                     child: CustomImageViewer(assetPath: key['image'])),
-                Text(
-                  key['text'],
-                  style: TextConstants.instance.subtitle1.copyWith(
-                    fontSize: 13,
+                SizedBox(
+                  width: 80,
+                  child: Text(
+                    key['text'],
+                    style: TextConstants.instance.subtitle1.copyWith(
+                      fontSize: 13,
+                    ),
+                    textAlign: TextAlign.center,
                   ),
                 )
               ],

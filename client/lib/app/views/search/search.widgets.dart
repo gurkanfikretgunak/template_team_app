@@ -96,7 +96,7 @@ class ShopList extends StatelessWidget {
         itemBuilder: (context, index) {
           return ShopCard(
             isBig: false,
-            shopModel: MockShop.bookingList[index],
+            shopModel: MockShop.bookingList(context)[index],
             imageFlex: imageFlex,
             cardHeight: cardHeight,
             cardWidth: cardWidth,

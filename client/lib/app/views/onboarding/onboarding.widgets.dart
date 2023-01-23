@@ -16,14 +16,13 @@ class OnboardingWidgets {
         children: [
           Text(
             selectText(provider.currentIndex, context),
-            style: TextConstants.instance.subtitle2
-                .copyWith(color: ColorConstant.instance.light4, fontSize: 35),
+            style: TextConstants.instance.subtitle2.copyWith(color: ColorConstant.instance.light4, fontSize: 35),
           ),
           context.emptySizedHeightBoxNormal,
           const IndicatorList(),
           context.emptySizedHeightBoxNormal,
           const OnboardingButton(),
-          context.emptySizedHeightBoxHigh,
+          context.emptySizedHeightBoxNormal,
         ],
       ),
     );

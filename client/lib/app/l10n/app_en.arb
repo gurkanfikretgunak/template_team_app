@@ -124,5 +124,11 @@
     "female":"Female",
     "morning":"Morning",
     "midDay":"Mid Day",
-    "night":"Night"
+    "night":"Night", 
+     "bleachForWomen" : "Bleach for Women",
+    "waxingForWomen" : "Waxing for Women",
+    "facialForWomen" : "Facial for Women",
+    "shaveForMen" : "Shave for Men", 
+    "resultSearch" : "102 results found",
+    "timingValues" : "6.00 PM-10.00 PM"
 }

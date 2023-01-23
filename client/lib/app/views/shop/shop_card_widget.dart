@@ -42,7 +42,6 @@ class ShopSpeacialCard extends StatelessWidget {
         return Assets.images.shop.shop4.path;
       default:
         return Assets.images.shop.shop4.path;
-
     }
   }
 }

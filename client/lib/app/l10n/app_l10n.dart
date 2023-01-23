@@ -842,6 +842,42 @@ abstract class L10n {
   /// In en, this message translates to:
   /// **'Night'**
   String get night;
+
+  /// No description provided for @bleachForWomen.
+  ///
+  /// In en, this message translates to:
+  /// **'Bleach for Women'**
+  String get bleachForWomen;
+
+  /// No description provided for @waxingForWomen.
+  ///
+  /// In en, this message translates to:
+  /// **'Waxing for Women'**
+  String get waxingForWomen;
+
+  /// No description provided for @facialForWomen.
+  ///
+  /// In en, this message translates to:
+  /// **'Facial for Women'**
+  String get facialForWomen;
+
+  /// No description provided for @shaveForMen.
+  ///
+  /// In en, this message translates to:
+  /// **'Shave for Men'**
+  String get shaveForMen;
+
+  /// No description provided for @resultSearch.
+  ///
+  /// In en, this message translates to:
+  /// **'102 results found'**
+  String get resultSearch;
+
+  /// No description provided for @timingValues.
+  ///
+  /// In en, this message translates to:
+  /// **'6.00 PM-10.00 PM'**
+  String get timingValues;
 }
 
 class _L10nDelegate extends LocalizationsDelegate<L10n> {

@@ -18,8 +18,7 @@ class FilterListViewModel {
     ];
   }
 
-  CustomDropdownButton<String> priceDropDown(
-      HomeViewModel provider, BuildContext context) {
+  CustomDropdownButton<String> priceDropDown(HomeViewModel provider, BuildContext context) {
     List<String> priceList = [
       L10n.of(context)!.lowestPrice,
       L10n.of(context)!.highestPrice,
@@ -35,8 +34,7 @@ class FilterListViewModel {
     );
   }
 
-  CustomDropdownButton<dynamic> genderDropDown(
-      HomeViewModel provider, BuildContext context) {
+  CustomDropdownButton<dynamic> genderDropDown(HomeViewModel provider, BuildContext context) {
     List<String> genderList = [
       L10n.of(context)!.women,
       L10n.of(context)!.man,

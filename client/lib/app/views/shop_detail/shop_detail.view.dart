@@ -17,7 +17,7 @@ class ShopDetailView extends BaseView with ShopDetailWidgets {
       body: Stack(
         children: [
           SliverShopDetailWidget(
-            shopModel: MockShop.bookingList[1],
+            shopModel: MockShop.bookingList(context)[1],
           ),
           CheckoutButton(
             itemCount: 2,
