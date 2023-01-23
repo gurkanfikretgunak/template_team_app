@@ -1,4 +1,5 @@
 import 'package:client/app/l10n/app_l10n.dart';
+import 'package:client/app/routes/routes_widgets.dart';
 import 'package:client/app/views/home/home.viewmodel.dart';
 import 'package:client/app/views/home/widgets/offer_button.dart';
 import 'package:client/app/views/home/widgets/rating_button.dart';
@@ -83,7 +84,14 @@ class HomeWidgets {
             }),
             const FilterList(),
             categoryTitle(
-                title: L10n.of(context)!.beautyServices, context: context),
+              title: L10n.of(context)!.beautyServices,
+              context: context,
+              seeAllOnPressed: () {
+                NavigationService.instance
+                    .navigateToPage(Routes.beautyServiceDetail.name);
+              },
+            ),
+            // title: L10n.of(context)!.beautyServices, context: context),
             const ServicesGridView(),
             categoryTitle(
                 title: L10n.of(context)!.popularNearYou, context: context),
@@ -219,8 +227,14 @@ class FilterList extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    List<String> genderList = ["Women", "Man"];
-    List<String> priceList = ["a", "b"];
+    List<String> genderList = [
+      L10n.of(context)!.women,
+      L10n.of(context)!.man,
+    ];
+    List<String> priceList = [
+      L10n.of(context)!.lowestPrice,
+      L10n.of(context)!.highestPrice,
+    ];
     final provider = Provider.of<HomeViewModel>(context);
 
     return Row(
@@ -258,7 +272,11 @@ class FilterList extends StatelessWidget {
   }
 }
 
-Widget categoryTitle({required String title, required BuildContext context}) {
+Widget categoryTitle({
+  required String title,
+  required BuildContext context,
+  VoidCallback? seeAllOnPressed,
+}) {
   return Padding(
     padding: context.verticalPaddingNormal,
     child: Row(
@@ -269,7 +287,7 @@ Widget categoryTitle({required String title, required BuildContext context}) {
           style: TextConstants.instance.heading6,
         ),
         CustomTextButton(
-          onPressed: () {},
+          onPressed: seeAllOnPressed ?? () {},
           text: L10n.of(context)!.seeAll,
         )
       ],

@@ -105,6 +105,12 @@
     "cardNumber":"Kart numarası",
     "ExpDate":"Son kullanım tarihi",
     "cvv":"CVV",
+    "women":"Kadın",
+    "man":"Erkek",
+    "lowestPrice":"En düşük fiyat",
+    "highestPrice":"En yüksek fiyat"
+
+
     "next":"İleri",
     "beautyCentre":"Güzellik Merkezi",
     "beautySalon":"Güzellik Salonu",

@@ -105,6 +105,11 @@
     "cardNumber":"Card number",
     "expDate":"Exp. Date",
     "cvv":"CVV",
+    "women":"Women",
+    "man":"Man",
+    "lowestPrice":"Lowest price",
+    "highestPrice":"Highest Price",
+
     "next":"Next",
     "beautyCentre":"Beauty Centre",
     "beautySalon":"Beauty Salon",

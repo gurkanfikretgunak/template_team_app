@@ -1,5 +1,6 @@
 import 'package:client/app/widgets/buttons/widgets/button_color.dart';
 import 'package:client/app/widgets/buttons/widgets/button_size.dart';
+import 'package:client/core/extensions/common_extension.dart';
 import 'package:flutter/material.dart';
 
 class CustomOutlinedButton extends StatelessWidget {
@@ -36,14 +37,20 @@ class CustomOutlinedButton extends StatelessWidget {
           borderRadius: BorderRadius.circular(10.0),
         ),
       ),
-      child: child ??
-          Text(
-            text!,
-            style: TextStyle(
-              color: ButtonColorLabel().color(borderSideColor),
-              fontSize: ButtonSizeLabel().textSize(buttonSize),
-            ),
-          ),
+      child: Padding(
+        padding: context.paddingLow,
+        child: FittedBox(
+          child: child ??
+              Text(
+                text!,
+                maxLines: 1,
+                style: TextStyle(
+                  color: ButtonColorLabel().color(borderSideColor),
+                  fontSize: ButtonSizeLabel().textSize(buttonSize),
+                ),
+              ),
+        ),
+      ),
     );
   }
 }
