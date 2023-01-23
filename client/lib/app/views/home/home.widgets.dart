@@ -84,7 +84,6 @@ class HomeWidgets {
             }),
             const FilterList(),
             categoryTitle(
-<<<<<<< HEAD
               title: L10n.of(context)!.beautyServices,
               context: context,
               seeAllOnPressed: () {
@@ -92,9 +91,7 @@ class HomeWidgets {
                     .navigateToPage(Routes.beautyServiceDetail.name);
               },
             ),
-=======
-                title: L10n.of(context)!.beautyServices, context: context),
->>>>>>> d6319fab331bf14c0a0a7b97ef3956a262aaf7ca
+            // title: L10n.of(context)!.beautyServices, context: context),
             const ServicesGridView(),
             categoryTitle(
                 title: L10n.of(context)!.popularNearYou, context: context),
