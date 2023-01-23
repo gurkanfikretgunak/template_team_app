@@ -1,10 +1,9 @@
 import 'package:client/app/l10n/app_l10n.dart';
 import 'package:client/app/routes/routes_widgets.dart';
 import 'package:client/app/views/home/home.viewmodel.dart';
+import 'package:client/app/views/home/widgets/filter_list.dart';
 import 'package:client/app/views/home/see_all_near/see_all.view.dart';
-import 'package:client/app/views/home/widgets/rating_button.dart';
 import 'package:client/app/views/home/widgets/services_gridview.dart';
-import 'package:client/app/views/home/widgets/offer_button.dart';
 import 'package:client/app/views/shop/widget/list_shop.dart';
 import 'package:client/app/widgets/custom_appbar.dart';
 import 'package:client/app/widgets/inputs/inputs_widgets.dart';
@@ -78,19 +77,23 @@ class HomeWidgets {
         child: Column(
           children: [
             CustomSearchField(() {
-              Navigator.push(context, MaterialPageRoute(builder: (context) => const SearchBarWidget()));
+              Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => const SearchBarWidget()));
             }),
             const FilterList(),
             categoryTitle(
               title: L10n.of(context)!.beautyServices,
               context: context,
               seeAllOnPressed: () {
-                NavigationService.instance.navigateToPage(Routes.beautyServiceDetail.name);
+                NavigationService.instance
+                    .navigateToPage(Routes.beautyServiceDetail.name);
               },
             ),
-            // title: L10n.of(context)!.beautyServices, context: context),
             const ServicesGridView(),
-            categoryTitle(title: L10n.of(context)!.popularNearYou, context: context),
+            categoryTitle(
+                title: L10n.of(context)!.popularNearYou, context: context),
             ShopList(
               imageFlex: 2,
               isHorizontal: true,
@@ -113,7 +116,8 @@ class _AlertDialogWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     final provider = Provider.of<HomeViewModel>(context);
     return AlertDialog(
-      shape: const RoundedRectangleBorder(borderRadius: BorderRadius.all(Radius.circular(24.0))),
+      shape: const RoundedRectangleBorder(
+          borderRadius: BorderRadius.all(Radius.circular(24.0))),
       content: SizedBox(
         width: context.dynamicWidth(1),
         child: Column(
@@ -206,56 +210,6 @@ class ShopList extends StatelessWidget {
   }
 }
 
-class FilterList extends StatelessWidget {
-  const FilterList({Key? key}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    List<String> genderList = [
-      L10n.of(context)!.women,
-      L10n.of(context)!.man,
-    ];
-    List<String> priceList = [
-      L10n.of(context)!.lowestPrice,
-      L10n.of(context)!.highestPrice,
-    ];
-    final provider = Provider.of<HomeViewModel>(context);
-
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-      children: [
-        Expanded(
-          child: CustomDropdownButton(
-            value: provider.ddGenderValue,
-            onChanged: (String? value) {
-              provider.setDropDownGenderValue(value!);
-              provider.ddGenderValue = value;
-            },
-            list: genderList,
-            hintText: DDHintText.gender,
-          ),
-        ),
-        context.emptySizedWidthBoxLow,
-        Expanded(
-          child: CustomDropdownButton<String>(
-            value: provider.ddPriceValue,
-            onChanged: (String? value) {
-              provider.setDropDownPriceValue(value!);
-              provider.ddPriceValue = value;
-            },
-            list: priceList,
-            hintText: DDHintText.price,
-          ),
-        ),
-        context.emptySizedWidthBoxLow,
-        const Expanded(child: OfferButton()),
-        context.emptySizedWidthBoxLow,
-        const Expanded(child: RatingButton()),
-      ],
-    );
-  }
-}
-
 Widget categoryTitle({
   required String title,
   required BuildContext context,
@@ -272,7 +226,10 @@ Widget categoryTitle({
         ),
         CustomTextButton(
           onPressed: () {
-            Navigator.push(context, MaterialPageRoute(builder: (context) => const SeeAllNearView()));
+            Navigator.push(
+                context,
+                MaterialPageRoute(
+                    builder: (context) => const SeeAllNearView()));
           },
           text: L10n.of(context)!.seeAll,
         )

@@ -20,7 +20,6 @@ class CustomDropdownButton<T> extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: context.dynamicHeight(0.04),
       decoration: BoxDecoration(
         color: ColorConstant.instance.light2,
         borderRadius: const BorderRadius.all(Radius.circular(25)),
@@ -30,7 +29,7 @@ class CustomDropdownButton<T> extends StatelessWidget {
           iconEnabledColor: ColorConstant.instance.dark0,
           underline: const SizedBox(),
           alignment: Alignment.center,
-          style: TextConstants.instance.paragraph2.copyWith(),
+          style: TextConstants.instance.subtitle2,
           value: value,
           items: list
               .map((e) => DropdownMenuItem(
@@ -41,8 +40,10 @@ class CustomDropdownButton<T> extends StatelessWidget {
           onChanged: onChanged,
           hint: Padding(
             padding: context.onlyLeftPaddingLow,
-            child: FittedBox(
-                child: Text(DDHintTextLabel().hintText(hintText, context))),
+            child: Padding(
+              padding: context.horizontalPaddingLow,
+              child: Text(DDHintTextLabel().hintText(hintText, context)),
+            ),
           ),
           icon: const FittedBox(child: Icon(Icons.keyboard_arrow_down)),
         ),
