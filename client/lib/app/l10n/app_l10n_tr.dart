@@ -170,7 +170,7 @@ class L10nTr extends L10n {
   String get select => 'Seç';
 
   @override
-  String get home => 'Home';
+  String get home => 'Anasayfa';
 
   @override
   String get yourSavedAddress => 'Adresi Kaydet';
@@ -206,10 +206,10 @@ class L10nTr extends L10n {
   String get continueWithTwitter => 'Twitter ile devam et';
 
   @override
-  String get continueWithFacebook => 'Google ile devam et';
+  String get continueWithFacebook => 'Facebook ile devam et';
 
   @override
-  String get continueWithGoogle => 'Facebook ile devam et';
+  String get continueWithGoogle => 'Google ile devam et';
 
   @override
   String get profile => 'Profil';
@@ -318,4 +318,37 @@ class L10nTr extends L10n {
 
   @override
   String get cvv => 'CVV';
+
+  @override
+  String get next => 'İleri';
+
+  @override
+  String get beautyCentre => 'Güzellik Merkezi';
+
+  @override
+  String get beautySalon => 'Güzellik Salonu';
+
+  @override
+  String get forMenWomen => 'Erkekler & Kadınlar İçin';
+
+  @override
+  String get newAddress => 'Yeni Adres';
+
+  @override
+  String get editAddress => 'Adresi Düzenle';
+
+  @override
+  String get country => 'Ülke';
+
+  @override
+  String get city => 'Şehir';
+
+  @override
+  String get address => 'Adres';
+
+  @override
+  String get addressName => 'Adres ismi';
+
+  @override
+  String get add => 'Ekle';
 }

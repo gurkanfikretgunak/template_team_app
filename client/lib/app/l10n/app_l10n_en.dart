@@ -32,10 +32,10 @@ class L10nEn extends L10n {
   String get fullName => 'Full name';
 
   @override
-  String get email => 'email';
+  String get email => 'Email';
 
   @override
-  String get password => 'password';
+  String get password => 'Password';
 
   @override
   String get twitter => 'Twitter';
@@ -318,4 +318,37 @@ class L10nEn extends L10n {
 
   @override
   String get cvv => 'CVV';
+
+  @override
+  String get next => 'Next';
+
+  @override
+  String get beautyCentre => 'Beauty Centre';
+
+  @override
+  String get beautySalon => 'Beauty Salon';
+
+  @override
+  String get forMenWomen => 'FOR MEN & WOMEN';
+
+  @override
+  String get newAddress => 'New Address';
+
+  @override
+  String get editAddress => 'Edit Address';
+
+  @override
+  String get country => 'Country';
+
+  @override
+  String get city => 'City';
+
+  @override
+  String get address => 'Address';
+
+  @override
+  String get addressName => 'Address name';
+
+  @override
+  String get add => 'Add';
 }

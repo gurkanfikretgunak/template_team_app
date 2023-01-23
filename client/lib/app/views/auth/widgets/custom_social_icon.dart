@@ -1,5 +1,6 @@
 import 'package:client/app/views/auth/widgets/social_image_path.dart';
 import 'package:client/app/widgets/buttons/buttons_widgets.dart';
+import 'package:client/core/constans/text_constants.dart';
 import 'package:client/core/extensions/common_extension.dart';
 import 'package:flutter/material.dart';
 
@@ -39,7 +40,9 @@ class CustomSocialIcon extends StatelessWidget {
               width: IconSizeLabel().width(width),
             ),
             context.emptySizedWidthBoxNormal,
-            Text(socialName)
+            Text(socialName,
+                style: TextConstants.instance.button2.copyWith(
+                    color: ButtonColorLabel().color(ButtonColor.purple)))
           ],
         ),
       ),
