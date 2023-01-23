@@ -100,6 +100,7 @@ class _BookingCardState extends State<BookingCard> {
                           onPressed: () {},
                           text: L10n.of(context)!.cancel,
                           borderSideColor: ButtonColor.red,
+                          buttonSize: ButtonSize.medium,
                         )
                       : const SizedBox(),
                 ),
@@ -107,11 +108,10 @@ class _BookingCardState extends State<BookingCard> {
                 Expanded(
                   flex: 3,
                   child: SizedBox(
-                    height: context.dynamicHeight(0.046),
                     child: CustomOutlinedButton(
                       onPressed: () {},
                       text: L10n.of(context)!.reorderBooking,
-                      buttonSize: ButtonSize.large,
+                      buttonSize: ButtonSize.medium,
                     ),
                   ),
                 )
