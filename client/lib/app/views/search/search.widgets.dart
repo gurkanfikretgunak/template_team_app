@@ -39,6 +39,9 @@ class SearchWidgets {
                 )
               ],
             ),
+            const SizedBox(
+              height: 30,
+            ),
             Row(
               children: [
                 Image.asset(
@@ -125,6 +128,7 @@ class ShopList extends StatelessWidget {
       case 'Trudering/Riem':
         return Assets.images.shop.shop4.path;
       default:
+        return Assets.images.shop.shop4.path;
     }
   }
 }

@@ -20,7 +20,7 @@ class FilterBottomSheet extends BaseView with FilterBottomSheetWidgets {
             appBar(context),
             const CustomDivider(),
             Expanded(
-              flex: 3,
+              flex: 4,
               child: Row(
                 children: [
                   Expanded(child: filterTitle(context)),
