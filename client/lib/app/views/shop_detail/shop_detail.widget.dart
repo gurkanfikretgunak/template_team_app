@@ -8,63 +8,19 @@ import 'package:client/app/widgets/buttons/buttons_widgets.dart';
 import 'package:client/app/widgets/divider/divider_widgets.dart';
 import 'package:client/core/constans/color_constants.dart';
 import 'package:client/core/extensions/common_extension.dart';
+import 'package:client/core/model/booking_model.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:url_launcher/url_launcher.dart';
 import '../../../core/constans/text_constants.dart';
-import '../../../gen/assets.gen.dart';
-import '../../widgets/image_viewer/icons/icons_widgets.dart';
 
 class ShopDetailWidgets {
-  Widget shopDetailBody(BuildContext context) {
+  Widget shopDetailBody(BuildContext context, BookingModel shopModel) {
     return SliverToBoxAdapter(
       child: Padding(
         padding: context.paddingNormal,
         child: Column(
           children: [
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
-              children: [
-                communicationIcons(context),
-                Expanded(
-                  flex: 2,
-                  child: Align(
-                    alignment: Alignment.centerRight,
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        CustomOutlinedButton(
-                          borderSideColor: ButtonColor.dark,
-                          onPressed: () {},
-                          buttonSize: ButtonSize.small,
-                          child: Row(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                Icon(
-                                  Icons.star,
-                                  color: ColorConstant.instance.yellow1,
-                                  size: 16,
-                                ),
-                                Text(
-                                  "4.1",
-                                  style: TextStyle(
-                                      color: ColorConstant.instance.purple2),
-                                )
-                              ]),
-                        ),
-                        FittedBox(
-                          child: Text(
-                            "5k+ ${L10n.of(context)!.ratings}",
-                            style: TextConstants.instance.label2
-                                .copyWith(color: ColorConstant.instance.blue2),
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                )
-              ],
-            ),
+            buildIcons(context, shopModel),
             context.emptySizedHeightBoxLow,
             const CustomDivider(type: DividerType.dashed),
             context.emptySizedHeightBoxLow,
@@ -84,6 +40,92 @@ class ShopDetailWidgets {
     );
   }
 
+  Widget buildIcons(BuildContext context, BookingModel shopModel) {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      children: [
+        communicationIcons(context),
+        context.emptySizedWidthBoxLow,
+        context.emptySizedWidthBoxLow,
+        favoriteIcon(shopModel),
+        ratingIcon(context)
+      ],
+    );
+  }
+
+  Widget ratingIcon(BuildContext context) {
+    return Wrap(
+      direction: Axis.vertical,
+      spacing: 8,
+      children: [
+        SizedBox(
+          height: context.dynamicHeight(0.045),
+          child: CustomOutlinedButton(
+            borderSideColor: ButtonColor.blue,
+            onPressed: () {},
+            buttonSize: ButtonSize.medium,
+            child: Wrap(spacing: 5, children: [
+              Icon(
+                Icons.star,
+                color: ColorConstant.instance.yellow1,
+                size: 16,
+              ),
+              Text(
+                "4.1",
+                style: TextConstants.instance.button1.copyWith(
+                  color: ColorConstant.instance.blue0,
+                ),
+              )
+            ]),
+          ),
+        ),
+        SizedBox(
+          child: Text(
+            "5k+ ${L10n.of(context)!.ratings}",
+            style: TextConstants.instance.paragraph2.copyWith(
+              color: ColorConstant.instance.blue0,
+            ),
+          ),
+        ),
+      ],
+    );
+  }
+
+  Widget favoriteIcon(BookingModel shopModel) {
+    return Consumer<ShopDetailViewModel>(
+      builder: (context, value, child) {
+        bool favoriteShopDetail = value.isDetailFavorite(shopModel);
+
+        return Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            IconButton(
+                onPressed: () {
+                  value.favShopDetail(shopModel, !favoriteShopDetail);
+                },
+                icon: AnimatedCrossFade(
+                  firstChild: Icon(
+                    Icons.favorite,
+                    color: ColorConstant.instance.purple2,
+                    size: 30,
+                  ),
+                  secondChild: const Icon(
+                    Icons.favorite_border,
+                    size: 30,
+                  ),
+                  crossFadeState: favoriteShopDetail
+                      ? CrossFadeState.showFirst
+                      : CrossFadeState.showSecond,
+                  duration: const Duration(seconds: 1),
+                )),
+            context.emptySizedHeightBoxLow,
+            context.emptySizedHeightBoxLow,
+          ],
+        );
+      },
+    );
+  }
+
   Widget communicationIcons(BuildContext context) {
     return SizedBox(
       height: context.dynamicHeight(0.1),
@@ -100,12 +142,15 @@ class ShopDetailWidgets {
             child: Column(
               children: [
                 IconButton(
-                  onPressed: key['onTap'],
-                  icon: CustomIcon(
-                    imagePath: key['icon'],
-                  ),
-                ),
-                Text(key['text'])
+                    onPressed: key['onTap'],
+                    icon: Icon(
+                      key['icon'],
+                      size: 22,
+                    )),
+                Text(
+                  key['text'],
+                  style: TextConstants.instance.paragraph2,
+                )
               ],
             ),
           );
@@ -136,7 +181,6 @@ class ShopDetailWidgets {
     }
   }
 
-  // ignore: non_constant_identifier_names
   Widget buildTabbar(BuildContext context) {
     final provider = Provider.of<ShopDetailViewModel>(context);
 

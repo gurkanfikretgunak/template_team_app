@@ -489,17 +489,11 @@ abstract class L10n {
   /// **'Forward'**
   String get forward;
 
-  /// No description provided for @continueWithTwitter.
+  /// No description provided for @continueWithApple.
   ///
   /// In en, this message translates to:
-  /// **'Continue with Twitter'**
-  String get continueWithTwitter;
-
-  /// No description provided for @continueWithFacebook.
-  ///
-  /// In en, this message translates to:
-  /// **'Continue with Facebook'**
-  String get continueWithFacebook;
+  /// **'Continue with Apple'**
+  String get continueWithApple;
 
   /// No description provided for @continueWithGoogle.
   ///
@@ -842,6 +836,18 @@ abstract class L10n {
   /// In en, this message translates to:
   /// **'Night'**
   String get night;
+
+  /// No description provided for @enterPassword.
+  ///
+  /// In en, this message translates to:
+  /// **'Enter password'**
+  String get enterPassword;
+
+  /// No description provided for @setPassword.
+  ///
+  /// In en, this message translates to:
+  /// **'Set a password'**
+  String get setPassword;
 }
 
 class _L10nDelegate extends LocalizationsDelegate<L10n> {

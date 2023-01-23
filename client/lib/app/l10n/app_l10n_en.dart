@@ -203,10 +203,7 @@ class L10nEn extends L10n {
   String get forward => 'Forward';
 
   @override
-  String get continueWithTwitter => 'Continue with Twitter';
-
-  @override
-  String get continueWithFacebook => 'Continue with Facebook';
+  String get continueWithApple => 'Continue with Apple';
 
   @override
   String get continueWithGoogle => 'Continue with Google';
@@ -378,4 +375,10 @@ class L10nEn extends L10n {
 
   @override
   String get night => 'Night';
+
+  @override
+  String get enterPassword => 'Enter password';
+
+  @override
+  String get setPassword => 'Set a password';
 }

@@ -9,7 +9,7 @@ class HomeViewModel extends BaseViewModel {
     'Ağrı',
     'Amasya',
     'Ankara',
-    'Antalya'
+    'Antalya',
   ];
   List<Map> beautyServiceList = [
     {
