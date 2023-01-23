@@ -3,12 +3,14 @@ import 'package:client/gen/assets.gen.dart';
 
 class HomeViewModel extends BaseViewModel {
   List<String> locationList = <String>[
-    'Munich Center',
-    'Moosach',
-    'Pasing-Obermenzing',
-    'Trudering/Riem'
+    'Adana',
+    'Adıyaman',
+    'Afyon',
+    'Ağrı',
+    'Amasya',
+    'Ankara',
+    'Antalya'
   ];
-
   List<Map> beautyServiceList = [
     {
       "image": Assets.images.home.homeTemp1.path,
@@ -35,7 +37,8 @@ class HomeViewModel extends BaseViewModel {
       "text": "Bleach for women",
     },
   ];
-  String _ddLocationValue = 'Munich Center';
+
+  String _ddLocationValue = 'Antalya';
   String get ddLocationValue => _ddLocationValue;
   set ddLocationValue(newValue) {
     _ddLocationValue = newValue;

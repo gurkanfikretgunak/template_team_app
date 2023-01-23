@@ -9,8 +9,8 @@
     "signup":"Sign Up",
     "haveAnAccount":"Already have an Account?",
     "fullName" : "Full name",
-    "email":"email",
-    "password" : "password",
+    "email":"Email",
+    "password" : "Password",
     "twitter":"Twitter",
     "google":"Google",
     "facebook":"Facebook",
@@ -108,18 +108,17 @@
     "women":"Women",
     "man":"Man",
     "lowestPrice":"Lowest price",
-    "highestPrice":"Highest Price"
+    "highestPrice":"Highest Price",
 
-
-
-
-    
-
-
-
-
-
-
-
-
+    "next":"Next",
+    "beautyCentre":"Beauty Centre",
+    "beautySalon":"Beauty Salon",
+    "forMenWomen":"FOR MEN & WOMEN",
+    "newAddress":"New Address",
+    "editAddress":"Edit Address",
+    "country":"Country",
+    "city":"City",
+    "address":"Address",
+    "addressName":"Address name",
+    "add":"Add"
 }

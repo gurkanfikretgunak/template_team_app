@@ -44,7 +44,7 @@ dev_dependencies:
   json_serializable: ^6.5.4
 
 flutter:
-  generate: true
+  generate: false
   uses-material-design: true  
   assets:
     - assets/icons/

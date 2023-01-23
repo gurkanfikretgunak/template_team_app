@@ -11,16 +11,20 @@ class L10nEn extends L10n {
   String get getStarted => 'Get started';
 
   @override
-  String get onboardingTextOne => 'Schedule your Appointment with the best Hair Stylist in your Town.';
+  String get onboardingTextOne =>
+      'Schedule your Appointment with the best Hair Stylist in your Town.';
 
   @override
-  String get onboardingTextTwo => 'Schedule the Appointmentin the best Salon for yourKids.';
+  String get onboardingTextTwo =>
+      'Schedule the Appointmentin the best Salon for yourKids.';
 
   @override
-  String get onboardingTextThree => 'Book yourself a massage therapist to release all your stress.';
+  String get onboardingTextThree =>
+      'Book yourself a massage therapist to release all your stress.';
 
   @override
-  String get onboardingTextFour => 'Search for the best parlournear you to fulfil all your beauty needs';
+  String get onboardingTextFour =>
+      'Search for the best parlournear you to fulfil all your beauty needs';
 
   @override
   String get signup => 'Sign Up';
@@ -32,10 +36,10 @@ class L10nEn extends L10n {
   String get fullName => 'Full name';
 
   @override
-  String get email => 'email';
+  String get email => 'Email';
 
   @override
-  String get password => 'password';
+  String get password => 'Password';
 
   @override
   String get twitter => 'Twitter';
@@ -131,7 +135,8 @@ class L10nEn extends L10n {
   String get registerAsPartner => 'Register as partner';
 
   @override
-  String get registerAsPartnerDesc => 'Want to list your service? Register with us';
+  String get registerAsPartnerDesc =>
+      'Want to list your service? Register with us';
 
   @override
   String get about => 'About';
@@ -296,7 +301,8 @@ class L10nEn extends L10n {
   String get costLowToHigh => 'Cost : Low to High';
 
   @override
-  String get emptyFavoritedList => 'Nothing has been favorited yet. Favorites will appear here.';
+  String get emptyFavoritedList =>
+      'Nothing has been favorited yet. Favorites will appear here.';
 
   @override
   String get creditCard => 'Credit card';
@@ -330,4 +336,35 @@ class L10nEn extends L10n {
 
   @override
   String get highestPrice => 'Highest Price';
+  String get next => 'Next';
+
+  @override
+  String get beautyCentre => 'Beauty Centre';
+
+  @override
+  String get beautySalon => 'Beauty Salon';
+
+  @override
+  String get forMenWomen => 'FOR MEN & WOMEN';
+
+  @override
+  String get newAddress => 'New Address';
+
+  @override
+  String get editAddress => 'Edit Address';
+
+  @override
+  String get country => 'Country';
+
+  @override
+  String get city => 'City';
+
+  @override
+  String get address => 'Address';
+
+  @override
+  String get addressName => 'Address name';
+
+  @override
+  String get add => 'Add';
 }
