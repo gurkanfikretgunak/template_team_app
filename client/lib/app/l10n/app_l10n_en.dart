@@ -11,20 +11,16 @@ class L10nEn extends L10n {
   String get getStarted => 'Get started';
 
   @override
-  String get onboardingTextOne =>
-      'Schedule your Appointment with the best Hair Stylist in your Town.';
+  String get onboardingTextOne => 'Schedule your Appointment with the best Hair Stylist in your Town.';
 
   @override
-  String get onboardingTextTwo =>
-      'Schedule the Appointmentin the best Salon for yourKids.';
+  String get onboardingTextTwo => 'Schedule the Appointmentin the best Salon for yourKids.';
 
   @override
-  String get onboardingTextThree =>
-      'Book yourself a massage therapist to release all your stress.';
+  String get onboardingTextThree => 'Book yourself a massage therapist to release all your stress.';
 
   @override
-  String get onboardingTextFour =>
-      'Search for the best parlournear you to fulfil all your beauty needs';
+  String get onboardingTextFour => 'Search for the best parlournear you to fulfil all your beauty needs';
 
   @override
   String get signup => 'Sign Up';
@@ -135,8 +131,7 @@ class L10nEn extends L10n {
   String get registerAsPartner => 'Register as partner';
 
   @override
-  String get registerAsPartnerDesc =>
-      'Want to list your service? Register with us';
+  String get registerAsPartnerDesc => 'Want to list your service? Register with us';
 
   @override
   String get about => 'About';
@@ -301,8 +296,7 @@ class L10nEn extends L10n {
   String get costLowToHigh => 'Cost : Low to High';
 
   @override
-  String get emptyFavoritedList =>
-      'Nothing has been favorited yet. Favorites will appear here.';
+  String get emptyFavoritedList => 'Nothing has been favorited yet. Favorites will appear here.';
 
   @override
   String get creditCard => 'Credit card';
@@ -336,6 +330,8 @@ class L10nEn extends L10n {
 
   @override
   String get highestPrice => 'Highest Price';
+
+  @override
   String get next => 'Next';
 
   @override
@@ -367,4 +363,19 @@ class L10nEn extends L10n {
 
   @override
   String get add => 'Add';
+
+  @override
+  String get male => 'Male';
+
+  @override
+  String get female => 'Female';
+
+  @override
+  String get morning => 'Morning';
+
+  @override
+  String get midDay => 'Mid Day';
+
+  @override
+  String get night => 'Night';
 }

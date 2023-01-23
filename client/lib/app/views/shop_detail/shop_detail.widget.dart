@@ -10,7 +10,9 @@ import 'package:client/core/constans/color_constants.dart';
 import 'package:client/core/extensions/common_extension.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:url_launcher/url_launcher.dart';
 import '../../../core/constans/text_constants.dart';
+import '../../../gen/assets.gen.dart';
 import '../../widgets/image_viewer/icons/icons_widgets.dart';
 
 class ShopDetailWidgets {
@@ -23,51 +25,42 @@ class ShopDetailWidgets {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
+                communicationIcons(context),
                 Expanded(
                   flex: 2,
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    children: [
-                      Column(
-                        children: [
-                          const CustomIcon(
-                              imagePath: "assets/icons/phone.png", height: IconSize.large, width: IconSize.large),
-                          Text(L10n.of(context)!.call)
-                        ],
-                      ),
-                      Column(
-                        children: [
-                          const CustomIcon(
-                              imagePath: "assets/icons/pin-outline.png", height: IconSize.large, width: IconSize.large),
-                          Text(L10n.of(context)!.directions)
-                        ],
-                      ),
-                      Column(
-                        children: [
-                          const CustomIcon(
-                              imagePath: "assets/icons/share.png", height: IconSize.large, width: IconSize.large),
-                          Text(L10n.of(context)!.share)
-                        ],
-                      ),
-                    ],
-                  ),
-                ),
-                Expanded(
-                  flex: 2,
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.end,
-                    children: [
-                      CustomOutlinedButton(
-                        borderSideColor: ButtonColor.dark,
-                        onPressed: () {},
-                        buttonSize: ButtonSize.small,
-                        child: Row(children: const [Icon(Icons.star_border_outlined), Text("4.1")]),
-                      ),
-                      Text(
-                        "5k + ratings",
-                        style: TextConstants.instance.label2.copyWith(color: ColorConstant.instance.blue2),
-                      )
-                    ],
+                  child: Align(
+                    alignment: Alignment.centerRight,
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        CustomOutlinedButton(
+                          borderSideColor: ButtonColor.dark,
+                          onPressed: () {},
+                          buttonSize: ButtonSize.small,
+                          child: Row(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                Icon(
+                                  Icons.star,
+                                  color: ColorConstant.instance.yellow1,
+                                  size: 16,
+                                ),
+                                Text(
+                                  "4.1",
+                                  style: TextStyle(
+                                      color: ColorConstant.instance.purple2),
+                                )
+                              ]),
+                        ),
+                        FittedBox(
+                          child: Text(
+                            "5k+ ${L10n.of(context)!.ratings}",
+                            style: TextConstants.instance.label2
+                                .copyWith(color: ColorConstant.instance.blue2),
+                          ),
+                        ),
+                      ],
+                    ),
                   ),
                 )
               ],
@@ -91,6 +84,36 @@ class ShopDetailWidgets {
     );
   }
 
+  Widget communicationIcons(BuildContext context) {
+    return SizedBox(
+      height: context.dynamicHeight(0.1),
+      child: ListView.separated(
+        separatorBuilder: (context, index) {
+          return context.emptySizedWidthBoxLow;
+        },
+        shrinkWrap: true,
+        scrollDirection: Axis.horizontal,
+        itemCount: ShopDetailViewModel().accountItems(context).length,
+        itemBuilder: (context, index) {
+          var key = ShopDetailViewModel().accountItems(context)[index];
+          return InkWell(
+            child: Column(
+              children: [
+                IconButton(
+                  onPressed: key['onTap'],
+                  icon: CustomIcon(
+                    imagePath: key['icon'],
+                  ),
+                ),
+                Text(key['text'])
+              ],
+            ),
+          );
+        },
+      ),
+    );
+  }
+
   Widget buildTabbarView(BuildContext context) {
     final provider = Provider.of<ShopDetailViewModel>(context);
 
@@ -101,6 +124,13 @@ class ShopDetailWidgets {
         return const PackagesView();
       case "Face Care":
         return const FaceCareView();
+      case 'Önerilen':
+        return const RecommendedView();
+      case 'Paketler':
+        return const PackagesView();
+      case 'Yüz bakımı':
+        return const FaceCareView();
+
       default:
         return const SizedBox();
     }
@@ -110,7 +140,12 @@ class ShopDetailWidgets {
   Widget buildTabbar(BuildContext context) {
     final provider = Provider.of<ShopDetailViewModel>(context);
 
-    List<String> list = ["Recommended", "Packages", "Face Care", "Packages"];
+    List<String> list = [
+      L10n.of(context)!.recommended,
+      L10n.of(context)!.packages,
+      L10n.of(context)!.faceCare,
+      L10n.of(context)!.packages
+    ];
 
     return SizedBox(
       height: context.dynamicHeight(0.06),
@@ -127,7 +162,8 @@ class ShopDetailWidgets {
                 },
                 child: Chip(
                   backgroundColor: ColorConstant.instance.light2,
-                  shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(5)),
+                  shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(5)),
                   label: Text(
                     list[index],
                     style: TextStyle(

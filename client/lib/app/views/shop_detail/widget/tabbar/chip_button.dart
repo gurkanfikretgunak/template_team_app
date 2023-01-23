@@ -1,3 +1,4 @@
+import 'package:client/app/l10n/app_l10n.dart';
 import 'package:client/app/widgets/buttons/widgets/chip_button.dart';
 import 'package:client/app/widgets/image_viewer/icons/icons_widgets.dart';
 import 'package:client/core/base/base_view/base_view.dart';
@@ -10,7 +11,12 @@ class CategoriesButton extends BaseView {
 
   @override
   Widget build(BuildContext context) {
-    List<String> listItems = ["Recommended", "Packages", "Face Care"];
+    List<String> listItems = [
+      L10n.of(context)!.recommended,
+      L10n.of(context)!.packages,
+      L10n.of(context)!.faceCare,
+      L10n.of(context)!.packages
+    ];
     return SizedBox(
       height: context.dynamicHeight(0.0),
       child: ListView.builder(

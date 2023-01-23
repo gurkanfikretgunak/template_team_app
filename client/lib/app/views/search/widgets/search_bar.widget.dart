@@ -1,7 +1,6 @@
 import 'package:client/app/views/home/home.widgets.dart';
 import 'package:client/app/widgets/divider/widgets/custom_divider.dart';
 import 'package:client/app/widgets/image_viewer/icons/widgets/custom_icons.dart';
-import 'package:client/app/widgets/inputs/widgets/search_field/custom_search_field.dart';
 import 'package:client/app/widgets/inputs/widgets/search_field/search_field_notification.dart';
 import 'package:client/core/constans/text_constants.dart';
 import 'package:client/core/extensions/common_extension.dart';

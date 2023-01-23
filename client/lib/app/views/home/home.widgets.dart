@@ -1,15 +1,15 @@
 import 'package:client/app/l10n/app_l10n.dart';
 import 'package:client/app/routes/routes_widgets.dart';
 import 'package:client/app/views/home/home.viewmodel.dart';
-import 'package:client/app/views/home/widgets/offer_button.dart';
-import 'package:client/app/views/home/widgets/rating_button.dart';
+import 'package:client/app/views/home/widgets/filter_list.dart';
+import 'package:client/app/views/home/see_all_near/see_all.view.dart';
 import 'package:client/app/views/home/widgets/services_gridview.dart';
+import 'package:client/app/views/shop/widget/list_shop.dart';
 import 'package:client/app/widgets/custom_appbar.dart';
 import 'package:client/app/widgets/inputs/inputs_widgets.dart';
 import 'package:client/core/constans/text_constants.dart';
 import 'package:client/core/extensions/common_extension.dart';
 import 'package:client/gen/assets.gen.dart';
-import 'package:faker/faker.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -91,7 +91,6 @@ class HomeWidgets {
                     .navigateToPage(Routes.beautyServiceDetail.name);
               },
             ),
-            // title: L10n.of(context)!.beautyServices, context: context),
             const ServicesGridView(),
             categoryTitle(
                 title: L10n.of(context)!.popularNearYou, context: context),
@@ -175,9 +174,6 @@ class ShopList extends StatelessWidget {
   final double imageWidth;
   @override
   Widget build(BuildContext context) {
-    final provider = Provider.of<HomeViewModel>(context);
-
-    var fake = Faker();
     return SizedBox(
       height: listHeight,
       child: ListView.builder(
@@ -188,15 +184,7 @@ class ShopList extends StatelessWidget {
           return ShopCard(
             isBig: false,
             imageFlex: imageFlex,
-            address: fake.address.city(),
-            distance: fake.randomGenerator.integer(20).toDouble(),
-            genderType: fake.person.random.string(20),
-            hasDiscount: fake.randomGenerator.boolean(),
-            imagePath: buildShopCardImage(provider.ddLocationValue),
-            rating: fake.randomGenerator.integer(20).toDouble(),
-            shopName: fake.company.name(),
-            shopTypes: fake.company.name(),
-            discountAmount: fake.randomGenerator.integer(20).toDouble(),
+            shopModel: MockShop.bookingList[index],
             cardHeight: cardHeight,
             cardWidth: cardWidth,
             imageWidth: imageWidth,
@@ -222,56 +210,6 @@ class ShopList extends StatelessWidget {
   }
 }
 
-class FilterList extends StatelessWidget {
-  const FilterList({Key? key}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    List<String> genderList = [
-      L10n.of(context)!.women,
-      L10n.of(context)!.man,
-    ];
-    List<String> priceList = [
-      L10n.of(context)!.lowestPrice,
-      L10n.of(context)!.highestPrice,
-    ];
-    final provider = Provider.of<HomeViewModel>(context);
-
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-      children: [
-        Expanded(
-          child: CustomDropdownButton(
-            value: provider.ddGenderValue,
-            onChanged: (String? value) {
-              provider.setDropDownGenderValue(value!);
-              provider.ddGenderValue = value;
-            },
-            list: genderList,
-            hintText: DDHintText.gender,
-          ),
-        ),
-        context.emptySizedWidthBoxLow,
-        Expanded(
-          child: CustomDropdownButton<String>(
-            value: provider.ddPriceValue,
-            onChanged: (String? value) {
-              provider.setDropDownPriceValue(value!);
-              provider.ddPriceValue = value;
-            },
-            list: priceList,
-            hintText: DDHintText.price,
-          ),
-        ),
-        context.emptySizedWidthBoxLow,
-        const Expanded(child: OfferButton()),
-        context.emptySizedWidthBoxLow,
-        const Expanded(child: RatingButton()),
-      ],
-    );
-  }
-}
-
 Widget categoryTitle({
   required String title,
   required BuildContext context,
@@ -287,7 +225,12 @@ Widget categoryTitle({
           style: TextConstants.instance.heading6,
         ),
         CustomTextButton(
-          onPressed: seeAllOnPressed ?? () {},
+          onPressed: () {
+            Navigator.push(
+                context,
+                MaterialPageRoute(
+                    builder: (context) => const SeeAllNearView()));
+          },
           text: L10n.of(context)!.seeAll,
         )
       ],

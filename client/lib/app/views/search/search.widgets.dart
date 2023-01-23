@@ -3,13 +3,13 @@ import 'package:client/app/views/home/widgets/rating_button.dart';
 import 'package:client/app/views/home/widgets/services_gridview.dart';
 import 'package:client/app/views/home/widgets/offer_button.dart';
 import 'package:client/app/views/search/widgets/search_bar.widget.dart';
+import 'package:client/app/views/shop/widget/list_shop.dart';
 import 'package:client/app/widgets/divider/divider_widgets.dart';
 import 'package:client/app/widgets/inputs/inputs_widgets.dart';
 import 'package:client/core/constans/color_constants.dart';
 import 'package:client/core/constans/text_constants.dart';
 import 'package:client/core/extensions/common_extension.dart';
 import 'package:client/gen/assets.gen.dart';
-import 'package:faker/faker.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import '../../widgets/buttons/buttons_widgets.dart';
@@ -87,9 +87,6 @@ class ShopList extends StatelessWidget {
   final int imageFlex;
   @override
   Widget build(BuildContext context) {
-    final provider = Provider.of<HomeViewModel>(context);
-
-    var fake = Faker();
     return SizedBox(
       height: listHeight,
       child: ListView.builder(
@@ -99,16 +96,8 @@ class ShopList extends StatelessWidget {
         itemBuilder: (context, index) {
           return ShopCard(
             isBig: false,
+            shopModel: MockShop.bookingList[index],
             imageFlex: imageFlex,
-            address: fake.address.city(),
-            distance: fake.randomGenerator.integer(20).toDouble(),
-            genderType: fake.person.random.string(20),
-            hasDiscount: fake.randomGenerator.boolean(),
-            imagePath: buildShopCardImage(provider.ddLocationValue),
-            rating: fake.randomGenerator.integer(20).toDouble(),
-            shopName: fake.company.name(),
-            shopTypes: fake.company.name(),
-            discountAmount: fake.randomGenerator.integer(20).toDouble(),
             cardHeight: cardHeight,
             cardWidth: cardWidth,
           );

@@ -108,9 +108,7 @@
     "women":"Kadın",
     "man":"Erkek",
     "lowestPrice":"En düşük fiyat",
-    "highestPrice":"En yüksek fiyat"
-
-
+    "highestPrice":"En yüksek fiyat",
     "next":"İleri",
     "beautyCentre":"Güzellik Merkezi",
     "beautySalon":"Güzellik Salonu",
@@ -121,7 +119,12 @@
     "city":"Şehir",
     "address":"Adres",
     "addressName":"Adres ismi",
-    "add":"Ekle"
+    "add":"Ekle",
+    "male":"Erkek",
+    "female":"Kadın",
+    "morning":"Sabah",
+    "midDay":"Öğlen",
+    "night":"Akşam"
 
  }
 
