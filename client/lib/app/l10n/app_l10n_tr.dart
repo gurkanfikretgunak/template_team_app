@@ -203,10 +203,7 @@ class L10nTr extends L10n {
   String get forward => 'İleri';
 
   @override
-  String get continueWithTwitter => 'Twitter ile devam et';
-
-  @override
-  String get continueWithFacebook => 'Facebook ile devam et';
+  String get continueWithApple => 'Apple ile devam et';
 
   @override
   String get continueWithGoogle => 'Google ile devam et';
@@ -378,4 +375,10 @@ class L10nTr extends L10n {
 
   @override
   String get night => 'Akşam';
+
+  @override
+  String get enterPassword => 'Parolanızı girin';
+
+  @override
+  String get setPassword => 'Bir parola belirleyin';
 }

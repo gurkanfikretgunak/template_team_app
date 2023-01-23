@@ -3,10 +3,12 @@ import 'package:client/app/routes/routes_widgets.dart';
 import 'package:client/app/views/home/home.viewmodel.dart';
 import 'package:client/app/views/home/widgets/filter_list.dart';
 import 'package:client/app/views/home/see_all_near/see_all.view.dart';
+import 'package:client/app/views/home/widgets/location_alert_dialog.dart';
 import 'package:client/app/views/home/widgets/services_gridview.dart';
 import 'package:client/app/views/shop/widget/list_shop.dart';
 import 'package:client/app/widgets/custom_appbar.dart';
 import 'package:client/app/widgets/inputs/inputs_widgets.dart';
+import 'package:client/core/constans/color_constants.dart';
 import 'package:client/core/constans/text_constants.dart';
 import 'package:client/core/extensions/common_extension.dart';
 import 'package:client/gen/assets.gen.dart';
@@ -26,7 +28,12 @@ class HomeWidgets {
         Padding(
           padding: context.verticalPaddingLow,
           child: InkWell(
-            onTap: () => _showAlertDialog(context),
+            onTap: () {
+              showDialog<String>(
+                context: context,
+                builder: (BuildContext context) => const LocationAlertDialog(),
+              );
+            },
             child: Padding(
               padding: context.verticalPaddingNormal,
               child: Wrap(
@@ -39,6 +46,11 @@ class HomeWidgets {
                     provider.ddLocationValue,
                     style: TextConstants.instance.button1,
                   ),
+                  Icon(
+                    Icons.keyboard_arrow_down_rounded,
+                    color: ColorConstant.instance.dark0,
+                    size: 20,
+                  )
                 ],
               ),
             ),
@@ -46,27 +58,6 @@ class HomeWidgets {
         ),
       ]),
     );
-  }
-
-  _showAlertDialog(BuildContext context) {
-    showGeneralDialog(
-        transitionBuilder: (context, a1, a2, widget) {
-          final curvedValue = Curves.easeInOutBack.transform(a1.value) - 1.0;
-          return Transform(
-            transform: Matrix4.translationValues(0.0, curvedValue * 200, 0.0),
-            child: Opacity(
-              opacity: a1.value,
-              child: const _AlertDialogWidget(),
-            ),
-          );
-        },
-        transitionDuration: const Duration(milliseconds: 300),
-        barrierDismissible: true,
-        barrierLabel: '',
-        context: context,
-        pageBuilder: (context, animation1, animation2) {
-          return const SizedBox();
-        });
   }
 
   body(BuildContext context) {
@@ -101,53 +92,6 @@ class HomeWidgets {
               cardWidth: context.dynamicHeight(0.3),
               listHeight: context.dynamicHeight(0.25),
               imageWidth: 180,
-            ),
-          ],
-        ),
-      ),
-    );
-  }
-}
-
-class _AlertDialogWidget extends StatelessWidget {
-  const _AlertDialogWidget();
-
-  @override
-  Widget build(BuildContext context) {
-    final provider = Provider.of<HomeViewModel>(context);
-    return AlertDialog(
-      shape: const RoundedRectangleBorder(
-          borderRadius: BorderRadius.all(Radius.circular(24.0))),
-      content: SizedBox(
-        width: context.dynamicWidth(1),
-        child: Column(
-          mainAxisSize: MainAxisSize.min,
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                DropdownButton(
-                  underline: const SizedBox(),
-                  value: provider.ddLocationValue,
-                  icon: const Icon(Icons.keyboard_arrow_down),
-                  items: provider.locationList.map((String items) {
-                    return DropdownMenuItem(
-                      value: items,
-                      child: Text(items),
-                    );
-                  }).toList(),
-                  onChanged: (String? newValue) {
-                    provider.ddLocationValue = newValue!;
-                    Navigator.pop(context);
-                  },
-                ),
-                IconButton(
-                    onPressed: () {
-                      Navigator.pop(context);
-                    },
-                    icon: const Icon(Icons.close)),
-              ],
             ),
           ],
         ),

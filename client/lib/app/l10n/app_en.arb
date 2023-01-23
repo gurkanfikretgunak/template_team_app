@@ -66,8 +66,7 @@
     "cash":"Cash",
     "addPaymentMehod":"Add payment method",
     "forward":"Forward",
-    "continueWithTwitter":"Continue with Twitter",
-    "continueWithFacebook":"Continue with Facebook",
+    "continueWithApple":"Continue with Apple",
     "continueWithGoogle":"Continue with Google",
     "profile":"Profile",
     "haircutForMen":"Haircut for men",
@@ -124,5 +123,7 @@
     "female":"Female",
     "morning":"Morning",
     "midDay":"Mid Day",
-    "night":"Night"
+    "night":"Night",
+    "enterPassword":"Enter password",
+    "setPassword":"Set a password"
 }

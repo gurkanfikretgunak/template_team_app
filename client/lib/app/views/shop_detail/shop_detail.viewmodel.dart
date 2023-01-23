@@ -34,19 +34,19 @@ class ShopDetailViewModel extends BaseViewModel {
   List<Map> accountItems(BuildContext context) {
     return [
       {
-        "icon": Assets.icons.phone.path,
+        "icon": Icons.call,
         "text": L10n.of(context)!.call,
         "onTap": () {
           launch("tel:+1-555-010-999");
         },
       },
       {
-        "icon": Assets.icons.pinOutline.path,
+        "icon": Icons.location_on_outlined,
         "text": L10n.of(context)!.directions,
         "onTap": () {},
       },
       {
-        "icon": Assets.icons.share.path,
+        "icon": Icons.share,
         "text": L10n.of(context)!.share,
         "onTap": () {
           String text = '';

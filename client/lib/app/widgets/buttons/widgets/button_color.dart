@@ -1,6 +1,6 @@
 import 'package:client/core/constans/color_constants.dart';
 
-enum ButtonColor { transparent, dark, green, red, purple, light }
+enum ButtonColor { transparent, dark, green, red, purple, light, blue }
 
 class ButtonColorLabel {
   ButtonColorLabel();
@@ -19,6 +19,8 @@ class ButtonColorLabel {
         return ColorConstant.instance.red0;
       case ButtonColor.purple:
         return ColorConstant.instance.purple2;
+      case ButtonColor.blue:
+        return ColorConstant.instance.blue0;
       default:
         return ColorConstant.instance.purple2;
     }

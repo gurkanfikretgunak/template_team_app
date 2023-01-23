@@ -18,13 +18,16 @@ class SignUpWidgets {
           children: [
             CustomTextFormField(
               labelTextValue: L10n.of(context)!.fullName,
+              hintText: "John Doe",
             ),
             CustomTextFormField(
               labelTextValue: L10n.of(context)!.email,
               keyboardType: KeyboardType.email,
+              hintText: "john@example.com",
             ),
             CustomTextFormField(
               labelTextValue: L10n.of(context)!.password,
+              hintText: L10n.of(context)!.setPassword,
             ),
             SizedBox(
               width: context.dynamicWidth(1),
