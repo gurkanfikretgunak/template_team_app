@@ -12,9 +12,9 @@ class GenderFilter extends StatelessWidget {
     final checkboxNotifier = Provider.of<GenderNotifier>(context);
 
     return ListView.builder(
-      itemCount: checkboxNotifier.genderFilterOptions.length,
+      itemCount: checkboxNotifier.genderFilterOptions(context).length,
       itemBuilder: (context, index) {
-        var key = checkboxNotifier.genderFilterOptions[index];
+        var key = checkboxNotifier.genderFilterOptions(context)[index];
 
         return Padding(
           padding: context.horizontalPaddingNormal,
@@ -22,7 +22,7 @@ class GenderFilter extends StatelessWidget {
             value: key['isSelected'],
             title: key['title'],
             onChanged: (value) {
-              checkboxNotifier.setChange(key['title']);
+              checkboxNotifier.setChange(key['title'], context);
             },
           ),
         );

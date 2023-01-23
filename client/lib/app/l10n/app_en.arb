@@ -109,7 +109,6 @@
     "man":"Man",
     "lowestPrice":"Lowest price",
     "highestPrice":"Highest Price",
-
     "next":"Next",
     "beautyCentre":"Beauty Centre",
     "beautySalon":"Beauty Salon",
@@ -120,5 +119,10 @@
     "city":"City",
     "address":"Address",
     "addressName":"Address name",
-    "add":"Add"
+    "add":"Add",
+    "male":"Male",
+    "female":"Female",
+    "morning":"Morning",
+    "midDay":"Mid Day",
+    "night":"Night"
 }

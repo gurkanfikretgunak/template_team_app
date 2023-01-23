@@ -1,6 +1,7 @@
 import 'package:client/app/l10n/app_l10n.dart';
 import 'package:client/app/routes/routes_widgets.dart';
 import 'package:client/app/views/home/home.viewmodel.dart';
+import 'package:client/app/views/home/widgets/filter_list.dart';
 import 'package:client/app/views/home/widgets/offer_button.dart';
 import 'package:client/app/views/home/widgets/rating_button.dart';
 import 'package:client/app/views/home/widgets/services_gridview.dart';
@@ -91,7 +92,6 @@ class HomeWidgets {
                     .navigateToPage(Routes.beautyServiceDetail.name);
               },
             ),
-            // title: L10n.of(context)!.beautyServices, context: context),
             const ServicesGridView(),
             categoryTitle(
                 title: L10n.of(context)!.popularNearYou, context: context),
@@ -219,56 +219,6 @@ class ShopList extends StatelessWidget {
       default:
         return Assets.images.shop.shop4.path;
     }
-  }
-}
-
-class FilterList extends StatelessWidget {
-  const FilterList({Key? key}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    List<String> genderList = [
-      L10n.of(context)!.women,
-      L10n.of(context)!.man,
-    ];
-    List<String> priceList = [
-      L10n.of(context)!.lowestPrice,
-      L10n.of(context)!.highestPrice,
-    ];
-    final provider = Provider.of<HomeViewModel>(context);
-
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-      children: [
-        Expanded(
-          child: CustomDropdownButton(
-            value: provider.ddGenderValue,
-            onChanged: (String? value) {
-              provider.setDropDownGenderValue(value!);
-              provider.ddGenderValue = value;
-            },
-            list: genderList,
-            hintText: DDHintText.gender,
-          ),
-        ),
-        context.emptySizedWidthBoxLow,
-        Expanded(
-          child: CustomDropdownButton<String>(
-            value: provider.ddPriceValue,
-            onChanged: (String? value) {
-              provider.setDropDownPriceValue(value!);
-              provider.ddPriceValue = value;
-            },
-            list: priceList,
-            hintText: DDHintText.price,
-          ),
-        ),
-        context.emptySizedWidthBoxLow,
-        const Expanded(child: OfferButton()),
-        context.emptySizedWidthBoxLow,
-        const Expanded(child: RatingButton()),
-      ],
-    );
   }
 }
 
