@@ -150,13 +150,13 @@ abstract class L10n {
   /// No description provided for @email.
   ///
   /// In en, this message translates to:
-  /// **'email'**
+  /// **'Email'**
   String get email;
 
   /// No description provided for @password.
   ///
   /// In en, this message translates to:
-  /// **'password'**
+  /// **'Password'**
   String get password;
 
   /// No description provided for @twitter.
@@ -722,6 +722,72 @@ abstract class L10n {
   /// In en, this message translates to:
   /// **'CVV'**
   String get cvv;
+
+  /// No description provided for @next.
+  ///
+  /// In en, this message translates to:
+  /// **'Next'**
+  String get next;
+
+  /// No description provided for @beautyCentre.
+  ///
+  /// In en, this message translates to:
+  /// **'Beauty Centre'**
+  String get beautyCentre;
+
+  /// No description provided for @beautySalon.
+  ///
+  /// In en, this message translates to:
+  /// **'Beauty Salon'**
+  String get beautySalon;
+
+  /// No description provided for @forMenWomen.
+  ///
+  /// In en, this message translates to:
+  /// **'FOR MEN & WOMEN'**
+  String get forMenWomen;
+
+  /// No description provided for @newAddress.
+  ///
+  /// In en, this message translates to:
+  /// **'New Address'**
+  String get newAddress;
+
+  /// No description provided for @editAddress.
+  ///
+  /// In en, this message translates to:
+  /// **'Edit Address'**
+  String get editAddress;
+
+  /// No description provided for @country.
+  ///
+  /// In en, this message translates to:
+  /// **'Country'**
+  String get country;
+
+  /// No description provided for @city.
+  ///
+  /// In en, this message translates to:
+  /// **'City'**
+  String get city;
+
+  /// No description provided for @address.
+  ///
+  /// In en, this message translates to:
+  /// **'Address'**
+  String get address;
+
+  /// No description provided for @addressName.
+  ///
+  /// In en, this message translates to:
+  /// **'Address name'**
+  String get addressName;
+
+  /// No description provided for @add.
+  ///
+  /// In en, this message translates to:
+  /// **'Add'**
+  String get add;
 }
 
 class _L10nDelegate extends LocalizationsDelegate<L10n> {
