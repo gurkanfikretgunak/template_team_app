@@ -12,6 +12,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:url_launcher/url_launcher.dart';
 import '../../../core/constans/text_constants.dart';
+import '../../../gen/assets.gen.dart';
 import '../../widgets/image_viewer/icons/icons_widgets.dart';
 
 class ShopDetailWidgets {
@@ -26,28 +27,39 @@ class ShopDetailWidgets {
               children: [
                 Expanded(
                   flex: 2,
-                  child: communicationIcons(context),
-                ),
-                Expanded(
-                  flex: 2,
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.end,
-                    children: [
-                      CustomOutlinedButton(
-                        borderSideColor: ButtonColor.dark,
-                        onPressed: () {},
-                        buttonSize: ButtonSize.small,
-                        child: Row(children: const [
-                          Icon(Icons.star_border_outlined),
-                          Text("4.1")
-                        ]),
-                      ),
-                      Text(
-                        "5k + ratings",
-                        style: TextConstants.instance.label2
-                            .copyWith(color: ColorConstant.instance.blue2),
-                      )
-                    ],
+                  child: Align(
+                    alignment: Alignment.centerRight,
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        CustomOutlinedButton(
+                          borderSideColor: ButtonColor.dark,
+                          onPressed: () {},
+                          buttonSize: ButtonSize.small,
+                          child: Row(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                Icon(
+                                  Icons.star,
+                                  color: ColorConstant.instance.yellow1,
+                                  size: 16,
+                                ),
+                                Text(
+                                  "4.1",
+                                  style: TextStyle(
+                                      color: ColorConstant.instance.purple2),
+                                )
+                              ]),
+                        ),
+                        FittedBox(
+                          child: Text(
+                            "5k+ ${L10n.of(context)!.ratings}",
+                            style: TextConstants.instance.label2
+                                .copyWith(color: ColorConstant.instance.blue2),
+                          ),
+                        ),
+                      ],
+                    ),
                   ),
                 )
               ],
@@ -111,6 +123,13 @@ class ShopDetailWidgets {
         return const PackagesView();
       case "Face Care":
         return const FaceCareView();
+      case 'Önerilen':
+        return const RecommendedView();
+      case 'Paketler':
+        return const PackagesView();
+      case 'Yüz bakımı':
+        return const FaceCareView();
+
       default:
         return const SizedBox();
     }
@@ -120,7 +139,12 @@ class ShopDetailWidgets {
   Widget buildTabbar(BuildContext context) {
     final provider = Provider.of<ShopDetailViewModel>(context);
 
-    List<String> list = ["Recommended", "Packages", "Face Care", "Packages"];
+    List<String> list = [
+      L10n.of(context)!.recommended,
+      L10n.of(context)!.packages,
+      L10n.of(context)!.faceCare,
+      L10n.of(context)!.packages
+    ];
 
     return SizedBox(
       height: context.dynamicHeight(0.06),
