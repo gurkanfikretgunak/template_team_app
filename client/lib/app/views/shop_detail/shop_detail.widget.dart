@@ -25,6 +25,7 @@ class ShopDetailWidgets {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
+                communicationIcons(context),
                 Expanded(
                   flex: 2,
                   child: Align(
