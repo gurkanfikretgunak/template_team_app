@@ -10,6 +10,7 @@ import 'package:client/core/constans/color_constants.dart';
 import 'package:client/core/extensions/common_extension.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:url_launcher/url_launcher.dart';
 import '../../../core/constans/text_constants.dart';
 import '../../../gen/assets.gen.dart';
 import '../../widgets/image_viewer/icons/icons_widgets.dart';
@@ -24,34 +25,7 @@ class ShopDetailWidgets {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
-                Expanded(
-                  flex: 2,
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    children: [
-                      Column(
-                        children: [
-                          CustomIcon(imagePath: Assets.icons.phone.path, height: IconSize.large, width: IconSize.large),
-                          Text(L10n.of(context)!.call)
-                        ],
-                      ),
-                      Column(
-                        children: [
-                          CustomIcon(
-                              imagePath: Assets.icons.pinOutline.path, height: IconSize.large, width: IconSize.large),
-                          Text(L10n.of(context)!.directions)
-                        ],
-                      ),
-                      Column(
-                        children: [
-                          const CustomIcon(
-                              imagePath: "assets/icons/share.png", height: IconSize.large, width: IconSize.large),
-                          Text(L10n.of(context)!.share)
-                        ],
-                      ),
-                    ],
-                  ),
-                ),
+                communicationIcons(context),
                 Expanded(
                   flex: 2,
                   child: Align(
@@ -63,22 +37,26 @@ class ShopDetailWidgets {
                           borderSideColor: ButtonColor.dark,
                           onPressed: () {},
                           buttonSize: ButtonSize.small,
-                          child: Row(mainAxisAlignment: MainAxisAlignment.center, children: [
-                            Icon(
-                              Icons.star,
-                              color: ColorConstant.instance.yellow1,
-                              size: 16,
-                            ),
-                            Text(
-                              "4.1",
-                              style: TextStyle(color: ColorConstant.instance.purple2),
-                            )
-                          ]),
+                          child: Row(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                Icon(
+                                  Icons.star,
+                                  color: ColorConstant.instance.yellow1,
+                                  size: 16,
+                                ),
+                                Text(
+                                  "4.1",
+                                  style: TextStyle(
+                                      color: ColorConstant.instance.purple2),
+                                )
+                              ]),
                         ),
                         FittedBox(
                           child: Text(
                             "5k+ ${L10n.of(context)!.ratings}",
-                            style: TextConstants.instance.label2.copyWith(color: ColorConstant.instance.blue2),
+                            style: TextConstants.instance.label2
+                                .copyWith(color: ColorConstant.instance.blue2),
                           ),
                         ),
                       ],
@@ -102,6 +80,36 @@ class ShopDetailWidgets {
             buildTabbar(context),
           ],
         ),
+      ),
+    );
+  }
+
+  Widget communicationIcons(BuildContext context) {
+    return SizedBox(
+      height: context.dynamicHeight(0.1),
+      child: ListView.separated(
+        separatorBuilder: (context, index) {
+          return context.emptySizedWidthBoxLow;
+        },
+        shrinkWrap: true,
+        scrollDirection: Axis.horizontal,
+        itemCount: ShopDetailViewModel().accountItems(context).length,
+        itemBuilder: (context, index) {
+          var key = ShopDetailViewModel().accountItems(context)[index];
+          return InkWell(
+            child: Column(
+              children: [
+                IconButton(
+                  onPressed: key['onTap'],
+                  icon: CustomIcon(
+                    imagePath: key['icon'],
+                  ),
+                ),
+                Text(key['text'])
+              ],
+            ),
+          );
+        },
       ),
     );
   }
@@ -154,7 +162,8 @@ class ShopDetailWidgets {
                 },
                 child: Chip(
                   backgroundColor: ColorConstant.instance.light2,
-                  shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(5)),
+                  shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(5)),
                   label: Text(
                     list[index],
                     style: TextStyle(

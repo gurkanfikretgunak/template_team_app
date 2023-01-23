@@ -37,7 +37,9 @@ class FilterBottomSheet extends BaseView with FilterBottomSheetWidgets {
                   child: SizedBox(
                     width: context.dynamicWidth(1),
                     child: CustomElevatedButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        Navigator.pop(context);
+                      },
                       text: L10n.of(context)!.apply,
                       textColor: ButtonColor.light,
                     ),

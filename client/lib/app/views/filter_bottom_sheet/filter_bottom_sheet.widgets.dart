@@ -36,12 +36,13 @@ class FilterBottomSheetWidgets {
                     width: IconSize.large,
                   ),
                 ),
-                Text(L10n.of(context)!.sortFilters, style: TextConstants.instance.button1),
+                Text(L10n.of(context)!.sortFilters,
+                    style: TextConstants.instance.button1),
               ],
             ),
             CustomTextButton(
               onPressed: () {
-                Provider.of<GenderNotifier>(context, listen: false).clear();
+                // Provider.of<GenderNotifier>(context, listen: false).clear();
                 Provider.of<TimingNotifier>(context, listen: false).clear();
                 Provider.of<RadioButtonNotifier>(context, listen: false)
                     .setSelectedOption(L10n.of(context)!.popularity);
@@ -56,24 +57,23 @@ class FilterBottomSheetWidgets {
 
   Widget filterTitle(BuildContext context) {
     final provider = Provider.of<FilterBottomSheetViewModel>(context);
-    List<String> filterCetegoryList = ["Sort", "Offers", "Gender", "Timing"];
 
     return Container(
       color: ColorConstant.instance.light2,
       child: Align(
         alignment: Alignment.topLeft,
         child: ListView.builder(
-          itemCount: filterCetegoryList.length,
+          itemCount: provider.filterCetegoryList(context).length,
           shrinkWrap: true,
           itemBuilder: (context, index) {
             return InkWell(
               onTap: () {
-                provider.selectedCategory = filterCetegoryList[index];
+                provider.selectedCategory = index;
               },
               child: Container(
                 height: context.dynamicHeight(0.07),
                 decoration: BoxDecoration(
-                  color: provider.selectedCategory == filterCetegoryList[index]
+                  color: provider.selectedCategory == index
                       ? ColorConstant.instance.light4
                       : ColorConstant.instance.light2,
                   border: Border(
@@ -85,9 +85,9 @@ class FilterBottomSheetWidgets {
                   child: Padding(
                     padding: context.horizontalPaddingNormal,
                     child: Text(
-                      filterCetegoryList[index],
+                      provider.filterCetegoryList(context)[index],
                       style: TextStyle(
-                        color: provider.selectedCategory == filterCetegoryList[index]
+                        color: provider.selectedCategory == index
                             ? ColorConstant.instance.dark0
                             : ColorConstant.instance.dark3,
                         fontWeight: FontWeight.w600,
@@ -107,13 +107,13 @@ class FilterBottomSheetWidgets {
     final provider = Provider.of<FilterBottomSheetViewModel>(context);
 
     switch (provider.selectedCategory) {
-      case "Sort":
+      case 0:
         return const SortFilter();
-      case "Offers":
+      case 1:
         return const Text("Offers");
-      case "Gender":
+      case 2:
         return const GenderFilter();
-      case "Timing":
+      case 3:
         return const TimingFilter();
       default:
         return const Text("Timing");
