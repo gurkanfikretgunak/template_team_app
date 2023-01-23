@@ -1,4 +1,5 @@
 import 'package:client/app/l10n/app_l10n.dart';
+import 'package:client/app/routes/routes_widgets.dart';
 import 'package:client/app/views/home/home.viewmodel.dart';
 import 'package:client/app/views/home/see_all_near/see_all.view.dart';
 import 'package:client/app/views/home/widgets/rating_button.dart';
@@ -22,37 +23,51 @@ class HomeWidgets {
     final provider = Provider.of<HomeViewModel>(context);
 
     return CustomAppbar(
-      leading: FittedBox(
-        child: Wrap(
-          crossAxisAlignment: WrapCrossAlignment.center,
-          spacing: 10,
-          children: [
-            CustomIcon(imagePath: Assets.icons.location.path),
-            SizedBox(
-              width: context.dynamicWidth(0.6),
-              child: DropdownButton<String>(
-                value: provider.ddLocationValue,
-                icon: const Icon(Icons.keyboard_arrow_down_outlined),
-                elevation: 16,
-                style: TextConstants.instance.button1,
-                underline: Container(height: 0),
-                onChanged: (String? value) {
-                  provider.ddLocationValue = value!;
-                },
-                items: provider.locationList.map<DropdownMenuItem<String>>((String value) {
-                  return DropdownMenuItem<String>(
-                    value: value,
-                    child: Text(
-                      value,
-                    ),
-                  );
-                }).toList(),
+      leading: Row(children: [
+        Padding(
+          padding: context.verticalPaddingLow,
+          child: InkWell(
+            onTap: () => _showAlertDialog(context),
+            child: Padding(
+              padding: context.verticalPaddingNormal,
+              child: Wrap(
+                crossAxisAlignment: WrapCrossAlignment.center,
+                runAlignment: WrapAlignment.start,
+                spacing: 10,
+                children: [
+                  CustomIcon(imagePath: Assets.icons.location.path),
+                  Text(
+                    provider.ddLocationValue,
+                    style: TextConstants.instance.button1,
+                  ),
+                ],
               ),
             ),
-          ],
+          ),
         ),
-      ),
+      ]),
     );
+  }
+
+  _showAlertDialog(BuildContext context) {
+    showGeneralDialog(
+        transitionBuilder: (context, a1, a2, widget) {
+          final curvedValue = Curves.easeInOutBack.transform(a1.value) - 1.0;
+          return Transform(
+            transform: Matrix4.translationValues(0.0, curvedValue * 200, 0.0),
+            child: Opacity(
+              opacity: a1.value,
+              child: const _AlertDialogWidget(),
+            ),
+          );
+        },
+        transitionDuration: const Duration(milliseconds: 300),
+        barrierDismissible: true,
+        barrierLabel: '',
+        context: context,
+        pageBuilder: (context, animation1, animation2) {
+          return const SizedBox();
+        });
   }
 
   body(BuildContext context) {
@@ -66,7 +81,14 @@ class HomeWidgets {
               Navigator.push(context, MaterialPageRoute(builder: (context) => const SearchBarWidget()));
             }),
             const FilterList(),
-            categoryTitle(title: L10n.of(context)!.beautyServices, context: context),
+            categoryTitle(
+              title: L10n.of(context)!.beautyServices,
+              context: context,
+              seeAllOnPressed: () {
+                NavigationService.instance.navigateToPage(Routes.beautyServiceDetail.name);
+              },
+            ),
+            // title: L10n.of(context)!.beautyServices, context: context),
             const ServicesGridView(),
             categoryTitle(title: L10n.of(context)!.popularNearYou, context: context),
             ShopList(
@@ -76,6 +98,52 @@ class HomeWidgets {
               cardWidth: context.dynamicHeight(0.3),
               listHeight: context.dynamicHeight(0.25),
               imageWidth: 180,
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+class _AlertDialogWidget extends StatelessWidget {
+  const _AlertDialogWidget();
+
+  @override
+  Widget build(BuildContext context) {
+    final provider = Provider.of<HomeViewModel>(context);
+    return AlertDialog(
+      shape: const RoundedRectangleBorder(borderRadius: BorderRadius.all(Radius.circular(24.0))),
+      content: SizedBox(
+        width: context.dynamicWidth(1),
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                DropdownButton(
+                  underline: const SizedBox(),
+                  value: provider.ddLocationValue,
+                  icon: const Icon(Icons.keyboard_arrow_down),
+                  items: provider.locationList.map((String items) {
+                    return DropdownMenuItem(
+                      value: items,
+                      child: Text(items),
+                    );
+                  }).toList(),
+                  onChanged: (String? newValue) {
+                    provider.ddLocationValue = newValue!;
+                    Navigator.pop(context);
+                  },
+                ),
+                IconButton(
+                    onPressed: () {
+                      Navigator.pop(context);
+                    },
+                    icon: const Icon(Icons.close)),
+              ],
             ),
           ],
         ),
@@ -133,6 +201,7 @@ class ShopList extends StatelessWidget {
       case 'Trudering/Riem':
         return Assets.images.shop.shop4.path;
       default:
+        return Assets.images.shop.shop4.path;
     }
   }
 }
@@ -142,8 +211,14 @@ class FilterList extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    List<String> genderList = ["Women", "Man"];
-    List<String> priceList = ["a", "b"];
+    List<String> genderList = [
+      L10n.of(context)!.women,
+      L10n.of(context)!.man,
+    ];
+    List<String> priceList = [
+      L10n.of(context)!.lowestPrice,
+      L10n.of(context)!.highestPrice,
+    ];
     final provider = Provider.of<HomeViewModel>(context);
 
     return Row(
@@ -181,7 +256,11 @@ class FilterList extends StatelessWidget {
   }
 }
 
-Widget categoryTitle({required String title, required BuildContext context}) {
+Widget categoryTitle({
+  required String title,
+  required BuildContext context,
+  VoidCallback? seeAllOnPressed,
+}) {
   return Padding(
     padding: context.verticalPaddingNormal,
     child: Row(

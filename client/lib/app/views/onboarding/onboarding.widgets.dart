@@ -11,20 +11,20 @@ class OnboardingWidgets {
   Widget foregroundItem(OnboardingViewModel provider, BuildContext context) {
     return Padding(
       padding: context.paddingMedium,
-      child: Transform(
-        transform: Matrix4.translationValues(0, context.dynamicHeight(0.56), 0),
-        child: Column(
-          children: [
-            Text(
-              selectText(provider.currentIndex, context),
-              style: TextConstants.instance.subtitle2.copyWith(color: ColorConstant.instance.light4, fontSize: 35),
-            ),
-            context.emptySizedHeightBoxNormal,
-            const IndicatorList(),
-            context.emptySizedHeightBoxNormal,
-            const OnboardingButton(),
-          ],
-        ),
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.end,
+        children: [
+          Text(
+            selectText(provider.currentIndex, context),
+            style: TextConstants.instance.subtitle2
+                .copyWith(color: ColorConstant.instance.light4, fontSize: 35),
+          ),
+          context.emptySizedHeightBoxNormal,
+          const IndicatorList(),
+          context.emptySizedHeightBoxNormal,
+          const OnboardingButton(),
+          context.emptySizedHeightBoxHigh,
+        ],
       ),
     );
   }

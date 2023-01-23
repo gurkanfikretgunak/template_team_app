@@ -1,9 +1,9 @@
-import 'package:client/app/views/account/manage_address/manage_address.widgets.dart';
+import 'package:client/app/views/beauty_service_detail/beauty_service_detail.widgets.dart';
 import 'package:client/core/base/base_view/base_view.dart';
 import 'package:flutter/material.dart';
 
-class ManageAddressView extends BaseView with ManageAddressWidgets {
-  const ManageAddressView(this.error, {super.key});
+class BeautyServiceDetailView extends BaseView with BeautyServiceDetailWidgets {
+  const BeautyServiceDetailView(this.error, {super.key});
 
   final bool error;
 
@@ -17,7 +17,7 @@ class ManageAddressView extends BaseView with ManageAddressWidgets {
       context,
       error: backendError(),
       appbar: appbar(context),
-      body: body(),
+      body: body(context),
       errorBody: const Text('errorrrr'),
     );
   }

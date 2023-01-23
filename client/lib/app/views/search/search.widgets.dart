@@ -117,6 +117,7 @@ class ShopList extends StatelessWidget {
       case 'Trudering/Riem':
         return Assets.images.shop.shop4.path;
       default:
+        return Assets.images.shop.shop4.path;
     }
   }
 }

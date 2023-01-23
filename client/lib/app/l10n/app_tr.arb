@@ -55,7 +55,7 @@
     "logoutDesc":"Uygulamadan çıkmak istediğinizden emin misiniz?", 
     "apply":"Uygula",
     "select":"Seç",
-    "home":"Home", 
+    "home":"Anasayfa", 
     "yourSavedAddress":"Adresi Kaydet",
     "termsOfService":"Hizmet Koşulları",
     "privacyPolicy":"Gizlilik Politikası",
@@ -67,8 +67,8 @@
     "addPaymentMehod":"Ödeme yöntemi ekle",
     "forward":"İleri",
     "continueWithTwitter":"Twitter ile devam et",
-    "continueWithFacebook":"Google ile devam et",
-    "continueWithGoogle":"Facebook ile devam et",
+    "continueWithFacebook":"Facebook ile devam et",
+    "continueWithGoogle":"Google ile devam et",
     "profile":"Profil",
     "haircutForMen":"Erkekler için saç kesimi",
     "shops":"Mağazalar",
@@ -104,8 +104,24 @@
     "nameOnCard":"Kart üzerindeki isim-soyisim",
     "cardNumber":"Kart numarası",
     "ExpDate":"Son kullanım tarihi",
-    "cvv":"CVV"
+    "cvv":"CVV",
+    "women":"Kadın",
+    "man":"Erkek",
+    "lowestPrice":"En düşük fiyat",
+    "highestPrice":"En yüksek fiyat"
 
+
+    "next":"İleri",
+    "beautyCentre":"Güzellik Merkezi",
+    "beautySalon":"Güzellik Salonu",
+    "forMenWomen":"Erkekler & Kadınlar İçin",
+    "newAddress":"Yeni Adres",
+    "editAddress":"Adresi Düzenle",
+    "country":"Ülke",
+    "city":"Şehir",
+    "address":"Adres",
+    "addressName":"Adres ismi",
+    "add":"Ekle"
 
  }
 

@@ -1,9 +1,9 @@
 import 'package:client/app/routes/routes_widgets.dart';
+import 'package:client/app/views/home/home.viewmodel.dart';
 import 'package:client/app/widgets/image_viewer/custom_viewer_image.dart';
 import 'package:client/core/constans/color_constants.dart';
 import 'package:client/core/constans/text_constants.dart';
 import 'package:client/core/extensions/common_extension.dart';
-import 'package:client/gen/assets.gen.dart';
 import 'package:flutter/material.dart';
 
 class ServicesGridView extends StatelessWidget {
@@ -11,38 +11,12 @@ class ServicesGridView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    List<Map> beautyServiceList = [
-      {
-        "image": Assets.images.home.homeTemp1.path,
-        "text": "Bleach for women",
-      },
-      {
-        "image": Assets.images.home.homeTemp2.path,
-        "text": "Waxing for women",
-      },
-      {
-        "image": Assets.images.home.homeTemp3.path,
-        "text": "Facial for women",
-      },
-      {
-        "image": Assets.images.home.homeTemp4.path,
-        "text": "Shave for men",
-      },
-      {
-        "image": Assets.images.home.homeTemp5.path,
-        "text": "Haircut for men",
-      },
-      {
-        "image": Assets.images.home.homeTemp1.path,
-        "text": "Bleach for women",
-      },
-    ];
     return GestureDetector(
       onTap: () {
         NavigationService.instance.navigateToPage(Routes.shop.name);
       },
       child: GridView.builder(
-        itemCount: beautyServiceList.length,
+        itemCount: HomeViewModel().beautyServiceList.length,
         physics: const NeverScrollableScrollPhysics(),
         shrinkWrap: true,
         gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
@@ -51,7 +25,7 @@ class ServicesGridView extends StatelessWidget {
           crossAxisSpacing: context.lowValue,
         ),
         itemBuilder: (context, index) {
-          var key = beautyServiceList[index];
+          var key = HomeViewModel().beautyServiceList[index];
 
           return Center(
             child: Wrap(
