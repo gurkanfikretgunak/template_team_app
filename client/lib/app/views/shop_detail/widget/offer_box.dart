@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 
 import '../../../../core/constans/text_constants.dart';
 import '../../../../gen/assets.gen.dart';
+import '../../../l10n/app_l10n.dart';
 import '../../../widgets/image_viewer/icons/widgets/custom_icons.dart';
 
 class OfferBoxWidget extends StatelessWidget {
@@ -30,13 +31,13 @@ class OfferBoxWidget extends StatelessWidget {
                   ),
                   context.emptySizedWidthBoxLow,
                   Text(
-                    "50% off",
+                    "50%",
                     style: TextConstants.instance.button1,
                   )
                 ],
               ),
               Text(
-                "use code FREE50",
+                L10n.of(context)!.couponDiscount,
                 style: TextConstants.instance.label2,
               )
             ],

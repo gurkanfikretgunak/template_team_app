@@ -1,15 +1,16 @@
 import 'package:client/app/l10n/app_l10n.dart';
 import 'package:client/app/routes/routes_widgets.dart';
 import 'package:client/app/views/home/home.viewmodel.dart';
-import 'package:client/app/views/home/widgets/offer_button.dart';
+import 'package:client/app/views/home/see_all_near/see_all.view.dart';
 import 'package:client/app/views/home/widgets/rating_button.dart';
 import 'package:client/app/views/home/widgets/services_gridview.dart';
+import 'package:client/app/views/home/widgets/offer_button.dart';
+import 'package:client/app/views/shop/widget/list_shop.dart';
 import 'package:client/app/widgets/custom_appbar.dart';
 import 'package:client/app/widgets/inputs/inputs_widgets.dart';
 import 'package:client/core/constans/text_constants.dart';
 import 'package:client/core/extensions/common_extension.dart';
 import 'package:client/gen/assets.gen.dart';
-import 'package:faker/faker.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -77,24 +78,19 @@ class HomeWidgets {
         child: Column(
           children: [
             CustomSearchField(() {
-              Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                      builder: (context) => const SearchBarWidget()));
+              Navigator.push(context, MaterialPageRoute(builder: (context) => const SearchBarWidget()));
             }),
             const FilterList(),
             categoryTitle(
               title: L10n.of(context)!.beautyServices,
               context: context,
               seeAllOnPressed: () {
-                NavigationService.instance
-                    .navigateToPage(Routes.beautyServiceDetail.name);
+                NavigationService.instance.navigateToPage(Routes.beautyServiceDetail.name);
               },
             ),
             // title: L10n.of(context)!.beautyServices, context: context),
             const ServicesGridView(),
-            categoryTitle(
-                title: L10n.of(context)!.popularNearYou, context: context),
+            categoryTitle(title: L10n.of(context)!.popularNearYou, context: context),
             ShopList(
               imageFlex: 2,
               isHorizontal: true,
@@ -117,8 +113,7 @@ class _AlertDialogWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     final provider = Provider.of<HomeViewModel>(context);
     return AlertDialog(
-      shape: const RoundedRectangleBorder(
-          borderRadius: BorderRadius.all(Radius.circular(24.0))),
+      shape: const RoundedRectangleBorder(borderRadius: BorderRadius.all(Radius.circular(24.0))),
       content: SizedBox(
         width: context.dynamicWidth(1),
         child: Column(
@@ -175,9 +170,6 @@ class ShopList extends StatelessWidget {
   final double imageWidth;
   @override
   Widget build(BuildContext context) {
-    final provider = Provider.of<HomeViewModel>(context);
-
-    var fake = Faker();
     return SizedBox(
       height: listHeight,
       child: ListView.builder(
@@ -188,15 +180,7 @@ class ShopList extends StatelessWidget {
           return ShopCard(
             isBig: false,
             imageFlex: imageFlex,
-            address: fake.address.city(),
-            distance: fake.randomGenerator.integer(20).toDouble(),
-            genderType: fake.person.random.string(20),
-            hasDiscount: fake.randomGenerator.boolean(),
-            imagePath: buildShopCardImage(provider.ddLocationValue),
-            rating: fake.randomGenerator.integer(20).toDouble(),
-            shopName: fake.company.name(),
-            shopTypes: fake.company.name(),
-            discountAmount: fake.randomGenerator.integer(20).toDouble(),
+            shopModel: MockShop.bookingList[index],
             cardHeight: cardHeight,
             cardWidth: cardWidth,
             imageWidth: imageWidth,
@@ -287,7 +271,9 @@ Widget categoryTitle({
           style: TextConstants.instance.heading6,
         ),
         CustomTextButton(
-          onPressed: seeAllOnPressed ?? () {},
+          onPressed: () {
+            Navigator.push(context, MaterialPageRoute(builder: (context) => const SeeAllNearView()));
+          },
           text: L10n.of(context)!.seeAll,
         )
       ],

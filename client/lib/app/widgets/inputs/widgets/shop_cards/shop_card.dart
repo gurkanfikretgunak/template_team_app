@@ -1,31 +1,21 @@
 import 'package:client/app/widgets/custom_card.dart';
 import 'package:client/app/widgets/inputs/widgets/shop_cards/shop_card_widgets.dart';
 import 'package:client/core/extensions/common_extension.dart';
+import 'package:client/core/model/booking_model.dart';
 import 'package:flutter/material.dart';
 
 class ShopCard extends StatelessWidget with ShopCardWidgets {
   ShopCard({
     super.key,
-    required this.genderType,
-    required this.shopName,
-    required this.imagePath,
-    required this.shopTypes,
-    required this.address,
-    required this.rating,
-    required this.distance,
-    required this.hasDiscount,
-    this.discountAmount,
     required this.cardHeight,
     required this.cardWidth,
     required this.imageFlex,
     this.imageWidth,
     required this.isBig,
+    required this.shopModel,
   });
 
-  final String genderType, shopName, imagePath, address, shopTypes;
-  final double rating, distance;
-  final double? discountAmount;
-  final bool hasDiscount;
+  final BookingModel shopModel;
   final double cardHeight;
   final double cardWidth;
   final int imageFlex;
@@ -42,7 +32,7 @@ class ShopCard extends StatelessWidget with ShopCardWidgets {
         crossAxisAlignment: CrossAxisAlignment.start,
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          Expanded(flex: imageFlex, child: SizedBox(width: imageWidth, child: shopImage(imagePath))),
+          Expanded(flex: imageFlex, child: SizedBox(width: imageWidth, child: shopImage(shopModel.desc))),
           context.emptySizedHeightBoxLow,
           Expanded(
             flex: 1,
@@ -52,11 +42,11 @@ class ShopCard extends StatelessWidget with ShopCardWidgets {
                 children: [
                   shopInformation(
                     context,
-                    shopName,
-                    shopTypes,
-                    rating,
-                    address,
-                    discountAmount,
+                    shopModel.title,
+                    shopModel.location,
+                    shopModel.price,
+                    shopModel.date,
+                    shopModel.distance,
                     false,
                   ),
                   isBig
@@ -66,7 +56,7 @@ class ShopCard extends StatelessWidget with ShopCardWidgets {
                             Icons.favorite_border,
                             size: 25,
                           ))
-                      : SizedBox()
+                      : const SizedBox()
                 ],
               ),
             ),
