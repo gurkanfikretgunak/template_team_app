@@ -30,7 +30,7 @@
     "price":"Price",
     "offer":"Offers",
     "rating":"Rating",
-    "seeAll":"see all >",
+    "seeAll":"See all >",
     "search":"Search",
     "booking":"Booking",
     "account":"Account",
@@ -137,6 +137,9 @@
     "trendingNearYou": "Trending near you" ,
     "tryTheseService" : "Try these service",
     "charcoalDetoxMask" : "Charcoal Detox Mask",
+    "clayMask" : "Clay Mask.",
+    "skinCare" : "Skin Care",
+
     "shopService" : "Shop Service",
     "march" : "March",
     "favorite" : "Favorite",
@@ -160,5 +163,6 @@
     "onBookingOf"  : "On booking of",
     "orMore" : "or more",
     "getUsingPaypal": "using PayPal",
-    "tryAgain" : "Try Again"
+    "tryAgain" : "Try Again", 
+    "massage" :"Massage"
 }

@@ -1,5 +1,6 @@
-import 'package:client/app/views/home/home.widgets.dart';
+import 'package:client/app/l10n/app_l10n.dart';
 import 'package:client/app/views/search/search.widgets.dart';
+import 'package:client/app/widgets/custom_appbar.dart';
 import 'package:client/core/base/base_view/base_view.dart';
 import 'package:flutter/material.dart';
 
@@ -17,7 +18,9 @@ class SearchView extends BaseView with SearchWidgets {
     return dynamicBuild(
       context,
       error: backendError(),
-      appbar: HomeWidgets().appbar(context),
+      appbar: CustomAppbar(
+        title: L10n.of(context)!.search,
+      ),
       body: searchBody(context),
       errorBody: const Text('errorrrr'),
     );

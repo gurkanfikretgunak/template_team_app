@@ -22,18 +22,12 @@ import '../search/search_bar/search_bar.widget.dart';
 class HomeWidgets {
   CustomAppbar appbar(BuildContext context) {
     final provider = Provider.of<HomeViewModel>(context);
-
     return CustomAppbar(
       leading: Row(children: [
         Padding(
           padding: context.verticalPaddingLow,
           child: InkWell(
-            onTap: () {
-              showDialog<String>(
-                context: context,
-                builder: (BuildContext context) => const LocationAlertDialog(),
-              );
-            },
+            onTap: () => _showAlertDialog(context),
             child: Padding(
               padding: context.verticalPaddingNormal,
               child: Wrap(
@@ -46,11 +40,6 @@ class HomeWidgets {
                     provider.ddLocationValue,
                     style: TextConstants.instance.button1,
                   ),
-                  Icon(
-                    Icons.keyboard_arrow_down_rounded,
-                    color: ColorConstant.instance.dark0,
-                    size: 20,
-                  )
                 ],
               ),
             ),
@@ -58,6 +47,27 @@ class HomeWidgets {
         ),
       ]),
     );
+  }
+
+  _showAlertDialog(BuildContext context) {
+    showGeneralDialog(
+        transitionBuilder: (context, a1, a2, widget) {
+          final curvedValue = Curves.easeInOutBack.transform(a1.value) - 1.0;
+          return Transform(
+            transform: Matrix4.translationValues(0.0, curvedValue * 200, 0.0),
+            child: Opacity(
+              opacity: a1.value,
+              child: const _AlertDialogWidget(),
+            ),
+          );
+        },
+        transitionDuration: const Duration(milliseconds: 300),
+        barrierDismissible: true,
+        barrierLabel: '',
+        context: context,
+        pageBuilder: (context, animation1, animation2) {
+          return const SizedBox();
+        });
   }
 
   body(BuildContext context) {
@@ -68,18 +78,14 @@ class HomeWidgets {
         child: Column(
           children: [
             CustomSearchField(() {
-              Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                      builder: (context) => const SearchBarWidget()));
+              Navigator.push(context, MaterialPageRoute(builder: (context) => const SearchBarWidget()));
             }),
             const FilterList(),
             categoryTitle(
               title: L10n.of(context)!.beautyServices,
               context: context,
               seeAllOnPressed: () {
-                NavigationService.instance
-                    .navigateToPage(Routes.beautyServiceDetail.name);
+                NavigationService.instance.navigateToPage(Routes.beautyServiceDetail.name);
               },
             ),
             const ServicesGridView(),
@@ -87,8 +93,7 @@ class HomeWidgets {
               title: L10n.of(context)!.popularNearYou,
               context: context,
               seeAllOnPressed: () {
-                NavigationService.instance
-                    .navigateToPage(Routes.popularNearDetail.name);
+                NavigationService.instance.navigateToPage(Routes.popularNearDetail.name);
               },
             ),
             ShopList(
@@ -151,13 +156,13 @@ class ShopList extends StatelessWidget {
 
   buildShopCardImage(String location) {
     switch (location) {
-      case 'Munich Center':
+      case 'Antalya':
         return Assets.images.shop.shop1.path;
-      case 'Moosach':
+      case 'Adıyaman':
         return Assets.images.shop.shop2.path;
-      case 'Pasing-Obermenzing':
+      case 'Amasya':
         return Assets.images.shop.shop3.path;
-      case 'Trudering/Riem':
+      case 'Ankara':
         return Assets.images.shop.shop4.path;
       default:
         return Assets.images.shop.shop4.path;
@@ -186,4 +191,76 @@ Widget categoryTitle({
       ],
     ),
   );
+}
+
+class _AlertDialogWidget extends StatelessWidget {
+  const _AlertDialogWidget();
+
+  @override
+  Widget build(BuildContext context) {
+    final provider = Provider.of<HomeViewModel>(context);
+    return AlertDialog(
+      shape: const RoundedRectangleBorder(borderRadius: BorderRadius.all(Radius.circular(24.0))),
+      content: SizedBox(
+        width: context.dynamicWidth(1),
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            CountyCityDrop(provider: provider, toExit: true),
+            CountyCityDrop(provider: provider, toExit: false),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+class CountyCityDrop extends StatelessWidget {
+  const CountyCityDrop({
+    Key? key,
+    required this.provider,
+    required this.toExit,
+  }) : super(key: key);
+
+  final HomeViewModel provider;
+  final bool toExit;
+
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      children: [
+        DropdownButton(
+          underline: const SizedBox(),
+          value: toExit ? provider.countryLocationValue : provider.ddLocationValue,
+          icon: const Icon(Icons.keyboard_arrow_down),
+          items: toExit
+              ? provider.countryList.map((String items) {
+                  return DropdownMenuItem(
+                    value: items,
+                    child: Text(items),
+                  );
+                }).toList()
+              : provider.locationList.map((String items) {
+                  return DropdownMenuItem(
+                    value: items,
+                    child: Text(items),
+                  );
+                }).toList(),
+          onChanged: (String? newValue) {
+            provider.ddLocationValue = newValue!;
+            Navigator.pop(context);
+          },
+        ),
+        toExit
+            ? IconButton(
+                onPressed: () {
+                  Navigator.pop(context);
+                },
+                icon: const Icon(Icons.close))
+            : SizedBox()
+      ],
+    );
+  }
 }

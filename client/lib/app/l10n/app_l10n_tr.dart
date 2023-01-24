@@ -95,7 +95,7 @@ class L10nTr extends L10n {
   String get rating => 'Değerlendirme';
 
   @override
-  String get seeAll => 'hepsini gör >';
+  String get seeAll => 'Hepsini gör >';
 
   @override
   String get search => 'Arama';
@@ -416,6 +416,12 @@ class L10nTr extends L10n {
   String get charcoalDetoxMask => 'Kömür Detoks Maskesi';
 
   @override
+  String get clayMask => 'Kil Maskesi';
+
+  @override
+  String get skinCare => 'Cilt Bakımı';
+
+  @override
   String get shopService => 'Mağaza Hizmeti';
 
   @override
@@ -486,4 +492,7 @@ class L10nTr extends L10n {
 
   @override
   String get tryAgain => 'Tekrar Deneyin';
+
+  @override
+  String get massage => 'Masaj';
 }

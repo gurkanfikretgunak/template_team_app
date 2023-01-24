@@ -7,9 +7,11 @@ import 'package:client/core/constans/text_constants.dart';
 import 'package:client/core/extensions/common_extension.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import '../../../../core/constans/color_constants.dart';
 import '../../../../gen/assets.gen.dart';
 import '../../../l10n/app_l10n.dart';
+import '../../../widgets/custom_appbar.dart';
 import '../../../widgets/image_viewer/icons/widgets/icon_size.dart';
 import '../../../widgets/inputs/widgets/text_fields/custom_text_form_field.dart';
 
@@ -21,6 +23,8 @@ class SearchBarWidget extends StatefulWidget {
 }
 
 class _SearchBarWidgetState extends State<SearchBarWidget> {
+  late String _search;
+
   List<Map<String, dynamic>> _mockDatas(BuildContext context) {
     return [
       {
@@ -51,11 +55,6 @@ class _SearchBarWidgetState extends State<SearchBarWidget> {
   }
 
   List<Map<String, dynamic>> _foundUsers = [];
-  // @override
-  // initState() {
-  //   _foundUsers = _mockDatas(context);
-  //   super.initState();
-  // }
 
   void _runFilter(String enteredKeyword) {
     List<Map<String, dynamic>> results = [];
@@ -71,6 +70,24 @@ class _SearchBarWidgetState extends State<SearchBarWidget> {
     });
   }
 
+  Future<void> readySharedPreferences() async {
+    var sharedPreferences = await SharedPreferences.getInstance();
+    _search = sharedPreferences.getString("search");
+    setState(() {});
+  }
+
+  Future<void> saveData() async {
+    var sharedPreferences = await SharedPreferences.getInstance();
+    _search = SearchFieldNotifier().searchController.text;
+    sharedPreferences.setString("search", _search);
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    readySharedPreferences();
+  }
+
   @override
   Widget build(BuildContext context) {
     final provider = Provider.of<SearchFieldNotifier>(context);
@@ -78,21 +95,9 @@ class _SearchBarWidgetState extends State<SearchBarWidget> {
     return Scaffold(
       appBar: PreferredSize(
         preferredSize: const Size.fromHeight(50.0),
-        child: SafeArea(
-          child: Row(
-            children: [
-              Padding(
-                padding: context.verticalPaddingNormal,
-                child: BackButton(
-                  color: ColorConstant.instance.dark0,
-                  onPressed: () {
-                    Navigator.pop(context);
-                  },
-                ),
-              ),
-              HomeWidgets().appbar(context),
-            ],
-          ),
+        child: Padding(
+          padding: context.onlyTopPaddingMedium,
+          child: CustomAppbar(title: L10n.of(context)!.search),
         ),
       ),
       body: Padding(
