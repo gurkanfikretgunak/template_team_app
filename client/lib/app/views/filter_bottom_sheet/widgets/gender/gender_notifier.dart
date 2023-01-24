@@ -18,13 +18,11 @@ class GenderNotifier extends ChangeNotifier {
   setChange(String title, BuildContext context) {
     switch (title) {
       case "Male":
-        genderFilterOptions(context)[0]['isSelected'] =
-            !genderFilterOptions(context)[0]['isSelected'];
+        genderFilterOptions(context)[0]['isSelected'] = !genderFilterOptions(context)[0]['isSelected'];
         notifyListeners();
         break;
       case "Female":
-        genderFilterOptions(context)[1]['isSelected'] =
-            !genderFilterOptions(context)[1]['isSelected'];
+        genderFilterOptions(context)[1]['isSelected'] = !genderFilterOptions(context)[1]['isSelected'];
         notifyListeners();
         break;
 

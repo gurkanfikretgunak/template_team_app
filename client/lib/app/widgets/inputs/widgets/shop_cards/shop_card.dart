@@ -36,11 +36,11 @@ class ShopCard extends StatelessWidget with ShopCardWidgets {
           context.emptySizedHeightBoxLow,
           Expanded(
             flex: 1,
-            child: FittedBox(
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  shopInformation(
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                FittedBox(
+                  child: shopInformation(
                     context,
                     shopModel.title,
                     shopModel.location,
@@ -49,16 +49,16 @@ class ShopCard extends StatelessWidget with ShopCardWidgets {
                     shopModel.distance,
                     false,
                   ),
-                  isBig
-                      ? IconButton(
-                          onPressed: () {},
-                          icon: const Icon(
-                            Icons.favorite_border,
-                            size: 25,
-                          ))
-                      : const SizedBox()
-                ],
-              ),
+                ),
+                isBig
+                    ? IconButton(
+                        onPressed: () {},
+                        icon: const Icon(
+                          Icons.favorite_border,
+                          size: 30,
+                        ))
+                    : const SizedBox()
+              ],
             ),
           ),
         ],

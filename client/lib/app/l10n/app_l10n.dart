@@ -837,6 +837,42 @@ abstract class L10n {
   /// **'Night'**
   String get night;
 
+  /// No description provided for @bleachForWomen.
+  ///
+  /// In en, this message translates to:
+  /// **'Bleach for Women'**
+  String get bleachForWomen;
+
+  /// No description provided for @waxingForWomen.
+  ///
+  /// In en, this message translates to:
+  /// **'Waxing for Women'**
+  String get waxingForWomen;
+
+  /// No description provided for @facialForWomen.
+  ///
+  /// In en, this message translates to:
+  /// **'Facial for Women'**
+  String get facialForWomen;
+
+  /// No description provided for @shaveForMen.
+  ///
+  /// In en, this message translates to:
+  /// **'Shave for Men'**
+  String get shaveForMen;
+
+  /// No description provided for @resultSearch.
+  ///
+  /// In en, this message translates to:
+  /// **'102 results found'**
+  String get resultSearch;
+
+  /// No description provided for @timingValues.
+  ///
+  /// In en, this message translates to:
+  /// **'6.00 PM-10.00 PM'**
+  String get timingValues;
+
   /// No description provided for @enterPassword.
   ///
   /// In en, this message translates to:
@@ -848,6 +884,180 @@ abstract class L10n {
   /// In en, this message translates to:
   /// **'Set a password'**
   String get setPassword;
+
+  /// No description provided for @shave.
+  ///
+  /// In en, this message translates to:
+  /// **'Shave'**
+  String get shave;
+
+  /// No description provided for @recentlySearched.
+  ///
+  /// In en, this message translates to:
+  /// **'Recently searched'**
+  String get recentlySearched;
+
+  /// No description provided for @trendingNearYou.
+  ///
+  /// In en, this message translates to:
+  /// **'Trending near you'**
+  String get trendingNearYou;
+
+  /// No description provided for @tryTheseService.
+  ///
+  /// In en, this message translates to:
+  /// **'Try these service'**
+  String get tryTheseService;
+
+  /// No description provided for @charcoalDetoxMask.
+  ///
+  /// In en, this message translates to:
+  /// **'Charcoal Detox Mask'**
+  String get charcoalDetoxMask;
+
+  /// No description provided for @shopService.
+  ///
+  /// In en, this message translates to:
+  /// **'Shop Service'**
+  String get shopService;
+
+  /// No description provided for @march.
+  ///
+  /// In en, this message translates to:
+  /// **'March'**
+  String get march;
+
+  /// No description provided for @favorite.
+  ///
+  /// In en, this message translates to:
+  /// **'Favorite'**
+  String get favorite;
+
+  /// No description provided for @mins.
+  ///
+  /// In en, this message translates to:
+  /// **'Mins'**
+  String get mins;
+
+  /// No description provided for @plusTaxes.
+  ///
+  /// In en, this message translates to:
+  /// **'Plus Taxes'**
+  String get plusTaxes;
+
+  /// No description provided for @continueShop.
+  ///
+  /// In en, this message translates to:
+  /// **'Continue'**
+  String get continueShop;
+
+  /// No description provided for @checkout.
+  ///
+  /// In en, this message translates to:
+  /// **'Checkout'**
+  String get checkout;
+
+  /// No description provided for @selectDateTime.
+  ///
+  /// In en, this message translates to:
+  /// **'Select Date & Time'**
+  String get selectDateTime;
+
+  /// No description provided for @offersPromoCode.
+  ///
+  /// In en, this message translates to:
+  /// **'Offers & Promo Code'**
+  String get offersPromoCode;
+
+  /// No description provided for @viewOffers.
+  ///
+  /// In en, this message translates to:
+  /// **'View offers'**
+  String get viewOffers;
+
+  /// No description provided for @frequentlyAdded.
+  ///
+  /// In en, this message translates to:
+  /// **'Frequently added together'**
+  String get frequentlyAdded;
+
+  /// No description provided for @amountPayable.
+  ///
+  /// In en, this message translates to:
+  /// **'Amount Payable'**
+  String get amountPayable;
+
+  /// No description provided for @forTheAppointment.
+  ///
+  /// In en, this message translates to:
+  /// **'For The Appointment'**
+  String get forTheAppointment;
+
+  /// No description provided for @whenWouldLike.
+  ///
+  /// In en, this message translates to:
+  /// **'When would you like your service?'**
+  String get whenWouldLike;
+
+  /// No description provided for @day.
+  ///
+  /// In en, this message translates to:
+  /// **'Day'**
+  String get day;
+
+  /// No description provided for @am.
+  ///
+  /// In en, this message translates to:
+  /// **'AM'**
+  String get am;
+
+  /// No description provided for @couponCode.
+  ///
+  /// In en, this message translates to:
+  /// **'Coupon Code'**
+  String get couponCode;
+
+  /// No description provided for @getcashbackUpto.
+  ///
+  /// In en, this message translates to:
+  /// **'Get cashback upto'**
+  String get getcashbackUpto;
+
+  /// No description provided for @enterCouponCode.
+  ///
+  /// In en, this message translates to:
+  /// **'Enter Coupon Code'**
+  String get enterCouponCode;
+
+  /// No description provided for @getVisaCredits.
+  ///
+  /// In en, this message translates to:
+  /// **'on VISA Debit or Credit cards'**
+  String get getVisaCredits;
+
+  /// No description provided for @onBookingOf.
+  ///
+  /// In en, this message translates to:
+  /// **'On booking of'**
+  String get onBookingOf;
+
+  /// No description provided for @orMore.
+  ///
+  /// In en, this message translates to:
+  /// **'or more'**
+  String get orMore;
+
+  /// No description provided for @getUsingPaypal.
+  ///
+  /// In en, this message translates to:
+  /// **'using PayPal'**
+  String get getUsingPaypal;
+
+  /// No description provided for @tryAgain.
+  ///
+  /// In en, this message translates to:
+  /// **'Try Again'**
+  String get tryAgain;
 }
 
 class _L10nDelegate extends LocalizationsDelegate<L10n> {

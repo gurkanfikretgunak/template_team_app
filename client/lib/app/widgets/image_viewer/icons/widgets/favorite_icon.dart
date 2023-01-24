@@ -6,6 +6,8 @@ import 'package:client/core/constans/text_constants.dart';
 import 'package:client/gen/assets.gen.dart';
 import 'package:flutter/material.dart';
 
+import '../../../../l10n/app_l10n.dart';
+
 class FavoriteIcon extends BaseView {
   const FavoriteIcon({
     super.key,
@@ -35,11 +37,11 @@ class FavoriteIcon extends BaseView {
                 ),
           isFavorite
               ? Text(
-                  'Remove',
+                  L10n.of(context)!.remove,
                   style: TextConstants.instance.label3,
                 )
               : Text(
-                  'Favorite',
+                  L10n.of(context)!.favorite,
                   style: TextStyle(color: ColorConstant.instance.purple2),
                 ),
         ],

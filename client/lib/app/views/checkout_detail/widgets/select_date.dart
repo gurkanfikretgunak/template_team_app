@@ -7,6 +7,8 @@ import 'package:client/core/extensions/common_extension.dart';
 import 'package:client/gen/assets.gen.dart';
 import 'package:flutter/material.dart';
 
+import '../../../l10n/app_l10n.dart';
+
 class SelectDate extends StatelessWidget {
   const SelectDate({super.key});
 
@@ -18,9 +20,9 @@ class SelectDate extends StatelessWidget {
     return Wrap(
       runSpacing: 20,
       children: [
-        const Text('When would you like your service?'),
+        Text(L10n.of(context)!.whenWouldLike),
         datePicker(context),
-        const Text('When would you like your service?'),
+        Text(L10n.of(context)!.whenWouldLike),
         timePicker(context),
         InkWell(
             onTap: () {
@@ -62,7 +64,7 @@ class SelectDate extends StatelessWidget {
             child: Wrap(
               alignment: WrapAlignment.center,
               runAlignment: WrapAlignment.center,
-              children: const [Text('11:30 AM')],
+              children: [Text('11:30 ${L10n.of(context)!.am}')],
             ),
           ),
         );
@@ -94,7 +96,7 @@ class SelectDate extends StatelessWidget {
                 crossAxisAlignment: WrapCrossAlignment.center,
                 runAlignment: WrapAlignment.center,
                 spacing: 10,
-                children: [const Text('Day'), Text('$index')],
+                children: [Text(L10n.of(context)!.day), Text('$index')],
               ),
             ),
           );

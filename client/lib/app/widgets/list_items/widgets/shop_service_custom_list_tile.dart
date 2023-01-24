@@ -5,6 +5,9 @@ import 'package:client/core/constans/color_constants.dart';
 import 'package:client/core/constans/text_constants.dart';
 import 'package:client/gen/assets.gen.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+
+import '../../../views/shop_detail/shop_detail.viewmodel.dart';
 
 class ShopServiceCustomListTile extends StatelessWidget {
   const ShopServiceCustomListTile({
@@ -58,7 +61,7 @@ class ShopServiceCustomListTile extends StatelessWidget {
                 spacing: 2,
                 children: [
                   Icon(icon ?? Icons.access_time),
-                  Text(time ?? '30 Mins'),
+                  Text(time ?? '30 ${L10n.of(context)!.mins}'),
                 ],
               )
             ],
@@ -69,20 +72,26 @@ class ShopServiceCustomListTile extends StatelessWidget {
             : SizedBox(
                 width: 100,
                 height: 35,
-                child: CustomOutlinedButton(
-                  onPressed: () {},
-                  child: Center(
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Text(
-                          L10n.of(context)!.select,
-                          style: TextConstants.instance.label1.copyWith(color: ColorConstant.instance.purple2),
+                child: Consumer<ShopDetailViewModel>(
+                  builder: (context, value, child) {
+                    return CustomOutlinedButton(
+                      onPressed: () {
+                        value.selectedShopCard(40);
+                      },
+                      child: Center(
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Text(
+                              L10n.of(context)!.select,
+                              style: TextConstants.instance.label1.copyWith(color: ColorConstant.instance.purple2),
+                            ),
+                            Icon(Icons.add, color: ColorConstant.instance.purple2),
+                          ],
                         ),
-                        Icon(Icons.add, color: ColorConstant.instance.purple2),
-                      ],
-                    ),
-                  ),
+                      ),
+                    );
+                  },
                 ),
               ),
       ],

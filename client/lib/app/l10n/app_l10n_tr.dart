@@ -323,10 +323,10 @@ class L10nTr extends L10n {
   String get man => 'Erkek';
 
   @override
-  String get lowestPrice => 'En düşük fiyat';
+  String get lowestPrice => 'Azalan fiyat';
 
   @override
-  String get highestPrice => 'En yüksek fiyat';
+  String get highestPrice => 'Artan fiyat';
 
   @override
   String get next => 'İleri';
@@ -377,8 +377,113 @@ class L10nTr extends L10n {
   String get night => 'Akşam';
 
   @override
+  String get bleachForWomen => 'Kadınlar için Beyazlatma';
+
+  @override
+  String get waxingForWomen => 'Kadınlar için Ağda';
+
+  @override
+  String get facialForWomen => 'Kadınlar için Yüz Bakımı';
+
+  @override
+  String get shaveForMen => 'Erkekler için Tıraş';
+
+  @override
+  String get resultSearch => '102 tane sonuç bulundu';
+
+  @override
+  String get timingValues => '06.00 - 10.00';
+
+  @override
   String get enterPassword => 'Parolanızı girin';
 
   @override
   String get setPassword => 'Bir parola belirleyin';
+
+  @override
+  String get shave => 'Tıraş';
+
+  @override
+  String get recentlySearched => 'Son aramalar';
+
+  @override
+  String get trendingNearYou => 'Yakınınızda trend olanlar';
+
+  @override
+  String get tryTheseService => 'Benzer hizmetler';
+
+  @override
+  String get charcoalDetoxMask => 'Kömür Detoks Maskesi';
+
+  @override
+  String get shopService => 'Mağaza Hizmeti';
+
+  @override
+  String get march => 'Mart';
+
+  @override
+  String get favorite => 'Favori';
+
+  @override
+  String get mins => 'Dakika';
+
+  @override
+  String get plusTaxes => 'artı vergiler';
+
+  @override
+  String get continueShop => 'Devam Et';
+
+  @override
+  String get checkout => 'Kasa';
+
+  @override
+  String get selectDateTime => 'Tarih & Saati Seçin';
+
+  @override
+  String get offersPromoCode => 'Teklifler ve Promosyon';
+
+  @override
+  String get viewOffers => 'Teklifleri görüntüle';
+
+  @override
+  String get frequentlyAdded => 'Bu hizmetle beraber eklenenler';
+
+  @override
+  String get amountPayable => 'Ödenecek Tutar';
+
+  @override
+  String get forTheAppointment => 'Randevu İçin';
+
+  @override
+  String get whenWouldLike => 'Hizmetinizi ne zaman istersiniz?';
+
+  @override
+  String get day => 'Gün';
+
+  @override
+  String get am => 'SABAH';
+
+  @override
+  String get couponCode => 'Kupon Kodu';
+
+  @override
+  String get getcashbackUpto => '40\'a kadar para iadesi alın';
+
+  @override
+  String get enterCouponCode => 'Kupon Kodunu Girin';
+
+  @override
+  String get getVisaCredits => 'VISA Banka veya Kredi kartlarında';
+
+  @override
+  String get onBookingOf => '200 veya üzeri rezervasyonlarda.';
+
+  @override
+  String get orMore => 'or more';
+
+  @override
+  String get getUsingPaypal => 'PayPal kullanarak';
+
+  @override
+  String get tryAgain => 'Tekrar Deneyin';
 }

@@ -20,4 +20,5 @@ enum Routes {
   promo,
   addCard,
   beautyServiceDetail,
+  popularNearDetail,
 }

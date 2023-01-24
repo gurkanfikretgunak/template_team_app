@@ -4,6 +4,8 @@ import 'package:client/core/constans/color_constants.dart';
 import 'package:client/core/constans/text_constants.dart';
 import 'package:flutter/material.dart';
 
+import '../../../../l10n/app_l10n.dart';
+
 class ShopCardWidgets {
   Widget shopImage(imagePath) {
     return ClipRRect(
@@ -22,7 +24,7 @@ class ShopCardWidgets {
         spacing: 3,
         children: [
           Text(
-            "FOR MEN & WOMEN",
+            L10n.of(context)!.forMenWomen,
             style: TextConstants.instance.label1
                 .copyWith(fontSize: 25, color: isStack ? ColorConstant.instance.light4 : ColorConstant.instance.dark3),
           ),

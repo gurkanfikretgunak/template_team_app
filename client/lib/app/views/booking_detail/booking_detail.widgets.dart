@@ -7,17 +7,20 @@ import 'package:client/app/widgets/image_viewer/icons/widgets/favorite_icon.dart
 import 'package:client/core/constans/color_constants.dart';
 import 'package:client/core/constans/text_constants.dart';
 import 'package:client/core/extensions/common_extension.dart';
+import 'package:client/core/model/booking_model.dart';
 import 'package:client/gen/assets.gen.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 import '../../widgets/list_items/list_items_widget.dart';
+import '../bookings/bookings.viewmodel.dart';
 
 class BookingDetailWidgets {
   appBar(BuildContext context) {
     return CustomAppbar(title: L10n.of(context)!.bookingDetail);
   }
 
-  body(BuildContext context) {
+  body(BuildContext context, BookingModel bookName) {
     return SingleChildScrollView(
       physics: const BouncingScrollPhysics(),
       child: Padding(
@@ -26,12 +29,10 @@ class BookingDetailWidgets {
           alignment: WrapAlignment.spaceBetween,
           runSpacing: 30,
           children: [
-            bookingTitle(),
-            BookingDateAndLocation(
-                iconPath: Assets.icons.shop.path, text: "Shop Service"),
+            bookingTitle(context, bookName),
+            BookingDateAndLocation(iconPath: Assets.icons.shop.path, text: L10n.of(context)!.shopService),
             const CustomDivider(type: DividerType.dashed),
-            BookingDateAndLocation(
-                iconPath: Assets.icons.calender.path, text: "10 March 2021"),
+            BookingDateAndLocation(iconPath: Assets.icons.calender.path, text: "10 ${L10n.of(context)!.march} 2021"),
             const CustomDivider(type: DividerType.dashed),
             orderItemList(),
             const CustomDivider(type: DividerType.dashed),
@@ -50,12 +51,16 @@ class BookingDetailWidgets {
     );
   }
 
-  Row bookingTitle() {
+  Row bookingTitle(BuildContext context, BookingModel bookName) {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
-        Text("Woodlands Hills Salon", style: TextConstants.instance.heading6),
-        const FavoriteIcon(isFavorite: false)
+        Text(bookName.title!, style: TextConstants.instance.heading6),
+        Consumer<BookingViewModel>(builder: (context, value, child) {
+          return value.isFavorite(bookName)
+              ? const FavoriteIcon(isFavorite: true)
+              : const FavoriteIcon(isFavorite: false);
+        }),
       ],
     );
   }
@@ -67,16 +72,12 @@ class BookingDetailWidgets {
         totalRowStyle(text: L10n.of(context)!.itemTotal, price: "-\$210"),
         totalRowStyle(text: L10n.of(context)!.couponDiscount, price: "-\$210"),
         const CustomDivider(),
-        totalRowStyle(
-            text: L10n.of(context)!.grandTotal,
-            price: "-\$210",
-            isGrandTotal: true),
+        totalRowStyle(text: L10n.of(context)!.grandTotal, price: "-\$210", isGrandTotal: true),
       ],
     );
   }
 
-  Wrap totalRowStyle(
-      {required String text, required String price, bool? isGrandTotal}) {
+  Wrap totalRowStyle({required String text, required String price, bool? isGrandTotal}) {
     return Wrap(
       children: [
         Row(
@@ -84,8 +85,7 @@ class BookingDetailWidgets {
           children: [
             Text(
               text,
-              style:
-                  isGrandTotal != null ? TextConstants.instance.button2 : null,
+              style: isGrandTotal != null ? TextConstants.instance.button2 : null,
             ),
             Text(
               price,
