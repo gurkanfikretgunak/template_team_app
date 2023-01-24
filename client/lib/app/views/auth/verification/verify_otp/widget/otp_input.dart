@@ -19,7 +19,7 @@ class _OtpInputState extends State<OtpInput> {
   Widget build(BuildContext context) {
     return Center(
       child: SizedBox(
-        width: context.dynamicWidth(0.6),
+        width: context.dynamicWidth(0.7),
         child: PinCodeTextField(
           length: 4,
           obscureText: false,

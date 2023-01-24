@@ -1,4 +1,5 @@
 import 'package:client/app/l10n/app_l10n.dart';
+import 'package:client/app/views/home/widgets/location_alert_dialog.dart';
 import 'package:client/app/widgets/buttons/widgets/chip_button.dart';
 import 'package:client/app/widgets/image_viewer/icons/icons_widgets.dart';
 import 'package:client/core/base/base_view/base_view.dart';
@@ -12,7 +13,12 @@ class OfferButton extends BaseView {
   @override
   Widget build(BuildContext context) {
     return ChipButton(
-      onTap: () {},
+      onTap: () {
+        // showDialog<String>(
+        //   context: context,
+        //   builder: (BuildContext context) => const LocationAlertDialog(),
+        // );
+      },
       widget: FittedBox(
         child: Wrap(
           spacing: 10,

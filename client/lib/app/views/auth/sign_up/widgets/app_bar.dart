@@ -25,24 +25,26 @@ class AppBarContent extends StatelessWidget {
                 style: TextConstants.instance.heading4
                     .copyWith(color: ColorConstant.instance.light4),
               ),
-              Row(
-                children: [
-                  Text(
-                    L10n.of(context)!.haveAnAccount,
-                    style: TextConstants.instance.heading6
-                        .copyWith(color: ColorConstant.instance.light4),
-                  ),
-                  CustomTextButton(
-                    onPressed: () {
-                      NavigationService.instance
-                          .navigateToPage(Routes.signin.name);
-                    },
-                    text: L10n.of(context)!.login,
-                    buttonSize: ButtonSize.small,
-                    hasUnderline: true,
-                    color: ButtonColor.dark,
-                  )
-                ],
+              FittedBox(
+                child: Row(
+                  children: [
+                    Text(
+                      L10n.of(context)!.haveAnAccount,
+                      style: TextConstants.instance.heading6
+                          .copyWith(color: ColorConstant.instance.light4),
+                    ),
+                    CustomTextButton(
+                      onPressed: () {
+                        NavigationService.instance
+                            .navigateToPage(Routes.signin.name);
+                      },
+                      text: L10n.of(context)!.login,
+                      buttonSize: ButtonSize.small,
+                      hasUnderline: true,
+                      color: ButtonColor.dark,
+                    )
+                  ],
+                ),
               ),
             ],
           ),

@@ -4,6 +4,7 @@ import 'package:client/app/views/booking_detail/booking_detail.viewmodel.dart';
 import 'package:client/app/views/bookings/bookings.viewmodel.dart';
 import 'package:client/app/views/filter_bottom_sheet/filter_bottom_sheet.viewmodel.dart';
 import 'package:client/app/views/filter_bottom_sheet/widgets/gender/gender_notifier.dart';
+import 'package:client/app/views/filter_bottom_sheet/widgets/offers/offer_notifier.dart';
 import 'package:client/app/views/filter_bottom_sheet/widgets/timing/timing_notifier.dart';
 import 'package:client/app/views/home/home.viewmodel.dart';
 import 'package:client/app/views/navigation/navigation.viewmodel.dart';
@@ -29,6 +30,6 @@ class MultiProviderInit {
     ChangeNotifierProvider(create: (_) => VerifyOtpViewModel()),
     ChangeNotifierProvider(create: (_) => ShopDetailViewModel()),
     ChangeNotifierProvider(create: (_) => ManageAddressViewModel()),
-    // ChangeNotifierProvider(create: (_) => SortViewModel()),
+    ChangeNotifierProvider(create: (_) => OfferNotifier()),
   ];
 }
