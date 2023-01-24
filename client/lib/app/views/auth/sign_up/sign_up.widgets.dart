@@ -12,7 +12,7 @@ class SignUpWidgets {
   Widget signUpTextField(BuildContext context) {
     return SingleChildScrollView(
       child: Padding(
-        padding: context.onlyLRTBpaddingNormal,
+        padding: context.paddingNormal,
         child: Wrap(
           alignment: WrapAlignment.center,
           children: [

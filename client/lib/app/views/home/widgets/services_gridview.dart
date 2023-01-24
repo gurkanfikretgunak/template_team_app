@@ -27,26 +27,30 @@ class ServicesGridView extends StatelessWidget {
         itemBuilder: (context, index) {
           var key = HomeViewModel().beautyServiceList(context)[index];
 
-          return Center(
-            child: Column(
-              children: [
-                Container(
-                    decoration: BoxDecoration(
-                      borderRadius: const BorderRadius.all(Radius.circular(100)),
-                      border: Border.all(width: 2, color: ColorConstant.instance.purple2),
+          return FittedBox(
+            child: Center(
+              child: Column(
+                children: [
+                  Container(
+                      decoration: BoxDecoration(
+                        borderRadius:
+                            const BorderRadius.all(Radius.circular(100)),
+                        border: Border.all(
+                            width: 2, color: ColorConstant.instance.purple2),
+                      ),
+                      child: CustomImageViewer(assetPath: key['image'])),
+                  SizedBox(
+                    width: 80,
+                    child: Text(
+                      key['text'],
+                      style: TextConstants.instance.subtitle1.copyWith(
+                        fontSize: 13,
+                      ),
+                      textAlign: TextAlign.center,
                     ),
-                    child: CustomImageViewer(assetPath: key['image'])),
-                SizedBox(
-                  width: 80,
-                  child: Text(
-                    key['text'],
-                    style: TextConstants.instance.subtitle1.copyWith(
-                      fontSize: 13,
-                    ),
-                    textAlign: TextAlign.center,
-                  ),
-                )
-              ],
+                  )
+                ],
+              ),
             ),
           );
         },

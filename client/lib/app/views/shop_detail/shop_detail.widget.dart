@@ -41,15 +41,17 @@ class ShopDetailWidgets {
   }
 
   Widget buildIcons(BuildContext context, BookingModel shopModel) {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-      children: [
-        communicationIcons(context),
-        context.emptySizedWidthBoxLow,
-        context.emptySizedWidthBoxLow,
-        favoriteIcon(shopModel),
-        ratingIcon(context)
-      ],
+    return FittedBox(
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          communicationIcons(context),
+          context.emptySizedWidthBoxLow,
+          context.emptySizedWidthBoxLow,
+          favoriteIcon(shopModel),
+          ratingIcon(context)
+        ],
+      ),
     );
   }
 
@@ -63,7 +65,7 @@ class ShopDetailWidgets {
           child: CustomOutlinedButton(
             borderSideColor: ButtonColor.blue,
             onPressed: () {},
-            buttonSize: ButtonSize.medium,
+            buttonSize: ButtonSize.small,
             child: Wrap(spacing: 5, children: [
               Icon(
                 Icons.star,
@@ -139,19 +141,21 @@ class ShopDetailWidgets {
         itemBuilder: (context, index) {
           var key = ShopDetailViewModel().accountItems(context)[index];
           return InkWell(
-            child: Column(
-              children: [
-                IconButton(
-                    onPressed: key['onTap'],
-                    icon: Icon(
-                      key['icon'],
-                      size: 22,
-                    )),
-                Text(
-                  key['text'],
-                  style: TextConstants.instance.paragraph2,
-                )
-              ],
+            child: FittedBox(
+              child: Column(
+                children: [
+                  IconButton(
+                      onPressed: key['onTap'],
+                      icon: Icon(
+                        key['icon'],
+                        size: 22,
+                      )),
+                  Text(
+                    key['text'],
+                    style: TextConstants.instance.paragraph2,
+                  )
+                ],
+              ),
             ),
           );
         },

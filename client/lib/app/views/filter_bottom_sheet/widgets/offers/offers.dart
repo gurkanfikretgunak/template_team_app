@@ -1,25 +1,33 @@
-import 'package:client/app/l10n/app_l10n.dart';
+import 'package:client/app/views/filter_bottom_sheet/widgets/offers/offer_notifier.dart';
 import 'package:client/app/widgets/inputs/inputs_widgets.dart';
 import 'package:client/core/base/base_view/base_view.dart';
+import 'package:client/core/extensions/common_extension.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 class OffersFilter extends BaseView {
   const OffersFilter({super.key});
 
   @override
   Widget build(BuildContext context) {
-    List sortFilterOptions = [
-      L10n.of(context)!.popularity,
-      L10n.of(context)!.ratingHighToLow,
-      L10n.of(context)!.costHighToLow,
-      L10n.of(context)!.costLowToHigh,
-    ];
+    final checkboxNotifier = Provider.of<OfferNotifier>(context);
 
-    return dynamicBuild(
-      context,
-      error: HasError.off,
-      body: CustomRadioButton(list: sortFilterOptions),
-      errorBody: const Text("err"),
+    return ListView.builder(
+      itemCount: checkboxNotifier.timingFilterOptions.length,
+      itemBuilder: (context, index) {
+        var key = checkboxNotifier.timingFilterOptions[index];
+
+        return Padding(
+          padding: context.horizontalPaddingNormal,
+          child: CustomCheckbox(
+            value: key['isSelected'],
+            title: key['title'],
+            onChanged: (value) {
+              checkboxNotifier.setChange(key['title'], context);
+            },
+          ),
+        );
+      },
     );
   }
 }
