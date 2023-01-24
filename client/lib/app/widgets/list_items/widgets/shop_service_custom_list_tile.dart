@@ -24,7 +24,7 @@ class ShopServiceCustomListTile extends StatelessWidget {
     this.isSelected = false,
   });
   final double? imgSize;
-  final String? imgPath;
+  final Map? imgPath;
   final double? imgRadius;
   final IconData? icon;
   final String? title;
@@ -44,8 +44,8 @@ class ShopServiceCustomListTile extends StatelessWidget {
           width: imgSize ?? 75,
           height: imgSize ?? 75,
           decoration: BoxDecoration(
-            image:
-                DecorationImage(fit: BoxFit.cover, image: AssetImage(imgPath ?? Assets.images.shop.shopDetail2.path)),
+            image: DecorationImage(
+                fit: BoxFit.cover, image: AssetImage(imgPath!["image"] ?? Assets.images.shop.shopDetail2.path)),
             borderRadius: BorderRadius.all(Radius.circular(imgRadius ?? 8)),
           ),
         ),
@@ -54,7 +54,7 @@ class ShopServiceCustomListTile extends StatelessWidget {
             spacing: 8,
             direction: Axis.vertical,
             children: [
-              Text(title ?? L10n.of(context)!.haircut),
+              Text(imgPath!["name"] ?? L10n.of(context)!.haircut),
               Text(subtitle ?? '\$40'),
               Wrap(
                 crossAxisAlignment: WrapCrossAlignment.center,

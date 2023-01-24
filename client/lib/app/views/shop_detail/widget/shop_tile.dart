@@ -6,13 +6,15 @@ import 'package:flutter/material.dart';
 class ShopListWidget extends StatelessWidget {
   const ShopListWidget({
     super.key,
+    required this.imgPath,
   });
+  final Map imgPath;
 
   @override
   Widget build(BuildContext context) {
     return Column(
       children: [
-        const ShopServiceCustomListTile(),
+        ShopServiceCustomListTile(imgPath: imgPath),
         SizedBox(
           height: 5,
           child: Padding(

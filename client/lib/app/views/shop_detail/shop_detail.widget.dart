@@ -2,6 +2,7 @@ import 'package:client/app/l10n/app_l10n.dart';
 import 'package:client/app/views/shop_detail/shop_detail.viewmodel.dart';
 import 'package:client/app/views/shop_detail/widget/offer_box.dart';
 import 'package:client/app/views/shop_detail/widget/tabbar_view/face_care.dart';
+import 'package:client/app/views/shop_detail/widget/tabbar_view/haircut.dart';
 import 'package:client/app/views/shop_detail/widget/tabbar_view/packages.dart';
 import 'package:client/app/views/shop_detail/widget/tabbar_view/recommended.dart';
 import 'package:client/app/widgets/buttons/buttons_widgets.dart';
@@ -19,6 +20,7 @@ class ShopDetailWidgets {
       child: Padding(
         padding: context.paddingNormal,
         child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             buildIcons(context, shopModel),
             context.emptySizedHeightBoxLow,
@@ -46,8 +48,7 @@ class ShopDetailWidgets {
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           communicationIcons(context),
-          context.emptySizedWidthBoxLow,
-          context.emptySizedWidthBoxLow,
+          context.emptySizedWidthBoxHigh,
           favoriteIcon(shopModel),
           ratingIcon(context)
         ],
@@ -58,36 +59,49 @@ class ShopDetailWidgets {
   Widget ratingIcon(BuildContext context) {
     return Wrap(
       direction: Axis.vertical,
-      spacing: 8,
+      crossAxisAlignment: WrapCrossAlignment.end,
+      spacing: 4,
       children: [
-        SizedBox(
-          height: context.dynamicHeight(0.045),
-          child: CustomOutlinedButton(
-            borderSideColor: ButtonColor.blue,
-            onPressed: () {},
-            buttonSize: ButtonSize.small,
-            child: Wrap(spacing: 5, children: [
-              Icon(
-                Icons.star,
-                color: ColorConstant.instance.yellow1,
-                size: 16,
-              ),
-              Text(
-                "4.1",
-                style: TextConstants.instance.button1.copyWith(
-                  color: ColorConstant.instance.blue0,
+        Padding(
+          padding: context.onlyTopPaddingNormal,
+          child: SizedBox(
+            height: context.dynamicHeight(0.045),
+            child: CustomOutlinedButton(
+              borderSideColor: ButtonColor.blue,
+              onPressed: () {},
+              buttonSize: ButtonSize.small,
+              child: Wrap(spacing: 5, children: [
+                Icon(
+                  Icons.star,
+                  color: ColorConstant.instance.yellow1,
+                  size: 16,
                 ),
-              )
-            ]),
-          ),
-        ),
-        SizedBox(
-          child: Text(
-            "5k+ ${L10n.of(context)!.ratings}",
-            style: TextConstants.instance.paragraph2.copyWith(
-              color: ColorConstant.instance.blue0,
+                Text(
+                  "4.1",
+                  style: TextConstants.instance.button1.copyWith(
+                    color: ColorConstant.instance.blue0,
+                  ),
+                )
+              ]),
             ),
           ),
+        ),
+        Column(
+          children: [
+            Text(
+              "5k+ ",
+              style: TextConstants.instance.paragraph2.copyWith(
+                color: ColorConstant.instance.blue0,
+              ),
+            ),
+            Text(
+              " ${L10n.of(context)!.ratings}",
+              style: TextConstants.instance.subtitle2.copyWith(
+                color: ColorConstant.instance.blue0,
+                fontSize: 10,
+              ),
+            ),
+          ],
         ),
       ],
     );
@@ -171,12 +185,16 @@ class ShopDetailWidgets {
         return const PackagesView();
       case "Face Care":
         return const FaceCareView();
+      case "Haircut":
+        return const HairCutView();
       case 'Önerilen':
         return const RecommendedView();
       case 'Paketler':
         return const PackagesView();
       case 'Yüz bakımı':
         return const FaceCareView();
+      case 'Saç kesimi':
+        return const HairCutView();
 
       default:
         return const SizedBox();
@@ -190,7 +208,7 @@ class ShopDetailWidgets {
       L10n.of(context)!.recommended,
       L10n.of(context)!.packages,
       L10n.of(context)!.faceCare,
-      L10n.of(context)!.packages
+      L10n.of(context)!.haircut
     ];
 
     return SizedBox(

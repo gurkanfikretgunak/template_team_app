@@ -276,7 +276,7 @@ abstract class L10n {
   /// No description provided for @seeAll.
   ///
   /// In en, this message translates to:
-  /// **'see all >'**
+  /// **'See all >'**
   String get seeAll;
 
   /// No description provided for @search.
@@ -915,6 +915,18 @@ abstract class L10n {
   /// **'Charcoal Detox Mask'**
   String get charcoalDetoxMask;
 
+  /// No description provided for @clayMask.
+  ///
+  /// In en, this message translates to:
+  /// **'Clay Mask.'**
+  String get clayMask;
+
+  /// No description provided for @skinCare.
+  ///
+  /// In en, this message translates to:
+  /// **'Skin Care'**
+  String get skinCare;
+
   /// No description provided for @shopService.
   ///
   /// In en, this message translates to:
@@ -1058,6 +1070,12 @@ abstract class L10n {
   /// In en, this message translates to:
   /// **'Try Again'**
   String get tryAgain;
+
+  /// No description provided for @massage.
+  ///
+  /// In en, this message translates to:
+  /// **'Massage'**
+  String get massage;
 }
 
 class _L10nDelegate extends LocalizationsDelegate<L10n> {
