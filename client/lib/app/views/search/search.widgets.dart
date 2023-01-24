@@ -135,50 +135,6 @@ class ShopList extends StatelessWidget {
   }
 }
 
-class FilterList extends StatelessWidget {
-  const FilterList({Key? key}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    List<String> genderList = ["Women", "Man"];
-    List<String> priceList = ["a", "b"];
-    final provider = Provider.of<HomeViewModel>(context);
-
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-      children: [
-        Expanded(
-          child: CustomDropdownButton(
-            value: provider.ddGenderValue,
-            onChanged: (String? value) {
-              provider.setDropDownGenderValue(value!);
-              provider.ddGenderValue = value;
-            },
-            list: genderList,
-            hintText: DDHintText.gender,
-          ),
-        ),
-        context.emptySizedWidthBoxLow,
-        Expanded(
-          child: CustomDropdownButton<String>(
-            value: provider.ddPriceValue,
-            onChanged: (String? value) {
-              provider.setDropDownPriceValue(value!);
-              provider.ddPriceValue = value;
-            },
-            list: priceList,
-            hintText: DDHintText.price,
-          ),
-        ),
-        context.emptySizedWidthBoxLow,
-        const Expanded(child: OfferButton()),
-        context.emptySizedWidthBoxLow,
-        const Expanded(child: RatingButton()),
-      ],
-    );
-  }
-}
-
 Widget categoryTitle({required String title, String? buttonText, required BuildContext context}) {
   return Row(
     mainAxisAlignment: MainAxisAlignment.spaceBetween,

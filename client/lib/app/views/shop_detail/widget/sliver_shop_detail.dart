@@ -6,7 +6,6 @@ import '../../../../core/constans/color_constants.dart';
 import '../../../../gen/assets.gen.dart';
 import '../../../widgets/inputs/widgets/shop_cards/shop_card_widgets.dart';
 import '../../search/search_bar/search_bar.widget.dart';
-import '../shop_detail.viewmodel.dart';
 import '../shop_detail.widget.dart';
 
 class SliverShopDetailWidget extends StatefulWidget with ShopDetailWidgets {
