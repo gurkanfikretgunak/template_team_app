@@ -23,19 +23,22 @@ class TimingNotifier extends ChangeNotifier {
     ];
   }
 
-  setChange(String title, BuildContext context) {
-    switch (title) {
-      case "Morning":
-        timingFilterOptions(context)[0]['isSelected'] = !timingFilterOptions(context)[0]['isSelected'];
+  setChange(int index, BuildContext context) {
+    switch (index) {
+      case 0:
+        timingFilterOptions(context)[0]['isSelected'] =
+            !timingFilterOptions(context)[0]['isSelected'];
         notifyListeners();
 
         break;
-      case "Mid Day":
-        timingFilterOptions(context)[1]['isSelected'] = !timingFilterOptions(context)[1]['isSelected'];
+      case 1:
+        timingFilterOptions(context)[1]['isSelected'] =
+            !timingFilterOptions(context)[1]['isSelected'];
         notifyListeners();
         break;
-      case "Night":
-        timingFilterOptions(context)[2]['isSelected'] = !timingFilterOptions(context)[2]['isSelected'];
+      case 2:
+        timingFilterOptions(context)[2]['isSelected'] =
+            !timingFilterOptions(context)[2]['isSelected'];
         notifyListeners();
         break;
       default:
