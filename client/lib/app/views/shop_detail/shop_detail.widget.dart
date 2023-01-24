@@ -41,15 +41,17 @@ class ShopDetailWidgets {
   }
 
   Widget buildIcons(BuildContext context, BookingModel shopModel) {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-      children: [
-        communicationIcons(context),
-        context.emptySizedWidthBoxLow,
-        context.emptySizedWidthBoxLow,
-        favoriteIcon(shopModel),
-        ratingIcon(context)
-      ],
+    return FittedBox(
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          communicationIcons(context),
+          context.emptySizedWidthBoxLow,
+          context.emptySizedWidthBoxLow,
+          favoriteIcon(shopModel),
+          ratingIcon(context)
+        ],
+      ),
     );
   }
 
@@ -63,7 +65,7 @@ class ShopDetailWidgets {
           child: CustomOutlinedButton(
             borderSideColor: ButtonColor.blue,
             onPressed: () {},
-            buttonSize: ButtonSize.medium,
+            buttonSize: ButtonSize.small,
             child: Wrap(spacing: 5, children: [
               Icon(
                 Icons.star,
@@ -113,9 +115,7 @@ class ShopDetailWidgets {
                     Icons.favorite_border,
                     size: 30,
                   ),
-                  crossFadeState: favoriteShopDetail
-                      ? CrossFadeState.showFirst
-                      : CrossFadeState.showSecond,
+                  crossFadeState: favoriteShopDetail ? CrossFadeState.showFirst : CrossFadeState.showSecond,
                   duration: const Duration(seconds: 1),
                 )),
             context.emptySizedHeightBoxLow,
@@ -139,19 +139,21 @@ class ShopDetailWidgets {
         itemBuilder: (context, index) {
           var key = ShopDetailViewModel().accountItems(context)[index];
           return InkWell(
-            child: Column(
-              children: [
-                IconButton(
-                    onPressed: key['onTap'],
-                    icon: Icon(
-                      key['icon'],
-                      size: 22,
-                    )),
-                Text(
-                  key['text'],
-                  style: TextConstants.instance.paragraph2,
-                )
-              ],
+            child: FittedBox(
+              child: Column(
+                children: [
+                  IconButton(
+                      onPressed: key['onTap'],
+                      icon: Icon(
+                        key['icon'],
+                        size: 22,
+                      )),
+                  Text(
+                    key['text'],
+                    style: TextConstants.instance.paragraph2,
+                  )
+                ],
+              ),
             ),
           );
         },
@@ -206,8 +208,7 @@ class ShopDetailWidgets {
                 },
                 child: Chip(
                   backgroundColor: ColorConstant.instance.light2,
-                  shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(5)),
+                  shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(5)),
                   label: Text(
                     list[index],
                     style: TextStyle(

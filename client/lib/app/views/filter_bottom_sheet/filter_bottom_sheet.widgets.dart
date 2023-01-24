@@ -1,20 +1,20 @@
 import 'package:client/app/l10n/app_l10n.dart';
 import 'package:client/app/views/filter_bottom_sheet/filter_bottom_sheet.viewmodel.dart';
 import 'package:client/app/views/filter_bottom_sheet/widgets/gender/gender.dart';
+import 'package:client/app/views/filter_bottom_sheet/widgets/offers/offer_notifier.dart';
 import 'package:client/app/views/filter_bottom_sheet/widgets/offers/offers.dart';
 import 'package:client/app/views/filter_bottom_sheet/widgets/sort/sort.dart';
 import 'package:client/app/views/filter_bottom_sheet/widgets/timing/timing.dart';
 import 'package:client/app/views/filter_bottom_sheet/widgets/timing/timing_notifier.dart';
 import 'package:client/app/widgets/buttons/buttons_widgets.dart';
 import 'package:client/app/widgets/image_viewer/icons/icons_widgets.dart';
+import 'package:client/app/widgets/inputs/inputs_widgets.dart';
 import 'package:client/core/constans/color_constants.dart';
 import 'package:client/core/constans/text_constants.dart';
 import 'package:client/core/extensions/common_extension.dart';
 import 'package:client/gen/assets.gen.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-
-import '../../widgets/inputs/widgets/radio_button/radio_button_notifier.dart';
 
 class FilterBottomSheetWidgets {
   Widget appBar(BuildContext context) {
@@ -36,13 +36,16 @@ class FilterBottomSheetWidgets {
                     width: IconSize.large,
                   ),
                 ),
-                Text(L10n.of(context)!.sortFilters, style: TextConstants.instance.button1),
+                Text(L10n.of(context)!.sortFilters,
+                    style: TextConstants.instance.button1),
               ],
             ),
             CustomTextButton(
               onPressed: () {
-                // Provider.of<GenderNotifier>(context, listen: false).clear();
-                Provider.of<TimingNotifier>(context, listen: false).clear(context);
+                Provider.of<OfferNotifier>(context, listen: false).clear();
+                // Provider.of<GenderNotifier>(context, listen: false).clear(context);
+                Provider.of<TimingNotifier>(context, listen: false)
+                    .clear(context);
                 Provider.of<RadioButtonNotifier>(context, listen: false)
                     .setSelectedOption(L10n.of(context)!.popularity);
               },

@@ -68,14 +68,18 @@ class HomeWidgets {
         child: Column(
           children: [
             CustomSearchField(() {
-              Navigator.push(context, MaterialPageRoute(builder: (context) => const SearchBarWidget()));
+              Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => const SearchBarWidget()));
             }),
             const FilterList(),
             categoryTitle(
               title: L10n.of(context)!.beautyServices,
               context: context,
               seeAllOnPressed: () {
-                NavigationService.instance.navigateToPage(Routes.beautyServiceDetail.name);
+                NavigationService.instance
+                    .navigateToPage(Routes.beautyServiceDetail.name);
               },
             ),
             const ServicesGridView(),
@@ -83,7 +87,8 @@ class HomeWidgets {
               title: L10n.of(context)!.popularNearYou,
               context: context,
               seeAllOnPressed: () {
-                NavigationService.instance.navigateToPage(Routes.popularNearDetail.name);
+                NavigationService.instance
+                    .navigateToPage(Routes.popularNearDetail.name);
               },
             ),
             ShopList(

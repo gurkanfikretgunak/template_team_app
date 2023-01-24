@@ -3,6 +3,10 @@ import 'package:client/app/widgets/inputs/widgets/shop_cards/shop_card_widgets.d
 import 'package:client/core/extensions/common_extension.dart';
 import 'package:client/core/model/booking_model.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+
+import '../../../../../core/constans/color_constants.dart';
+import '../../../../views/shop_detail/shop_detail.viewmodel.dart';
 
 class ShopCard extends StatelessWidget with ShopCardWidgets {
   ShopCard({
@@ -51,12 +55,30 @@ class ShopCard extends StatelessWidget with ShopCardWidgets {
                   ),
                 ),
                 isBig
-                    ? IconButton(
-                        onPressed: () {},
-                        icon: const Icon(
-                          Icons.favorite_border,
-                          size: 30,
-                        ))
+                    ? Consumer<ShopDetailViewModel>(
+                        builder: (context, value, child) {
+                          bool favoriteShopDetail = value.isDetailFavorite(shopModel);
+
+                          return IconButton(
+                              onPressed: () {
+                                value.favShopDetail(shopModel, !favoriteShopDetail);
+                              },
+                              icon: AnimatedCrossFade(
+                                firstChild: Icon(
+                                  Icons.favorite,
+                                  color: ColorConstant.instance.purple2,
+                                  size: 30,
+                                ),
+                                secondChild: const Icon(
+                                  Icons.favorite_border,
+                                  size: 30,
+                                ),
+                                crossFadeState:
+                                    favoriteShopDetail ? CrossFadeState.showFirst : CrossFadeState.showSecond,
+                                duration: const Duration(seconds: 1),
+                              ));
+                        },
+                      )
                     : const SizedBox()
               ],
             ),
