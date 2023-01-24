@@ -115,9 +115,7 @@ class ShopDetailWidgets {
                     Icons.favorite_border,
                     size: 30,
                   ),
-                  crossFadeState: favoriteShopDetail
-                      ? CrossFadeState.showFirst
-                      : CrossFadeState.showSecond,
+                  crossFadeState: favoriteShopDetail ? CrossFadeState.showFirst : CrossFadeState.showSecond,
                   duration: const Duration(seconds: 1),
                 )),
             context.emptySizedHeightBoxLow,
@@ -210,8 +208,7 @@ class ShopDetailWidgets {
                 },
                 child: Chip(
                   backgroundColor: ColorConstant.instance.light2,
-                  shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(5)),
+                  shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(5)),
                   label: Text(
                     list[index],
                     style: TextStyle(
