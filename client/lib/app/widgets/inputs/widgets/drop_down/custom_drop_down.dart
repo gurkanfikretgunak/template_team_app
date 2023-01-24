@@ -34,7 +34,12 @@ class CustomDropdownButton<T> extends StatelessWidget {
           items: list
               .map((e) => DropdownMenuItem(
                     value: e,
-                    child: FittedBox(child: Text(e)),
+                    child: FittedBox(
+                      child: Padding(
+                        padding: context.onlyLeftPaddingNormal,
+                        child: Text(e),
+                      ),
+                    ),
                   ))
               .toList(),
           onChanged: onChanged,

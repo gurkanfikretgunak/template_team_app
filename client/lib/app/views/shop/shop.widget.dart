@@ -26,7 +26,7 @@ class ShopHomeWidgets {
                 cardHeight: 260,
                 cardWidth: context.dynamicWidth(0.3),
                 imageWidth: 500,
-                shopModel: MockShop.bookingList[index],
+                shopModel: MockShop.bookingList(context)[index],
               ),
             ),
           );

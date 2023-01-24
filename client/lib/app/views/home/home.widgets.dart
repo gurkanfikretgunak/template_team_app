@@ -2,9 +2,9 @@ import 'package:client/app/l10n/app_l10n.dart';
 import 'package:client/app/routes/routes_widgets.dart';
 import 'package:client/app/views/home/home.viewmodel.dart';
 import 'package:client/app/views/home/widgets/filter_list.dart';
-import 'package:client/app/views/home/see_all_near/see_all.view.dart';
 import 'package:client/app/views/home/widgets/location_alert_dialog.dart';
 import 'package:client/app/views/home/widgets/services_gridview.dart';
+
 import 'package:client/app/views/shop/widget/list_shop.dart';
 import 'package:client/app/widgets/custom_appbar.dart';
 import 'package:client/app/widgets/inputs/inputs_widgets.dart';
@@ -17,7 +17,7 @@ import 'package:provider/provider.dart';
 
 import '../../widgets/buttons/buttons_widgets.dart';
 import '../../widgets/image_viewer/icons/icons_widgets.dart';
-import '../search/widgets/search_bar.widget.dart';
+import '../search/search_bar/search_bar.widget.dart';
 
 class HomeWidgets {
   CustomAppbar appbar(BuildContext context) {
@@ -68,23 +68,24 @@ class HomeWidgets {
         child: Column(
           children: [
             CustomSearchField(() {
-              Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                      builder: (context) => const SearchBarWidget()));
+              Navigator.push(context, MaterialPageRoute(builder: (context) => const SearchBarWidget()));
             }),
             const FilterList(),
             categoryTitle(
               title: L10n.of(context)!.beautyServices,
               context: context,
               seeAllOnPressed: () {
-                NavigationService.instance
-                    .navigateToPage(Routes.beautyServiceDetail.name);
+                NavigationService.instance.navigateToPage(Routes.beautyServiceDetail.name);
               },
             ),
             const ServicesGridView(),
             categoryTitle(
-                title: L10n.of(context)!.popularNearYou, context: context),
+              title: L10n.of(context)!.popularNearYou,
+              context: context,
+              seeAllOnPressed: () {
+                NavigationService.instance.navigateToPage(Routes.popularNearDetail.name);
+              },
+            ),
             ShopList(
               imageFlex: 2,
               isHorizontal: true,
@@ -118,22 +119,27 @@ class ShopList extends StatelessWidget {
   final double imageWidth;
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      height: listHeight,
-      child: ListView.builder(
-        itemCount: 3,
-        shrinkWrap: true,
-        scrollDirection: isHorizontal ? Axis.horizontal : Axis.vertical,
-        itemBuilder: (context, index) {
-          return ShopCard(
-            isBig: false,
-            imageFlex: imageFlex,
-            shopModel: MockShop.bookingList[index],
-            cardHeight: cardHeight,
-            cardWidth: cardWidth,
-            imageWidth: imageWidth,
-          );
-        },
+    return GestureDetector(
+      onTap: () {
+        NavigationService.instance.navigateToPage(Routes.shopDetail.name);
+      },
+      child: SizedBox(
+        height: listHeight,
+        child: ListView.builder(
+          itemCount: 3,
+          shrinkWrap: true,
+          scrollDirection: isHorizontal ? Axis.horizontal : Axis.vertical,
+          itemBuilder: (context, index) {
+            return ShopCard(
+              isBig: false,
+              imageFlex: imageFlex,
+              shopModel: MockShop.bookingList(context)[index],
+              cardHeight: cardHeight,
+              cardWidth: cardWidth,
+              imageWidth: imageWidth,
+            );
+          },
+        ),
       ),
     );
   }
@@ -169,12 +175,7 @@ Widget categoryTitle({
           style: TextConstants.instance.heading6,
         ),
         CustomTextButton(
-          onPressed: () {
-            Navigator.push(
-                context,
-                MaterialPageRoute(
-                    builder: (context) => const SeeAllNearView()));
-          },
+          onPressed: seeAllOnPressed,
           text: L10n.of(context)!.seeAll,
         )
       ],

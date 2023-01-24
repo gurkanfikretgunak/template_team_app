@@ -8,6 +8,9 @@ import 'package:client/core/model/booking_model.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
+import '../../../routes/navigation_service.dart';
+import '../../../routes/routes.dart';
+
 class BookingCard extends StatefulWidget {
   const BookingCard({
     super.key,
@@ -33,31 +36,25 @@ class _BookingCardState extends State<BookingCard> {
               spacing: 4,
               children: [
                 Text(widget.booking.title!,
-                    style: TextConstants.instance.label1
-                        .copyWith(fontWeight: FontWeight.w600, fontSize: 16)),
+                    style: TextConstants.instance.label1.copyWith(fontWeight: FontWeight.w600, fontSize: 16)),
                 Row(
                   children: [
                     Text(widget.booking.location!,
-                        style: TextConstants.instance.subtitle2
-                            .copyWith(color: ColorConstant.instance.dark3)),
+                        style: TextConstants.instance.subtitle2.copyWith(color: ColorConstant.instance.dark3)),
                     const DotIconWidget(),
                     Text(widget.booking.distance!,
-                        style: TextConstants.instance.subtitle2
-                            .copyWith(color: ColorConstant.instance.dark3)),
+                        style: TextConstants.instance.subtitle2.copyWith(color: ColorConstant.instance.dark3)),
                   ],
                 ),
                 Text(widget.booking.desc!,
-                    style: TextConstants.instance.subtitle2
-                        .copyWith(color: ColorConstant.instance.dark3)),
+                    style: TextConstants.instance.subtitle2.copyWith(color: ColorConstant.instance.dark3)),
                 Row(
                   children: [
                     Text(widget.booking.date!,
-                        style: TextConstants.instance.subtitle1
-                            .copyWith(color: ColorConstant.instance.dark3)),
+                        style: TextConstants.instance.subtitle1.copyWith(color: ColorConstant.instance.dark3)),
                     const DotIconWidget(),
                     Text(widget.booking.price!,
-                        style: TextConstants.instance.subtitle1
-                            .copyWith(color: ColorConstant.instance.dark3)),
+                        style: TextConstants.instance.subtitle1.copyWith(color: ColorConstant.instance.dark3)),
                   ],
                 ),
               ],
@@ -78,9 +75,7 @@ class _BookingCardState extends State<BookingCard> {
                             color: ColorConstant.instance.purple2,
                           ),
                           secondChild: const Icon(Icons.favorite_border),
-                          crossFadeState: favoriteMovies
-                              ? CrossFadeState.showFirst
-                              : CrossFadeState.showSecond,
+                          crossFadeState: favoriteMovies ? CrossFadeState.showFirst : CrossFadeState.showSecond,
                           duration: const Duration(seconds: 1),
                         ));
                   },
@@ -109,7 +104,9 @@ class _BookingCardState extends State<BookingCard> {
                   flex: 3,
                   child: SizedBox(
                     child: CustomOutlinedButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        NavigationService.instance.navigateToPage(Routes.bookingDetail.name);
+                      },
                       text: L10n.of(context)!.reorderBooking,
                       buttonSize: ButtonSize.medium,
                     ),
