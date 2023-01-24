@@ -1,6 +1,7 @@
 import 'package:client/app/l10n/app_l10n.dart';
 import 'package:client/app/views/filter_bottom_sheet/filter_bottom_sheet.viewmodel.dart';
 import 'package:client/app/views/filter_bottom_sheet/widgets/gender/gender.dart';
+import 'package:client/app/views/filter_bottom_sheet/widgets/offers/offers.dart';
 import 'package:client/app/views/filter_bottom_sheet/widgets/sort/sort.dart';
 import 'package:client/app/views/filter_bottom_sheet/widgets/timing/timing.dart';
 import 'package:client/app/views/filter_bottom_sheet/widgets/timing/timing_notifier.dart';
@@ -108,7 +109,7 @@ class FilterBottomSheetWidgets {
       case 0:
         return const SortFilter();
       case 1:
-        return const Text("Offers");
+        return const OffersFilter();
       case 2:
         return const GenderFilter();
       case 3:

@@ -203,10 +203,7 @@ class L10nEn extends L10n {
   String get forward => 'Forward';
 
   @override
-  String get continueWithTwitter => 'Continue with Twitter';
-
-  @override
-  String get continueWithFacebook => 'Continue with Facebook';
+  String get continueWithApple => 'Continue with Apple';
 
   @override
   String get continueWithGoogle => 'Continue with Google';
@@ -378,22 +375,4 @@ class L10nEn extends L10n {
 
   @override
   String get night => 'Night';
-
-  @override
-  String get bleachForWomen => 'Bleach for Women';
-
-  @override
-  String get waxingForWomen => 'Waxing for Women';
-
-  @override
-  String get facialForWomen => 'Facial for Women';
-
-  @override
-  String get shaveForMen => 'Shave for Men';
-
-  @override
-  String get resultSearch => '102 results found';
-
-  @override
-  String get timingValues => '6.00 PM-10.00 PM';
 }

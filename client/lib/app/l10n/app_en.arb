@@ -66,8 +66,7 @@
     "cash":"Cash",
     "addPaymentMehod":"Add payment method",
     "forward":"Forward",
-    "continueWithTwitter":"Continue with Twitter",
-    "continueWithFacebook":"Continue with Facebook",
+    "continueWithApple":"Continue with Apple",
     "continueWithGoogle":"Continue with Google",
     "profile":"Profile",
     "haircutForMen":"Haircut for men",
@@ -124,11 +123,13 @@
     "female":"Female",
     "morning":"Morning",
     "midDay":"Mid Day",
-    "night":"Night", 
+    "night":"Night",
      "bleachForWomen" : "Bleach for Women",
     "waxingForWomen" : "Waxing for Women",
     "facialForWomen" : "Facial for Women",
     "shaveForMen" : "Shave for Men", 
     "resultSearch" : "102 results found",
     "timingValues" : "6.00 PM-10.00 PM"
+    "enterPassword":"Enter password",
+    "setPassword":"Set a password"
 }

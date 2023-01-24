@@ -88,10 +88,7 @@ abstract class L10n {
   ];
 
   /// A list of this localizations delegate's supported locales.
-  static const List<Locale> supportedLocales = <Locale>[
-    Locale('en'),
-    Locale('tr')
-  ];
+  static const List<Locale> supportedLocales = <Locale>[Locale('en'), Locale('tr')];
 
   /// No description provided for @login.
   ///
@@ -489,17 +486,11 @@ abstract class L10n {
   /// **'Forward'**
   String get forward;
 
-  /// No description provided for @continueWithTwitter.
+  /// No description provided for @continueWithApple.
   ///
   /// In en, this message translates to:
-  /// **'Continue with Twitter'**
-  String get continueWithTwitter;
-
-  /// No description provided for @continueWithFacebook.
-  ///
-  /// In en, this message translates to:
-  /// **'Continue with Facebook'**
-  String get continueWithFacebook;
+  /// **'Continue with Apple'**
+  String get continueWithApple;
 
   /// No description provided for @continueWithGoogle.
   ///
@@ -842,42 +833,6 @@ abstract class L10n {
   /// In en, this message translates to:
   /// **'Night'**
   String get night;
-
-  /// No description provided for @bleachForWomen.
-  ///
-  /// In en, this message translates to:
-  /// **'Bleach for Women'**
-  String get bleachForWomen;
-
-  /// No description provided for @waxingForWomen.
-  ///
-  /// In en, this message translates to:
-  /// **'Waxing for Women'**
-  String get waxingForWomen;
-
-  /// No description provided for @facialForWomen.
-  ///
-  /// In en, this message translates to:
-  /// **'Facial for Women'**
-  String get facialForWomen;
-
-  /// No description provided for @shaveForMen.
-  ///
-  /// In en, this message translates to:
-  /// **'Shave for Men'**
-  String get shaveForMen;
-
-  /// No description provided for @resultSearch.
-  ///
-  /// In en, this message translates to:
-  /// **'102 results found'**
-  String get resultSearch;
-
-  /// No description provided for @timingValues.
-  ///
-  /// In en, this message translates to:
-  /// **'6.00 PM-10.00 PM'**
-  String get timingValues;
 }
 
 class _L10nDelegate extends LocalizationsDelegate<L10n> {
@@ -896,18 +851,16 @@ class _L10nDelegate extends LocalizationsDelegate<L10n> {
 }
 
 L10n lookupL10n(Locale locale) {
-
-
   // Lookup logic when only language code is specified.
   switch (locale.languageCode) {
-    case 'en': return L10nEn();
-    case 'tr': return L10nTr();
+    case 'en':
+      return L10nEn();
+    case 'tr':
+      return L10nTr();
   }
 
-  throw FlutterError(
-    'L10n.delegate failed to load unsupported locale "$locale". This is likely '
-    'an issue with the localizations generation tool. Please file an issue '
-    'on GitHub with a reproducible sample app and the gen-l10n configuration '
-    'that was used.'
-  );
+  throw FlutterError('L10n.delegate failed to load unsupported locale "$locale". This is likely '
+      'an issue with the localizations generation tool. Please file an issue '
+      'on GitHub with a reproducible sample app and the gen-l10n configuration '
+      'that was used.');
 }

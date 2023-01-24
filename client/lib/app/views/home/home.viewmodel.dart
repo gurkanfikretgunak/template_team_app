@@ -4,8 +4,15 @@ import 'package:client/gen/assets.gen.dart';
 import 'package:flutter/material.dart';
 
 class HomeViewModel extends BaseViewModel {
-  List<String> locationList = <String>['Adana', 'Adıyaman', 'Afyon', 'Ağrı', 'Amasya', 'Ankara', 'Antalya'];
-
+  List<String> locationList = <String>[
+    'Adana',
+    'Adıyaman',
+    'Afyon',
+    'Ağrı',
+    'Amasya',
+    'Ankara',
+    'Antalya',
+  ];
   List<Map> beautyServiceList(BuildContext context) {
     return [
       {

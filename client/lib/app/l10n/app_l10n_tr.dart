@@ -203,10 +203,7 @@ class L10nTr extends L10n {
   String get forward => 'İleri';
 
   @override
-  String get continueWithTwitter => 'Twitter ile devam et';
-
-  @override
-  String get continueWithFacebook => 'Facebook ile devam et';
+  String get continueWithApple => 'Apple ile devam et';
 
   @override
   String get continueWithGoogle => 'Google ile devam et';
@@ -296,7 +293,8 @@ class L10nTr extends L10n {
   String get costLowToHigh => 'Maliyet : Düşükten Yükseğe';
 
   @override
-  String get emptyFavoritedList => 'Henüz  favorilere eklenen hiçbir şey yok. Favorilere eklenenler burada görüntülenecektir.';
+  String get emptyFavoritedList =>
+      'Henüz  favorilere eklenen hiçbir şey yok. Favorilere eklenenler burada görüntülenecektir.';
 
   @override
   String get creditCard => 'Kredi kartı';
@@ -378,22 +376,4 @@ class L10nTr extends L10n {
 
   @override
   String get night => 'Akşam';
-
-  @override
-  String get bleachForWomen => 'Kadınlar için Beyazlatma';
-
-  @override
-  String get waxingForWomen => 'Kadınlar için Ağda';
-
-  @override
-  String get facialForWomen => 'Kadınlar için Yüz Bakımı';
-
-  @override
-  String get shaveForMen => 'Erkekler için Tıraş';
-
-  @override
-  String get resultSearch => '102 tane sonuç bulundu';
-
-  @override
-  String get timingValues => '06.00 - 10.00';
 }
