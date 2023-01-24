@@ -97,8 +97,7 @@ class SignInWidgets {
           width: context.dynamicWidth(1),
           child: CustomElevatedButton(
             onPressed: () {
-              NavigationService.instance
-                  .navigateToPageClear(path: Routes.navigation.name);
+              NavigationService.instance.navigateToPageClear(path: Routes.navigation.name);
             },
             text: L10n.of(context)!.login,
             buttonSize: ButtonSize.large,

@@ -18,24 +18,21 @@ class VerifyOtpWidgets {
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           Wrap(
-            runSpacing: 30,
+            runSpacing: 25,
             children: [
-              Text(L10n.of(context)!.verifyOtp,
-                  style: TextConstants.instance.heading6),
+              Text(L10n.of(context)!.verifyOtp, style: TextConstants.instance.heading6),
               const OtpInput(),
               Row(
                 children: [
                   Text(L10n.of(context)!.didntReceiveCode,
-                      style: TextConstants.instance.label1
-                          .copyWith(color: ColorConstant.instance.dark3)),
-                  CustomTextButton(
-                      onPressed: () {}, text: L10n.of(context)!.resend)
+                      style: TextConstants.instance.label1.copyWith(color: ColorConstant.instance.dark3)),
+                  CustomTextButton(onPressed: () {}, text: L10n.of(context)!.resend)
                 ],
               ),
             ],
           ),
           Padding(
-            padding: context.verticalPaddingMedium,
+            padding: context.verticalPaddingNormal,
             child: SizedBox(
               width: context.dynamicWidth(1),
               child: CustomElevatedButton(

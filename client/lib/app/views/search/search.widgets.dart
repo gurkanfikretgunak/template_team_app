@@ -1,8 +1,9 @@
+import 'package:client/app/l10n/app_l10n.dart';
 import 'package:client/app/views/home/home.viewmodel.dart';
 import 'package:client/app/views/home/widgets/rating_button.dart';
 import 'package:client/app/views/home/widgets/services_gridview.dart';
 import 'package:client/app/views/home/widgets/offer_button.dart';
-import 'package:client/app/views/search/widgets/search_bar.widget.dart';
+import 'package:client/app/views/search/search_bar/search_bar.widget.dart';
 import 'package:client/app/views/shop/widget/list_shop.dart';
 import 'package:client/app/widgets/divider/divider_widgets.dart';
 import 'package:client/app/widgets/inputs/inputs_widgets.dart';
@@ -12,6 +13,8 @@ import 'package:client/core/extensions/common_extension.dart';
 import 'package:client/gen/assets.gen.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import '../../routes/navigation_service.dart';
+import '../../routes/routes.dart';
 import '../../widgets/buttons/buttons_widgets.dart';
 
 class SearchWidgets {
@@ -25,7 +28,11 @@ class SearchWidgets {
             CustomSearchField(() {
               Navigator.push(context, MaterialPageRoute(builder: (context) => const SearchBarWidget()));
             }),
-            categoryTitle(title: "Recently searched", context: context, buttonText: "Clear all"),
+            categoryTitle(
+              title: L10n.of(context)!.recentlySearched,
+              context: context,
+              buttonText: L10n.of(context)!.clearAll,
+            ),
             Row(
               children: [
                 Image.asset(
@@ -34,7 +41,7 @@ class SearchWidgets {
                 ),
                 context.emptySizedWidthBoxNormal,
                 Text(
-                  "Haircut",
+                  L10n.of(context)!.haircut,
                   style: TextConstants.instance.button1.copyWith(color: ColorConstant.instance.dark3),
                 )
               ],
@@ -49,20 +56,26 @@ class SearchWidgets {
                   color: ColorConstant.instance.dark3,
                 ),
                 context.emptySizedWidthBoxNormal,
-                Text("Shave", style: TextConstants.instance.button1.copyWith(color: ColorConstant.instance.dark3))
+                Text(L10n.of(context)!.shave,
+                    style: TextConstants.instance.button1.copyWith(color: ColorConstant.instance.dark3))
               ],
             ),
             const CustomDivider(type: DividerType.normal),
-            categoryTitle(title: "Trending near you", context: context, buttonText: ""),
-            ShopList(
-              imageFlex: 2,
-              isHorizontal: true,
-              cardHeight: context.dynamicHeight(0.3),
-              cardWidth: context.dynamicHeight(0.3),
-              listHeight: context.dynamicHeight(0.25),
+            categoryTitle(title: L10n.of(context)!.trendingNearYou, context: context, buttonText: ""),
+            GestureDetector(
+              onTap: () {
+                NavigationService.instance.navigateToPage(Routes.shopDetail.name);
+              },
+              child: ShopList(
+                imageFlex: 2,
+                isHorizontal: true,
+                cardHeight: context.dynamicHeight(0.3),
+                cardWidth: context.dynamicHeight(0.3),
+                listHeight: context.dynamicHeight(0.25),
+              ),
             ),
             const CustomDivider(type: DividerType.normal),
-            categoryTitle(title: "Try these services", context: context, buttonText: ""),
+            categoryTitle(title: L10n.of(context)!.tryTheseService, context: context, buttonText: ""),
             const ServicesGridView(),
           ],
         ),

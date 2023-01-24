@@ -375,4 +375,115 @@ class L10nEn extends L10n {
 
   @override
   String get night => 'Night';
+
+  @override
+  String get bleachForWomen => 'Bleach for Women';
+
+  @override
+  String get waxingForWomen => 'Waxing for Women';
+
+  @override
+  String get facialForWomen => 'Facial for Women';
+
+  @override
+  String get shaveForMen => 'Shave for Men';
+
+  @override
+  String get resultSearch => '102 results found';
+
+  @override
+  String get timingValues => '6.00 PM-10.00 PM';
+
+  @override
+  String get enterPassword => 'Enter password';
+
+  @override
+  String get setPassword => 'Set a password';
+
+  @override
+  String get shave => 'Shave';
+
+  @override
+  String get recentlySearched => 'Recently searched';
+
+  @override
+  String get trendingNearYou => 'Trending near you';
+
+  @override
+  String get tryTheseService => 'Try these service';
+
+  @override
+  String get charcoalDetoxMask => 'Charcoal Detox Mask';
+
+  @override
+  String get shopService => 'Shop Service';
+
+  @override
+  String get march => 'March';
+
+  @override
+  String get favorite => 'Favorite';
+
+  @override
+  String get mins => 'Mins';
+
+  @override
+  String get plusTaxes => 'Plus Taxes';
+
+  @override
+  String get continueShop => 'Continue';
+
+  @override
+  String get checkout => 'Checkout';
+
+  @override
+  String get selectDateTime => 'Select Date & Time';
+
+  @override
+  String get offersPromoCode => 'Offers & Promo Code';
+
+  @override
+  String get viewOffers => 'View offers';
+
+  @override
+  String get frequentlyAdded => 'Frequently added together';
+
+  @override
+  String get amountPayable => 'Amount Payable';
+
+  @override
+  String get forTheAppointment => 'For The Appointment';
+
+  @override
+  String get whenWouldLike => 'When would you like your service?';
+
+  @override
+  String get day => 'Day';
+
+  @override
+  String get am => 'AM';
+
+  @override
+  String get couponCode => 'Coupon Code';
+
+  @override
+  String get getcashbackUpto => 'Get cashback upto';
+
+  @override
+  String get enterCouponCode => 'Enter Coupon Code';
+
+  @override
+  String get getVisaCredits => 'on VISA Debit or Credit cards';
+
+  @override
+  String get onBookingOf => 'On booking of';
+
+  @override
+  String get orMore => 'or more';
+
+  @override
+  String get getUsingPaypal => 'using PayPal';
+
+  @override
+  String get tryAgain => 'Try Again';
 }

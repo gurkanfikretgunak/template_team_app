@@ -1,3 +1,4 @@
+import 'package:client/app/l10n/app_l10n.dart';
 import 'package:client/app/widgets/buttons/buttons_widgets.dart';
 import 'package:client/core/constans/color_constants.dart';
 import 'package:client/core/constans/text_constants.dart';
@@ -57,14 +58,14 @@ class CheckoutButton extends StatelessWidget {
                           children: [
                             Text('\$${totalPrice?.toStringAsFixed(2)}',
                                 style: TextConstants.instance.button1.copyWith(color: ColorConstant.instance.light4)),
-                            Text('plus taxes',
+                            Text(L10n.of(context)!.plusTaxes,
                                 style:
                                     TextConstants.instance.paragraph2.copyWith(color: ColorConstant.instance.light4)),
                           ],
                         )
                       ],
                     ),
-                    Text('Continue',
+                    Text(L10n.of(context)!.continueShop,
                         style: TextConstants.instance.button1.copyWith(color: ColorConstant.instance.light4)),
                   ],
                 ),

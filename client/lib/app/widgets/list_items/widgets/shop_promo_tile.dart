@@ -1,7 +1,10 @@
 import 'package:client/app/widgets/buttons/buttons_widgets.dart';
 import 'package:client/app/widgets/image_viewer/icons/icons_widgets.dart';
+import 'package:client/core/constans/color_constants.dart';
 import 'package:client/gen/assets.gen.dart';
 import 'package:flutter/material.dart';
+
+import '../../../l10n/app_l10n.dart';
 
 class ShopPromoTile extends StatelessWidget {
   const ShopPromoTile({
@@ -42,12 +45,14 @@ class ShopPromoTile extends StatelessWidget {
           ? CustomIcon(imagePath: Assets.icons.inputCorrect.path)
           : isInvalid
               ? CustomIcon(imagePath: Assets.icons.inputWrong.path)
-              : CustomIcon(imagePath: Assets.icons.offer.path),
+              : CustomIcon(imagePath: Assets.images.shop.offer.path),
       title: isApplied
           ? Text(title ?? 'Code ${promoCode ?? 'FREE10'} Applied!')
           : isInvalid
-              ? Text(title ?? 'Promo Code Invalid!')
-              : Text(title ?? 'Offers & Promo Code'),
+              ? Text(
+                  title ?? 'Promo Code Invalid!',
+                )
+              : Text(title ?? L10n.of(context)!.offersPromoCode),
       subtitle: isApplied
           ? Text(subtitle ?? 'Coupon Applied Successfully')
           : isInvalid
@@ -60,7 +65,7 @@ class ShopPromoTile extends StatelessWidget {
                 Text('-\$${profit ?? 40}'),
                 CustomTextButton(
                   onPressed: onRemoveTap,
-                  text: 'Remove',
+                  text: L10n.of(context)!.remove,
                   padding: EdgeInsets.zero,
                 )
               ],
@@ -68,7 +73,7 @@ class ShopPromoTile extends StatelessWidget {
           : isInvalid
               ? CustomTextButton(
                   onPressed: onTryAgainTap,
-                  text: 'Try Again',
+                  text: L10n.of(context)!.tryAgain,
                   padding: EdgeInsets.zero,
                   buttonSize: ButtonSize.small,
                 )
@@ -76,9 +81,16 @@ class ShopPromoTile extends StatelessWidget {
                   onTap: onTap,
                   child: Row(
                     mainAxisSize: MainAxisSize.min,
-                    children: const [
-                      Text('View offers'),
-                      Icon(Icons.arrow_forward_ios),
+                    children: [
+                      Text(
+                        L10n.of(context)!.viewOffers,
+                        style: TextStyle(color: ColorConstant.instance.purple2),
+                      ),
+                      Icon(
+                        Icons.arrow_forward_ios,
+                        color: ColorConstant.instance.purple2,
+                        size: 20,
+                      ),
                     ],
                   ),
                 ),

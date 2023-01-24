@@ -130,11 +130,40 @@
     "facialForWomen" : "Kadınlar için Yüz Bakımı",
     "shaveForMen" : "Erkekler için Tıraş",
     "resultSearch" : "102 tane sonuç bulundu", 
-    "timingValues" : "06.00 - 10.00"
-
-     
+    "timingValues" : "06.00 - 10.00",
     "enterPassword":"Parolanızı girin",
-    "setPassword":"Bir parola belirleyin"
+    "setPassword":"Bir parola belirleyin",
+    "shave" : "Tıraş",
+    "recentlySearched":  "Son aramalar",
+    "trendingNearYou": "Yakınınızda trend olanlar" ,
+    "tryTheseService" : "Benzer hizmetler",
+    "charcoalDetoxMask" : "Kömür Detoks Maskesi",
+    "shopService" : "Mağaza Hizmeti",
+    "march" : "Mart",
+    "favorite" : "Favori",
+    "mins" : "Dakika",
+    "plusTaxes" : "artı vergiler",
+    "continueShop" : "Devam Et",
+    "checkout" : "Kasa",
+    "selectDateTime" : "Tarih & Saati Seçin",
+    "offersPromoCode" : "Teklifler ve Promosyon",
+    "viewOffers": "Teklifleri görüntüle",
+    "frequentlyAdded" : "Bu hizmetle beraber eklenenler",
+    "amountPayable" : "Ödenecek Tutar",
+    "forTheAppointment" : "Randevu İçin",
+    "whenWouldLike" : "Hizmetinizi ne zaman istersiniz?",
+    "day" : "Gün",
+    "am" : "SABAH",
+    "couponCode" : "Kupon Kodu",
+    "getcashbackUpto" : "40'a kadar para iadesi alın",
+    "enterCouponCode" : "Kupon Kodunu Girin",
+    "getVisaCredits" : "VISA Banka veya Kredi kartlarında",
+    "onBookingOf"  :"200 veya üzeri rezervasyonlarda." ,
+    "getUsingPaypal":"PayPal kullanarak", 
+    "tryAgain" : "Tekrar Deneyin"
+
+
+
 
  }
 

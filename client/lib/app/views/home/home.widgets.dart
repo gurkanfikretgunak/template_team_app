@@ -17,7 +17,7 @@ import 'package:provider/provider.dart';
 
 import '../../widgets/buttons/buttons_widgets.dart';
 import '../../widgets/image_viewer/icons/icons_widgets.dart';
-import '../search/widgets/search_bar.widget.dart';
+import '../search/search_bar/search_bar.widget.dart';
 
 class HomeWidgets {
   CustomAppbar appbar(BuildContext context) {

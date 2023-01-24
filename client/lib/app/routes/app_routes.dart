@@ -28,9 +28,6 @@ class AppRoutes {
       case Routes.signup:
         return FadeTransitionPageRoute(const SignUpView(), settings: args);
 
-      case Routes.withSignUp:
-        return FadeTransitionPageRoute(const CustomSignUpWith(), settings: args);
-
       case Routes.verifyOtb:
         return FadeTransitionPageRoute(const VerifyOtbView(), settings: args);
 
