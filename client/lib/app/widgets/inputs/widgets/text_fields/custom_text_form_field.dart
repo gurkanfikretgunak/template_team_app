@@ -71,9 +71,7 @@ class CustomTextFormField extends BaseView {
               : LabelTextLabel.notRequired(
                   labelTextValue ?? "",
                 ),
-          color: labelTextOpacity == LabelText.highOpacity
-              ? LabelTextLabel.highOpacity()
-              : LabelTextLabel.lowOpacity(),
+          color: labelTextOpacity == LabelText.highOpacity ? LabelTextLabel.highOpacity() : LabelTextLabel.lowOpacity(),
         ),
         TextFormField(
           // inputFormatters: [MaskTextInputFormatter(mask: "+### ###-##-##")],
@@ -85,9 +83,8 @@ class CustomTextFormField extends BaseView {
           maxLength: maxLength,
           keyboardType: KeyboardTypeLabel().keyboardType(keyboardType),
           style: TextStyle(
-            color: inputTextOpacity == InputText.highOpacity
-                ? InputTextLabel.highOpacity()
-                : InputTextLabel.lowOpacity(),
+            color:
+                inputTextOpacity == InputText.highOpacity ? InputTextLabel.highOpacity() : InputTextLabel.lowOpacity(),
           ),
           decoration: InputDecoration(
             contentPadding: EdgeInsets.symmetric(
@@ -100,20 +97,15 @@ class CustomTextFormField extends BaseView {
                     helpTextLabelValue!,
                   ),
             helperStyle: TextStyle(
-              color: helpTextOpacity == HelpText.highOpacity
-                  ? HelpTextLabel.highOpacity()
-                  : HelpTextLabel.lowOpacity(),
+              color: helpTextOpacity == HelpText.highOpacity ? HelpTextLabel.highOpacity() : HelpTextLabel.lowOpacity(),
             ),
             hintText: hintText,
             hintStyle: TextStyle(color: ColorConstant.instance.dark3),
-            enabledBorder: enabledBorder ??
-                border(
-                    borderSideColor:
-                        TextFormFieldColorLabel().color(enabledBorderColor)),
+            enabledBorder:
+                enabledBorder ?? border(borderSideColor: TextFormFieldColorLabel().color(enabledBorderColor)),
             focusedBorder: focusedBorder ??
                 border(
-                  borderSideColor:
-                      TextFormFieldColorLabel().color(focusedBorderColor),
+                  borderSideColor: TextFormFieldColorLabel().color(focusedBorderColor),
                 ),
             suffixIcon: suffixIcon,
             prefixIcon: prefixIcon,

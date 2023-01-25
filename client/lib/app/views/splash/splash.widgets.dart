@@ -8,7 +8,7 @@ import 'package:flutter/cupertino.dart';
 class SplashWidgets {
   body(BuildContext context) {
     return FutureBuilder(
-      future: Future.delayed(context.durationNormal * 3),
+      future: Future.delayed(context.durationNormal * 8),
       builder: (ctx, timer) => timer.connectionState == ConnectionState.done
           ? const OnboardingView()
           : Container(

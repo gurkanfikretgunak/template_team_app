@@ -36,16 +36,14 @@ class FilterBottomSheetWidgets {
                     width: IconSize.large,
                   ),
                 ),
-                Text(L10n.of(context)!.sortFilters,
-                    style: TextConstants.instance.button1),
+                Text(L10n.of(context)!.sortFilters, style: TextConstants.instance.button1),
               ],
             ),
             CustomTextButton(
               onPressed: () {
                 Provider.of<OfferNotifier>(context, listen: false).clear();
                 // Provider.of<GenderNotifier>(context, listen: false).clear(context);
-                Provider.of<TimingNotifier>(context, listen: false)
-                    .clear(context);
+                Provider.of<TimingNotifier>(context, listen: false).clear(context);
                 Provider.of<RadioButtonNotifier>(context, listen: false)
                     .setSelectedOption(L10n.of(context)!.popularity);
               },
