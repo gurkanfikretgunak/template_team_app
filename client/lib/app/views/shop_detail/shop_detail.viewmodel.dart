@@ -1,11 +1,11 @@
 import 'package:client/app/l10n/app_l10n.dart';
 import 'package:client/core/base/view_model/base_view_model.dart';
-import 'package:client/gen/assets.gen.dart';
+import 'package:client/core/model/booking_model.dart';
 import 'package:flutter/material.dart';
+// ignore: import_of_legacy_library_into_null_safe
 import 'package:share_plus/share.dart';
+// ignore: import_of_legacy_library_into_null_safe
 import 'package:url_launcher/url_launcher.dart';
-
-import '../../../core/model/booking_model.dart';
 
 class ShopDetailViewModel extends BaseViewModel {
   String _selectedTab = "Recommended";
@@ -55,6 +55,13 @@ class ShopDetailViewModel extends BaseViewModel {
         "text": L10n.of(context)!.call,
         "onTap": () {
           launch("tel:+1-555-010-999");
+        },
+      },
+      {
+        "icon": Icons.location_on_outlined,
+        "text": L10n.of(context)!.directions,
+        "onTap": () {
+          launch('https://maps.google.com/?q=37.4219999,-122.0840575');
         },
       },
       {

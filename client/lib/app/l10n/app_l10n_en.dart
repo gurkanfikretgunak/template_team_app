@@ -494,5 +494,15 @@ class L10nEn extends L10n {
   String get tryAgain => 'Try Again';
 
   @override
+  String get office => 'Office';
+
+  @override
+  String get addressTitle => 'Address Title';
+
+  @override
+  String get deleteAddress => 'Address deleted!';
+
+  @override
+  String get registeredAddress => 'This address is already registered';
   String get massage => 'Massage';
 }

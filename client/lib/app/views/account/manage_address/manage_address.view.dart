@@ -17,7 +17,7 @@ class ManageAddressView extends BaseView with ManageAddressWidgets {
       context,
       error: backendError(),
       appbar: appbar(context),
-      body: body(),
+      body: body(context),
       errorBody: const Text('errorrrr'),
     );
   }

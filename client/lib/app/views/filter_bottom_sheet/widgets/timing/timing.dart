@@ -23,7 +23,7 @@ class TimingFilter extends StatelessWidget {
             title: key['title'],
             subTitle: key['subTitle'],
             onChanged: (value) {
-              checkboxNotifier.setChange(key['title'], context);
+              checkboxNotifier.setChange(index, context);
             },
           ),
         );

@@ -160,7 +160,12 @@
     "getVisaCredits" : "VISA Banka veya Kredi kartlarında",
     "onBookingOf"  :"200 veya üzeri rezervasyonlarda." ,
     "getUsingPaypal":"PayPal kullanarak", 
-    "tryAgain" : "Tekrar Deneyin", 
+    "tryAgain" : "Tekrar Deneyin",
+    "home":"Ev",
+    "office":"Ofis",
+    "addressTitle":"Adres başlığı",
+    "deleteAddress":"Adres silindi!",
+    "registeredAddress":"Bu adres zaten kayıtlı"
     "clayMask" : "Kil Maskesi",
     "skinCare" : "Cilt Bakımı", 
     "massage" :"Masaj"

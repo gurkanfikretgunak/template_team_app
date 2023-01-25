@@ -11,16 +11,20 @@ class L10nTr extends L10n {
   String get getStarted => 'Başla';
 
   @override
-  String get onboardingTextOne => 'Şehrinizdeki en iyi saç tasarımcısından randevu alın.';
+  String get onboardingTextOne =>
+      'Şehrinizdeki en iyi saç tasarımcısından randevu alın.';
 
   @override
-  String get onboardingTextTwo => 'Randevuyu çocuklarınız için en iyi salonda planlayın.';
+  String get onboardingTextTwo =>
+      'Randevuyu çocuklarınız için en iyi salonda planlayın.';
 
   @override
-  String get onboardingTextThree => 'Tüm stresinizi atmak için kendinize bir masaj terapisti ayırtın.';
+  String get onboardingTextThree =>
+      'Tüm stresinizi atmak için kendinize bir masaj terapisti ayırtın.';
 
   @override
-  String get onboardingTextFour => 'Tüm güzellik ihtiyaçlarınızı karşılamak için yakınınızdaki en iyi salonu arayın.';
+  String get onboardingTextFour =>
+      'Tüm güzellik ihtiyaçlarınızı karşılamak için yakınınızdaki en iyi salonu arayın.';
 
   @override
   String get signup => 'Kayıt Ol';
@@ -110,7 +114,8 @@ class L10nTr extends L10n {
   String get yourFavorites => 'Favoriler';
 
   @override
-  String get yourFavoritesDesc => 'Favori hizmetinizi bir tıkla yeniden sıralayın';
+  String get yourFavoritesDesc =>
+      'Favori hizmetinizi bir tıkla yeniden sıralayın';
 
   @override
   String get payment => 'Ödeme';
@@ -131,7 +136,8 @@ class L10nTr extends L10n {
   String get registerAsPartner => 'Ortak olarak kaydolun';
 
   @override
-  String get registerAsPartnerDesc => 'Hizmetinizi listelemek ister misiniz? Bize katılın';
+  String get registerAsPartnerDesc =>
+      'Hizmetinizi listelemek ister misiniz? Bize katılın';
 
   @override
   String get about => 'Hakkımızda';
@@ -155,7 +161,8 @@ class L10nTr extends L10n {
   String get isDeleteAddress => 'Adres silinsin mi?';
 
   @override
-  String get isDeleteAddressDesc => 'Bu adresi silmek istediğinizden emin misiniz?';
+  String get isDeleteAddressDesc =>
+      'Bu adresi silmek istediğinizden emin misiniz?';
 
   @override
   String get isLogout => 'Çıkış?';
@@ -170,7 +177,7 @@ class L10nTr extends L10n {
   String get select => 'Seç';
 
   @override
-  String get home => 'Anasayfa';
+  String get home => 'Ev';
 
   @override
   String get yourSavedAddress => 'Adresi Kaydet';
@@ -293,7 +300,8 @@ class L10nTr extends L10n {
   String get costLowToHigh => 'Maliyet : Düşükten Yükseğe';
 
   @override
-  String get emptyFavoritedList => 'Henüz  favorilere eklenen hiçbir şey yok. Favorilere eklenenler burada görüntülenecektir.';
+  String get emptyFavoritedList =>
+      'Henüz  favorilere eklenen hiçbir şey yok. Favorilere eklenenler burada görüntülenecektir.';
 
   @override
   String get creditCard => 'Kredi kartı';
@@ -494,5 +502,15 @@ class L10nTr extends L10n {
   String get tryAgain => 'Tekrar Deneyin';
 
   @override
+  String get office => 'Ofis';
+
+  @override
+  String get addressTitle => 'Adres başlığı';
+
+  @override
+  String get deleteAddress => 'Adres silindi!';
+
+  @override
+  String get registeredAddress => 'Bu adres zaten kayıtlı';
   String get massage => 'Masaj';
 }
