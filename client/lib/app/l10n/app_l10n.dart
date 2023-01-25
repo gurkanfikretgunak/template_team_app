@@ -1058,6 +1058,30 @@ abstract class L10n {
   /// In en, this message translates to:
   /// **'Try Again'**
   String get tryAgain;
+
+  /// No description provided for @office.
+  ///
+  /// In en, this message translates to:
+  /// **'Office'**
+  String get office;
+
+  /// No description provided for @addressTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Address Title'**
+  String get addressTitle;
+
+  /// No description provided for @deleteAddress.
+  ///
+  /// In en, this message translates to:
+  /// **'Address deleted!'**
+  String get deleteAddress;
+
+  /// No description provided for @registeredAddress.
+  ///
+  /// In en, this message translates to:
+  /// **'This address is already registered'**
+  String get registeredAddress;
 }
 
 class _L10nDelegate extends LocalizationsDelegate<L10n> {

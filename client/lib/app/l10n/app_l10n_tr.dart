@@ -170,7 +170,7 @@ class L10nTr extends L10n {
   String get select => 'Seç';
 
   @override
-  String get home => 'Anasayfa';
+  String get home => 'Ev';
 
   @override
   String get yourSavedAddress => 'Adresi Kaydet';
@@ -486,4 +486,16 @@ class L10nTr extends L10n {
 
   @override
   String get tryAgain => 'Tekrar Deneyin';
+
+  @override
+  String get office => 'Ofis';
+
+  @override
+  String get addressTitle => 'Adres başlığı';
+
+  @override
+  String get deleteAddress => 'Adres silindi!';
+
+  @override
+  String get registeredAddress => 'Bu adres zaten kayıtlı';
 }
