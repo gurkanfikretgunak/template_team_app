@@ -1,6 +1,7 @@
 import 'package:client/app/l10n/app_l10n.dart';
 import 'package:client/app/views/bookings/bookings.viewmodel.dart';
 import 'package:client/app/widgets/buttons/buttons_widgets.dart';
+import 'package:client/app/widgets/custom_bottom_sheet.dart';
 import 'package:client/core/constans/color_constants.dart';
 import 'package:client/core/constans/text_constants.dart';
 import 'package:client/core/extensions/common_extension.dart';
@@ -10,6 +11,7 @@ import 'package:provider/provider.dart';
 
 import '../../../routes/navigation_service.dart';
 import '../../../routes/routes.dart';
+import '../../../views/account/widgets/alert_bottom_sheet.dart';
 
 class BookingCard extends StatefulWidget {
   const BookingCard({
@@ -92,7 +94,17 @@ class _BookingCardState extends State<BookingCard> {
                   flex: widget.booking.isCancel! ? 2 : 4,
                   child: widget.booking.isCancel!
                       ? CustomOutlinedButton(
-                          onPressed: () {},
+                          onPressed: () {
+                            CustomBottomSheet.buildCustomBottomSheet(
+                              context: context,
+                              widget: AlertBottomSheet(
+                                title: L10n.of(context)!.isCancelBooking,
+                                subTitle: L10n.of(context)!.isCancelBookingDesc,
+                                redButtonText: L10n.of(context)!.cancel,
+                                whiteButtonText: L10n.of(context)!.close,
+                              ),
+                            );
+                          },
                           text: L10n.of(context)!.cancel,
                           borderSideColor: ButtonColor.red,
                           buttonSize: ButtonSize.medium,

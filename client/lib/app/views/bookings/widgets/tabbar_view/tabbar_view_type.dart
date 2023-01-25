@@ -20,6 +20,8 @@ class TabBarViewTypeLabel {
   TabBarViewTypeLabel();
 
   buildOrderCard(orderCardType, BuildContext context) {
+    final provider = Provider.of<BookingViewModel>(context);
+
     switch (orderCardType) {
       case TabBarViewType.past:
         return ListView.builder(
@@ -39,17 +41,19 @@ class TabBarViewTypeLabel {
         );
 
       case TabBarViewType.unComing:
-        return BookingCard(
-          booking: BookingModel(
-            title: 'Cosmo Life ${L10n.of(context)!.beautyCentre}',
-            location: 'Yalı Evleri',
-            distance: '5.0 Kms',
-            desc: ' ${L10n.of(context)!.haircut} x 1 +  ${L10n.of(context)!.shave} x 1',
-            date: '8 Mar 2021',
-            price: '\$102',
-            isCancel: false,
-          ),
-        );
+        return provider.isSelect
+            ? const SizedBox()
+            : BookingCard(
+                booking: BookingModel(
+                  title: 'Cosmo Life ${L10n.of(context)!.beautyCentre}',
+                  location: 'Yalı Evleri',
+                  distance: '5.0 Kms',
+                  desc: ' ${L10n.of(context)!.haircut} x 1 +  ${L10n.of(context)!.shave} x 1',
+                  date: '8 Mar 2021',
+                  price: '\$102',
+                  isCancel: true,
+                ),
+              );
 
       case TabBarViewType.favorites:
         return Consumer<BookingViewModel>(builder: (context, value, child) {

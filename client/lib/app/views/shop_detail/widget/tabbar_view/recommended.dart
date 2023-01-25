@@ -11,9 +11,9 @@ class RecommendedView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     List<Map<String, String>> recommend = [
-      {"image": Assets.images.shop.shopDetail10.path, "name": L10n.of(context)!.charcoalDetoxMask},
-      {"image": Assets.images.shop.shopDetail2.path, "name": L10n.of(context)!.haircut},
-      {"image": Assets.images.shop.shopDetail6.path, "name": L10n.of(context)!.shave},
+      {"id ": "1", "image": Assets.images.shop.shopDetail10.path, "name": L10n.of(context)!.charcoalDetoxMask},
+      {"id ": "2", "image": Assets.images.shop.shopDetail2.path, "name": L10n.of(context)!.haircut},
+      {"id ": "3", "image": Assets.images.shop.shopDetail6.path, "name": L10n.of(context)!.shave},
     ];
 
     return SliverList(

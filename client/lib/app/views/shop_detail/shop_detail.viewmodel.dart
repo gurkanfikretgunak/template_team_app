@@ -19,6 +19,7 @@ class ShopDetailViewModel extends BaseViewModel {
   bool selectedShop = false;
   double totalPrice = 0;
   int itemCount = 0;
+  bool buttonCount = false;
 
   void selectedShopCard(int price) {
     selectedShop = true;
@@ -48,20 +49,15 @@ class ShopDetailViewModel extends BaseViewModel {
       {
         "icon": Icons.location_on_outlined,
         "text": L10n.of(context)!.directions,
-        "onTap": () {},
+        "onTap": () {
+          launch('https://maps.google.com/?q=37.4219999,-122.0840575');
+        },
       },
       {
         "icon": Icons.call,
         "text": L10n.of(context)!.call,
         "onTap": () {
           launch("tel:+1-555-010-999");
-        },
-      },
-      {
-        "icon": Icons.location_on_outlined,
-        "text": L10n.of(context)!.directions,
-        "onTap": () {
-          launch('https://maps.google.com/?q=37.4219999,-122.0840575');
         },
       },
       {

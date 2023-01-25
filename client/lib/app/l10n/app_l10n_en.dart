@@ -504,5 +504,16 @@ class L10nEn extends L10n {
 
   @override
   String get registeredAddress => 'This address is already registered';
+
+  @override
   String get massage => 'Massage';
+
+  @override
+  String get isCancelBooking => 'Cancel the booking?';
+
+  @override
+  String get isCancelBookingDesc => 'Are you sure want to cancel this booking?';
+
+  @override
+  String get close => 'Close';
 }

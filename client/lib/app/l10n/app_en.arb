@@ -168,6 +168,9 @@
     "office":"Office",
     "addressTitle":"Address Title",
     "deleteAddress":"Address deleted!",
-    "registeredAddress":"This address is already registered"
-    "massage" :"Massage"
+    "registeredAddress":"This address is already registered",
+    "massage" :"Massage", 
+    "isCancelBooking" : "Cancel the booking?",
+    "isCancelBookingDesc":"Are you sure want to cancel this booking?", 
+    "close" : "Close"
 }
