@@ -1,8 +1,5 @@
 import 'package:client/app/l10n/app_l10n.dart';
-import 'package:client/app/views/home/home.viewmodel.dart';
-import 'package:client/app/views/home/widgets/rating_button.dart';
 import 'package:client/app/views/home/widgets/services_gridview.dart';
-import 'package:client/app/views/home/widgets/offer_button.dart';
 import 'package:client/app/views/search/search_bar/search_bar.widget.dart';
 import 'package:client/app/views/shop/widget/list_shop.dart';
 import 'package:client/app/widgets/divider/divider_widgets.dart';
@@ -16,9 +13,12 @@ import 'package:provider/provider.dart';
 import '../../routes/navigation_service.dart';
 import '../../routes/routes.dart';
 import '../../widgets/buttons/buttons_widgets.dart';
+import '../../widgets/inputs/widgets/search_field/search_field_notification.dart';
 
 class SearchWidgets {
   searchBody(BuildContext context) {
+    final provider = Provider.of<SearchFieldNotifier>(context);
+
     return SingleChildScrollView(
       physics: const BouncingScrollPhysics(),
       child: Padding(
@@ -41,7 +41,7 @@ class SearchWidgets {
                 ),
                 context.emptySizedWidthBoxNormal,
                 Text(
-                  L10n.of(context)!.haircut,
+                  provider.searchController.text,
                   style: TextConstants.instance.button1.copyWith(color: ColorConstant.instance.dark3),
                 )
               ],

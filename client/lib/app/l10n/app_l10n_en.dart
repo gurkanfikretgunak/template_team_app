@@ -95,7 +95,7 @@ class L10nEn extends L10n {
   String get rating => 'Rating';
 
   @override
-  String get seeAll => 'see all >';
+  String get seeAll => 'See all >';
 
   @override
   String get search => 'Search';
@@ -416,6 +416,12 @@ class L10nEn extends L10n {
   String get charcoalDetoxMask => 'Charcoal Detox Mask';
 
   @override
+  String get clayMask => 'Clay Mask.';
+
+  @override
+  String get skinCare => 'Skin Care';
+
+  @override
   String get shopService => 'Shop Service';
 
   @override
@@ -498,4 +504,5 @@ class L10nEn extends L10n {
 
   @override
   String get registeredAddress => 'This address is already registered';
+  String get massage => 'Massage';
 }

@@ -8,6 +8,7 @@ import 'package:flutter/widgets.dart';
 import 'package:provider/provider.dart';
 
 import '../../../../l10n/app_l10n.dart';
+import '../../../account/favorites/favorites.widgets.dart';
 
 enum TabBarViewType {
   past,
@@ -52,13 +53,15 @@ class TabBarViewTypeLabel {
 
       case TabBarViewType.favorites:
         return Consumer<BookingViewModel>(builder: (context, value, child) {
-          return ListView.builder(
-            shrinkWrap: true,
-            itemCount: value.favoriteBookings.length,
-            itemBuilder: (context, index) {
-              return BookingCard(booking: value.favoriteBookings[index]);
-            },
-          );
+          return value.favoriteBookings.isEmpty
+              ? FavoritesWidgets().favoriteListEmptyAlert(context)
+              : ListView.builder(
+                  shrinkWrap: true,
+                  itemCount: value.favoriteBookings.length,
+                  itemBuilder: (context, index) {
+                    return BookingCard(booking: value.favoriteBookings[index]);
+                  },
+                );
         });
     }
   }

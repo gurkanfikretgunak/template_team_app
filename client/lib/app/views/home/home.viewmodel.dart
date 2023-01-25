@@ -5,14 +5,35 @@ import 'package:flutter/material.dart';
 
 class HomeViewModel extends BaseViewModel {
   List<String> locationList = <String>[
+    'Antalya',
     'Adana',
     'Adıyaman',
     'Afyon',
     'Ağrı',
     'Amasya',
     'Ankara',
-    'Antalya',
   ];
+  List<String> countryList = <String>[
+    'Turkey',
+    'England',
+  ];
+  List<String> englandList = <String>[
+    'London',
+    'Oxford',
+  ];
+
+  whichCountry(country) {
+    switch (country) {
+      case "Turkey":
+        return locationList;
+      case "England":
+        return englandList;
+
+      default:
+        return locationList;
+    }
+  }
+
   List<Map> beautyServiceList(BuildContext context) {
     return [
       {
@@ -46,6 +67,13 @@ class HomeViewModel extends BaseViewModel {
   String get ddLocationValue => _ddLocationValue;
   set ddLocationValue(newValue) {
     _ddLocationValue = newValue;
+    notifyListeners();
+  }
+
+  String _countryLocationValue = 'Turkey';
+  String get countryLocationValue => _countryLocationValue;
+  set countryLocationValue(newValue) {
+    _countryLocationValue = newValue;
     notifyListeners();
   }
 

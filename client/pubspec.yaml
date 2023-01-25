@@ -36,6 +36,7 @@ dependencies:
   url_launcher: ^5.2.7
   share_plus: ^0.6.5
   map_launcher: ^2.4.0
+  shared_preferences: ^0.5.5
 
 
 dev_dependencies:

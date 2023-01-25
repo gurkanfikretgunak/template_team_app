@@ -1,6 +1,8 @@
 import 'package:client/core/extensions/common_extension.dart';
 import 'package:flutter/material.dart';
 
+import '../../../../../gen/assets.gen.dart';
+import '../../../../l10n/app_l10n.dart';
 import '../shop_tile.dart';
 
 class PackagesView extends StatelessWidget {
@@ -8,6 +10,11 @@ class PackagesView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    List<Map<String, String>> packages = [
+      {"image": Assets.images.shop.shopDetail3.path, "name": L10n.of(context)!.massage},
+      {"image": Assets.images.shop.shopDetail9.path, "name": L10n.of(context)!.skinCare},
+      {"image": Assets.images.shop.shopDetail11.path, "name": L10n.of(context)!.haircut},
+    ];
     return SliverList(
       delegate: SliverChildBuilderDelegate(
         (context, index) {
@@ -15,11 +22,13 @@ class PackagesView extends StatelessWidget {
             onTap: () {},
             child: Padding(
               padding: context.paddingNormal,
-              child: const ShopListWidget(),
+              child: ShopListWidget(
+                imgPath: packages[index],
+              ),
             ),
           );
         },
-        childCount: 5,
+        childCount: packages.length,
       ),
     );
   }

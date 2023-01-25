@@ -30,7 +30,7 @@
     "price":"Fiyat",
     "offer":"İndirimler",
     "rating":"Değerlendirme",
-    "seeAll":"hepsini gör >",
+    "seeAll":"Hepsini gör >",
     "search":"Arama",
     "booking":"Rezervasyon",
     "account":"Hesap",
@@ -166,6 +166,9 @@
     "addressTitle":"Adres başlığı",
     "deleteAddress":"Adres silindi!",
     "registeredAddress":"Bu adres zaten kayıtlı"
+    "clayMask" : "Kil Maskesi",
+    "skinCare" : "Cilt Bakımı", 
+    "massage" :"Masaj"
 
 
 

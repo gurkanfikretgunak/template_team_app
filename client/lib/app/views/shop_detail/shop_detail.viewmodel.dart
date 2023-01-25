@@ -46,6 +46,11 @@ class ShopDetailViewModel extends BaseViewModel {
   List<Map> accountItems(BuildContext context) {
     return [
       {
+        "icon": Icons.location_on_outlined,
+        "text": L10n.of(context)!.directions,
+        "onTap": () {},
+      },
+      {
         "icon": Icons.call,
         "text": L10n.of(context)!.call,
         "onTap": () {
