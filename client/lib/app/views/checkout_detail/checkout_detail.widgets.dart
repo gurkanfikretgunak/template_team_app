@@ -4,6 +4,7 @@ import 'package:client/core/constans/text_constants.dart';
 import 'package:client/core/extensions/common_extension.dart';
 import 'package:flutter/material.dart';
 
+import '../../l10n/app_l10n.dart';
 import 'widgets/select_date.dart';
 
 class CheckoutDetailWidgets {
@@ -22,8 +23,8 @@ class CheckoutDetailWidgets {
               alignment: WrapAlignment.spaceBetween,
               runSpacing: 20,
               children: [
-                Text("Checkout", style: TextConstants.instance.heading5),
-                checkoutTitle(text: "Select Date & Time for the appointment"),
+                Text(L10n.of(context)!.checkout, style: TextConstants.instance.heading5),
+                checkoutTitle(text: "${L10n.of(context)!.selectDateTime} ${L10n.of(context)!.forTheAppointment}"),
                 const SelectDate()
               ],
             ),

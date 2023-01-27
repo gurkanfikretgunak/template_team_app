@@ -12,9 +12,9 @@ class TimingFilter extends StatelessWidget {
     final checkboxNotifier = Provider.of<TimingNotifier>(context);
 
     return ListView.builder(
-      itemCount: checkboxNotifier.timingFilterOptions.length,
+      itemCount: checkboxNotifier.timingFilterOptions(context).length,
       itemBuilder: (context, index) {
-        var key = checkboxNotifier.timingFilterOptions[index];
+        var key = checkboxNotifier.timingFilterOptions(context)[index];
 
         return Padding(
           padding: context.horizontalPaddingNormal,
@@ -23,7 +23,7 @@ class TimingFilter extends StatelessWidget {
             title: key['title'],
             subTitle: key['subTitle'],
             onChanged: (value) {
-              checkboxNotifier.setChange(key['title']);
+              checkboxNotifier.setChange(index, context);
             },
           ),
         );

@@ -22,9 +22,7 @@ class _CustomBottomNavigationBarState extends State<CustomBottomNavigationBar> {
       child: BottomNavigationBar(
         items: <BottomNavigationBarItem>[
           BottomNavigationBarItem(
-            label: L10n.of(context)!.home,
-            icon: const Icon(Icons.home_outlined),
-          ),
+              label: L10n.of(context)!.home, icon: const Icon(Icons.home_outlined), activeIcon: const Icon(Icons.home)),
           BottomNavigationBarItem(
             label: L10n.of(context)!.search,
             icon: const Icon(Icons.search),
@@ -36,6 +34,7 @@ class _CustomBottomNavigationBarState extends State<CustomBottomNavigationBar> {
           BottomNavigationBarItem(
             label: L10n.of(context)!.profile,
             icon: const Icon(Icons.person_outline),
+            activeIcon: const Icon(Icons.person),
           ),
         ],
         currentIndex: context.watch<BottomNavBarViewModel>().currentPage,

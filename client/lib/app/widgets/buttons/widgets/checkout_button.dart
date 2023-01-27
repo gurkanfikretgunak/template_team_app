@@ -1,3 +1,4 @@
+import 'package:client/app/l10n/app_l10n.dart';
 import 'package:client/app/widgets/buttons/buttons_widgets.dart';
 import 'package:client/core/constans/color_constants.dart';
 import 'package:client/core/constans/text_constants.dart';
@@ -7,10 +8,12 @@ import 'package:flutter/material.dart';
 class CheckoutButton extends StatelessWidget {
   final int? itemCount;
   final double? totalPrice;
+  final VoidCallback? onPressed;
   const CheckoutButton({
     Key? key,
     this.itemCount,
     this.totalPrice,
+    this.onPressed,
   }) : super(key: key);
 
   @override
@@ -23,7 +26,7 @@ class CheckoutButton extends StatelessWidget {
             width: context.dynamicWidth(1),
             child: CustomElevatedButton(
               buttonSize: ButtonSize.large,
-              onPressed: () {},
+              onPressed: onPressed,
               text: '',
               child: Padding(
                 padding: context.horizontalPaddingNormal,
@@ -55,14 +58,14 @@ class CheckoutButton extends StatelessWidget {
                           children: [
                             Text('\$${totalPrice?.toStringAsFixed(2)}',
                                 style: TextConstants.instance.button1.copyWith(color: ColorConstant.instance.light4)),
-                            Text('plus taxes',
+                            Text(L10n.of(context)!.plusTaxes,
                                 style:
                                     TextConstants.instance.paragraph2.copyWith(color: ColorConstant.instance.light4)),
                           ],
                         )
                       ],
                     ),
-                    Text('Continue',
+                    Text(L10n.of(context)!.continueShop,
                         style: TextConstants.instance.button1.copyWith(color: ColorConstant.instance.light4)),
                   ],
                 ),

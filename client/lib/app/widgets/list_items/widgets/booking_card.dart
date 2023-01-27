@@ -1,4 +1,5 @@
 import 'package:client/app/l10n/app_l10n.dart';
+import 'package:client/app/views/bookings/bookings.viewmodel.dart';
 import 'package:client/app/widgets/buttons/buttons_widgets.dart';
 import 'package:client/core/constans/color_constants.dart';
 import 'package:client/core/constans/text_constants.dart';
@@ -7,7 +8,8 @@ import 'package:client/core/model/booking_model.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-import '../../../views/bookings/bookings.viewmodel.dart';
+import '../../../routes/navigation_service.dart';
+import '../../../routes/routes.dart';
 
 class BookingCard extends StatefulWidget {
   const BookingCard({
@@ -93,6 +95,7 @@ class _BookingCardState extends State<BookingCard> {
                           onPressed: () {},
                           text: L10n.of(context)!.cancel,
                           borderSideColor: ButtonColor.red,
+                          buttonSize: ButtonSize.medium,
                         )
                       : const SizedBox(),
                 ),
@@ -100,11 +103,12 @@ class _BookingCardState extends State<BookingCard> {
                 Expanded(
                   flex: 3,
                   child: SizedBox(
-                    height: context.dynamicHeight(0.046),
                     child: CustomOutlinedButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        NavigationService.instance.navigateToPage(Routes.bookingDetail.name);
+                      },
                       text: L10n.of(context)!.reorderBooking,
-                      buttonSize: ButtonSize.large,
+                      buttonSize: ButtonSize.medium,
                     ),
                   ),
                 )

@@ -60,7 +60,8 @@ import 'app_l10n_tr.dart';
 /// be consistent with the languages listed in the L10n.supportedLocales
 /// property.
 abstract class L10n {
-  L10n(String locale) : localeName = intl.Intl.canonicalizedLocale(locale.toString());
+  L10n(String locale)
+      : localeName = intl.Intl.canonicalizedLocale(locale.toString());
 
   final String localeName;
 
@@ -80,7 +81,8 @@ abstract class L10n {
   /// Additional delegates can be added by appending to this list in
   /// MaterialApp. This list does not have to be used at all if a custom list
   /// of delegates is preferred or required.
-  static const List<LocalizationsDelegate<dynamic>> localizationsDelegates = <LocalizationsDelegate<dynamic>>[
+  static const List<LocalizationsDelegate<dynamic>> localizationsDelegates =
+      <LocalizationsDelegate<dynamic>>[
     delegate,
     GlobalMaterialLocalizations.delegate,
     GlobalCupertinoLocalizations.delegate,
@@ -150,13 +152,13 @@ abstract class L10n {
   /// No description provided for @email.
   ///
   /// In en, this message translates to:
-  /// **'email'**
+  /// **'Email'**
   String get email;
 
   /// No description provided for @password.
   ///
   /// In en, this message translates to:
-  /// **'password'**
+  /// **'Password'**
   String get password;
 
   /// No description provided for @twitter.
@@ -276,7 +278,7 @@ abstract class L10n {
   /// No description provided for @seeAll.
   ///
   /// In en, this message translates to:
-  /// **'see all >'**
+  /// **'See all >'**
   String get seeAll;
 
   /// No description provided for @search.
@@ -489,17 +491,11 @@ abstract class L10n {
   /// **'Forward'**
   String get forward;
 
-  /// No description provided for @continueWithTwitter.
+  /// No description provided for @continueWithApple.
   ///
   /// In en, this message translates to:
-  /// **'Continue with Twitter'**
-  String get continueWithTwitter;
-
-  /// No description provided for @continueWithFacebook.
-  ///
-  /// In en, this message translates to:
-  /// **'Continue with Facebook'**
-  String get continueWithFacebook;
+  /// **'Continue with Apple'**
+  String get continueWithApple;
 
   /// No description provided for @continueWithGoogle.
   ///
@@ -722,6 +718,390 @@ abstract class L10n {
   /// In en, this message translates to:
   /// **'CVV'**
   String get cvv;
+
+  /// No description provided for @women.
+  ///
+  /// In en, this message translates to:
+  /// **'Women'**
+  String get women;
+
+  /// No description provided for @man.
+  ///
+  /// In en, this message translates to:
+  /// **'Man'**
+  String get man;
+
+  /// No description provided for @lowestPrice.
+  ///
+  /// In en, this message translates to:
+  /// **'Lowest price'**
+  String get lowestPrice;
+
+  /// No description provided for @highestPrice.
+  ///
+  /// In en, this message translates to:
+  /// **'Highest Price'**
+  String get highestPrice;
+
+  /// No description provided for @next.
+  ///
+  /// In en, this message translates to:
+  /// **'Next'**
+  String get next;
+
+  /// No description provided for @beautyCentre.
+  ///
+  /// In en, this message translates to:
+  /// **'Beauty Centre'**
+  String get beautyCentre;
+
+  /// No description provided for @beautySalon.
+  ///
+  /// In en, this message translates to:
+  /// **'Beauty Salon'**
+  String get beautySalon;
+
+  /// No description provided for @forMenWomen.
+  ///
+  /// In en, this message translates to:
+  /// **'FOR MEN & WOMEN'**
+  String get forMenWomen;
+
+  /// No description provided for @newAddress.
+  ///
+  /// In en, this message translates to:
+  /// **'New Address'**
+  String get newAddress;
+
+  /// No description provided for @editAddress.
+  ///
+  /// In en, this message translates to:
+  /// **'Edit Address'**
+  String get editAddress;
+
+  /// No description provided for @country.
+  ///
+  /// In en, this message translates to:
+  /// **'Country'**
+  String get country;
+
+  /// No description provided for @city.
+  ///
+  /// In en, this message translates to:
+  /// **'City'**
+  String get city;
+
+  /// No description provided for @address.
+  ///
+  /// In en, this message translates to:
+  /// **'Address'**
+  String get address;
+
+  /// No description provided for @addressName.
+  ///
+  /// In en, this message translates to:
+  /// **'Address name'**
+  String get addressName;
+
+  /// No description provided for @add.
+  ///
+  /// In en, this message translates to:
+  /// **'Add'**
+  String get add;
+
+  /// No description provided for @male.
+  ///
+  /// In en, this message translates to:
+  /// **'Male'**
+  String get male;
+
+  /// No description provided for @female.
+  ///
+  /// In en, this message translates to:
+  /// **'Female'**
+  String get female;
+
+  /// No description provided for @morning.
+  ///
+  /// In en, this message translates to:
+  /// **'Morning'**
+  String get morning;
+
+  /// No description provided for @midDay.
+  ///
+  /// In en, this message translates to:
+  /// **'Mid Day'**
+  String get midDay;
+
+  /// No description provided for @night.
+  ///
+  /// In en, this message translates to:
+  /// **'Night'**
+  String get night;
+
+  /// No description provided for @bleachForWomen.
+  ///
+  /// In en, this message translates to:
+  /// **'Bleach for Women'**
+  String get bleachForWomen;
+
+  /// No description provided for @waxingForWomen.
+  ///
+  /// In en, this message translates to:
+  /// **'Waxing for Women'**
+  String get waxingForWomen;
+
+  /// No description provided for @facialForWomen.
+  ///
+  /// In en, this message translates to:
+  /// **'Facial for Women'**
+  String get facialForWomen;
+
+  /// No description provided for @shaveForMen.
+  ///
+  /// In en, this message translates to:
+  /// **'Shave for Men'**
+  String get shaveForMen;
+
+  /// No description provided for @resultSearch.
+  ///
+  /// In en, this message translates to:
+  /// **'102 results found'**
+  String get resultSearch;
+
+  /// No description provided for @timingValues.
+  ///
+  /// In en, this message translates to:
+  /// **'6.00 PM-10.00 PM'**
+  String get timingValues;
+
+  /// No description provided for @enterPassword.
+  ///
+  /// In en, this message translates to:
+  /// **'Enter password'**
+  String get enterPassword;
+
+  /// No description provided for @setPassword.
+  ///
+  /// In en, this message translates to:
+  /// **'Set a password'**
+  String get setPassword;
+
+  /// No description provided for @shave.
+  ///
+  /// In en, this message translates to:
+  /// **'Shave'**
+  String get shave;
+
+  /// No description provided for @recentlySearched.
+  ///
+  /// In en, this message translates to:
+  /// **'Recently searched'**
+  String get recentlySearched;
+
+  /// No description provided for @trendingNearYou.
+  ///
+  /// In en, this message translates to:
+  /// **'Trending near you'**
+  String get trendingNearYou;
+
+  /// No description provided for @tryTheseService.
+  ///
+  /// In en, this message translates to:
+  /// **'Try these service'**
+  String get tryTheseService;
+
+  /// No description provided for @charcoalDetoxMask.
+  ///
+  /// In en, this message translates to:
+  /// **'Charcoal Detox Mask'**
+  String get charcoalDetoxMask;
+
+  /// No description provided for @clayMask.
+  ///
+  /// In en, this message translates to:
+  /// **'Clay Mask.'**
+  String get clayMask;
+
+  /// No description provided for @skinCare.
+  ///
+  /// In en, this message translates to:
+  /// **'Skin Care'**
+  String get skinCare;
+
+  /// No description provided for @shopService.
+  ///
+  /// In en, this message translates to:
+  /// **'Shop Service'**
+  String get shopService;
+
+  /// No description provided for @march.
+  ///
+  /// In en, this message translates to:
+  /// **'March'**
+  String get march;
+
+  /// No description provided for @favorite.
+  ///
+  /// In en, this message translates to:
+  /// **'Favorite'**
+  String get favorite;
+
+  /// No description provided for @mins.
+  ///
+  /// In en, this message translates to:
+  /// **'Mins'**
+  String get mins;
+
+  /// No description provided for @plusTaxes.
+  ///
+  /// In en, this message translates to:
+  /// **'Plus Taxes'**
+  String get plusTaxes;
+
+  /// No description provided for @continueShop.
+  ///
+  /// In en, this message translates to:
+  /// **'Continue'**
+  String get continueShop;
+
+  /// No description provided for @checkout.
+  ///
+  /// In en, this message translates to:
+  /// **'Checkout'**
+  String get checkout;
+
+  /// No description provided for @selectDateTime.
+  ///
+  /// In en, this message translates to:
+  /// **'Select Date & Time'**
+  String get selectDateTime;
+
+  /// No description provided for @offersPromoCode.
+  ///
+  /// In en, this message translates to:
+  /// **'Offers & Promo Code'**
+  String get offersPromoCode;
+
+  /// No description provided for @viewOffers.
+  ///
+  /// In en, this message translates to:
+  /// **'View offers'**
+  String get viewOffers;
+
+  /// No description provided for @frequentlyAdded.
+  ///
+  /// In en, this message translates to:
+  /// **'Frequently added together'**
+  String get frequentlyAdded;
+
+  /// No description provided for @amountPayable.
+  ///
+  /// In en, this message translates to:
+  /// **'Amount Payable'**
+  String get amountPayable;
+
+  /// No description provided for @forTheAppointment.
+  ///
+  /// In en, this message translates to:
+  /// **'For The Appointment'**
+  String get forTheAppointment;
+
+  /// No description provided for @whenWouldLike.
+  ///
+  /// In en, this message translates to:
+  /// **'When would you like your service?'**
+  String get whenWouldLike;
+
+  /// No description provided for @day.
+  ///
+  /// In en, this message translates to:
+  /// **'Day'**
+  String get day;
+
+  /// No description provided for @am.
+  ///
+  /// In en, this message translates to:
+  /// **'AM'**
+  String get am;
+
+  /// No description provided for @couponCode.
+  ///
+  /// In en, this message translates to:
+  /// **'Coupon Code'**
+  String get couponCode;
+
+  /// No description provided for @getcashbackUpto.
+  ///
+  /// In en, this message translates to:
+  /// **'Get cashback upto'**
+  String get getcashbackUpto;
+
+  /// No description provided for @enterCouponCode.
+  ///
+  /// In en, this message translates to:
+  /// **'Enter Coupon Code'**
+  String get enterCouponCode;
+
+  /// No description provided for @getVisaCredits.
+  ///
+  /// In en, this message translates to:
+  /// **'on VISA Debit or Credit cards'**
+  String get getVisaCredits;
+
+  /// No description provided for @onBookingOf.
+  ///
+  /// In en, this message translates to:
+  /// **'On booking of'**
+  String get onBookingOf;
+
+  /// No description provided for @orMore.
+  ///
+  /// In en, this message translates to:
+  /// **'or more'**
+  String get orMore;
+
+  /// No description provided for @getUsingPaypal.
+  ///
+  /// In en, this message translates to:
+  /// **'using PayPal'**
+  String get getUsingPaypal;
+
+  /// No description provided for @tryAgain.
+  ///
+  /// In en, this message translates to:
+  /// **'Try Again'**
+  String get tryAgain;
+
+  /// No description provided for @office.
+  ///
+  /// In en, this message translates to:
+  /// **'Office'**
+  String get office;
+
+  /// No description provided for @addressTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Address Title'**
+  String get addressTitle;
+
+  /// No description provided for @deleteAddress.
+  ///
+  /// In en, this message translates to:
+  /// **'Address deleted!'**
+  String get deleteAddress;
+
+  /// No description provided for @registeredAddress.
+  ///
+  /// In en, this message translates to:
+  /// **'This address is already registered'**
+  String get registeredAddress;
+
+  /// No description provided for @massage.
+  ///
+  /// In en, this message translates to:
+  /// **'Massage'**
+  String get massage;
 }
 
 class _L10nDelegate extends LocalizationsDelegate<L10n> {
@@ -733,25 +1113,25 @@ class _L10nDelegate extends LocalizationsDelegate<L10n> {
   }
 
   @override
-  bool isSupported(Locale locale) => <String>['en', 'tr'].contains(locale.languageCode);
+  bool isSupported(Locale locale) =>
+      <String>['en', 'tr'].contains(locale.languageCode);
 
   @override
   bool shouldReload(_L10nDelegate old) => false;
 }
 
 L10n lookupL10n(Locale locale) {
-
-
   // Lookup logic when only language code is specified.
   switch (locale.languageCode) {
-    case 'en': return L10nEn();
-    case 'tr': return L10nTr();
+    case 'en':
+      return L10nEn();
+    case 'tr':
+      return L10nTr();
   }
 
   throw FlutterError(
-    'L10n.delegate failed to load unsupported locale "$locale". This is likely '
-    'an issue with the localizations generation tool. Please file an issue '
-    'on GitHub with a reproducible sample app and the gen-l10n configuration '
-    'that was used.'
-  );
+      'L10n.delegate failed to load unsupported locale "$locale". This is likely '
+      'an issue with the localizations generation tool. Please file an issue '
+      'on GitHub with a reproducible sample app and the gen-l10n configuration '
+      'that was used.');
 }

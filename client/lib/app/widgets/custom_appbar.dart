@@ -24,31 +24,34 @@ class CustomAppbar extends StatelessWidget with PreferredSizeWidget {
             height: specialAppbar == null
                 ? context.dynamicHeight(0.25)
                 : context.dynamicHeight(0.2),
-            child: Wrap(
-              crossAxisAlignment: WrapCrossAlignment.center,
-              spacing: 10,
-              children: [
-                leading == null
-                    ? IconButton(
-                        onPressed: () {
-                          Navigator.pop(context);
-                        },
-                        icon: Icon(
-                          Icons.arrow_back,
-                          color: ColorConstant.instance.dark1,
+            child: Align(
+              alignment: Alignment.centerLeft,
+              child: Wrap(
+                crossAxisAlignment: WrapCrossAlignment.center,
+                spacing: 10,
+                children: [
+                  leading == null
+                      ? IconButton(
+                          onPressed: () {
+                            Navigator.pop(context);
+                          },
+                          icon: Icon(
+                            Icons.arrow_back,
+                            color: ColorConstant.instance.dark1,
+                          ),
+                        )
+                      : Padding(
+                          padding: context.horizontalPaddingNormal,
+                          child: leading,
                         ),
-                      )
-                    : Padding(
-                        padding: context.horizontalPaddingNormal,
-                        child: Center(child: leading),
+                  titleWidget ??
+                      Text(
+                        title ?? '',
+                        style: TextConstants.instance.heading6,
+                        maxLines: 1,
                       ),
-                titleWidget ??
-                    Text(
-                      title ?? '',
-                      style: TextConstants.instance.heading6,
-                      maxLines: 1,
-                    ),
-              ],
+                ],
+              ),
             ),
           );
   }

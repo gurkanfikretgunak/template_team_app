@@ -1,10 +1,5 @@
-import 'package:client/app/views/home/home.viewmodel.dart';
-import 'package:client/app/views/home/home.widgets.dart';
-import 'package:client/core/extensions/common_extension.dart';
-import 'package:faker/faker.dart';
+import 'package:client/core/model/booking_model.dart';
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
-
 import '../../../gen/assets.gen.dart';
 import '../../widgets/inputs/widgets/shop_cards/shop_card.dart';
 
@@ -15,28 +10,19 @@ class ShopSpeacialCard extends StatelessWidget {
     required this.cardWidth,
     required this.imageFlex,
     required this.imageWidth,
+    required this.shopModel,
   }) : super(key: key);
   final double cardHeight;
   final double cardWidth;
-
+  final BookingModel shopModel;
   final int imageFlex;
   final double imageWidth;
+
   @override
   Widget build(BuildContext context) {
-    final provider = Provider.of<HomeViewModel>(context);
-
-    var fake = Faker();
     return ShopCard(
+      shopModel: shopModel,
       imageFlex: imageFlex,
-      address: fake.address.city(),
-      distance: fake.randomGenerator.integer(20).toDouble(),
-      genderType: fake.person.random.string(20),
-      hasDiscount: fake.randomGenerator.boolean(),
-      imagePath: buildShopCardImage(provider.ddLocationValue),
-      rating: fake.randomGenerator.integer(20).toDouble(),
-      shopName: fake.company.name(),
-      shopTypes: fake.company.name(),
-      discountAmount: fake.randomGenerator.integer(20).toDouble(),
       cardHeight: cardHeight,
       cardWidth: cardWidth,
       imageWidth: imageWidth,
@@ -55,6 +41,7 @@ class ShopSpeacialCard extends StatelessWidget {
       case 'Trudering/Riem':
         return Assets.images.shop.shop4.path;
       default:
+        return Assets.images.shop.shop4.path;
     }
   }
 }

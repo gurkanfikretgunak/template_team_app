@@ -17,51 +17,47 @@ class CheckoutWidgets {
     return const CustomAppbar();
   }
 
-  body(BuildContext context) {
-    return Stack(
-      children: [
-        SingleChildScrollView(
-          physics: const BouncingScrollPhysics(),
-          child: Padding(
-            padding: context.paddingNormal,
-            child: Wrap(
-              alignment: WrapAlignment.spaceBetween,
-              runSpacing: 20,
+  body(BuildContext context, ScrollController controller) {
+    return SingleChildScrollView(
+      controller: controller,
+      physics: const BouncingScrollPhysics(),
+      child: Padding(
+        padding: context.paddingNormal + context.onlyBottomPaddingHigh,
+        child: Wrap(
+          alignment: WrapAlignment.spaceBetween,
+          runSpacing: 20,
+          children: [
+            Text(L10n.of(context)!.checkout, style: TextConstants.instance.heading5),
+            checkoutTitle(text: 'Cosmo Life ${L10n.of(context)!.beautyCentre}'),
+            Column(
               children: [
-                Text("Checkout", style: TextConstants.instance.heading5),
-                checkoutTitle(text: "Woodlands Hills Salon"),
-                Column(
-                  children: [
-                    CheckoutTile(iconPath: Assets.icons.shop.path, text: "Shop Service"),
-                    const CustomDivider(type: DividerType.dashed),
-                    CheckoutTile(
-                      iconPath: Assets.icons.calender.path,
-                      text: "Select Date & Time",
-                      hasTrailing: true,
-                      onTap: () {
-                        NavigationService.instance.navigateToPage(Routes.checkoutDetail.name);
-                      },
-                    ),
-                    const CustomDivider(type: DividerType.dashed),
-                    orderItemList(),
-                    ShopPromoTile(
-                      onTap: () {
-                        NavigationService.instance.navigateToPage(Routes.promo.name);
-                      },
-                    ),
-                    frequentlyTogether(
-                      buttonText: L10n.of(context)!.select,
-                      context: context,
-                    ),
-                    totalInformations(),
-                  ],
-                )
+                CheckoutTile(iconPath: Assets.icons.shop.path, text: L10n.of(context)!.shopService),
+                const CustomDivider(type: DividerType.dashed),
+                CheckoutTile(
+                  iconPath: Assets.icons.calender.path,
+                  text: L10n.of(context)!.selectDateTime,
+                  hasTrailing: true,
+                  onTap: () {
+                    NavigationService.instance.navigateToPage(Routes.checkoutDetail.name);
+                  },
+                ),
+                const CustomDivider(type: DividerType.dashed),
+                orderItemList(context),
+                ShopPromoTile(
+                  onTap: () {
+                    NavigationService.instance.navigateToPage(Routes.promo.name);
+                  },
+                ),
+                frequentlyTogether(
+                  buttonText: L10n.of(context)!.select,
+                  context: context,
+                ),
+                totalInformations(context),
               ],
-            ),
-          ),
+            )
+          ],
         ),
-        const CheckoutButton(itemCount: 2, totalPrice: 449)
-      ],
+      ),
     );
   }
 
@@ -69,9 +65,9 @@ class CheckoutWidgets {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text("Frequently added together", style: TextConstants.instance.label1),
+        Text(L10n.of(context!)!.frequentlyAdded, style: TextConstants.instance.label1),
         Padding(
-          padding: context!.verticalPaddingLow,
+          padding: context.verticalPaddingLow,
           child: Row(
             mainAxisSize: MainAxisSize.min,
             children: [
@@ -101,7 +97,7 @@ class CheckoutWidgets {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Image.asset(Assets.images.shop.shopDetail2.path),
-              Text("Haircut", style: TextConstants.instance.subtitle1),
+              Text(L10n.of(context)!.haircut, style: TextConstants.instance.subtitle1),
               Text("\$40", style: TextConstants.instance.button2),
               CustomOutlinedButton(
                 buttonSize: ButtonSize.small,
@@ -110,7 +106,7 @@ class CheckoutWidgets {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Text(
-                      buttonText ?? "Select",
+                      buttonText ?? L10n.of(context)!.select,
                       style: TextConstants.instance.label2.copyWith(color: ColorConstant.instance.purple2),
                     ),
                     CustomIcon(imagePath: Assets.icons.addMethod.path, iconColor: ColorConstant.instance.purple2)
@@ -133,14 +129,14 @@ class CheckoutWidgets {
     );
   }
 
-  Widget totalInformations() {
+  Widget totalInformations(BuildContext context) {
     return Wrap(
       runSpacing: 20,
       children: [
-        totalRowStyle(text: "Item Total", price: "\$112", textColor: ColorConstant.instance.dark0),
-        totalRowStyle(text: "Coupon Discount", price: "-\$10"),
+        totalRowStyle(text: L10n.of(context)!.itemTotal, price: "\$112", textColor: ColorConstant.instance.dark0),
+        totalRowStyle(text: L10n.of(context)!.couponDiscount, price: "-\$10"),
         const CustomDivider(),
-        totalRowStyle(text: "Amount Payable", price: "\$30", isGrandTotal: true),
+        totalRowStyle(text: L10n.of(context)!.amountPayable, price: "\$30", isGrandTotal: true),
       ],
     );
   }
@@ -177,14 +173,14 @@ class CheckoutWidgets {
     );
   }
 
-  ListView orderItemList() {
+  ListView orderItemList(BuildContext context) {
     return ListView.builder(
       physics: const NeverScrollableScrollPhysics(),
       shrinkWrap: true,
       itemCount: 2,
       itemBuilder: (context, index) {
-        return const OrderItemsTile(
-          productName: "Haircut",
+        return OrderItemsTile(
+          productName: L10n.of(context)!.shave,
           isOrder: true,
         );
       },

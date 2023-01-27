@@ -22,7 +22,7 @@ class BookingsTabBarView extends BaseView {
           onTap: () {
             NavigationService.instance.navigateToPage(Routes.bookingDetail.name);
           },
-          child: TabBarViewTypeLabel().buildOrderCard(tabBarViewType),
+          child: TabBarViewTypeLabel().buildOrderCard(tabBarViewType, context),
         ),
       ),
       errorBody: const Text("df"),

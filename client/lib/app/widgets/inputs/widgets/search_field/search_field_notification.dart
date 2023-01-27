@@ -3,6 +3,11 @@ import 'package:flutter/material.dart';
 
 class SearchFieldNotifier extends BaseViewModel {
   TextEditingController searchController = TextEditingController();
+  List<String> recentlySearch = [];
+  searchRecently() {
+    recentlySearch.add(searchController.text);
+    notifyListeners();
+  }
 
   bool _active = false;
   bool get active => _active;

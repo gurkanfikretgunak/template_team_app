@@ -20,116 +20,121 @@ class SignInWidgets {
     return SingleChildScrollView(
       child: Padding(
         padding: context.onlyLRTBpaddingNormal,
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
+        child: Wrap(
+          runSpacing: 20,
+          // crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Padding(
-              padding: context.onlyBottomPaddingNormal,
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    L10n.of(context)!.welcomeBack,
-                    style: TextConstants.instance.heading4,
-                  ),
-                  Row(
-                    children: [
-                      Text(
-                        L10n.of(context)!.haventAnAccount,
-                        style: TextConstants.instance.subtitle1,
-                      ),
-                      CustomTextButton(
-                        onPressed: () {
-                          NavigationService.instance
-                              .navigateToPage(Routes.withSignUp.name);
-                        },
-                        padding: EdgeInsets.zero,
-                        buttonSize: ButtonSize.small,
-                        hasUnderline: true,
-                        text: L10n.of(context)!.signup,
-                      )
-                    ],
-                  ),
-                ],
-              ),
-            ),
-            Wrap(
-              children: [
-                CustomTextFormField(
-                  labelTextValue: L10n.of(context)!.email,
-                ),
-                CustomTextFormField(
-                  labelTextValue: L10n.of(context)!.password,
-                ),
-                SizedBox(
-                  width: context.dynamicWidth(1),
-                  child: CustomElevatedButton(
-                    onPressed: () {
-                      NavigationService.instance
-                          .navigateToPageClear(path: Routes.navigation.name);
-                    },
-                    text: L10n.of(context)!.login,
-                    buttonSize: ButtonSize.large,
-                    buttonColor: ButtonColor.purple,
-                    textColor: ButtonColor.light,
-                  ),
-                ),
-              ],
-            ),
-            Padding(
-              padding: context.verticalPaddingNormal,
-              child: Center(
-                child: CustomTextButton(
-                  onPressed: () {
-                    NavigationService.instance
-                        .navigateToPage(Routes.forgotPassword.name);
-                  },
-                  text: L10n.of(context)!.forgotPassword,
-                  buttonSize: ButtonSize.large,
-                ),
-              ),
-            ),
-            Padding(
-              padding: context.verticalPaddingNormal,
-              child: Row(
-                children: [
-                  const Expanded(child: CustomDivider()),
-                  Padding(
-                    padding: context.horizontalPaddingMedium,
-                    child: Text(L10n.of(context)!.or),
-                  ),
-                  const Expanded(child: CustomDivider()),
-                ],
-              ),
-            ),
-            Center(
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.spaceAround,
-                children: [
-                  CustomSocialIcon(
-                    imagePath: SocialPath.twitter,
-                    height: IconSize.large,
-                    width: IconSize.large,
-                    socialName: L10n.of(context)!.continueWithTwitter,
-                  ),
-                  CustomSocialIcon(
-                    imagePath: SocialPath.google,
-                    height: IconSize.large,
-                    width: IconSize.large,
-                    socialName: L10n.of(context)!.continueWithGoogle,
-                  ),
-                  CustomSocialIcon(
-                    imagePath: SocialPath.facebook,
-                    height: IconSize.large,
-                    width: IconSize.large,
-                    socialName: L10n.of(context)!.continueWithFacebook,
-                  )
-                ],
-              ),
-            ),
+            titleTexts(context),
+            textFormFieldsAndButton(context),
+            forgotPasswordText(context),
+            divider(context),
+            loginWithOrganization(context),
           ],
         ),
       ),
+    );
+  }
+
+  Center loginWithOrganization(BuildContext context) {
+    return Center(
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.spaceAround,
+        children: [
+          CustomSocialIcon(
+            imagePath: SocialPath.google,
+            height: IconSize.large,
+            width: IconSize.large,
+            socialName: L10n.of(context)!.continueWithGoogle,
+          ),
+          CustomSocialIcon(
+            imagePath: SocialPath.apple,
+            height: IconSize.large,
+            width: IconSize.large,
+            socialName: L10n.of(context)!.continueWithApple,
+          ),
+        ],
+      ),
+    );
+  }
+
+  Row divider(BuildContext context) {
+    return Row(
+      children: [
+        const Expanded(child: CustomDivider()),
+        Padding(
+          padding: context.horizontalPaddingMedium,
+          child: Text(L10n.of(context)!.or),
+        ),
+        const Expanded(child: CustomDivider()),
+      ],
+    );
+  }
+
+  Center forgotPasswordText(BuildContext context) {
+    return Center(
+      child: CustomTextButton(
+        onPressed: () {
+          NavigationService.instance.navigateToPage(Routes.forgotPassword.name);
+        },
+        text: L10n.of(context)!.forgotPassword,
+        buttonSize: ButtonSize.large,
+      ),
+    );
+  }
+
+  Widget textFormFieldsAndButton(BuildContext context) {
+    return Wrap(
+      children: [
+        CustomTextFormField(
+          labelTextValue: L10n.of(context)!.email,
+          hintText: "johndoe@gmail.com",
+        ),
+        CustomTextFormField(
+          labelTextValue: L10n.of(context)!.password,
+          hintText: L10n.of(context)!.setPassword,
+        ),
+        SizedBox(
+          width: context.dynamicWidth(1),
+          child: CustomElevatedButton(
+            onPressed: () {
+              NavigationService.instance.navigateToPageClear(path: Routes.navigation.name);
+            },
+            text: L10n.of(context)!.login,
+            buttonSize: ButtonSize.large,
+            buttonColor: ButtonColor.purple,
+            textColor: ButtonColor.light,
+          ),
+        ),
+      ],
+    );
+  }
+
+  Column titleTexts(BuildContext context) {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Text(
+          L10n.of(context)!.welcomeBack,
+          style: TextConstants.instance.heading4,
+        ),
+        Row(
+          children: [
+            Text(
+              L10n.of(context)!.haventAnAccount,
+              style: TextConstants.instance.subtitle1,
+            ),
+            CustomTextButton(
+              onPressed: () {
+                NavigationService.instance.navigateToPage(Routes.signup.name);
+              },
+              padding: EdgeInsets.zero,
+              buttonSize: ButtonSize.small,
+              hasUnderline: true,
+              text: L10n.of(context)!.signup,
+            )
+          ],
+        ),
+      ],
     );
   }
 }

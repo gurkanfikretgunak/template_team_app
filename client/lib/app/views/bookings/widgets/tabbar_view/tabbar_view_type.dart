@@ -7,6 +7,9 @@ import 'package:client/core/model/booking_model.dart';
 import 'package:flutter/widgets.dart';
 import 'package:provider/provider.dart';
 
+import '../../../../l10n/app_l10n.dart';
+import '../../../account/favorites/favorites.widgets.dart';
+
 enum TabBarViewType {
   past,
   unComing,
@@ -16,16 +19,16 @@ enum TabBarViewType {
 class TabBarViewTypeLabel {
   TabBarViewTypeLabel();
 
-  buildOrderCard(orderCardType) {
+  buildOrderCard(orderCardType, BuildContext context) {
     switch (orderCardType) {
       case TabBarViewType.past:
         return ListView.builder(
           shrinkWrap: true,
-          itemCount: MockBooking.bookingList.length,
+          itemCount: MockBooking.bookingList(context).length,
           itemBuilder: (context, index) {
             return Column(
               children: [
-                MockBooking.bookingList[index],
+                MockBooking.bookingList(context)[index],
                 Padding(
                   padding: context.verticalPaddingNormal,
                   child: const CustomDivider(type: DividerType.dashed),
@@ -38,25 +41,27 @@ class TabBarViewTypeLabel {
       case TabBarViewType.unComing:
         return BookingCard(
           booking: BookingModel(
-            title: 'Woodlands Hills Salon',
-            location: 'Keira throughway',
+            title: 'Cosmo Life ${L10n.of(context)!.beautyCentre}',
+            location: 'Yalı Evleri',
             distance: '5.0 Kms',
-            desc: 'Haircut x 1 + Shave x 1',
+            desc: ' ${L10n.of(context)!.haircut} x 1 +  ${L10n.of(context)!.shave} x 1',
             date: '8 Mar 2021',
             price: '\$102',
-            isCancel: true,
+            isCancel: false,
           ),
         );
 
       case TabBarViewType.favorites:
         return Consumer<BookingViewModel>(builder: (context, value, child) {
-          return ListView.builder(
-            shrinkWrap: true,
-            itemCount: value.favoriteBookings.length,
-            itemBuilder: (context, index) {
-              return BookingCard(booking: value.favoriteBookings[index]);
-            },
-          );
+          return value.favoriteBookings.isEmpty
+              ? FavoritesWidgets().favoriteListEmptyAlert(context)
+              : ListView.builder(
+                  shrinkWrap: true,
+                  itemCount: value.favoriteBookings.length,
+                  itemBuilder: (context, index) {
+                    return BookingCard(booking: value.favoriteBookings[index]);
+                  },
+                );
         });
     }
   }

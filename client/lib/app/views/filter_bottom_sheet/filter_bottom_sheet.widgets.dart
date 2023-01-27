@@ -1,20 +1,20 @@
 import 'package:client/app/l10n/app_l10n.dart';
 import 'package:client/app/views/filter_bottom_sheet/filter_bottom_sheet.viewmodel.dart';
 import 'package:client/app/views/filter_bottom_sheet/widgets/gender/gender.dart';
-import 'package:client/app/views/filter_bottom_sheet/widgets/gender/gender_notifier.dart';
+import 'package:client/app/views/filter_bottom_sheet/widgets/offers/offer_notifier.dart';
+import 'package:client/app/views/filter_bottom_sheet/widgets/offers/offers.dart';
 import 'package:client/app/views/filter_bottom_sheet/widgets/sort/sort.dart';
 import 'package:client/app/views/filter_bottom_sheet/widgets/timing/timing.dart';
 import 'package:client/app/views/filter_bottom_sheet/widgets/timing/timing_notifier.dart';
 import 'package:client/app/widgets/buttons/buttons_widgets.dart';
 import 'package:client/app/widgets/image_viewer/icons/icons_widgets.dart';
+import 'package:client/app/widgets/inputs/inputs_widgets.dart';
 import 'package:client/core/constans/color_constants.dart';
 import 'package:client/core/constans/text_constants.dart';
 import 'package:client/core/extensions/common_extension.dart';
 import 'package:client/gen/assets.gen.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-
-import '../../widgets/inputs/widgets/radio_button/radio_button_notifier.dart';
 
 class FilterBottomSheetWidgets {
   Widget appBar(BuildContext context) {
@@ -41,8 +41,9 @@ class FilterBottomSheetWidgets {
             ),
             CustomTextButton(
               onPressed: () {
-                Provider.of<GenderNotifier>(context, listen: false).clear();
-                Provider.of<TimingNotifier>(context, listen: false).clear();
+                Provider.of<OfferNotifier>(context, listen: false).clear();
+                // Provider.of<GenderNotifier>(context, listen: false).clear(context);
+                Provider.of<TimingNotifier>(context, listen: false).clear(context);
                 Provider.of<RadioButtonNotifier>(context, listen: false)
                     .setSelectedOption(L10n.of(context)!.popularity);
               },
@@ -56,24 +57,23 @@ class FilterBottomSheetWidgets {
 
   Widget filterTitle(BuildContext context) {
     final provider = Provider.of<FilterBottomSheetViewModel>(context);
-    List<String> filterCetegoryList = ["Sort", "Offers", "Gender", "Timing"];
 
     return Container(
       color: ColorConstant.instance.light2,
       child: Align(
         alignment: Alignment.topLeft,
         child: ListView.builder(
-          itemCount: filterCetegoryList.length,
+          itemCount: provider.filterCetegoryList(context).length,
           shrinkWrap: true,
           itemBuilder: (context, index) {
             return InkWell(
               onTap: () {
-                provider.selectedCategory = filterCetegoryList[index];
+                provider.selectedCategory = index;
               },
               child: Container(
                 height: context.dynamicHeight(0.07),
                 decoration: BoxDecoration(
-                  color: provider.selectedCategory == filterCetegoryList[index]
+                  color: provider.selectedCategory == index
                       ? ColorConstant.instance.light4
                       : ColorConstant.instance.light2,
                   border: Border(
@@ -85,9 +85,9 @@ class FilterBottomSheetWidgets {
                   child: Padding(
                     padding: context.horizontalPaddingNormal,
                     child: Text(
-                      filterCetegoryList[index],
+                      provider.filterCetegoryList(context)[index],
                       style: TextStyle(
-                        color: provider.selectedCategory == filterCetegoryList[index]
+                        color: provider.selectedCategory == index
                             ? ColorConstant.instance.dark0
                             : ColorConstant.instance.dark3,
                         fontWeight: FontWeight.w600,
@@ -107,13 +107,13 @@ class FilterBottomSheetWidgets {
     final provider = Provider.of<FilterBottomSheetViewModel>(context);
 
     switch (provider.selectedCategory) {
-      case "Sort":
+      case 0:
         return const SortFilter();
-      case "Offers":
-        return const Text("Offers");
-      case "Gender":
+      case 1:
+        return const OffersFilter();
+      case 2:
         return const GenderFilter();
-      case "Timing":
+      case 3:
         return const TimingFilter();
       default:
         return const Text("Timing");

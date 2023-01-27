@@ -18,19 +18,22 @@ class _OtpInputState extends State<OtpInput> {
   @override
   Widget build(BuildContext context) {
     return Center(
-      child: PinCodeTextField(
-        length: 4,
-        obscureText: false,
-        animationType: AnimationType.fade,
-        pinTheme: pinTheme(),
-        animationDuration: context.durationNormal,
-        enableActiveFill: true,
-        controller: textEditingController,
-        onCompleted: onComplated,
-        onChanged: onChanged,
-        beforeTextPaste: beforeTextPaste,
-        appContext: context,
-        keyboardType: TextInputType.number,
+      child: SizedBox(
+        width: context.dynamicWidth(0.7),
+        child: PinCodeTextField(
+          length: 4,
+          obscureText: false,
+          animationType: AnimationType.fade,
+          pinTheme: pinTheme(),
+          animationDuration: context.durationNormal,
+          enableActiveFill: true,
+          controller: textEditingController,
+          onCompleted: onComplated,
+          onChanged: onChanged,
+          beforeTextPaste: beforeTextPaste,
+          appContext: context,
+          keyboardType: TextInputType.number,
+        ),
       ),
     );
   }

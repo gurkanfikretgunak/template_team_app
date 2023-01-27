@@ -1,47 +1,52 @@
 import 'package:flutter/material.dart';
 
-class TimingNotifier extends ChangeNotifier {
-  List<Map> timingFilterOptions = [
-    {
-      "title": "Morning",
-      "subTitle": "6.00 PM - 10.00 PM",
-      "isSelected": false,
-    },
-    {
-      "title": "Mid Day",
-      "subTitle": "6.00 PM - 10.00 PM",
-      "isSelected": false,
-    },
-    {
-      "title": "Night",
-      "subTitle": "6.00 PM - 10.00 PM",
-      "isSelected": false,
-    },
-  ];
+import '../../../../l10n/app_l10n.dart';
 
-  setChange(String title) {
-    switch (title) {
-      case "Morning":
-        timingFilterOptions[0]['isSelected'] =
-            !timingFilterOptions[0]['isSelected'];
+class TimingNotifier extends ChangeNotifier {
+  List<Map> timingFilterOptions(BuildContext context) {
+    return [
+      {
+        "title": L10n.of(context)!.morning,
+        "subTitle": L10n.of(context)!.timingValues,
+        "isSelected": false,
+      },
+      {
+        "title": L10n.of(context)!.midDay,
+        "subTitle": L10n.of(context)!.timingValues,
+        "isSelected": false,
+      },
+      {
+        "title": L10n.of(context)!.night,
+        "subTitle": L10n.of(context)!.timingValues,
+        "isSelected": false,
+      },
+    ];
+  }
+
+  setChange(int index, BuildContext context) {
+    switch (index) {
+      case 0:
+        timingFilterOptions(context)[0]['isSelected'] =
+            !timingFilterOptions(context)[0]['isSelected'];
+        notifyListeners();
+
+        break;
+      case 1:
+        timingFilterOptions(context)[1]['isSelected'] =
+            !timingFilterOptions(context)[1]['isSelected'];
         notifyListeners();
         break;
-      case "Mid Day":
-        timingFilterOptions[1]['isSelected'] =
-            !timingFilterOptions[1]['isSelected'];
-        notifyListeners();
-        break;
-      case "Night":
-        timingFilterOptions[2]['isSelected'] =
-            !timingFilterOptions[2]['isSelected'];
+      case 2:
+        timingFilterOptions(context)[2]['isSelected'] =
+            !timingFilterOptions(context)[2]['isSelected'];
         notifyListeners();
         break;
       default:
     }
   }
 
-  clear() {
-    for (var element in timingFilterOptions) {
+  clear(BuildContext context) {
+    for (var element in timingFilterOptions(context)) {
       element['isSelected'] = false;
     }
     notifyListeners();

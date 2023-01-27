@@ -36,6 +36,9 @@ class $AssetsIconsGen {
   AssetGenImage get applePay =>
       const AssetGenImage('assets/icons/apple-pay.png');
 
+  /// File path: assets/icons/apple.png
+  AssetGenImage get apple => const AssetGenImage('assets/icons/apple.png');
+
   /// File path: assets/icons/arrow_up.png
   AssetGenImage get arrowUp => const AssetGenImage('assets/icons/arrow_up.png');
 
@@ -184,6 +187,7 @@ class $AssetsIconsGen {
   List<AssetGenImage> get values => [
         addMethod,
         applePay,
+        apple,
         arrowUp,
         arrowUpArrowDown,
         back,
@@ -309,6 +313,10 @@ class $AssetsImagesOnboardingGen {
 class $AssetsImagesShopGen {
   const $AssetsImagesShopGen();
 
+  /// File path: assets/images/shop/barber_shop.jpg
+  AssetGenImage get barberShop =>
+      const AssetGenImage('assets/images/shop/barber_shop.jpg');
+
   /// File path: assets/images/shop/home_shop_1.png
   AssetGenImage get homeShop1 =>
       const AssetGenImage('assets/images/shop/home_shop_1.png');
@@ -320,6 +328,10 @@ class $AssetsImagesShopGen {
   /// File path: assets/images/shop/offer.png
   AssetGenImage get offer =>
       const AssetGenImage('assets/images/shop/offer.png');
+
+  /// File path: assets/images/shop/paypal_check.png
+  AssetGenImage get paypalCheck =>
+      const AssetGenImage('assets/images/shop/paypal_check.png');
 
   /// File path: assets/images/shop/shop_1.jpg
   AssetGenImage get shop1 =>
@@ -381,11 +393,21 @@ class $AssetsImagesShopGen {
   AssetGenImage get shopDetail9 =>
       const AssetGenImage('assets/images/shop/shop_detail_9.png');
 
+  /// File path: assets/images/shop/shopping.jpg
+  AssetGenImage get shopping =>
+      const AssetGenImage('assets/images/shop/shopping.jpg');
+
+  /// File path: assets/images/shop/visa_check.png
+  AssetGenImage get visaCheck =>
+      const AssetGenImage('assets/images/shop/visa_check.png');
+
   /// List of all assets
   List<AssetGenImage> get values => [
+        barberShop,
         homeShop1,
         homeShop2,
         offer,
+        paypalCheck,
         shop1,
         shop2,
         shop3,
@@ -400,7 +422,9 @@ class $AssetsImagesShopGen {
         shopDetail6,
         shopDetail7,
         shopDetail8,
-        shopDetail9
+        shopDetail9,
+        shopping,
+        visaCheck
       ];
 }
 

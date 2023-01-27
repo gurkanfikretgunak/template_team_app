@@ -5,6 +5,9 @@ import 'package:client/core/constans/color_constants.dart';
 import 'package:client/core/constans/text_constants.dart';
 import 'package:client/gen/assets.gen.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+
+import '../../../views/shop_detail/shop_detail.viewmodel.dart';
 
 class ShopServiceCustomListTile extends StatelessWidget {
   const ShopServiceCustomListTile({
@@ -21,7 +24,7 @@ class ShopServiceCustomListTile extends StatelessWidget {
     this.isSelected = false,
   });
   final double? imgSize;
-  final String? imgPath;
+  final Map? imgPath;
   final double? imgRadius;
   final IconData? icon;
   final String? title;
@@ -41,8 +44,8 @@ class ShopServiceCustomListTile extends StatelessWidget {
           width: imgSize ?? 75,
           height: imgSize ?? 75,
           decoration: BoxDecoration(
-            image:
-                DecorationImage(fit: BoxFit.cover, image: AssetImage(imgPath ?? Assets.images.shop.shopDetail2.path)),
+            image: DecorationImage(
+                fit: BoxFit.cover, image: AssetImage(imgPath!["image"] ?? Assets.images.shop.shopDetail2.path)),
             borderRadius: BorderRadius.all(Radius.circular(imgRadius ?? 8)),
           ),
         ),
@@ -51,14 +54,14 @@ class ShopServiceCustomListTile extends StatelessWidget {
             spacing: 8,
             direction: Axis.vertical,
             children: [
-              Text(title ?? L10n.of(context)!.haircut),
+              Text(imgPath!["name"] ?? L10n.of(context)!.haircut),
               Text(subtitle ?? '\$40'),
               Wrap(
                 crossAxisAlignment: WrapCrossAlignment.center,
                 spacing: 2,
                 children: [
                   Icon(icon ?? Icons.access_time),
-                  Text(time ?? '30 Mins'),
+                  Text(time ?? '30 ${L10n.of(context)!.mins}'),
                 ],
               )
             ],
@@ -69,20 +72,26 @@ class ShopServiceCustomListTile extends StatelessWidget {
             : SizedBox(
                 width: 100,
                 height: 35,
-                child: CustomOutlinedButton(
-                  onPressed: () {},
-                  child: Center(
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Text(
-                          L10n.of(context)!.select,
-                          style: TextConstants.instance.label1.copyWith(color: ColorConstant.instance.purple2),
+                child: Consumer<ShopDetailViewModel>(
+                  builder: (context, value, child) {
+                    return CustomOutlinedButton(
+                      onPressed: () {
+                        value.selectedShopCard(40);
+                      },
+                      child: Center(
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Text(
+                              L10n.of(context)!.select,
+                              style: TextConstants.instance.label1.copyWith(color: ColorConstant.instance.purple2),
+                            ),
+                            Icon(Icons.add, color: ColorConstant.instance.purple2),
+                          ],
                         ),
-                        Icon(Icons.add, color: ColorConstant.instance.purple2),
-                      ],
-                    ),
-                  ),
+                      ),
+                    );
+                  },
                 ),
               ),
       ],

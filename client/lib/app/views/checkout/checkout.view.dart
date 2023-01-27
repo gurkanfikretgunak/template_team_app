@@ -1,4 +1,5 @@
 import 'package:client/app/views/checkout/checkout.widgets.dart';
+import 'package:client/app/views/checkout/widgets/checkout_body.dart';
 import 'package:client/core/base/base_view/base_view.dart';
 import 'package:flutter/material.dart';
 
@@ -17,7 +18,7 @@ class CheckoutView extends BaseView with CheckoutWidgets {
       context,
       error: backendError(),
       appbar: appBar(context),
-      body: body(context),
+      body: const CheckoutBodyWidget(),
       errorBody: const Text('errorrrr'),
     );
   }

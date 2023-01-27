@@ -1,6 +1,7 @@
 import 'package:client/app/routes/routes_widgets.dart';
 import 'package:client/app/views/home/home.viewmodel.dart';
 import 'package:client/app/views/shop/shop_card_widget.dart';
+import 'package:client/app/views/shop/widget/list_shop.dart';
 import 'package:client/core/constans/color_constants.dart';
 import 'package:client/core/constans/text_constants.dart';
 import 'package:client/core/extensions/common_extension.dart';
@@ -25,11 +26,12 @@ class ShopHomeWidgets {
                 cardHeight: 260,
                 cardWidth: context.dynamicWidth(0.3),
                 imageWidth: 500,
+                shopModel: MockShop.bookingList(context)[index],
               ),
             ),
           );
         },
-        childCount: 4,
+        childCount: 3,
       ),
     );
   }

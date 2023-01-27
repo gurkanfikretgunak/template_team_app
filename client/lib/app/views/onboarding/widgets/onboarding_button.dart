@@ -36,8 +36,7 @@ class OnboardingButton extends StatelessWidget {
                     );
                     provider.currentIndex = provider.currentIndex + 1;
                   },
-                  //L10 a aktarılacak
-                  text: 'Next',
+                  text: L10n.of(context)!.next,
                   borderSideColor: ButtonColor.light,
                   buttonSize: ButtonSize.large,
                 ),
