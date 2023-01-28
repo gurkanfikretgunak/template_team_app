@@ -44,7 +44,8 @@ class TabBarViewTypeLabel {
             title: 'Cosmo Life ${L10n.of(context)!.beautyCentre}',
             location: 'Yalı Evleri',
             distance: '5.0 Kms',
-            desc: ' ${L10n.of(context)!.haircut} x 1 +  ${L10n.of(context)!.shave} x 1',
+            desc:
+                ' ${L10n.of(context)!.haircut} x 1 +  ${L10n.of(context)!.shave} x 1',
             date: '8 Mar 2021',
             price: '\$102',
             isCancel: false,

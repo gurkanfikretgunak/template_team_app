@@ -3,8 +3,6 @@ import 'package:client/app/views/shop/widget/list_shop.dart';
 import 'package:client/core/base/base_view/base_view.dart';
 import 'package:flutter/material.dart';
 
-import '../bookings/widgets/list_booking.dart';
-
 class BookingDetailView extends BaseView with BookingDetailWidgets {
   const BookingDetailView(this.error, {super.key});
 

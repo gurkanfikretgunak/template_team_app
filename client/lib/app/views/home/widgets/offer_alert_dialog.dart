@@ -1,7 +1,5 @@
 import 'package:client/app/views/filter_bottom_sheet/widgets/offers/offer_notifier.dart';
-import 'package:client/app/views/home/home.viewmodel.dart';
 import 'package:client/app/widgets/inputs/inputs_widgets.dart';
-import 'package:client/app/widgets/inputs/widgets/radio_button/custom_radio_button.dart';
 import 'package:client/core/extensions/common_extension.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';

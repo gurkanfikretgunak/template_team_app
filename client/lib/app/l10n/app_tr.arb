@@ -165,7 +165,7 @@
     "office":"Ofis",
     "addressTitle":"Adres başlığı",
     "deleteAddress":"Adres silindi!",
-    "registeredAddress":"Bu adres zaten kayıtlı"
+    "registeredAddress":"Bu adres zaten kayıtlı",
     "clayMask" : "Kil Maskesi",
     "skinCare" : "Cilt Bakımı", 
     "massage" :"Masaj"

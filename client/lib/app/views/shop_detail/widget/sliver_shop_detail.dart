@@ -45,67 +45,71 @@ class _SliverShopDetailWidgetState extends State<SliverShopDetailWidget> {
     return CustomScrollView(
       controller: _scrollDetailController,
       slivers: <Widget>[
-        SliverAppBar(
-          leading: BackButton(
-            color: _textColor,
-            onPressed: () {
-              Navigator.pop(context);
-            },
-          ),
-          actions: [
-            GestureDetector(
-              onTap: () {
-                Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                        builder: (context) => const SearchBarWidget()));
-              },
-              child: Image.asset(
-                Assets.icons.search.path,
-                color: _textColor,
-              ),
-            )
-          ],
-          pinned: true,
-          snap: false,
-          floating: true,
-          expandedHeight: 180.0,
-          forceElevated: true,
-          bottom: AppBar(
-            automaticallyImplyLeading: false,
-            centerTitle: false,
-            backgroundColor: Colors.transparent,
-            toolbarHeight: 100.0,
-            title: SizedBox(
-              height: 80,
-              child: ShopCardWidgets().shopInformation(
-                context,
-                widget.shopModel.title,
-                widget.shopModel.location,
-                widget.shopModel.price,
-                widget.shopModel.title,
-                widget.shopModel.distance,
-                isColor!,
-              ),
-            ),
-          ),
-          flexibleSpace: FlexibleSpaceBar(
-            centerTitle: false,
-            titlePadding: const EdgeInsetsDirectional.only(
-                start: 10.0, bottom: 10.0, end: 50),
-            background: Stack(
-              children: [
-                SizedBox(
-                    width: context.width,
-                    child: Image.asset(Assets.images.shop.homeShop1.path,
-                        fit: BoxFit.cover)),
-              ],
-            ),
-          ),
-        ),
+        sliverAppBar(context),
         ShopDetailWidgets().shopDetailBody(context, widget.shopModel),
         ShopDetailWidgets().buildTabbarView(context)
       ],
+    );
+  }
+
+  Widget sliverAppBar(BuildContext context) {
+    return SliverAppBar(
+      leading: BackButton(
+        color: _textColor,
+        onPressed: () {
+          Navigator.pop(context);
+        },
+      ),
+      actions: [
+        GestureDetector(
+          onTap: () {
+            Navigator.push(
+                context,
+                MaterialPageRoute(
+                    builder: (context) => const SearchBarWidget()));
+          },
+          child: Image.asset(
+            Assets.icons.search.path,
+            color: _textColor,
+          ),
+        )
+      ],
+      pinned: true,
+      snap: false,
+      floating: true,
+      expandedHeight: 180.0,
+      forceElevated: true,
+      bottom: AppBar(
+        automaticallyImplyLeading: false,
+        centerTitle: false,
+        backgroundColor: Colors.transparent,
+        toolbarHeight: 100.0,
+        title: SizedBox(
+          height: 80,
+          child: ShopCardWidgets().shopInformation(
+            context,
+            widget.shopModel.title,
+            widget.shopModel.location,
+            widget.shopModel.price,
+            widget.shopModel.title,
+            widget.shopModel.distance,
+            isColor!,
+          ),
+        ),
+      ),
+      flexibleSpace: FlexibleSpaceBar(
+        centerTitle: false,
+        titlePadding: const EdgeInsetsDirectional.only(
+            start: 10.0, bottom: 10.0, end: 50),
+        background: Stack(
+          children: [
+            SizedBox(
+                width: context.width,
+                child: Image.asset(Assets.images.shop.homeShop1.path,
+                    fit: BoxFit.cover)),
+          ],
+        ),
+      ),
     );
   }
 }

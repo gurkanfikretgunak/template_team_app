@@ -42,7 +42,8 @@ class CheckoutButton extends StatelessWidget {
                           height: context.dynamicHeight(0.05),
                           decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(4),
-                            border: Border.all(color: ColorConstant.instance.light1),
+                            border: Border.all(
+                                color: ColorConstant.instance.light1),
                           ),
                           child: Column(
                             mainAxisSize: MainAxisSize.min,
@@ -57,16 +58,19 @@ class CheckoutButton extends StatelessWidget {
                           direction: Axis.vertical,
                           children: [
                             Text('\$${totalPrice?.toStringAsFixed(2)}',
-                                style: TextConstants.instance.button1.copyWith(color: ColorConstant.instance.light4)),
+                                style: TextConstants.instance.button1.copyWith(
+                                    color: ColorConstant.instance.light4)),
                             Text(L10n.of(context)!.plusTaxes,
-                                style:
-                                    TextConstants.instance.paragraph2.copyWith(color: ColorConstant.instance.light4)),
+                                style: TextConstants.instance.paragraph2
+                                    .copyWith(
+                                        color: ColorConstant.instance.light4)),
                           ],
                         )
                       ],
                     ),
                     Text(L10n.of(context)!.continueShop,
-                        style: TextConstants.instance.button1.copyWith(color: ColorConstant.instance.light4)),
+                        style: TextConstants.instance.button1
+                            .copyWith(color: ColorConstant.instance.light4)),
                   ],
                 ),
               ),

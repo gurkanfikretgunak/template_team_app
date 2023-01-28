@@ -1,5 +1,4 @@
 import 'package:client/app/l10n/app_l10n.dart';
-import 'package:client/app/views/home/widgets/location_alert_dialog.dart';
 import 'package:client/app/widgets/buttons/widgets/chip_button.dart';
 import 'package:client/app/widgets/image_viewer/icons/icons_widgets.dart';
 import 'package:client/core/base/base_view/base_view.dart';
