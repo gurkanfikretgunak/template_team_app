@@ -516,4 +516,10 @@ class L10nTr extends L10n {
 
   @override
   String get close => 'Kapat';
+
+  @override
+  String get deletePayment => 'Ödemeyi silmek istediğinizden emin misiniz?';
+
+  @override
+  String get isDelete => 'Ödeme silinsin mi?';
 }

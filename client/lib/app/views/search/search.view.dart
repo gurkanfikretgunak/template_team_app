@@ -19,7 +19,7 @@ class SearchView extends BaseView with SearchWidgets {
       context,
       error: backendError(),
       appbar: CustomAppbar(
-        title: L10n.of(context)!.search,
+        leading: Text(L10n.of(context)!.search),
       ),
       body: searchBody(context),
       errorBody: const Text('errorrrr'),

@@ -1118,6 +1118,18 @@ abstract class L10n {
   /// In en, this message translates to:
   /// **'Close'**
   String get close;
+
+  /// No description provided for @deletePayment.
+  ///
+  /// In en, this message translates to:
+  /// **'Are you sure want to delete this payment?'**
+  String get deletePayment;
+
+  /// No description provided for @isDelete.
+  ///
+  /// In en, this message translates to:
+  /// **'Delete the payment'**
+  String get isDelete;
 }
 
 class _L10nDelegate extends LocalizationsDelegate<L10n> {

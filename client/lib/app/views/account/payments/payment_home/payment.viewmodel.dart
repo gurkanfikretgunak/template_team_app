@@ -1,7 +1,6 @@
-// ignore_for_file: prefer_const_constructors
-
 import 'package:client/app/l10n/app_l10n.dart';
 import 'package:client/app/views/account/payments/add_card/widgets/add_payment_bottom_sheet.dart';
+import 'package:client/app/views/account/widgets/alert_bottom_sheet.dart';
 import 'package:client/app/widgets/buttons/buttons_widgets.dart';
 import 'package:client/app/widgets/custom_bottom_sheet.dart';
 import 'package:client/core/base/view_model/base_view_model.dart';
@@ -15,7 +14,9 @@ class PaymentViewModel extends BaseViewModel {
         "icon": Assets.icons.applePay.path,
         "title": L10n.of(context)!.applePay,
         "trailing": CustomTextButton(
-            onPressed: () {},
+            onPressed: () {
+              deleteBottomSheet(context);
+            },
             text: L10n.of(context)!.remove,
             color: ButtonColor.red),
         "onTap": () {},
@@ -30,7 +31,9 @@ class PaymentViewModel extends BaseViewModel {
         "icon": Assets.icons.creditCard.path,
         "title": "4153 xxxx xxxxx 0981",
         "trailing": CustomTextButton(
-            onPressed: () {},
+            onPressed: () {
+              deleteBottomSheet(context);
+            },
             text: L10n.of(context)!.remove,
             color: ButtonColor.red),
         "onTap": () {},
@@ -42,10 +45,22 @@ class PaymentViewModel extends BaseViewModel {
         "onTap": () {
           CustomBottomSheet.buildCustomBottomSheet(
             context: context,
-            widget: AddPaymentBottomSheet(),
+            widget: const AddPaymentBottomSheet(),
           );
         },
       },
     ];
+  }
+
+  deleteBottomSheet(BuildContext context) {
+    return CustomBottomSheet.buildCustomBottomSheet(
+      context: context,
+      widget: AlertBottomSheet(
+        title: L10n.of(context)!.isDelete,
+        subTitle: L10n.of(context)!.deletePayment,
+        redButtonText: L10n.of(context)!.delete,
+        whiteButtonText: L10n.of(context)!.cancel,
+      ),
+    );
   }
 }

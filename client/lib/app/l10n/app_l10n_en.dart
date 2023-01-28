@@ -516,4 +516,10 @@ class L10nEn extends L10n {
 
   @override
   String get close => 'Close';
+
+  @override
+  String get deletePayment => 'Are you sure want to delete this payment?';
+
+  @override
+  String get isDelete => 'Delete the payment';
 }

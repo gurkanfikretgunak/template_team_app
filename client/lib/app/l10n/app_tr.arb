@@ -171,13 +171,9 @@
     "massage" :"Masaj",
     "isCancelBooking" : "Randevu iptal edilsin mi?",
     "isCancelBookingDesc":"Bu randevuyu iptal etmek istediğinizden emin misiniz?", 
-    "close" : "Kapat"
-
-
-
-
-
-
+    "close" : "Kapat",
+     "deletePayment" : "Ödemeyi silmek istediğinizden emin misiniz?",
+    "isDelete" : "Ödeme silinsin mi?"
 
 
  }
