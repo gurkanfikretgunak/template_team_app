@@ -25,7 +25,6 @@ class ShopDetailViewModel extends BaseViewModel {
     selectedShop = true;
     totalPrice = totalPrice + price;
     itemCount += 1;
-
     notifyListeners();
   }
 
@@ -64,8 +63,6 @@ class ShopDetailViewModel extends BaseViewModel {
         "icon": Icons.share,
         "text": L10n.of(context)!.share,
         "onTap": () {
-          String text = '';
-          String subject = '';
           Share.share("check out my website", subject: "Look what i made");
         },
       },

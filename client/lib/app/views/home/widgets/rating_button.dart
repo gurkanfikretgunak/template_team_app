@@ -5,7 +5,6 @@ import 'package:client/app/widgets/image_viewer/icons/icons_widgets.dart';
 import 'package:client/core/base/base_view/base_view.dart';
 import 'package:client/core/constans/color_constants.dart';
 import 'package:client/core/constans/text_constants.dart';
-import 'package:client/core/extensions/common_extension.dart';
 import 'package:client/gen/assets.gen.dart';
 import 'package:flutter/material.dart';
 

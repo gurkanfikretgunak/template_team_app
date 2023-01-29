@@ -7,4 +7,4 @@ export 'widgets/booking_card.dart';
 export '../list_items/widgets/payment_tile.dart';
 export '../list_items/widgets/search_results_tile.dart';
 export '../list_items/widgets/shop_promo_tile.dart';
-export '../list_items/widgets/shop_service_custom_list_tile.dart';
+export '../../views/shop_detail/widget/shop_service_custom_list_tile.dart';

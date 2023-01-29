@@ -1,7 +1,7 @@
 import 'package:client/core/model/booking_model.dart';
 import 'package:flutter/material.dart';
-import '../../../gen/assets.gen.dart';
-import '../../widgets/inputs/widgets/shop_cards/shop_card.dart';
+import '../../../../gen/assets.gen.dart';
+import '../../../widgets/inputs/widgets/shop_cards/shop_card.dart';
 
 class ShopSpeacialCard extends StatelessWidget {
   const ShopSpeacialCard({

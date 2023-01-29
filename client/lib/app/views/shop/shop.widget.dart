@@ -1,6 +1,6 @@
 import 'package:client/app/routes/routes_widgets.dart';
 import 'package:client/app/views/home/home.viewmodel.dart';
-import 'package:client/app/views/shop/shop_card_widget.dart';
+import 'package:client/app/views/shop/widget/shop_card_widget.dart';
 import 'package:client/app/views/shop/widget/list_shop.dart';
 import 'package:client/core/constans/color_constants.dart';
 import 'package:client/core/constans/text_constants.dart';
@@ -47,18 +47,22 @@ class ShopHomeWidgets {
         children: [
           CustomIcon(
               imagePath: Assets.icons.location.path,
-              iconColor: isLight ? ColorConstant.instance.light4 : ColorConstant.instance.dark0),
+              iconColor: isLight
+                  ? ColorConstant.instance.light4
+                  : ColorConstant.instance.dark0),
           DropdownButton<String>(
             dropdownColor: ColorConstant.instance.light0,
             value: provider.ddLocationValue,
             icon: const Icon(Icons.keyboard_arrow_down_outlined),
             elevation: 16,
-            style: TextConstants.instance.button1.copyWith(color: ColorConstant.instance.dark0),
+            style: TextConstants.instance.button1
+                .copyWith(color: ColorConstant.instance.dark0),
             underline: Container(height: 0),
             onChanged: (String? value) {
               provider.ddLocationValue = value!;
             },
-            items: provider.locationList.map<DropdownMenuItem<String>>((String value) {
+            items: provider.locationList
+                .map<DropdownMenuItem<String>>((String value) {
               return DropdownMenuItem<String>(
                 value: value,
                 child: Text(

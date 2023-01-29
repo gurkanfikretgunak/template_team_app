@@ -1,5 +1,4 @@
 import 'package:client/app/l10n/app_l10n.dart';
-import 'package:client/app/views/shop_detail/widget/shop_tile.dart';
 import 'package:client/core/extensions/common_extension.dart';
 import 'package:flutter/material.dart';
 
