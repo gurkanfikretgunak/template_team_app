@@ -1,3 +1,5 @@
+import 'package:client/core/constans/color_constants.dart';
+import 'package:client/core/extensions/common_extension.dart';
 import 'package:flutter/material.dart';
 
 class CustomCard extends StatelessWidget {
@@ -31,7 +33,10 @@ class CustomCard extends StatelessWidget {
       color: color,
       shadowColor: shadowColor,
       shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(12),
+        borderRadius: context.lowBorderRadius,
+        side: BorderSide(
+            width: 1.3,
+            color: borderSideColor ?? ColorConstant.instance.transparent),
       ),
       child: SizedBox(
         width: width,

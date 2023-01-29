@@ -168,6 +168,6 @@
     "office":"Office",
     "addressTitle":"Address Title",
     "deleteAddress":"Address deleted!",
-    "registeredAddress":"This address is already registered"
+    "registeredAddress":"This address is already registered",
     "massage" :"Massage"
 }

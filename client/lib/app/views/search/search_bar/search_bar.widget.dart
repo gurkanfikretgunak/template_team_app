@@ -1,12 +1,12 @@
 import 'package:client/app/routes/routes_widgets.dart';
-import 'package:client/app/views/home/home.widgets.dart';
-import 'package:client/app/widgets/divider/widgets/custom_divider.dart';
+import 'package:client/app/widgets/divider/divider_widgets.dart';
 import 'package:client/app/widgets/image_viewer/icons/widgets/custom_icons.dart';
 import 'package:client/app/widgets/inputs/widgets/search_field/search_field_notification.dart';
 import 'package:client/core/constans/text_constants.dart';
 import 'package:client/core/extensions/common_extension.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+// ignore: import_of_legacy_library_into_null_safe
 import 'package:shared_preferences/shared_preferences.dart';
 import '../../../../core/constans/color_constants.dart';
 import '../../../../gen/assets.gen.dart';
@@ -62,7 +62,8 @@ class _SearchBarWidgetState extends State<SearchBarWidget> {
       results = _mockDatas(context);
     } else {
       results = _mockDatas(context)
-          .where((user) => user["name"].toLowerCase().contains(enteredKeyword.toLowerCase()))
+          .where((user) =>
+              user["name"].toLowerCase().contains(enteredKeyword.toLowerCase()))
           .toList();
     }
     setState(() {
@@ -142,14 +143,18 @@ class _SearchBarWidgetState extends State<SearchBarWidget> {
                       children: [
                         GestureDetector(
                           onTap: () {
-                            Navigator.push(context, MaterialPageRoute(builder: (context) => const ShopView()));
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => const ShopView()));
                           },
                           child: Card(
                             elevation: 0,
                             key: ValueKey(_foundUsers[index]["id"]),
                             child: ListTile(
                               leading: ClipRRect(
-                                borderRadius: const BorderRadius.all(Radius.circular(5)),
+                                borderRadius:
+                                    const BorderRadius.all(Radius.circular(5)),
                                 child: Image.asset(
                                   _foundUsers[index]["image"],
                                   fit: BoxFit.fill,
@@ -159,7 +164,8 @@ class _SearchBarWidgetState extends State<SearchBarWidget> {
                                 _foundUsers[index]['name'],
                                 style: TextConstants.instance.button1,
                               ),
-                              subtitle: Text(_foundUsers[index]["age"].toString()),
+                              subtitle:
+                                  Text(_foundUsers[index]["age"].toString()),
                             ),
                           ),
                         ),
