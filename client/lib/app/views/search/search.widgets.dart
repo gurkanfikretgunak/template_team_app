@@ -37,25 +37,22 @@ class SearchWidgets {
             const SizedBox(
               height: 30,
             ),
-            SizedBox(
-              width: 100,
-              height: 50,
-              child: ListView.builder(
-                  itemCount: provider.deneme.length,
-                  itemBuilder: (context, index) {
-                    return Row(
-                      children: [
-                        Image.asset(
-                          Assets.icons.search.path,
-                          color: ColorConstant.instance.dark3,
-                        ),
-                        context.emptySizedWidthBoxNormal,
-                        Text(provider.deneme[index],
-                            style: TextConstants.instance.button1.copyWith(color: ColorConstant.instance.dark3))
-                      ],
-                    );
-                  }),
-            ),
+            ListView.builder(
+                shrinkWrap: true,
+                itemCount: provider.deneme.length,
+                itemBuilder: (context, index) {
+                  return Row(
+                    children: [
+                      Image.asset(
+                        Assets.icons.search.path,
+                        color: ColorConstant.instance.dark3,
+                      ),
+                      context.emptySizedWidthBoxNormal,
+                      Text(provider.deneme[index],
+                          style: TextConstants.instance.button1.copyWith(color: ColorConstant.instance.dark3))
+                    ],
+                  );
+                }),
             const CustomDivider(type: DividerType.normal),
             categoryTitle(title: L10n.of(context)!.trendingNearYou, context: context, buttonText: ""),
             GestureDetector(

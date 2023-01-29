@@ -1,4 +1,5 @@
 import 'package:client/app/l10n/app_l10n.dart';
+import 'package:client/app/views/bookings/bookings.viewmodel.dart';
 import 'package:client/app/views/shop_detail/shop_detail.viewmodel.dart';
 import 'package:client/app/views/shop_detail/widget/offer_box.dart';
 import 'package:client/app/views/shop_detail/widget/tabbar_view/face_care.dart';
@@ -118,6 +119,7 @@ class ShopDetailWidgets {
             IconButton(
                 onPressed: () {
                   value.favShopDetail(shopModel, !favoriteShopDetail);
+                  print(BookingViewModel().isFavorite(shopModel));
                 },
                 icon: AnimatedCrossFade(
                   firstChild: Icon(
@@ -129,7 +131,8 @@ class ShopDetailWidgets {
                     Icons.favorite_border,
                     size: 30,
                   ),
-                  crossFadeState: favoriteShopDetail ? CrossFadeState.showFirst : CrossFadeState.showSecond,
+                  crossFadeState:
+                      BookingViewModel().isFavorite(shopModel) ? CrossFadeState.showFirst : CrossFadeState.showSecond,
                   duration: const Duration(seconds: 1),
                 )),
             context.emptySizedHeightBoxLow,

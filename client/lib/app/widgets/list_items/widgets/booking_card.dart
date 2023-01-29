@@ -13,18 +13,13 @@ import '../../../routes/navigation_service.dart';
 import '../../../routes/routes.dart';
 import '../../../views/account/widgets/alert_bottom_sheet.dart';
 
-class BookingCard extends StatefulWidget {
+class BookingCard extends StatelessWidget {
   const BookingCard({
     super.key,
     required this.booking,
   });
   final BookingModel booking;
 
-  @override
-  State<BookingCard> createState() => _BookingCardState();
-}
-
-class _BookingCardState extends State<BookingCard> {
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -37,25 +32,25 @@ class _BookingCardState extends State<BookingCard> {
               direction: Axis.vertical,
               spacing: 4,
               children: [
-                Text(widget.booking.title!,
+                Text(booking.title!,
                     style: TextConstants.instance.label1.copyWith(fontWeight: FontWeight.w600, fontSize: 16)),
                 Row(
                   children: [
-                    Text(widget.booking.location!,
+                    Text(booking.location!,
                         style: TextConstants.instance.subtitle2.copyWith(color: ColorConstant.instance.dark3)),
                     const DotIconWidget(),
-                    Text(widget.booking.distance!,
+                    Text(booking.distance!,
                         style: TextConstants.instance.subtitle2.copyWith(color: ColorConstant.instance.dark3)),
                   ],
                 ),
-                Text(widget.booking.desc!,
+                Text(booking.desc!,
                     style: TextConstants.instance.subtitle2.copyWith(color: ColorConstant.instance.dark3)),
                 Row(
                   children: [
-                    Text(widget.booking.date!,
+                    Text(booking.date!,
                         style: TextConstants.instance.subtitle1.copyWith(color: ColorConstant.instance.dark3)),
                     const DotIconWidget(),
-                    Text(widget.booking.price!,
+                    Text(booking.price!,
                         style: TextConstants.instance.subtitle1.copyWith(color: ColorConstant.instance.dark3)),
                   ],
                 ),
@@ -65,11 +60,11 @@ class _BookingCardState extends State<BookingCard> {
               children: [
                 Consumer<BookingViewModel>(
                   builder: (context, value, child) {
-                    bool favoriteMovies = value.isFavorite(widget.booking);
+                    bool favoriteMovies = value.isFavorite(booking);
 
                     return IconButton(
                         onPressed: () {
-                          value.favBooking(widget.booking, !favoriteMovies);
+                          value.favBooking(booking, !favoriteMovies);
                         },
                         icon: AnimatedCrossFade(
                           firstChild: Icon(
@@ -91,8 +86,8 @@ class _BookingCardState extends State<BookingCard> {
             child: Row(
               children: [
                 Expanded(
-                  flex: widget.booking.isCancel! ? 2 : 4,
-                  child: widget.booking.isCancel!
+                  flex: booking.isCancel! ? 2 : 4,
+                  child: booking.isCancel!
                       ? CustomOutlinedButton(
                           onPressed: () {
                             CustomBottomSheet.buildCustomBottomSheet(
