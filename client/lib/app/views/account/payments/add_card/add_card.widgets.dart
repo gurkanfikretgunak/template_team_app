@@ -1,10 +1,7 @@
 import 'package:client/app/l10n/app_l10n.dart';
 import 'package:client/app/widgets/buttons/buttons_widgets.dart';
-import 'package:client/app/widgets/image_viewer/icons/widgets/custom_icons.dart';
-import 'package:client/app/widgets/image_viewer/icons/widgets/icon_size.dart';
 import 'package:client/app/widgets/inputs/inputs_widgets.dart';
 import 'package:client/core/extensions/common_extension.dart';
-import 'package:client/gen/assets.gen.dart';
 import 'package:flutter/material.dart';
 
 class AddCardWidgets {
