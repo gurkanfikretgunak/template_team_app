@@ -5,18 +5,21 @@ import 'package:client/core/constans/color_constants.dart';
 import 'package:client/core/constans/text_constants.dart';
 import 'package:client/core/extensions/common_extension.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 class ServicesGridView extends StatelessWidget {
   const ServicesGridView({super.key});
 
   @override
   Widget build(BuildContext context) {
+    final provider = Provider.of<HomeViewModel>(context);
+
     return GestureDetector(
       onTap: () {
         NavigationService.instance.navigateToPage(Routes.shop.name);
       },
       child: GridView.builder(
-        itemCount: HomeViewModel().beautyServiceList(context).length,
+        itemCount: HomeViewModel().buildShopCardImage(provider.ddLocationValue, context).length,
         physics: const NeverScrollableScrollPhysics(),
         shrinkWrap: true,
         gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
@@ -25,7 +28,7 @@ class ServicesGridView extends StatelessWidget {
           crossAxisSpacing: context.lowValue,
         ),
         itemBuilder: (context, index) {
-          var key = HomeViewModel().beautyServiceList(context)[index];
+          var key = HomeViewModel().buildShopCardImage(provider.ddLocationValue, context)[index];
 
           return FittedBox(
             child: Center(
@@ -33,10 +36,8 @@ class ServicesGridView extends StatelessWidget {
                 children: [
                   Container(
                       decoration: BoxDecoration(
-                        borderRadius:
-                            const BorderRadius.all(Radius.circular(100)),
-                        border: Border.all(
-                            width: 2, color: ColorConstant.instance.purple2),
+                        borderRadius: const BorderRadius.all(Radius.circular(100)),
+                        border: Border.all(width: 2, color: ColorConstant.instance.purple2),
                       ),
                       child: CustomImageViewer(assetPath: key['image'])),
                   SizedBox(
