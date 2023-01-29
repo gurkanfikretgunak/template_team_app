@@ -4,7 +4,7 @@ import 'package:client/app/views/shop_detail/widget/offer_box.dart';
 import 'package:client/app/views/shop_detail/widget/tabbar_view/face_care.dart';
 import 'package:client/app/views/shop_detail/widget/tabbar_view/haircut.dart';
 import 'package:client/app/views/shop_detail/widget/tabbar_view/packages.dart';
-import 'package:client/app/views/shop_detail/widget/tabbar_view/recommended.dart';
+import 'package:client/app/views/shop_detail/widget/tabbar_view/recommended/recommended.dart';
 import 'package:client/app/widgets/buttons/buttons_widgets.dart';
 import 'package:client/app/widgets/divider/divider_widgets.dart';
 import 'package:client/core/constans/color_constants.dart';
@@ -129,7 +129,9 @@ class ShopDetailWidgets {
                     Icons.favorite_border,
                     size: 30,
                   ),
-                  crossFadeState: favoriteShopDetail ? CrossFadeState.showFirst : CrossFadeState.showSecond,
+                  crossFadeState: favoriteShopDetail
+                      ? CrossFadeState.showFirst
+                      : CrossFadeState.showSecond,
                   duration: const Duration(seconds: 1),
                 )),
             context.emptySizedHeightBoxLow,
@@ -226,7 +228,8 @@ class ShopDetailWidgets {
                 },
                 child: Chip(
                   backgroundColor: ColorConstant.instance.light2,
-                  shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(5)),
+                  shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(5)),
                   label: Text(
                     list[index],
                     style: TextStyle(

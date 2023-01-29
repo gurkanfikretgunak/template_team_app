@@ -24,7 +24,6 @@ class ShopDetailViewModel extends BaseViewModel {
     selectedShop = true;
     totalPrice = totalPrice + price;
     itemCount += 1;
-
     notifyListeners();
   }
 
@@ -48,7 +47,9 @@ class ShopDetailViewModel extends BaseViewModel {
       {
         "icon": Icons.location_on_outlined,
         "text": L10n.of(context)!.directions,
-        "onTap": () {},
+        "onTap": () {
+          launch('https://maps.google.com/?q=37.4219999,-122.0840575');
+        },
       },
       {
         "icon": Icons.call,
@@ -58,18 +59,9 @@ class ShopDetailViewModel extends BaseViewModel {
         },
       },
       {
-        "icon": Icons.location_on_outlined,
-        "text": L10n.of(context)!.directions,
-        "onTap": () {
-          launch('https://maps.google.com/?q=37.4219999,-122.0840575');
-        },
-      },
-      {
         "icon": Icons.share,
         "text": L10n.of(context)!.share,
         "onTap": () {
-          String text = '';
-          String subject = '';
           Share.share("check out my website", subject: "Look what i made");
         },
       },
