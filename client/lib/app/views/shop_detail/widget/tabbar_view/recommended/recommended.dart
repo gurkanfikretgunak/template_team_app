@@ -12,7 +12,7 @@ class RecommendedView extends StatelessWidget {
     RecommendedViewModel vm = RecommendedViewModel();
     return SliverList(
       delegate: SliverChildBuilderDelegate(
-        childCount: vm.recommendList.length,
+        childCount: vm.recommendList(context).length,
         (context, index) {
           return Column(
             children: [
@@ -21,7 +21,7 @@ class RecommendedView extends StatelessWidget {
                 child: Padding(
                   padding: context.paddingNormal,
                   child: ShopServiceCustomListTile(
-                    shopService: vm.recommendList[index],
+                    shopService: vm.recommendList(context)[index],
                     index: index,
                   ),
                 ),

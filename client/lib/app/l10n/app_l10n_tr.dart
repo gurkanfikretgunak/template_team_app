@@ -467,7 +467,7 @@ class L10nTr extends L10n {
   String get day => 'Gün';
 
   @override
-  String get am => 'SABAH';
+  String get am => '';
 
   @override
   String get couponCode => 'Kupon Kodu';

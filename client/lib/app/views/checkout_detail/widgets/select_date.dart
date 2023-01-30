@@ -1,3 +1,4 @@
+import 'package:client/app/views/checkout_detail/checkout_detail.viewmodel.dart';
 import 'package:client/app/widgets/list_items/list_items_widget.dart';
 import 'package:client/app/widgets/system_ui_overlay/payment_select/bottom_sheet.widget.dart';
 import 'package:client/app/widgets/system_ui_overlay/payment_select/custom_bottom_sheet.dart';
@@ -6,17 +7,38 @@ import 'package:client/core/constans/color_constants.dart';
 import 'package:client/core/extensions/common_extension.dart';
 import 'package:client/gen/assets.gen.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 import '../../../l10n/app_l10n.dart';
+import '../../../routes/navigation_service.dart';
+import '../../../routes/routes.dart';
 
 class SelectDate extends StatelessWidget {
   const SelectDate({super.key});
 
   @override
   Widget build(BuildContext context) {
+    final provider = Provider.of<CheckoutDetailViewModel>(context);
+
     List<Payments> payments = [Payments.apple, Payments.cash, Payments.visa, Payments.add];
-    List<String> paymentsName = ['Apple Pay', 'Cash', 'Visa', 'Add payment method'];
-    List<VoidCallback> paymentOnPressed = [() {}, () {}, () {}, () {}];
+    List<String> paymentsName = ['Apple Pay', 'Cash', 'Visa', L10n.of(context)!.addPaymentMehod];
+    List<VoidCallback> paymentOnPressed = [
+      () {
+        provider.paymentSelect("Apple Pay");
+        Navigator.pop(context);
+      },
+      () {
+        provider.paymentSelect("Cash");
+        Navigator.pop(context);
+      },
+      () {
+        provider.paymentSelect("Visa");
+        Navigator.pop(context);
+      },
+      () {
+        NavigationService.instance.navigateToPage(Routes.addCard.name);
+      }
+    ];
     return Wrap(
       runSpacing: 20,
       children: [
@@ -35,7 +57,7 @@ class SelectDate extends StatelessWidget {
                 ),
               );
             },
-            child: PaymentTile(customIconPath: Assets.icons.applePay.path, paymentName: 'Apple Pay')),
+            child: PaymentTile(customIconPath: provider.selectedIcon, paymentName: provider.selectedPayment)),
       ],
     );
   }

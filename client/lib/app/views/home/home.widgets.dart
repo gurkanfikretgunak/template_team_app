@@ -74,9 +74,7 @@ class HomeWidgets {
         padding: context.paddingNormal,
         child: Column(
           children: [
-            CustomSearchField(() {
-              Navigator.push(context, MaterialPageRoute(builder: (context) => const SearchBarWidget()));
-            }),
+            CustomSearchField(() {}),
             const FilterList(),
             categoryTitle(
               title: L10n.of(context)!.beautyServices,
