@@ -4,6 +4,8 @@ import 'package:client/core/base/base_view/base_view.dart';
 import 'package:client/core/constans/color_constants.dart';
 import 'package:client/core/extensions/common_extension.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import '../search_field/search_field_notification.dart';
 
 class CustomTextFormField extends BaseView {
   const CustomTextFormField({
@@ -61,6 +63,8 @@ class CustomTextFormField extends BaseView {
   final InputBorder? focusedBorder;
   @override
   Widget build(BuildContext context) {
+    final provider = Provider.of<SearchFieldNotifier>(context);
+
     return Wrap(
       runSpacing: 5,
       crossAxisAlignment: WrapCrossAlignment.start,
@@ -81,6 +85,9 @@ class CustomTextFormField extends BaseView {
           onChanged: onChanged,
           validator: validator,
           maxLength: maxLength,
+          onFieldSubmitted: (value) {
+            provider.searchRecently(value);
+          },
           keyboardType: KeyboardTypeLabel().keyboardType(keyboardType),
           style: TextStyle(
             color:

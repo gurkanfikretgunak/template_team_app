@@ -12,8 +12,12 @@ import 'package:client/gen/assets.gen.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
+import '../../routes/navigation_service.dart';
+import '../../routes/routes.dart';
 import '../../widgets/list_items/list_items_widget.dart';
 import '../bookings/bookings.viewmodel.dart';
+import '../checkout/checkout.view.dart';
+import '../checkout/widgets/checkout_body.dart';
 
 class BookingDetailWidgets {
   appBar(BuildContext context) {
@@ -40,7 +44,9 @@ class BookingDetailWidgets {
             SizedBox(
               width: context.dynamicWidth(1),
               child: CustomElevatedButton(
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.of(context).push(MaterialPageRoute(builder: (context) => const CheckoutView(false, true)));
+                },
                 text: L10n.of(context)!.reorderBooking,
                 textColor: ButtonColor.light,
               ),

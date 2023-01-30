@@ -167,13 +167,13 @@
     "deleteAddress":"Adres silindi!",
     "registeredAddress":"Bu adres zaten kayıtlı",
     "clayMask" : "Kil Maskesi",
-    "skinCare" : "Cilt Bakımı", 
-    "massage" :"Masaj"
-
-
-
-
-
+    "skinCare" : "Cilt Bakımı",
+    "massage" :"Masaj",
+    "isCancelBooking" : "Randevu iptal edilsin mi?",
+    "isCancelBookingDesc":"Bu randevuyu iptal etmek istediğinizden emin misiniz?", 
+    "close" : "Kapat",
+     "deletePayment" : "Ödemeyi silmek istediğinizden emin misiniz?",
+    "isDelete" : "Ödeme silinsin mi?"
 
 
  }

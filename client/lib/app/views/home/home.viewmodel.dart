@@ -1,79 +1,58 @@
 import 'package:client/app/l10n/app_l10n.dart';
 import 'package:client/core/base/view_model/base_view_model.dart';
-import 'package:client/gen/assets.gen.dart';
 import 'package:flutter/material.dart';
 
+import 'widgets/drop_down/mock_image_list.dart';
+
 class HomeViewModel extends BaseViewModel {
-  List<String> locationList = <String>[
-    'Antalya',
-    'Adana',
-    'Adıyaman',
-    'Afyon',
-    'Ağrı',
-    'Amasya',
-    'Ankara',
-  ];
-  List<String> countryList = <String>[
-    'Turkey',
-    'England',
-  ];
-  List<String> englandList = <String>[
-    'London',
-    'Oxford',
-  ];
-
-  whichCountry(country) {
-    switch (country) {
-      case "Turkey":
-        return locationList;
-      case "England":
-        return englandList;
-
-      default:
-        return locationList;
-    }
-  }
-
-  List<Map> beautyServiceList(BuildContext context) {
+  List<Map> beautyServiceList(BuildContext context, List<String> imagePath) {
     return [
       {
-        "image": Assets.images.home.homeTemp1.path,
+        "image": imagePath[0],
         "text": L10n.of(context)!.bleachForWomen,
       },
       {
-        "image": Assets.images.home.homeTemp2.path,
+        "image": imagePath[1],
         "text": L10n.of(context)!.waxingForWomen,
       },
       {
-        "image": Assets.images.home.homeTemp3.path,
+        "image": imagePath[2],
         "text": L10n.of(context)!.facialForWomen,
       },
       {
-        "image": Assets.images.home.homeTemp4.path,
+        "image": imagePath[3],
         "text": L10n.of(context)!.shaveForMen,
       },
       {
-        "image": Assets.images.home.homeTemp5.path,
+        "image": imagePath[4],
         "text": L10n.of(context)!.haircutForMen,
       },
       {
-        "image": Assets.images.home.homeTemp1.path,
+        "image": imagePath[0],
         "text": L10n.of(context)!.bleachForWomen,
       },
     ];
+  }
+
+  buildShopCardImage(String location, BuildContext context) {
+    switch (location) {
+      case 'Antalya':
+        return beautyServiceList(context, imagePath1);
+      case 'Adana':
+        return beautyServiceList(context, imagePath2);
+      case 'Adıyaman':
+        return beautyServiceList(context, imagePath3);
+      case 'Ankara':
+        return beautyServiceList(context, imagePath3);
+      default:
+        return beautyServiceList(context, imagePath1);
+    }
   }
 
   String _ddLocationValue = 'Antalya';
   String get ddLocationValue => _ddLocationValue;
   set ddLocationValue(newValue) {
     _ddLocationValue = newValue;
-    notifyListeners();
-  }
-
-  String _countryLocationValue = 'Turkey';
-  String get countryLocationValue => _countryLocationValue;
-  set countryLocationValue(newValue) {
-    _countryLocationValue = newValue;
     notifyListeners();
   }
 

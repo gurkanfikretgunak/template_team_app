@@ -19,6 +19,7 @@ class ShopDetailViewModel extends BaseViewModel {
   bool selectedShop = false;
   double totalPrice = 0;
   int itemCount = 0;
+  bool buttonCount = false;
 
   void selectedShopCard(int price) {
     selectedShop = true;

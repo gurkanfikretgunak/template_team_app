@@ -169,5 +169,10 @@
     "addressTitle":"Address Title",
     "deleteAddress":"Address deleted!",
     "registeredAddress":"This address is already registered",
-    "massage" :"Massage"
+    "massage" :"Massage",
+    "isCancelBooking" : "Cancel the booking?",
+    "isCancelBookingDesc":"Are you sure want to cancel this booking?",
+    "close" : "Close",
+    "deletePayment" : "Are you sure want to delete this payment?",
+    "isDelete" : "Delete the payment"
 }

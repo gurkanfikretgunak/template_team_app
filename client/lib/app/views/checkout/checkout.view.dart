@@ -4,9 +4,10 @@ import 'package:client/core/base/base_view/base_view.dart';
 import 'package:flutter/material.dart';
 
 class CheckoutView extends BaseView with CheckoutWidgets {
-  const CheckoutView(this.error, {super.key});
+  const CheckoutView(this.error, this.isBookingEdit, {super.key});
 
   final bool error;
+  final bool isBookingEdit;
 
   HasError backendError() {
     return error ? HasError.on : HasError.off;
@@ -18,7 +19,7 @@ class CheckoutView extends BaseView with CheckoutWidgets {
       context,
       error: backendError(),
       appbar: appBar(context),
-      body: const CheckoutBodyWidget(),
+      body: CheckoutBodyWidget(isBookingEdit: isBookingEdit),
       errorBody: const Text('errorrrr'),
     );
   }
