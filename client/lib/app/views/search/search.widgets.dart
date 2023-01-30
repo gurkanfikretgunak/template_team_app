@@ -25,41 +25,34 @@ class SearchWidgets {
         padding: context.paddingNormal,
         child: Wrap(
           children: [
-            CustomSearchField(() {
-              Navigator.push(context, MaterialPageRoute(builder: (context) => const SearchBarWidget()));
-            }),
+            CustomSearchField(() {}),
             categoryTitle(
               title: L10n.of(context)!.recentlySearched,
               context: context,
               buttonText: L10n.of(context)!.clearAll,
-            ),
-            Row(
-              children: [
-                Image.asset(
-                  Assets.icons.search.path,
-                  color: ColorConstant.instance.dark3,
-                ),
-                context.emptySizedWidthBoxNormal,
-                Text(
-                  provider.searchController.text,
-                  style: TextConstants.instance.button1.copyWith(color: ColorConstant.instance.dark3),
-                )
-              ],
+              onPressed: () {
+                provider.searchClear();
+              },
             ),
             const SizedBox(
               height: 30,
             ),
-            Row(
-              children: [
-                Image.asset(
-                  Assets.icons.search.path,
-                  color: ColorConstant.instance.dark3,
-                ),
-                context.emptySizedWidthBoxNormal,
-                Text(L10n.of(context)!.shave,
-                    style: TextConstants.instance.button1.copyWith(color: ColorConstant.instance.dark3))
-              ],
-            ),
+            ListView.builder(
+                shrinkWrap: true,
+                itemCount: provider.deneme.length,
+                itemBuilder: (context, index) {
+                  return Row(
+                    children: [
+                      Image.asset(
+                        Assets.icons.search.path,
+                        color: ColorConstant.instance.dark3,
+                      ),
+                      context.emptySizedWidthBoxNormal,
+                      Text(provider.deneme[index],
+                          style: TextConstants.instance.button1.copyWith(color: ColorConstant.instance.dark3))
+                    ],
+                  );
+                }),
             const CustomDivider(type: DividerType.normal),
             categoryTitle(title: L10n.of(context)!.trendingNearYou, context: context, buttonText: ""),
             GestureDetector(
@@ -135,7 +128,8 @@ class ShopList extends StatelessWidget {
   }
 }
 
-Widget categoryTitle({required String title, String? buttonText, required BuildContext context}) {
+Widget categoryTitle(
+    {required String title, String? buttonText, required BuildContext context, VoidCallback? onPressed}) {
   return Row(
     mainAxisAlignment: MainAxisAlignment.spaceBetween,
     children: [
@@ -144,7 +138,7 @@ Widget categoryTitle({required String title, String? buttonText, required BuildC
         style: TextConstants.instance.heading6,
       ),
       CustomTextButton(
-        onPressed: () {},
+        onPressed: onPressed,
         text: buttonText ?? " see all >",
       )
     ],

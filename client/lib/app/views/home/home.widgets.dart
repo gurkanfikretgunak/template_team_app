@@ -2,6 +2,7 @@ import 'package:client/app/l10n/app_l10n.dart';
 import 'package:client/app/routes/routes_widgets.dart';
 import 'package:client/app/views/home/home.viewmodel.dart';
 import 'package:client/app/views/home/widgets/filter_list.dart';
+import 'package:client/app/views/home/widgets/drop_down/select_country_dropdown.dart';
 import 'package:client/app/views/home/widgets/services_gridview.dart';
 import 'package:client/app/views/shop/widget/list_shop.dart';
 import 'package:client/app/widgets/custom_appbar.dart';
@@ -74,18 +75,14 @@ class HomeWidgets {
         child: Column(
           children: [
             CustomSearchField(() {
-              Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                      builder: (context) => const SearchBarWidget()));
+              Navigator.push(context, MaterialPageRoute(builder: (context) => const SearchBarWidget()));
             }),
             const FilterList(),
             categoryTitle(
               title: L10n.of(context)!.beautyServices,
               context: context,
               seeAllOnPressed: () {
-                NavigationService.instance
-                    .navigateToPage(Routes.beautyServiceDetail.name);
+                NavigationService.instance.navigateToPage(Routes.beautyServiceDetail.name);
               },
             ),
             const ServicesGridView(),
@@ -93,8 +90,7 @@ class HomeWidgets {
               title: L10n.of(context)!.popularNearYou,
               context: context,
               seeAllOnPressed: () {
-                NavigationService.instance
-                    .navigateToPage(Routes.popularNearDetail.name);
+                NavigationService.instance.navigateToPage(Routes.popularNearDetail.name);
               },
             ),
             ShopList(
@@ -154,21 +150,6 @@ class ShopList extends StatelessWidget {
       ),
     );
   }
-
-  buildShopCardImage(String location) {
-    switch (location) {
-      case 'Antalya':
-        return Assets.images.shop.shop1.path;
-      case 'Adıyaman':
-        return Assets.images.shop.shop2.path;
-      case 'Amasya':
-        return Assets.images.shop.shop3.path;
-      case 'Ankara':
-        return Assets.images.shop.shop4.path;
-      default:
-        return Assets.images.shop.shop4.path;
-    }
-  }
 }
 
 Widget categoryTitle({
@@ -201,69 +182,17 @@ class _AlertDialogWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     final provider = Provider.of<HomeViewModel>(context);
     return AlertDialog(
-      shape: const RoundedRectangleBorder(
-          borderRadius: BorderRadius.all(Radius.circular(24.0))),
+      shape: const RoundedRectangleBorder(borderRadius: BorderRadius.all(Radius.circular(24.0))),
       content: SizedBox(
         width: context.dynamicWidth(1),
         child: Column(
           mainAxisSize: MainAxisSize.min,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            CountyCityDrop(provider: provider, toExit: true),
-            CountyCityDrop(provider: provider, toExit: false),
+            CountryDrop(provider: provider),
           ],
         ),
       ),
-    );
-  }
-}
-
-class CountyCityDrop extends StatelessWidget {
-  const CountyCityDrop({
-    Key? key,
-    required this.provider,
-    required this.toExit,
-  }) : super(key: key);
-
-  final HomeViewModel provider;
-  final bool toExit;
-
-  @override
-  Widget build(BuildContext context) {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-      children: [
-        DropdownButton(
-          underline: const SizedBox(),
-          value:
-              toExit ? provider.countryLocationValue : provider.ddLocationValue,
-          icon: const Icon(Icons.keyboard_arrow_down),
-          items: toExit
-              ? provider.countryList.map((String items) {
-                  return DropdownMenuItem(
-                    value: items,
-                    child: Text(items),
-                  );
-                }).toList()
-              : provider.locationList.map((String items) {
-                  return DropdownMenuItem(
-                    value: items,
-                    child: Text(items),
-                  );
-                }).toList(),
-          onChanged: (String? newValue) {
-            provider.ddLocationValue = newValue!;
-            Navigator.pop(context);
-          },
-        ),
-        toExit
-            ? IconButton(
-                onPressed: () {
-                  Navigator.pop(context);
-                },
-                icon: const Icon(Icons.close))
-            : const SizedBox()
-      ],
     );
   }
 }

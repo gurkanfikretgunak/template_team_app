@@ -17,7 +17,7 @@ class CheckoutWidgets {
     return const CustomAppbar();
   }
 
-  body(BuildContext context, ScrollController controller) {
+  body(BuildContext context, ScrollController controller, bool isBookingEdit) {
     return SingleChildScrollView(
       controller: controller,
       physics: const BouncingScrollPhysics(),
@@ -27,7 +27,7 @@ class CheckoutWidgets {
           alignment: WrapAlignment.spaceBetween,
           runSpacing: 20,
           children: [
-            Text(L10n.of(context)!.checkout, style: TextConstants.instance.heading5),
+            isBookingEdit ? const SizedBox() : Text(L10n.of(context)!.checkout, style: TextConstants.instance.heading5),
             checkoutTitle(text: 'Cosmo Life ${L10n.of(context)!.beautyCentre}'),
             Column(
               children: [
@@ -43,11 +43,13 @@ class CheckoutWidgets {
                 ),
                 const CustomDivider(type: DividerType.dashed),
                 orderItemList(context),
-                ShopPromoTile(
-                  onTap: () {
-                    NavigationService.instance.navigateToPage(Routes.promo.name);
-                  },
-                ),
+                isBookingEdit
+                    ? SizedBox()
+                    : ShopPromoTile(
+                        onTap: () {
+                          NavigationService.instance.navigateToPage(Routes.promo.name);
+                        },
+                      ),
                 frequentlyTogether(
                   buttonText: L10n.of(context)!.select,
                   context: context,

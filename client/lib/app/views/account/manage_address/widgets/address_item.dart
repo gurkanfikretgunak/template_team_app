@@ -81,6 +81,7 @@ class AddressItem extends StatelessWidget {
                 title: L10n.of(context)!.isDeleteAddress,
                 subTitle: L10n.of(context)!.isDeleteAddressDesc,
                 redButtonText: L10n.of(context)!.delete,
+                whiteButtonText: L10n.of(context)!.cancel,
               ),
             );
           },

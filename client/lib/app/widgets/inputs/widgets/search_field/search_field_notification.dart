@@ -4,8 +4,15 @@ import 'package:flutter/material.dart';
 class SearchFieldNotifier extends BaseViewModel {
   TextEditingController searchController = TextEditingController();
   List<String> recentlySearch = [];
-  searchRecently() {
-    recentlySearch.add(searchController.text);
+  List<String> deneme = [];
+
+  searchRecently(String value) async {
+    deneme.add(value);
+    notifyListeners();
+  }
+
+  searchClear() {
+    deneme.clear();
     notifyListeners();
   }
 

@@ -507,4 +507,19 @@ class L10nEn extends L10n {
 
   @override
   String get massage => 'Massage';
+
+  @override
+  String get isCancelBooking => 'Cancel the booking?';
+
+  @override
+  String get isCancelBookingDesc => 'Are you sure want to cancel this booking?';
+
+  @override
+  String get close => 'Close';
+
+  @override
+  String get deletePayment => 'Are you sure want to delete this payment?';
+
+  @override
+  String get isDelete => 'Delete the payment';
 }

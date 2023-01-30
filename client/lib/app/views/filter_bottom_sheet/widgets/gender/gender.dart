@@ -11,20 +11,28 @@ class GenderFilter extends StatelessWidget {
   Widget build(BuildContext context) {
     final checkboxNotifier = Provider.of<GenderNotifier>(context);
 
-    return ListView.builder(
-      itemCount: checkboxNotifier.genderFilterOptions(context).length,
-      itemBuilder: (context, index) {
-        var key = checkboxNotifier.genderFilterOptions(context)[index];
+    return StatefulBuilder(
+      builder: (context, setState) {
+        return ListView.builder(
+          itemCount: checkboxNotifier.genderFilterOptions(context).length,
+          itemBuilder: (context, index) {
+            var key = checkboxNotifier.genderFilterOptions(context)[index];
 
-        return Padding(
-          padding: context.horizontalPaddingNormal,
-          child: CustomCheckbox(
-            value: key['isSelected'],
-            title: key['title'],
-            onChanged: (value) {
-              checkboxNotifier.setChange(key['title'], context);
-            },
-          ),
+            return Padding(
+              padding: context.horizontalPaddingNormal,
+              child: CustomCheckbox(
+                value: key['isSelected'],
+                title: key['title'],
+                onChanged: (value) {
+                  setState(
+                    () {
+                      checkboxNotifier.setChange(key['title'], context);
+                    },
+                  );
+                },
+              ),
+            );
+          },
         );
       },
     );

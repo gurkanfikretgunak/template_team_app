@@ -2,15 +2,18 @@ import 'package:client/app/l10n/app_l10n.dart';
 import 'package:flutter/material.dart';
 
 class GenderNotifier extends ChangeNotifier {
+  bool isSelectedMen = false;
+  bool isSelectedWomen = false;
+
   List<Map> genderFilterOptions(BuildContext context) {
     return [
       {
         "title": L10n.of(context)!.male,
-        "isSelected": false,
+        "isSelected": isSelectedMen,
       },
       {
         "title": L10n.of(context)!.female,
-        "isSelected": false,
+        "isSelected": isSelectedWomen,
       },
     ];
   }
@@ -18,11 +21,19 @@ class GenderNotifier extends ChangeNotifier {
   setChange(String title, BuildContext context) {
     switch (title) {
       case "Male":
-        genderFilterOptions(context)[0]['isSelected'] = !genderFilterOptions(context)[0]['isSelected'];
+        isSelectedMen = !isSelectedMen;
         notifyListeners();
         break;
       case "Female":
-        genderFilterOptions(context)[1]['isSelected'] = !genderFilterOptions(context)[1]['isSelected'];
+        isSelectedWomen = !isSelectedWomen;
+        notifyListeners();
+        break;
+      case "Erkek":
+        isSelectedMen = !isSelectedMen;
+        notifyListeners();
+        break;
+      case "Kadın":
+        isSelectedWomen = !isSelectedWomen;
         notifyListeners();
         break;
 
@@ -30,10 +41,9 @@ class GenderNotifier extends ChangeNotifier {
     }
   }
 
-  // clear() {
-  //   for (var element in genderFilterOptions(context)) {
-  //     element['isSelected'] = false;
-  //   }
-  //   notifyListeners();
-  // }
+  clear(BuildContext context) {
+    isSelectedMen = false;
+    isSelectedWomen = false;
+    notifyListeners();
+  }
 }
