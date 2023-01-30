@@ -3,22 +3,25 @@ import 'package:flutter/material.dart';
 import '../../../../l10n/app_l10n.dart';
 
 class TimingNotifier extends ChangeNotifier {
+  bool isSelectedMorning = false;
+  bool isSelectedMid = false;
+  bool isSelectedNight = false;
   List<Map> timingFilterOptions(BuildContext context) {
     return [
       {
         "title": L10n.of(context)!.morning,
         "subTitle": L10n.of(context)!.timingValues,
-        "isSelected": false,
+        "isSelected": isSelectedMorning,
       },
       {
         "title": L10n.of(context)!.midDay,
         "subTitle": L10n.of(context)!.timingValues,
-        "isSelected": false,
+        "isSelected": isSelectedMid,
       },
       {
         "title": L10n.of(context)!.night,
         "subTitle": L10n.of(context)!.timingValues,
-        "isSelected": false,
+        "isSelected": isSelectedNight,
       },
     ];
   }
@@ -26,19 +29,16 @@ class TimingNotifier extends ChangeNotifier {
   setChange(int index, BuildContext context) {
     switch (index) {
       case 0:
-        timingFilterOptions(context)[0]['isSelected'] =
-            !timingFilterOptions(context)[0]['isSelected'];
+        isSelectedMorning = !isSelectedMorning;
         notifyListeners();
 
         break;
       case 1:
-        timingFilterOptions(context)[1]['isSelected'] =
-            !timingFilterOptions(context)[1]['isSelected'];
+        isSelectedMid = !isSelectedMid;
         notifyListeners();
         break;
       case 2:
-        timingFilterOptions(context)[2]['isSelected'] =
-            !timingFilterOptions(context)[2]['isSelected'];
+        isSelectedNight = !isSelectedNight;
         notifyListeners();
         break;
       default:
@@ -46,9 +46,9 @@ class TimingNotifier extends ChangeNotifier {
   }
 
   clear(BuildContext context) {
-    for (var element in timingFilterOptions(context)) {
-      element['isSelected'] = false;
-    }
+    isSelectedMorning = false;
+    isSelectedMid = false;
+    isSelectedNight = false;
     notifyListeners();
   }
 }

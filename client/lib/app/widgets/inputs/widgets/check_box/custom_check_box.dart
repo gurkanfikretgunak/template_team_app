@@ -24,31 +24,26 @@ class CustomCheckbox extends BaseView {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      color: (unselectedColor == ECheckBox.unselectedDark)
-          ? ECheckBoxLabel.unselectedDark()
-          : ECheckBoxLabel.unselectedLight(),
-      child: CheckboxListTile(
-        contentPadding: EdgeInsets.zero,
-        activeColor: ColorConstant.instance.purple2,
-        value: value,
-        controlAffinity: ListTileControlAffinity.leading,
-        tristate: false,
-        title: Text(
-          title,
-          style: TextConstants.instance.label1.copyWith(fontSize: 17),
-        ),
-        subtitle: subTitle == null
-            ? null
-            : Text(
-                subTitle!,
-                style: TextConstants.instance.paragraph2.copyWith(
-                  color: ColorConstant.instance.dark3,
-                ),
-              ),
-        side: BorderSide(color: ColorConstant.instance.purple2, width: 2),
-        onChanged: disable == ECheckBox.disable ? null : onChanged,
+    return CheckboxListTile(
+      contentPadding: EdgeInsets.zero,
+      activeColor: ColorConstant.instance.purple2,
+      value: value,
+      controlAffinity: ListTileControlAffinity.leading,
+      tristate: false,
+      title: Text(
+        title,
+        style: TextConstants.instance.label1.copyWith(fontSize: 17),
       ),
+      subtitle: subTitle == null
+          ? null
+          : Text(
+              subTitle!,
+              style: TextConstants.instance.paragraph2.copyWith(
+                color: ColorConstant.instance.dark3,
+              ),
+            ),
+      side: BorderSide(color: ColorConstant.instance.purple2, width: 2),
+      onChanged: disable == ECheckBox.disable ? null : onChanged,
     );
   }
 }

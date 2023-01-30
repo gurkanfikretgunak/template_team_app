@@ -507,4 +507,19 @@ class L10nTr extends L10n {
 
   @override
   String get massage => 'Masaj';
+
+  @override
+  String get isCancelBooking => 'Randevu iptal edilsin mi?';
+
+  @override
+  String get isCancelBookingDesc => 'Bu randevuyu iptal etmek istediğinizden emin misiniz?';
+
+  @override
+  String get close => 'Kapat';
+
+  @override
+  String get deletePayment => 'Ödemeyi silmek istediğinizden emin misiniz?';
+
+  @override
+  String get isDelete => 'Ödeme silinsin mi?';
 }

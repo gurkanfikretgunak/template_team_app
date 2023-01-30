@@ -1100,6 +1100,36 @@ abstract class L10n {
   /// In en, this message translates to:
   /// **'Massage'**
   String get massage;
+
+  /// No description provided for @isCancelBooking.
+  ///
+  /// In en, this message translates to:
+  /// **'Cancel the booking?'**
+  String get isCancelBooking;
+
+  /// No description provided for @isCancelBookingDesc.
+  ///
+  /// In en, this message translates to:
+  /// **'Are you sure want to cancel this booking?'**
+  String get isCancelBookingDesc;
+
+  /// No description provided for @close.
+  ///
+  /// In en, this message translates to:
+  /// **'Close'**
+  String get close;
+
+  /// No description provided for @deletePayment.
+  ///
+  /// In en, this message translates to:
+  /// **'Are you sure want to delete this payment?'**
+  String get deletePayment;
+
+  /// No description provided for @isDelete.
+  ///
+  /// In en, this message translates to:
+  /// **'Delete the payment'**
+  String get isDelete;
 }
 
 class _L10nDelegate extends LocalizationsDelegate<L10n> {

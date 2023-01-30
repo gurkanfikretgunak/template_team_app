@@ -6,8 +6,8 @@ import '../../../widgets/buttons/widgets/checkout_button.dart';
 import '../checkout.widgets.dart';
 
 class CheckoutBodyWidget extends StatefulWidget {
-  const CheckoutBodyWidget({super.key});
-
+  const CheckoutBodyWidget({super.key, required this.isBookingEdit});
+  final bool isBookingEdit;
   @override
   State<CheckoutBodyWidget> createState() => _CheckoutBodyWidgetState();
 }
@@ -56,7 +56,7 @@ class _CheckoutBodyWidgetState extends State<CheckoutBodyWidget> {
   Widget build(BuildContext context) {
     return Stack(
       children: [
-        CheckoutWidgets().body(context, scrollController),
+        CheckoutWidgets().body(context, scrollController, widget.isBookingEdit),
         Visibility(
             visible: _show,
             child: CheckoutButton(

@@ -70,6 +70,7 @@ class AccountViewModel extends BaseViewModel {
         title: L10n.of(context)!.isLogout,
         subTitle: L10n.of(context)!.logoutDesc,
         redButtonText: L10n.of(context)!.logout,
+        whiteButtonText: L10n.of(context)!.cancel,
       ),
     );
   }

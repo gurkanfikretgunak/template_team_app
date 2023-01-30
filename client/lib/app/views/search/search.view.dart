@@ -4,6 +4,8 @@ import 'package:client/app/widgets/custom_appbar.dart';
 import 'package:client/core/base/base_view/base_view.dart';
 import 'package:flutter/material.dart';
 
+import '../../../core/constans/text_constants.dart';
+
 class SearchView extends BaseView with SearchWidgets {
   const SearchView(this.error, {super.key});
 
@@ -19,7 +21,10 @@ class SearchView extends BaseView with SearchWidgets {
       context,
       error: backendError(),
       appbar: CustomAppbar(
-        title: L10n.of(context)!.search,
+        leading: Text(
+          L10n.of(context)!.search,
+          style: TextConstants.instance.heading6,
+        ),
       ),
       body: searchBody(context),
       errorBody: const Text('errorrrr'),

@@ -39,8 +39,6 @@ class PaymentsWidgets {
   }
 
   buildItemColor(BuildContext context, title) {
-    return (title == L10n.of(context)!.logout)
-        ? ColorConstant.instance.red0
-        : ColorConstant.instance.dark0;
+    return (title == L10n.of(context)!.logout) ? ColorConstant.instance.red0 : ColorConstant.instance.dark0;
   }
 }

@@ -1,6 +1,7 @@
 import 'package:client/app/l10n/app_l10n.dart';
 import 'package:client/app/views/filter_bottom_sheet/filter_bottom_sheet.viewmodel.dart';
 import 'package:client/app/views/filter_bottom_sheet/widgets/gender/gender.dart';
+import 'package:client/app/views/filter_bottom_sheet/widgets/gender/gender_notifier.dart';
 import 'package:client/app/views/filter_bottom_sheet/widgets/offers/offer_notifier.dart';
 import 'package:client/app/views/filter_bottom_sheet/widgets/offers/offers.dart';
 import 'package:client/app/views/filter_bottom_sheet/widgets/sort/sort.dart';
@@ -42,7 +43,7 @@ class FilterBottomSheetWidgets {
             CustomTextButton(
               onPressed: () {
                 Provider.of<OfferNotifier>(context, listen: false).clear();
-                // Provider.of<GenderNotifier>(context, listen: false).clear(context);
+                Provider.of<GenderNotifier>(context, listen: false).clear(context);
                 Provider.of<TimingNotifier>(context, listen: false).clear(context);
                 Provider.of<RadioButtonNotifier>(context, listen: false)
                     .setSelectedOption(L10n.of(context)!.popularity);
