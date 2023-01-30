@@ -27,8 +27,7 @@ class ShopDetailView extends BaseView with ShopDetailWidgets {
                   ? CheckoutButton(
                       itemCount: value.itemCount,
                       totalPrice: value.totalPrice,
-                      onPressed: () => NavigationService.instance
-                          .navigateToPage(Routes.checkout.name),
+                      onPressed: () => NavigationService.instance.navigateToPage(Routes.checkout.name),
                     )
                   : const SizedBox()
             ],

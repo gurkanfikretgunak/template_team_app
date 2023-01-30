@@ -68,6 +68,7 @@ class AlertBottomSheet extends StatelessWidget {
                     cancelProvider.isSlected();
                     Navigator.pop(context);
                   } else if (subTitle == L10n.of(context)!.deletePayment) {
+                    deletePaymentprovider.removePayment(context, paymentIndex!);
                     Navigator.pop(context);
                     CustomShowSnackBar.showSnackBar(context, L10n.of(context)!.deleteAddress);
                   } else {

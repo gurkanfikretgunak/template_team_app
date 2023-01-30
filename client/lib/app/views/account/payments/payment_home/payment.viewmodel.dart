@@ -8,14 +8,16 @@ import 'package:client/gen/assets.gen.dart';
 import 'package:flutter/material.dart';
 
 class PaymentViewModel extends BaseViewModel {
+  List<Map> paymentsSelect = [];
+
   List<Map> accountItems(BuildContext context) {
-    return [
+    paymentsSelect = [
       {
         "icon": Assets.icons.applePay.path,
         "title": L10n.of(context)!.applePay,
         "trailing": CustomTextButton(
             onPressed: () {
-              deleteBottomSheet(context);
+              deleteBottomSheet(context, 0);
             },
             text: L10n.of(context)!.remove,
             color: ButtonColor.red),
@@ -32,7 +34,7 @@ class PaymentViewModel extends BaseViewModel {
         "title": "4153 xxxx xxxxx 0981",
         "trailing": CustomTextButton(
             onPressed: () {
-              deleteBottomSheet(context);
+              deleteBottomSheet(context, 2);
             },
             text: L10n.of(context)!.remove,
             color: ButtonColor.red),
@@ -50,9 +52,11 @@ class PaymentViewModel extends BaseViewModel {
         },
       },
     ];
+    notifyListeners();
+    return paymentsSelect;
   }
 
-  deleteBottomSheet(BuildContext context) {
+  deleteBottomSheet(BuildContext context, int payIndex) {
     return CustomBottomSheet.buildCustomBottomSheet(
       context: context,
       widget: AlertBottomSheet(
@@ -60,7 +64,13 @@ class PaymentViewModel extends BaseViewModel {
         subTitle: L10n.of(context)!.deletePayment,
         redButtonText: L10n.of(context)!.delete,
         whiteButtonText: L10n.of(context)!.cancel,
+        paymentIndex: payIndex,
       ),
     );
+  }
+
+  removePayment(BuildContext context, int index) {
+    accountItems(context).removeAt(index);
+    notifyListeners();
   }
 }
