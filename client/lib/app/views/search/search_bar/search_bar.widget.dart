@@ -73,7 +73,7 @@ class _SearchBarWidgetState extends State<SearchBarWidget> {
 
   Future<void> readySharedPreferences() async {
     var sharedPreferences = await SharedPreferences.getInstance();
-    _search = sharedPreferences.getString("search");
+    _search = sharedPreferences.getString("search") ?? '';
     setState(() {});
   }
 

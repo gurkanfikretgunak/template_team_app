@@ -17,7 +17,7 @@ dependencies:
   flutter_localizations:
     sdk: flutter
   
-  cupertino_icons: ^1.0.2
+  cupertino_icons: ^1.0.5
   intl: ^0.17.0
   provider: ^6.0.5
   mask_text_input_formatter: ^2.4.0
@@ -27,25 +27,25 @@ dependencies:
   faker: ^2.1.0
   flutter_gen_runner: ^5.1.0+1
   freezed_annotation: ^2.2.0
-  json_annotation: ^4.7.0
+  json_annotation: ^4.8.0
   flavor: ^2.0.0
   flutter_dotenv: ^5.0.2
   dot_navigation_bar: ^1.0.1+4
   buttons_tabbar: ^1.3.6
   smooth_page_indicator: ^1.0.0+2
-  url_launcher: ^5.2.7
-  share_plus: ^0.6.5
+  url_launcher: ^6.1.8
+  share_plus: ^6.3.0
   map_launcher: ^2.4.0
-  shared_preferences: ^0.5.5
+  shared_preferences: ^2.0.17
 
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
 
-  flutter_lints: ^2.0.0
+  flutter_lints: ^2.0.1
   freezed: ^2.3.2
-  json_serializable: ^6.5.4
+  json_serializable: ^6.6.0
 
 flutter:
   generate: false

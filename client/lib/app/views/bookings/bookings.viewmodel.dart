@@ -42,7 +42,7 @@ class BookingViewModel extends BaseViewModel {
 
   favoriteGetCache() async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
-    boolValue = prefs.getBool('favorite');
+    boolValue = prefs.getBool('favorite') ?? false;
     notifyListeners();
     return boolValue;
   }
