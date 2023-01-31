@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 
 class CustomImageViewer extends StatelessWidget {
@@ -23,9 +24,12 @@ class CustomImageViewer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     if (assetPath == null || (assetPath!).isEmpty) {
-      return Image.network(
-        url ?? "https://www.arceyazilim.com/uploads/images/201702/error-code-18.jpeg",
-        fit: BoxFit.contain,
+      return CachedNetworkImage(
+        imageUrl: url ?? "https://www.arceyazilim.com/uploads/images/201702/error-code-18.jpeg",
+        fit: fit ?? BoxFit.contain,
+        placeholder: (context, url) => const Center(
+          child: CircularProgressIndicator(),
+        ),
       );
     } else {
       return Image.asset(
