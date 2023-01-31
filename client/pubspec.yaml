@@ -37,6 +37,7 @@ dependencies:
   share_plus: ^6.3.0
   map_launcher: ^2.4.0
   shared_preferences: ^2.0.17
+  cached_network_image: ^3.2.3
 
 
 dev_dependencies:
