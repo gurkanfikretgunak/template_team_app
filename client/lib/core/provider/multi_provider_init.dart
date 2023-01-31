@@ -1,7 +1,9 @@
 import 'package:client/app/views/account/manage_address/manage_address.viewmodel.dart';
+import 'package:client/app/views/account/payments/payment_home/payment.viewmodel.dart';
 import 'package:client/app/views/auth/verification/verify_otp/verify_otp.viewmodel.dart';
 import 'package:client/app/views/booking_detail/booking_detail.viewmodel.dart';
 import 'package:client/app/views/bookings/bookings.viewmodel.dart';
+import 'package:client/app/views/checkout_detail/checkout_detail.viewmodel.dart';
 import 'package:client/app/views/filter_bottom_sheet/filter_bottom_sheet.viewmodel.dart';
 import 'package:client/app/views/filter_bottom_sheet/widgets/gender/gender_notifier.dart';
 import 'package:client/app/views/filter_bottom_sheet/widgets/offers/offer_notifier.dart';
@@ -33,5 +35,7 @@ class MultiProviderInit {
     ChangeNotifierProvider(create: (_) => ManageAddressViewModel()),
     ChangeNotifierProvider(create: (_) => OfferNotifier()),
     ChangeNotifierProvider(create: (_) => RecommendedViewModel()),
+    ChangeNotifierProvider(create: (_) => PaymentViewModel()),
+    ChangeNotifierProvider(create: (_) => CheckoutDetailViewModel()),
   ];
 }

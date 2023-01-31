@@ -24,7 +24,7 @@ class ManageAddressWidgets {
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           provider.addressList.isEmpty
-              ? const Center(child: Text("Empty List"))
+              ? const Center(child: Text(""))
               : ListView.separated(
                   shrinkWrap: true,
                   itemCount: addressList.length,

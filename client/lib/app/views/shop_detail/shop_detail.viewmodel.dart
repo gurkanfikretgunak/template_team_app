@@ -28,6 +28,16 @@ class ShopDetailViewModel extends BaseViewModel {
     notifyListeners();
   }
 
+  void decrementShopCard() {
+    totalPrice = 0;
+
+    itemCount -= 1;
+    if (itemCount == 0) {
+      selectedShop = false;
+    }
+    notifyListeners();
+  }
+
   List<BookingModel> favoriteShopDetail = [];
 
   void favShopDetail(BookingModel shopDetail, bool isFavorite) {

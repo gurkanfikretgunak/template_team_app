@@ -3,7 +3,9 @@ import 'package:flutter/rendering.dart';
 import '../../../routes/navigation_service.dart';
 import '../../../routes/routes.dart';
 import '../../../widgets/buttons/widgets/checkout_button.dart';
+import '../../shop_detail/shop_detail.viewmodel.dart';
 import '../checkout.widgets.dart';
+import 'package:provider/provider.dart';
 
 class CheckoutBodyWidget extends StatefulWidget {
   const CheckoutBodyWidget({super.key, required this.isBookingEdit});
@@ -54,14 +56,16 @@ class _CheckoutBodyWidgetState extends State<CheckoutBodyWidget> {
 
   @override
   Widget build(BuildContext context) {
+    final provider = Provider.of<ShopDetailViewModel>(context);
+
     return Stack(
       children: [
         CheckoutWidgets().body(context, scrollController, widget.isBookingEdit),
         Visibility(
             visible: _show,
             child: CheckoutButton(
-              itemCount: 2,
-              totalPrice: 449,
+              itemCount: provider.itemCount,
+              totalPrice: provider.totalPrice,
               onPressed: () => NavigationService.instance.navigateToPage(Routes.checkout.name),
             ))
       ],

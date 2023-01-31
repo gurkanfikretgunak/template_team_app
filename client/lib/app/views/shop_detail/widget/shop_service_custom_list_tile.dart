@@ -1,4 +1,5 @@
 import 'package:client/app/l10n/app_l10n.dart';
+import 'package:client/app/views/shop_detail/shop_detail.viewmodel.dart';
 import 'package:client/app/widgets/buttons/buttons_widgets.dart';
 import 'package:client/app/widgets/custom_card.dart';
 import 'package:client/core/constans/color_constants.dart';
@@ -19,6 +20,8 @@ class ShopServiceCustomListTile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final vm = Provider.of<ShopDetailViewModel>(context);
+
     return Row(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -28,9 +31,7 @@ class ShopServiceCustomListTile extends StatelessWidget {
           height: 75,
           decoration: BoxDecoration(
             image: DecorationImage(
-                fit: BoxFit.cover,
-                image: AssetImage(shopService!["image"] ??
-                    Assets.images.shop.shopDetail2.path)),
+                fit: BoxFit.cover, image: AssetImage(shopService!["image"] ?? Assets.images.shop.shopDetail2.path)),
             borderRadius: const BorderRadius.all(Radius.circular(8)),
           ),
         ),
@@ -65,7 +66,7 @@ class ShopServiceCustomListTile extends StatelessWidget {
         ),
         Consumer<RecommendedViewModel>(
           builder: (context, value, child) {
-            return value.recommendList[index]['count'] > 0
+            return value.recommendList(context)[index]['count'] > 0
                 ? CustomCard(
                     width: context.dynamicWidth(0.2),
                     borderSideColor: ColorConstant.instance.purple2,
@@ -79,16 +80,18 @@ class ShopServiceCustomListTile extends StatelessWidget {
                             child: IconButton(
                               onPressed: () {
                                 value.incrementCount(context, index);
+                                vm.selectedShopCard(40);
                               },
                               icon: const Icon(Icons.add),
                             ),
                           ),
                           Text(
-                            value.recommendList[index]['count'].toString(),
+                            value.recommendList(context)[index]['count'].toString(),
                           ),
                           IconButton(
                             onPressed: () {
                               value.decrementCount(context, index);
+                              vm.decrementShopCard();
                             },
                             icon: const Icon(Icons.remove),
                           ),
@@ -99,10 +102,11 @@ class ShopServiceCustomListTile extends StatelessWidget {
                 : CustomOutlinedButton(
                     onPressed: () {
                       value.incrementCount(context, index);
+
+                      vm.selectedShopCard(40);
                     },
                     buttonSize: ButtonSize.small,
-                    child:
-                        Icon(Icons.add, color: ColorConstant.instance.purple2),
+                    child: Icon(Icons.add, color: ColorConstant.instance.purple2),
                   );
           },
         ),
