@@ -38,6 +38,7 @@ dependencies:
   map_launcher: ^2.4.0
   shared_preferences: ^2.0.17
   cached_network_image: ^3.2.3
+  permission_handler: ^10.2.0
 
 
 dev_dependencies:

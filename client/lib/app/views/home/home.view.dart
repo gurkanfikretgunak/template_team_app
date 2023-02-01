@@ -1,4 +1,5 @@
 import 'package:client/app/views/home/home.widgets.dart';
+import 'package:client/app/views/home/widgets/permissions.dart';
 import 'package:client/core/base/base_view/base_view.dart';
 import 'package:flutter/material.dart';
 
@@ -13,6 +14,7 @@ class HomeView extends BaseView with HomeWidgets {
 
   @override
   Widget build(BuildContext context) {
+    Permissions.instance.requestMultiplePermissions();
     return dynamicBuild(
       context,
       error: backendError(),
