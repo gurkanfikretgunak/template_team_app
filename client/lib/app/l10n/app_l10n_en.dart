@@ -522,4 +522,31 @@ class L10nEn extends L10n {
 
   @override
   String get isDelete => 'Delete the payment';
+
+  @override
+  String get locationPermission => 'Location Permission';
+
+  @override
+  String get cameraPermission => 'Camera Permission';
+
+  @override
+  String get notificationPermission => 'Notification Permission';
+
+  @override
+  String get locationText => 'Knowing your location is essential for us to serve you better. We can offer you exclusive content based on your location.';
+
+  @override
+  String get cameraText => 'It is required to use your camera from within the application. We can make your work easier when reading your data such as credit card, Qr.';
+
+  @override
+  String get notificationText => 'It is necessary so that we can notify you of the latest news. We can make your work easier by reminding you of your appointment or by notifying you of a possible change.';
+
+  @override
+  String get later => 'Later';
+
+  @override
+  String get allowNotification => 'Allow Notification';
+
+  @override
+  String get goSettings => 'Go Settings';
 }

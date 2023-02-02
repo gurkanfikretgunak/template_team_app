@@ -173,6 +173,15 @@
     "isCancelBookingDesc":"Bu randevuyu iptal etmek istediğinizden emin misiniz?",
     "close" : "Kapat",
      "deletePayment" : "Ödemeyi silmek istediğinizden emin misiniz?",
-    "isDelete" : "Ödeme silinsin mi?"
+    "isDelete" : "Ödeme silinsin mi?",
+    "locationPermission" : "Lokasyon İzni",
+    "cameraPermission" : "Kamera İzni",
+    "notificationPermission" : "Bildirim İzni",
+    "locationText" : "Lokasyonunuzu bilmek size daha iyi hizmet verebilmemiz için gereklidir. Bulunduğunuz yere göre size özel içerikler sunabiliriz.",
+    "cameraText" : "Uygulama içerisinden kameranızı kullanabilmek için gereklidir. Kredi kartı, Qr gibi verilerinizi okurken işlerinizi kolaylaştırabiliriz.",
+    "notificationText" : "Size en güncel haberleri bildirebilmemiz için gereklidir. Randevunuzu size hatırlatmamız veya olası bir değişiklikte sizi haberdar ederek işlerinizi kolaylaştırabiliriz.",
+    "later" : "Daha Sonra",
+    "allowNotification" : "Bildirime İzin Ver",
+    "goSettings" : "Ayarlara Git"
  }
 

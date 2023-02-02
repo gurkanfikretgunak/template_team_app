@@ -522,4 +522,31 @@ class L10nTr extends L10n {
 
   @override
   String get isDelete => 'Ödeme silinsin mi?';
+
+  @override
+  String get locationPermission => 'Lokasyon İzni';
+
+  @override
+  String get cameraPermission => 'Kamera İzni';
+
+  @override
+  String get notificationPermission => 'Bildirim İzni';
+
+  @override
+  String get locationText => 'Lokasyonunuzu bilmek size daha iyi hizmet verebilmemiz için gereklidir. Bulunduğunuz yere göre size özel içerikler sunabiliriz.';
+
+  @override
+  String get cameraText => 'Uygulama içerisinden kameranızı kullanabilmek için gereklidir. Kredi kartı, Qr gibi verilerinizi okurken işlerinizi kolaylaştırabiliriz.';
+
+  @override
+  String get notificationText => 'Size en güncel haberleri bildirebilmemiz için gereklidir. Randevunuzu size hatırlatmamız veya olası bir değişiklikte sizi haberdar ederek işlerinizi kolaylaştırabiliriz.';
+
+  @override
+  String get later => 'Daha Sonra';
+
+  @override
+  String get allowNotification => 'Bildirime İzin Ver';
+
+  @override
+  String get goSettings => 'Ayarlara Git';
 }

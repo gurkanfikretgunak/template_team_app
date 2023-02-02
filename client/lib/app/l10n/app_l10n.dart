@@ -1130,6 +1130,60 @@ abstract class L10n {
   /// In en, this message translates to:
   /// **'Delete the payment'**
   String get isDelete;
+
+  /// No description provided for @locationPermission.
+  ///
+  /// In en, this message translates to:
+  /// **'Location Permission'**
+  String get locationPermission;
+
+  /// No description provided for @cameraPermission.
+  ///
+  /// In en, this message translates to:
+  /// **'Camera Permission'**
+  String get cameraPermission;
+
+  /// No description provided for @notificationPermission.
+  ///
+  /// In en, this message translates to:
+  /// **'Notification Permission'**
+  String get notificationPermission;
+
+  /// No description provided for @locationText.
+  ///
+  /// In en, this message translates to:
+  /// **'Knowing your location is essential for us to serve you better. We can offer you exclusive content based on your location.'**
+  String get locationText;
+
+  /// No description provided for @cameraText.
+  ///
+  /// In en, this message translates to:
+  /// **'It is required to use your camera from within the application. We can make your work easier when reading your data such as credit card, Qr.'**
+  String get cameraText;
+
+  /// No description provided for @notificationText.
+  ///
+  /// In en, this message translates to:
+  /// **'It is necessary so that we can notify you of the latest news. We can make your work easier by reminding you of your appointment or by notifying you of a possible change.'**
+  String get notificationText;
+
+  /// No description provided for @later.
+  ///
+  /// In en, this message translates to:
+  /// **'Later'**
+  String get later;
+
+  /// No description provided for @allowNotification.
+  ///
+  /// In en, this message translates to:
+  /// **'Allow Notification'**
+  String get allowNotification;
+
+  /// No description provided for @goSettings.
+  ///
+  /// In en, this message translates to:
+  /// **'Go Settings'**
+  String get goSettings;
 }
 
 class _L10nDelegate extends LocalizationsDelegate<L10n> {
