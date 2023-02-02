@@ -1,5 +1,6 @@
 import 'package:client/app/views/account/manage_address/manage_address.viewmodel.dart';
 import 'package:client/app/views/account/payments/payment_home/payment.viewmodel.dart';
+import 'package:client/app/views/auth/sign_in/sign_in.viewmodel.dart';
 import 'package:client/app/views/auth/verification/verify_otp/verify_otp.viewmodel.dart';
 import 'package:client/app/views/booking_detail/booking_detail.viewmodel.dart';
 import 'package:client/app/views/bookings/bookings.viewmodel.dart';
@@ -11,6 +12,7 @@ import 'package:client/app/views/filter_bottom_sheet/widgets/timing/timing_notif
 import 'package:client/app/views/home/home.viewmodel.dart';
 import 'package:client/app/views/navigation/navigation.viewmodel.dart';
 import 'package:client/app/views/onboarding/onboarding.viewmodel.dart';
+import 'package:client/app/views/permission/permission.viewmodel.dart';
 import 'package:client/app/views/shop_detail/shop_detail.viewmodel.dart';
 import 'package:client/app/views/shop_detail/widget/tabbar_view/recommended/recommended.viewmodel.dart';
 import 'package:client/app/widgets/inputs/widgets/radio_button/radio_button_notifier.dart';
@@ -37,5 +39,7 @@ class MultiProviderInit {
     ChangeNotifierProvider(create: (_) => RecommendedViewModel()),
     ChangeNotifierProvider(create: (_) => PaymentViewModel()),
     ChangeNotifierProvider(create: (_) => CheckoutDetailViewModel()),
+    ChangeNotifierProvider(create: (_) => PermissionViewModel()),
+    ChangeNotifierProvider(create: (_) => SignInViewModel()),
   ];
 }

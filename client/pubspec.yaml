@@ -58,6 +58,7 @@ flutter:
     - assets/images/onboarding/
     - assets/images/home/
     - assets/images/shop/
+    - assets/images/permission/
     - assets/env/
 
  

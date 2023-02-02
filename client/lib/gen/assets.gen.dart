@@ -247,6 +247,8 @@ class $AssetsImagesGen {
 
   $AssetsImagesOnboardingGen get onboarding =>
       const $AssetsImagesOnboardingGen();
+  $AssetsImagesPermissionGen get permission =>
+      const $AssetsImagesPermissionGen();
 
   /// File path: assets/images/profil_photo.png
   AssetGenImage get profilPhoto =>
@@ -308,6 +310,25 @@ class $AssetsImagesOnboardingGen {
   /// List of all assets
   List<AssetGenImage> get values =>
       [background1, background2, background3, background4];
+}
+
+class $AssetsImagesPermissionGen {
+  const $AssetsImagesPermissionGen();
+
+  /// File path: assets/images/permission/camera.png
+  AssetGenImage get camera =>
+      const AssetGenImage('assets/images/permission/camera.png');
+
+  /// File path: assets/images/permission/location.png
+  AssetGenImage get location =>
+      const AssetGenImage('assets/images/permission/location.png');
+
+  /// File path: assets/images/permission/notification.png
+  AssetGenImage get notification =>
+      const AssetGenImage('assets/images/permission/notification.png');
+
+  /// List of all assets
+  List<AssetGenImage> get values => [camera, location, notification];
 }
 
 class $AssetsImagesShopGen {

@@ -173,5 +173,14 @@
     "isCancelBookingDesc":"Are you sure want to cancel this booking?",
     "close" : "Close",
     "deletePayment" : "Are you sure want to delete this payment?",
-    "isDelete" : "Delete the payment"
+    "isDelete" : "Delete the payment",
+    "locationPermission" : "Location Permission",
+    "cameraPermission" : "Camera Permission",
+    "notificationPermission" : "Notification Permission",
+    "locationText" : "Knowing your location is essential for us to serve you better. We can offer you exclusive content based on your location.",
+    "cameraText" : "It is required to use your camera from within the application. We can make your work easier when reading your data such as credit card, Qr.",
+    "notificationText" : "It is necessary so that we can notify you of the latest news. We can make your work easier by reminding you of your appointment or by notifying you of a possible change.",
+    "later" : "Later",
+    "allowNotification" : "Allow Notification",
+    "goSettings" : "Go Settings"
 }

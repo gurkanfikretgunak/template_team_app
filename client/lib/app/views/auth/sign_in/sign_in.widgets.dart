@@ -1,5 +1,6 @@
 import 'package:client/app/l10n/app_l10n.dart';
 import 'package:client/app/routes/routes_widgets.dart';
+import 'package:client/app/views/auth/sign_in/sign_in.viewmodel.dart';
 import 'package:client/app/views/auth/widgets/custom_social_icon.dart';
 import 'package:client/app/views/auth/widgets/social_image_path.dart';
 import 'package:client/app/widgets/buttons/widgets/button_color.dart';
@@ -12,8 +13,8 @@ import 'package:client/app/widgets/image_viewer/icons/icons_widgets.dart';
 import 'package:client/app/widgets/inputs/widgets/text_fields/custom_text_form_field.dart';
 import 'package:client/core/constans/text_constants.dart';
 import 'package:client/core/extensions/common_extension.dart';
-
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 class SignInWidgets {
   Widget body(BuildContext context) {
@@ -83,6 +84,7 @@ class SignInWidgets {
   }
 
   Widget textFormFieldsAndButton(BuildContext context) {
+    final provider = Provider.of<SignInViewModel>(context);
     return Wrap(
       children: [
         CustomTextFormField(
@@ -96,9 +98,15 @@ class SignInWidgets {
         SizedBox(
           width: context.dynamicWidth(1),
           child: CustomElevatedButton(
-            onPressed: () {
-              NavigationService.instance
-                  .navigateToPageClear(path: Routes.navigation.name);
+            onPressed: () async {
+              if (await provider.permissionGetCache()) {
+                NavigationService.instance
+                    .navigateToPageClear(path: Routes.navigation.name);
+              } else {
+                NavigationService.instance
+                    .navigateToPageClear(path: Routes.permission.name);
+                await provider.permissionSetCache(true);
+              }
             },
             text: L10n.of(context)!.login,
             buttonSize: ButtonSize.large,
