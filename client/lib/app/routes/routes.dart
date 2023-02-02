@@ -4,6 +4,7 @@ enum Routes {
   signup,
   verifyOtb,
   forgotPassword,
+  permission,
   navigation,
   shop,
   bookingDetail,
