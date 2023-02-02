@@ -17,7 +17,7 @@ class App extends StatelessWidget {
       providers: MultiProviderInit().providers,
       child: MaterialApp(
         home: const SplashView(false),
-        title: "Survey App",
+        title: "Salony",
         theme: CustomTheme.customLightTheme(context),
         localizationsDelegates: L10n.localizationsDelegates,
         supportedLocales: L10n.supportedLocales,
