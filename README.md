@@ -18,7 +18,6 @@ For data storage, the application uses [shared_preferences](https://pub.dev/pack
 - **Database:** [shared_preferences](https://pub.dev/packages/shared_preferences)
 - **Database Management:**  [shared_preferences](https://pub.dev/packages/shared_preferences)
 - **UI Elements:** [cupertino_icons](https://pub.dev/packages/cupertino_icons), [device_preview](https://pub.dev/packages/device_preview)
-- **Localization:** [flutter_lints](https://pub.dev/packages/flutter_lints)
 - **Package Management:** [flutter_gen_runner](https://pub.dev/packages/flutter_gen_runner)
 - **Static Code Analysis:** [flutter_lints](https://pub.dev/packages/flutter_lints)
 
