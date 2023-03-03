@@ -34,7 +34,9 @@ class HomeWidgets {
                 children: [
                   CustomIcon(imagePath: Assets.icons.location.path),
                   Text(
-                    provider.ddLocationValue,
+                    provider.ddLocationValue == ""
+                        ? "Ankara"
+                        : provider.ddLocationValue,
                     style: TextConstants.instance.button1,
                   ),
                 ],
@@ -80,7 +82,8 @@ class HomeWidgets {
               title: L10n.of(context)!.beautyServices,
               context: context,
               seeAllOnPressed: () {
-                NavigationService.instance.navigateToPage(Routes.beautyServiceDetail.name);
+                NavigationService.instance
+                    .navigateToPage(Routes.beautyServiceDetail.name);
               },
             ),
             const ServicesGridView(),
@@ -88,7 +91,8 @@ class HomeWidgets {
               title: L10n.of(context)!.popularNearYou,
               context: context,
               seeAllOnPressed: () {
-                NavigationService.instance.navigateToPage(Routes.popularNearDetail.name);
+                NavigationService.instance
+                    .navigateToPage(Routes.popularNearDetail.name);
               },
             ),
             ShopList(
@@ -180,7 +184,8 @@ class _AlertDialogWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     final provider = Provider.of<HomeViewModel>(context);
     return AlertDialog(
-      shape: const RoundedRectangleBorder(borderRadius: BorderRadius.all(Radius.circular(24.0))),
+      shape: const RoundedRectangleBorder(
+          borderRadius: BorderRadius.all(Radius.circular(24.0))),
       content: SizedBox(
         width: context.dynamicWidth(1),
         child: Column(

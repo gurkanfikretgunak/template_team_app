@@ -9,6 +9,7 @@ import 'package:client/app/views/promo/promo.view.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
+import '../views/maps/maps.view.dart';
 import '../views/search/search.view.dart';
 
 class AppRoutes {
@@ -24,6 +25,8 @@ class AppRoutes {
 
       case Routes.permission:
         return FadeTransitionPageRoute(const PermissionView(), settings: args);
+      case Routes.mapsView:
+        return FadeTransitionPageRoute(const MapsView(false), settings: args);
 
       case Routes.signin:
         return FadeTransitionPageRoute(const SignInView(), settings: args);

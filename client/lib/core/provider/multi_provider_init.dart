@@ -10,6 +10,7 @@ import 'package:client/app/views/filter_bottom_sheet/widgets/gender/gender_notif
 import 'package:client/app/views/filter_bottom_sheet/widgets/offers/offer_notifier.dart';
 import 'package:client/app/views/filter_bottom_sheet/widgets/timing/timing_notifier.dart';
 import 'package:client/app/views/home/home.viewmodel.dart';
+import 'package:client/app/views/maps/maps.viewmodel.dart';
 import 'package:client/app/views/navigation/navigation.viewmodel.dart';
 import 'package:client/app/views/onboarding/onboarding.viewmodel.dart';
 import 'package:client/app/views/permission/permission.viewmodel.dart';
@@ -41,5 +42,6 @@ class MultiProviderInit {
     ChangeNotifierProvider(create: (_) => CheckoutDetailViewModel()),
     ChangeNotifierProvider(create: (_) => PermissionViewModel()),
     ChangeNotifierProvider(create: (_) => SignInViewModel()),
+    ChangeNotifierProvider(create: (_) => MapsViewModel()),
   ];
 }

@@ -49,10 +49,16 @@ class HomeViewModel extends BaseViewModel {
     }
   }
 
-  String _ddLocationValue = 'Antalya';
-  String get ddLocationValue => _ddLocationValue;
+  String ddLocationValueSt = "";
+
+  void getCityName(String cityName) {
+    ddLocationValueSt = cityName;
+    notifyListeners();
+  }
+
+  String get ddLocationValue => ddLocationValueSt;
   set ddLocationValue(newValue) {
-    _ddLocationValue = newValue;
+    ddLocationValue = newValue;
     notifyListeners();
   }
 

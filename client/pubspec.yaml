@@ -39,6 +39,9 @@ dependencies:
   shared_preferences: ^2.0.17
   cached_network_image: ^3.2.3
   permission_handler: ^10.2.0
+  geocoding: ^2.0.5
+  google_maps_flutter: ^2.2.5
+  geolocator: ^9.0.2
 
 
 dev_dependencies:
