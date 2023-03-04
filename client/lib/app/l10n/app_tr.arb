@@ -182,6 +182,8 @@
     "notificationText" : "Size en güncel haberleri bildirebilmemiz için gereklidir. Randevunuzu size hatırlatmamız veya olası bir değişiklikte sizi haberdar ederek işlerinizi kolaylaştırabiliriz.",
     "later" : "Daha Sonra",
     "allowNotification" : "Bildirime İzin Ver",
-    "goSettings" : "Ayarlara Git"
+    "goSettings" : "Ayarlara Git",
+    "confirmLocation" : "Konumu Onayla", 
+    "useLocationInApp" : "Konum uygulamada kullanılsın mı"  
  }
 

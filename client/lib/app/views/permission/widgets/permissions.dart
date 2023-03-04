@@ -32,7 +32,7 @@ class Permissions {
           provider.currentIndex = provider.currentIndex + 1;
         } else {
           NavigationService.instance
-              .navigateToPageClear(path: Routes.navigation.name);
+              .navigateToPageClear(path: Routes.mapsView.name);
         }
       });
     } else {

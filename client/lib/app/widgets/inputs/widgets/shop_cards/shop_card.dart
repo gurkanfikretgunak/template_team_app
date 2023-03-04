@@ -36,14 +36,19 @@ class ShopCard extends StatelessWidget with ShopCardWidgets {
         crossAxisAlignment: CrossAxisAlignment.start,
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          Expanded(flex: imageFlex, child: SizedBox(width: imageWidth, child: shopImage(shopModel.desc))),
-          context.emptySizedHeightBoxLow,
           Expanded(
-            flex: 1,
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                FittedBox(
+              flex: imageFlex,
+              child: ClipRRect(
+                borderRadius: const BorderRadius.all(Radius.circular(20)),
+                child: SizedBox(
+                    width: imageWidth, child: shopImage(shopModel.desc)),
+              )),
+          context.emptySizedHeightBoxLow,
+          Row(
+            children: [
+              Expanded(
+                flex: 1,
+                child: FittedBox(
                   child: shopInformation(
                     context,
                     shopModel.title,
@@ -54,14 +59,18 @@ class ShopCard extends StatelessWidget with ShopCardWidgets {
                     false,
                   ),
                 ),
-                isBig
-                    ? Consumer<ShopDetailViewModel>(
-                        builder: (context, value, child) {
-                          bool favoriteShopDetail = value.isDetailFavorite(shopModel);
+              ),
+              isBig
+                  ? Consumer<ShopDetailViewModel>(
+                      builder: (context, value, child) {
+                        bool favoriteShopDetail =
+                            value.isDetailFavorite(shopModel);
 
-                          return IconButton(
+                        return FittedBox(
+                          child: IconButton(
                               onPressed: () {
-                                value.favShopDetail(shopModel, !favoriteShopDetail);
+                                value.favShopDetail(
+                                    shopModel, !favoriteShopDetail);
                               },
                               icon: AnimatedCrossFade(
                                 firstChild: Icon(
@@ -73,15 +82,16 @@ class ShopCard extends StatelessWidget with ShopCardWidgets {
                                   Icons.favorite_border,
                                   size: 30,
                                 ),
-                                crossFadeState:
-                                    favoriteShopDetail ? CrossFadeState.showFirst : CrossFadeState.showSecond,
+                                crossFadeState: favoriteShopDetail
+                                    ? CrossFadeState.showFirst
+                                    : CrossFadeState.showSecond,
                                 duration: const Duration(seconds: 1),
-                              ));
-                        },
-                      )
-                    : const SizedBox()
-              ],
-            ),
+                              )),
+                        );
+                      },
+                    )
+                  : const SizedBox()
+            ],
           ),
         ],
       )),

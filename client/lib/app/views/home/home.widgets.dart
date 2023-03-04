@@ -9,18 +9,19 @@ import 'package:client/app/widgets/custom_appbar.dart';
 import 'package:client/app/widgets/inputs/inputs_widgets.dart';
 import 'package:client/core/constans/text_constants.dart';
 import 'package:client/core/extensions/common_extension.dart';
+import 'package:client/core/services/socket/socket_service.dart';
 import 'package:client/gen/assets.gen.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import '../../widgets/buttons/buttons_widgets.dart';
 import '../../widgets/image_viewer/icons/icons_widgets.dart';
-import '../search/search_bar/search_bar.widget.dart';
 
 class HomeWidgets {
   CustomAppbar appbar(BuildContext context) {
     final provider = Provider.of<HomeViewModel>(context);
     return CustomAppbar(
-      leading: Row(children: [
+      leading:
+          Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
         Padding(
           padding: context.verticalPaddingLow,
           child: InkWell(
@@ -34,7 +35,9 @@ class HomeWidgets {
                 children: [
                   CustomIcon(imagePath: Assets.icons.location.path),
                   Text(
-                    provider.ddLocationValue,
+                    provider.ddLocationValue == ""
+                        ? "Ankara"
+                        : provider.ddLocationValue,
                     style: TextConstants.instance.button1,
                   ),
                 ],
@@ -42,6 +45,20 @@ class HomeWidgets {
             ),
           ),
         ),
+        IconButton(
+          onPressed: () {
+            SocketService().socket.emit(
+              'notification',
+              {
+                "message": "message",
+                "sender": "",
+                "receiver": "",
+                "type": "",
+              },
+            );
+          },
+          icon: const Icon(Icons.notifications),
+        )
       ]),
     );
   }
@@ -80,7 +97,8 @@ class HomeWidgets {
               title: L10n.of(context)!.beautyServices,
               context: context,
               seeAllOnPressed: () {
-                NavigationService.instance.navigateToPage(Routes.beautyServiceDetail.name);
+                NavigationService.instance
+                    .navigateToPage(Routes.beautyServiceDetail.name);
               },
             ),
             const ServicesGridView(),
@@ -88,16 +106,17 @@ class HomeWidgets {
               title: L10n.of(context)!.popularNearYou,
               context: context,
               seeAllOnPressed: () {
-                NavigationService.instance.navigateToPage(Routes.popularNearDetail.name);
+                NavigationService.instance
+                    .navigateToPage(Routes.popularNearDetail.name);
               },
             ),
             ShopList(
               imageFlex: 2,
               isHorizontal: true,
               cardHeight: context.dynamicHeight(0.3),
-              cardWidth: context.dynamicHeight(0.3),
+              cardWidth: context.dynamicHeight(0.32),
               listHeight: context.dynamicHeight(0.25),
-              imageWidth: 180,
+              imageWidth: context.mediaQuery.size.width / 1.76,
             ),
           ],
         ),
@@ -180,7 +199,8 @@ class _AlertDialogWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     final provider = Provider.of<HomeViewModel>(context);
     return AlertDialog(
-      shape: const RoundedRectangleBorder(borderRadius: BorderRadius.all(Radius.circular(24.0))),
+      shape: const RoundedRectangleBorder(
+          borderRadius: BorderRadius.all(Radius.circular(24.0))),
       content: SizedBox(
         width: context.dynamicWidth(1),
         child: Column(
