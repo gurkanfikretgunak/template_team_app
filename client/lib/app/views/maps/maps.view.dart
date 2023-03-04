@@ -1,11 +1,10 @@
+import 'package:client/app/l10n/app_l10n.dart';
 import 'package:client/app/views/maps/widgets/current_location.dart';
 import 'package:client/app/widgets/buttons/buttons_widgets.dart';
 import 'package:client/core/base/base_view/base_view.dart';
-import 'package:client/core/extensions/common_extension.dart';
 import 'package:flutter/material.dart';
 import 'package:client/core/constans/color_constants.dart';
 import 'package:provider/provider.dart';
-
 import '../../routes/navigation_service.dart';
 import '../../routes/routes.dart';
 import 'maps.viewmodel.dart';
@@ -35,7 +34,7 @@ class MapsView extends BaseView {
                     NavigationService.instance
                         .navigateToPageClear(path: Routes.navigation.name);
                   },
-                  text: "Devam Et",
+                  text: L10n.of(context)!.continueShop,
                   color: ButtonColor.light)
               : const SizedBox()
         ],

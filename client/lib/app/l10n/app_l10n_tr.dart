@@ -549,4 +549,10 @@ class L10nTr extends L10n {
 
   @override
   String get goSettings => 'Ayarlara Git';
+
+  @override
+  String get confirmLocation => 'Konumu Onayla';
+
+  @override
+  String get useLocationInApp => 'Konum uygulamada kullanılsın mı';
 }

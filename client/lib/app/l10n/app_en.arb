@@ -182,5 +182,7 @@
     "notificationText" : "It is necessary so that we can notify you of the latest news. We can make your work easier by reminding you of your appointment or by notifying you of a possible change.",
     "later" : "Later",
     "allowNotification" : "Allow Notification",
-    "goSettings" : "Go Settings"
+    "goSettings" : "Go Settings", 
+    "confirmLocation" : "Confirm Location", 
+    "useLocationInApp" : "Use location in app" 
 }

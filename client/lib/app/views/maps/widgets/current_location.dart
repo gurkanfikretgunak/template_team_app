@@ -4,11 +4,14 @@ import 'package:client/app/views/maps/maps.viewmodel.dart';
 import 'package:client/app/views/maps/widgets/maps_permission.widget.dart';
 import 'package:client/app/widgets/buttons/buttons_widgets.dart';
 import 'package:client/core/constans/color_constants.dart';
+import 'package:client/core/extensions/common_extension.dart';
 import 'package:flutter/material.dart';
 import 'package:geocoding/geocoding.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:provider/provider.dart';
+
+import '../../../l10n/app_l10n.dart';
 
 class MapsViewWidget extends StatefulWidget with MapsPermissionsWidget {
   const MapsViewWidget({Key? key}) : super(key: key);
@@ -18,14 +21,7 @@ class MapsViewWidget extends StatefulWidget with MapsPermissionsWidget {
 }
 
 class _MapsViewWidgetState extends State<MapsViewWidget> {
-  final List<Marker> _markers = <Marker>[
-    const Marker(
-        markerId: MarkerId('1'),
-        position: LatLng(38.392300, 28.979530),
-        infoWindow: InfoWindow(
-          title: 'My Position',
-        )),
-  ];
+  final List<Marker> _markers = <Marker>[];
 
   String? currentAddress;
   Position? _currentPosition;
@@ -105,6 +101,9 @@ class _MapsViewWidgetState extends State<MapsViewWidget> {
                 controller.animateCamera(
                     CameraUpdate.newCameraPosition(cameraPosition));
                 setState(() {});
+
+                // ignore: use_build_context_synchronously
+                bottomSheet(context, provider);
               });
             },
             child: Icon(
@@ -113,22 +112,65 @@ class _MapsViewWidgetState extends State<MapsViewWidget> {
             ),
           ),
         ),
-        Positioned(
-            bottom: 50,
-            left: 100,
-            right: 100,
-            child: CustomElevatedButton(
-              text: "Confirm Location",
-              buttonColor: ButtonColor.purple,
-              buttonSize: ButtonSize.medium,
-              textColor: ButtonColor.light,
-              onPressed: () {
-                _getCurrentPosition;
-
-                provider.showButton();
-              },
-            ))
       ],
+    );
+  }
+
+  Future<void> bottomSheet(BuildContext context, MapsViewModel provider) {
+    return showModalBottomSheet<void>(
+      context: context,
+      builder: (BuildContext context) {
+        return Padding(
+          padding: context.paddingNormal,
+          child: SizedBox(
+            height: 180,
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: <Widget>[
+                Row(
+                  children: [
+                    Icon(
+                      Icons.my_location_outlined,
+                      color: ColorConstant.instance.purple2,
+                    ),
+                    context.emptySizedWidthBoxNormal,
+                    Text(
+                      currentAddress!,
+                      style: Theme.of(context)
+                          .textTheme
+                          .titleLarge
+                          ?.copyWith(fontSize: 25),
+                    ),
+                  ],
+                ),
+                Text(
+                  "${L10n.of(context)!.useLocationInApp} ?",
+                  style: Theme.of(context)
+                      .textTheme
+                      .displaySmall
+                      ?.copyWith(fontSize: 15),
+                ),
+                Center(
+                  child: SizedBox(
+                    width: context.mediaQuery.size.width,
+                    child: CustomElevatedButton(
+                      text: L10n.of(context)!.confirmLocation,
+                      buttonColor: ButtonColor.purple,
+                      textColor: ButtonColor.light,
+                      onPressed: () {
+                        _getCurrentPosition;
+                        provider.showButton();
+                        Navigator.pop(context);
+                      },
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          ),
+        );
+      },
     );
   }
 }

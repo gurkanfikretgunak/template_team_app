@@ -549,4 +549,10 @@ class L10nEn extends L10n {
 
   @override
   String get goSettings => 'Go Settings';
+
+  @override
+  String get confirmLocation => 'Confirm Location';
+
+  @override
+  String get useLocationInApp => 'Use location in app';
 }

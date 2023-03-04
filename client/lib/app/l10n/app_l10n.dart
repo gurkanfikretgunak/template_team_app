@@ -1184,6 +1184,18 @@ abstract class L10n {
   /// In en, this message translates to:
   /// **'Go Settings'**
   String get goSettings;
+
+  /// No description provided for @confirmLocation.
+  ///
+  /// In en, this message translates to:
+  /// **'Confirm Location'**
+  String get confirmLocation;
+
+  /// No description provided for @useLocationInApp.
+  ///
+  /// In en, this message translates to:
+  /// **'Use location in app'**
+  String get useLocationInApp;
 }
 
 class _L10nDelegate extends LocalizationsDelegate<L10n> {
