@@ -38,8 +38,11 @@ class ShopCard extends StatelessWidget with ShopCardWidgets {
         children: [
           Expanded(
               flex: imageFlex,
-              child: SizedBox(
-                  width: imageWidth, child: shopImage(shopModel.desc))),
+              child: ClipRRect(
+                borderRadius: const BorderRadius.all(Radius.circular(20)),
+                child: SizedBox(
+                    width: imageWidth, child: shopImage(shopModel.desc)),
+              )),
           context.emptySizedHeightBoxLow,
           Expanded(
             flex: 1,
