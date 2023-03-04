@@ -44,53 +44,54 @@ class ShopCard extends StatelessWidget with ShopCardWidgets {
                     width: imageWidth, child: shopImage(shopModel.desc)),
               )),
           context.emptySizedHeightBoxLow,
-          Expanded(
-            flex: 1,
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                shopInformation(
-                  context,
-                  shopModel.title,
-                  shopModel.location,
-                  shopModel.price,
-                  shopModel.date,
-                  shopModel.distance,
-                  false,
+          Row(
+            children: [
+              Expanded(
+                flex: 1,
+                child: FittedBox(
+                  child: shopInformation(
+                    context,
+                    shopModel.title,
+                    shopModel.location,
+                    shopModel.price,
+                    shopModel.date,
+                    shopModel.distance,
+                    false,
+                  ),
                 ),
-                isBig
-                    ? Consumer<ShopDetailViewModel>(
-                        builder: (context, value, child) {
-                          bool favoriteShopDetail =
-                              value.isDetailFavorite(shopModel);
+              ),
+              isBig
+                  ? Consumer<ShopDetailViewModel>(
+                      builder: (context, value, child) {
+                        bool favoriteShopDetail =
+                            value.isDetailFavorite(shopModel);
 
-                          return FittedBox(
-                            child: IconButton(
-                                onPressed: () {
-                                  value.favShopDetail(
-                                      shopModel, !favoriteShopDetail);
-                                },
-                                icon: AnimatedCrossFade(
-                                  firstChild: Icon(
-                                    Icons.favorite,
-                                    color: ColorConstant.instance.purple2,
-                                    size: 30,
-                                  ),
-                                  secondChild: const Icon(
-                                    Icons.favorite_border,
-                                    size: 30,
-                                  ),
-                                  crossFadeState: favoriteShopDetail
-                                      ? CrossFadeState.showFirst
-                                      : CrossFadeState.showSecond,
-                                  duration: const Duration(seconds: 1),
-                                )),
-                          );
-                        },
-                      )
-                    : const SizedBox()
-              ],
-            ),
+                        return FittedBox(
+                          child: IconButton(
+                              onPressed: () {
+                                value.favShopDetail(
+                                    shopModel, !favoriteShopDetail);
+                              },
+                              icon: AnimatedCrossFade(
+                                firstChild: Icon(
+                                  Icons.favorite,
+                                  color: ColorConstant.instance.purple2,
+                                  size: 30,
+                                ),
+                                secondChild: const Icon(
+                                  Icons.favorite_border,
+                                  size: 30,
+                                ),
+                                crossFadeState: favoriteShopDetail
+                                    ? CrossFadeState.showFirst
+                                    : CrossFadeState.showSecond,
+                                duration: const Duration(seconds: 1),
+                              )),
+                        );
+                      },
+                    )
+                  : const SizedBox()
+            ],
           ),
         ],
       )),
