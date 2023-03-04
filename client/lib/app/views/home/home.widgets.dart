@@ -9,6 +9,7 @@ import 'package:client/app/widgets/custom_appbar.dart';
 import 'package:client/app/widgets/inputs/inputs_widgets.dart';
 import 'package:client/core/constans/text_constants.dart';
 import 'package:client/core/extensions/common_extension.dart';
+import 'package:client/core/services/socket/socket_service.dart';
 import 'package:client/gen/assets.gen.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -19,7 +20,8 @@ class HomeWidgets {
   CustomAppbar appbar(BuildContext context) {
     final provider = Provider.of<HomeViewModel>(context);
     return CustomAppbar(
-      leading: Row(children: [
+      leading:
+          Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
         Padding(
           padding: context.verticalPaddingLow,
           child: InkWell(
@@ -43,6 +45,20 @@ class HomeWidgets {
             ),
           ),
         ),
+        IconButton(
+          onPressed: () {
+            SocketService().socket.emit(
+              'notification',
+              {
+                "message": "message",
+                "sender": "",
+                "receiver": "",
+                "type": "",
+              },
+            );
+          },
+          icon: const Icon(Icons.notifications),
+        )
       ]),
     );
   }
