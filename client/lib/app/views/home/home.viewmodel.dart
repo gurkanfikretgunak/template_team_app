@@ -58,7 +58,7 @@ class HomeViewModel extends BaseViewModel {
 
   String get ddLocationValue => ddLocationValueSt;
   set ddLocationValue(newValue) {
-    ddLocationValue = newValue;
+    ddLocationValueSt = newValue;
     notifyListeners();
   }
 
