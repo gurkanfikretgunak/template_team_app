@@ -45,6 +45,7 @@ dependencies:
   geocoding: ^2.0.5
   google_maps_flutter: ^2.2.5
   geolocator: ^9.0.2
+  socket_io_client: ^2.0.1
 
 
 
