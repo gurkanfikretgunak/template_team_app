@@ -22,4 +22,5 @@ enum Routes {
   addCard,
   beautyServiceDetail,
   popularNearDetail,
+  mapsView
 }

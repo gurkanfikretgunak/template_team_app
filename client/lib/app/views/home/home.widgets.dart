@@ -15,7 +15,6 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import '../../widgets/buttons/buttons_widgets.dart';
 import '../../widgets/image_viewer/icons/icons_widgets.dart';
-import '../search/search_bar/search_bar.widget.dart';
 
 class HomeWidgets {
   CustomAppbar appbar(BuildContext context) {
@@ -36,7 +35,9 @@ class HomeWidgets {
                 children: [
                   CustomIcon(imagePath: Assets.icons.location.path),
                   Text(
-                    provider.ddLocationValue,
+                    provider.ddLocationValue == ""
+                        ? "Ankara"
+                        : provider.ddLocationValue,
                     style: TextConstants.instance.button1,
                   ),
                 ],
@@ -113,9 +114,9 @@ class HomeWidgets {
               imageFlex: 2,
               isHorizontal: true,
               cardHeight: context.dynamicHeight(0.3),
-              cardWidth: context.dynamicHeight(0.3),
+              cardWidth: context.dynamicHeight(0.32),
               listHeight: context.dynamicHeight(0.25),
-              imageWidth: 180,
+              imageWidth: context.mediaQuery.size.width / 1.76,
             ),
           ],
         ),
