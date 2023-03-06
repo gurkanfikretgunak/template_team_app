@@ -2,10 +2,11 @@ import 'package:client/app/app.dart';
 import 'package:flavor/flavor.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:get_storage/get_storage.dart';
 
 const String logLevelKey = 'log_level';
 
-void setupApp() {
+Future<void> setupApp() async {
   final logLevel = Flavor.I.getInt(logLevelKey);
   if (kDebugMode) {
     if (kDebugMode) {
@@ -13,5 +14,6 @@ void setupApp() {
     }
   }
   if (Flavor.I.isDevelopment) {}
+  await GetStorage.init();
   runApp(const App());
 }

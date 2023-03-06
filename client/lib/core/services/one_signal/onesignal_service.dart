@@ -7,11 +7,12 @@ class OneSignalService {
     getInstance();
     _instance!.setLogLevel(OSLogLevel.verbose, OSLogLevel.none);
     _instance!.setAppId(AppConstant.instance.oneSignalAppId);
-    _instance!.promptUserForPushNotificationPermission().then((accepted) {});
+    /*  _instance!.promptUserForPushNotificationPermission().then((accepted) {}); */
     _instance!.setNotificationWillShowInForegroundHandler(
         (OSNotificationReceivedEvent event) {
       event.complete(event.notification);
     });
+
     _instance!.setExternalUserId("");
     _instance!.setPermissionObserver((OSPermissionStateChanges changes) {});
   }

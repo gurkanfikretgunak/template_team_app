@@ -1,6 +1,7 @@
 import 'package:client/app/views/account/manage_address/manage_address.viewmodel.dart';
 import 'package:client/app/views/account/payments/payment_home/payment.viewmodel.dart';
 import 'package:client/app/views/auth/sign_in/sign_in.viewmodel.dart';
+import 'package:client/app/views/auth/sign_up/sign_up.viewmodel.dart';
 import 'package:client/app/views/auth/verification/verify_otp/verify_otp.viewmodel.dart';
 import 'package:client/app/views/booking_detail/booking_detail.viewmodel.dart';
 import 'package:client/app/views/bookings/bookings.viewmodel.dart';
@@ -42,6 +43,7 @@ class MultiProviderInit {
     ChangeNotifierProvider(create: (_) => CheckoutDetailViewModel()),
     ChangeNotifierProvider(create: (_) => PermissionViewModel()),
     ChangeNotifierProvider(create: (_) => SignInViewModel()),
+    ChangeNotifierProvider(create: (_) => SignUpViewModel()),
     ChangeNotifierProvider(create: (_) => MapsViewModel()),
   ];
 }
