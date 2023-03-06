@@ -1,4 +1,8 @@
+import 'package:client/core/model/login/user_login_response.dart';
+import 'package:client/core/services/retrofit/retrofit_service.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:get_storage/get_storage.dart';
+import 'package:logger/logger.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class SignInViewModel extends ChangeNotifier {
@@ -8,6 +12,20 @@ class SignInViewModel extends ChangeNotifier {
   set currentIndex(int newIndex) {
     _currentIndex = newIndex;
     notifyListeners();
+  }
+
+  TextEditingController passwordText = TextEditingController();
+  TextEditingController emailText = TextEditingController();
+
+  Future<void> login() async {
+    if (passwordText.text != '' && emailText.text != '') {
+      UserLoginResponse response = await RetrofitService.instance
+          .login(emailText.text, passwordText.text);
+      Logger().d(
+          '${response.message}. \naccessToken:${GetStorage().read('accessToken')}');
+    } else {
+      Logger().d("Fill the blanks!");
+    }
   }
 
   PageController? pageController;
