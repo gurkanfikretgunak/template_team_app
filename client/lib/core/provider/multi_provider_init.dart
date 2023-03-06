@@ -19,6 +19,7 @@ import 'package:client/app/views/shop_detail/shop_detail.viewmodel.dart';
 import 'package:client/app/views/shop_detail/widget/tabbar_view/recommended/recommended.viewmodel.dart';
 import 'package:client/app/widgets/inputs/widgets/radio_button/radio_button_notifier.dart';
 import 'package:client/app/widgets/inputs/widgets/search_field/search_field_notification.dart';
+import 'package:client/core/provider/validation/validator_provider.dart';
 import 'package:provider/provider.dart';
 import 'package:provider/single_child_widget.dart';
 
@@ -45,5 +46,6 @@ class MultiProviderInit {
     ChangeNotifierProvider(create: (_) => SignInViewModel()),
     ChangeNotifierProvider(create: (_) => SignUpViewModel()),
     ChangeNotifierProvider(create: (_) => MapsViewModel()),
+    ChangeNotifierProvider(create: (_) => FormViewModel()),
   ];
 }

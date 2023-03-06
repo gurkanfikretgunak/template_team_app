@@ -23,6 +23,7 @@ class ForgotPasswordWidgets {
                 style: TextConstants.instance.heading6,
               ),
               CustomTextFormField(
+                isVisible: false,
                 prefixIcon: const Icon(Icons.mobile_friendly_outlined),
                 labelTextValue: L10n.of(context)!.phoneNumber,
                 hintText: "(+1) - __ __",

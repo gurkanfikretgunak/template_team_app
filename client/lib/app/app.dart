@@ -1,6 +1,7 @@
 import 'package:client/app/l10n/app_l10n.dart';
 import 'package:client/app/routes/app_routes.dart';
 import 'package:client/app/routes/navigation_service.dart';
+import 'package:client/app/views/auth/sign_up/sign_up.view.dart';
 import 'package:client/app/views/splash/splash.view.dart';
 import 'package:client/core/init/theme/custom_theme.dart';
 import 'package:client/core/provider/multi_provider_init.dart';
@@ -16,7 +17,7 @@ class App extends StatelessWidget {
     return MultiProvider(
       providers: MultiProviderInit().providers,
       child: MaterialApp(
-        home: const SplashView(false),
+        home: const SignUpView(),
         title: "Salony",
         theme: CustomTheme.customLightTheme(context),
         localizationsDelegates: L10n.localizationsDelegates,

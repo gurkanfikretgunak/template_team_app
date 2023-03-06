@@ -33,8 +33,10 @@ class AddCardWidgets {
   Widget cardInformationTextFields(BuildContext context) {
     return Column(
       children: [
-        CustomTextFormField(labelTextValue: L10n.of(context)!.nameOnCard),
         CustomTextFormField(
+            isVisible: false, labelTextValue: L10n.of(context)!.nameOnCard),
+        CustomTextFormField(
+          isVisible: false,
           labelTextValue: L10n.of(context)!.cardNumber,
           prefixIcon: const Icon(Icons.credit_card_outlined),
         ),
@@ -44,6 +46,7 @@ class AddCardWidgets {
             SizedBox(
               width: context.dynamicWidth(0.4),
               child: CustomTextFormField(
+                isVisible: false,
                 labelTextValue: L10n.of(context)!.expDate,
                 hintText: "MM//YY",
               ),
@@ -51,6 +54,7 @@ class AddCardWidgets {
             SizedBox(
               width: context.dynamicWidth(0.4),
               child: CustomTextFormField(
+                isVisible: false,
                 labelTextValue: L10n.of(context)!.cvv,
                 hintText: "123",
               ),
