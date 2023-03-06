@@ -90,15 +90,18 @@ class SignInWidgets {
         CustomTextFormField(
           labelTextValue: L10n.of(context)!.email,
           hintText: "johndoe@gmail.com",
+          controller: provider.emailText,
         ),
         CustomTextFormField(
           labelTextValue: L10n.of(context)!.password,
+          controller: provider.passwordText,
           hintText: L10n.of(context)!.setPassword,
         ),
         SizedBox(
           width: context.dynamicWidth(1),
           child: CustomElevatedButton(
             onPressed: () async {
+              provider.login();
               if (await provider.permissionGetCache()) {
                 NavigationService.instance
                     .navigateToPageClear(path: Routes.navigation.name);
