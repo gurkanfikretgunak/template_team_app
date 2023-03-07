@@ -7,10 +7,16 @@ import 'package:logger/logger.dart';
 class SignUpViewModel extends ChangeNotifier {
   int _currentIndex = 0;
   int get currentIndex => _currentIndex;
+  bool obscureText = false;
 
   TextEditingController nameText = TextEditingController();
   TextEditingController passwordText = TextEditingController();
   TextEditingController emailText = TextEditingController();
+
+  void passwordVisibleCheck() {
+    obscureText = !obscureText;
+    notifyListeners();
+  }
 
   set currentIndex(int newIndex) {
     _currentIndex = newIndex;

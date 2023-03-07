@@ -23,13 +23,16 @@ class PromoWidgets {
           alignment: WrapAlignment.spaceBetween,
           runSpacing: 30,
           children: [
-            Text(L10n.of(context)!.offersPromoCode, style: TextConstants.instance.heading5),
+            Text(L10n.of(context)!.offersPromoCode,
+                style: TextConstants.instance.heading5),
             Row(
               mainAxisSize: MainAxisSize.min,
               children: [
                 Flexible(
                   child: CustomTextFormField(
-                      hintText: L10n.of(context)!.enterCouponCode, labelTextValue: L10n.of(context)!.couponCode),
+                      isVisible: false,
+                      hintText: L10n.of(context)!.enterCouponCode,
+                      labelTextValue: L10n.of(context)!.couponCode),
                 ),
                 CustomTextButton(
                   onPressed: () {},
@@ -49,13 +52,15 @@ class PromoWidgets {
     List<Map<String, dynamic>> offers = [
       {
         'offerCustomIcon': Assets.images.shop.visaCheck.path,
-        'offerTitle': '${L10n.of(context)!.getcashbackUpto}  ${L10n.of(context)!.getVisaCredits}',
+        'offerTitle':
+            '${L10n.of(context)!.getcashbackUpto}  ${L10n.of(context)!.getVisaCredits}',
         'offerSubtitle': L10n.of(context)!.onBookingOf,
         'onPressed': () {},
       },
       {
         'offerCustomIcon': Assets.images.shop.paypalCheck.path,
-        'offerTitle': '${L10n.of(context)!.getcashbackUpto}  ${L10n.of(context)!.getUsingPaypal}',
+        'offerTitle':
+            '${L10n.of(context)!.getcashbackUpto}  ${L10n.of(context)!.getUsingPaypal}',
         'offerSubtitle': L10n.of(context)!.onBookingOf,
         'onPressed': () {},
       },

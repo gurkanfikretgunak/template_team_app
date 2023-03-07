@@ -27,11 +27,13 @@ class NewAddresAlertDialog extends StatelessWidget {
         runSpacing: 10,
         children: [
           CustomTextFormField(
+            isVisible: false,
             labelTextValue: L10n.of(context)!.addressTitle,
             hintText: L10n.of(context)!.office,
             controller: provider.addressTitleController,
           ),
           CustomTextFormField(
+            isVisible: false,
             labelTextValue: L10n.of(context)!.address,
             hintText: "...",
             controller: provider.addressController,
