@@ -215,4 +215,4 @@ Instructions on how to use them in your own application are linked below.
 ### Special Thanks to 
 Thanks for preparing the README draft as per the requirements.
 
-- [Ali Özten](https://github.com/aliozten61)
+- [Ali Özten](https://github.com/aliozten92)
