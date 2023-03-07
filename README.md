@@ -211,3 +211,8 @@ Instructions on how to use them in your own application are linked below.
 - [Elif Karagöz](https://github.com/eliffkaragoz)
 - [Melih Çelik](https://github.com/melihcelik09)
 - [Mete Çoban](https://github.com/metecoban)
+
+### Special Thanks to 
+Thanks for preparing the README draft as per the requirements.
+
+- [Ali Özten](https://github.com/aliozten61)
