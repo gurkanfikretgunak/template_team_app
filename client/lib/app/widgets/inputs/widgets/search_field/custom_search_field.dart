@@ -15,6 +15,7 @@ class CustomSearchField extends BaseView {
   Widget build(BuildContext context) {
     final provider = Provider.of<SearchFieldNotifier>(context);
     return CustomTextFormField(
+      isVisible: false,
       hintText: L10n.of(context)!.search,
       onTap: onTap,
       onChanged: (value) {
