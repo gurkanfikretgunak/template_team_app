@@ -11,9 +11,13 @@ import 'package:client/app/widgets/divider/divider_widgets.dart';
 import 'package:client/app/widgets/divider/widgets/custom_divider.dart';
 import 'package:client/app/widgets/image_viewer/icons/icons_widgets.dart';
 import 'package:client/app/widgets/inputs/widgets/text_fields/custom_text_form_field.dart';
+import 'package:client/core/base/base_cache_manager/base_cache_manager.dart';
 import 'package:client/core/constans/text_constants.dart';
 import 'package:client/core/extensions/common_extension.dart';
+import 'package:client/core/init/cache/token_cache_manager/token_cache_manager.dart';
 import 'package:flutter/material.dart';
+import 'package:get_storage/get_storage.dart';
+import 'package:logger/logger.dart';
 import 'package:provider/provider.dart';
 
 class SignInWidgets {
@@ -122,9 +126,28 @@ class SignInWidgets {
   }
 
   Column titleTexts(BuildContext context) {
+    final TokenCacheManager tokenCacheManager = TokenCacheManager();
+
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
+        Row(
+          children: [
+            CustomElevatedButton(
+                textColor: ButtonColor.light,
+                onPressed: () async {
+                  tokenCacheManager.writeItem("a", "value");
+                  Logger().e("a");
+                },
+                text: "write"),
+            CustomElevatedButton(
+                textColor: ButtonColor.light,
+                onPressed: () {
+                  Logger().e(tokenCacheManager.readItem("accessToken"));
+                },
+                text: "read"),
+          ],
+        ),
         Text(
           L10n.of(context)!.welcomeBack,
           style: TextConstants.instance.heading4,

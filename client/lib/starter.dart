@@ -14,6 +14,6 @@ Future<void> setupApp() async {
     }
   }
   if (Flavor.I.isDevelopment) {}
-  await GetStorage.init();
+  // await GetStorage.init();
   runApp(const App());
 }

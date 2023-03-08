@@ -1,11 +1,19 @@
+import 'package:client/core/init/cache/permission_cache_manager/permission_cache_manager.dart';
+import 'package:client/core/init/cache/token_cache_manager/token_cache_manager.dart';
 import 'package:client/core/model/login/user_login_response.dart';
 import 'package:client/core/services/retrofit/retrofit_service.dart';
 import 'package:flutter/cupertino.dart';
-import 'package:get_storage/get_storage.dart';
 import 'package:logger/logger.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 
 class SignInViewModel extends ChangeNotifier {
+  PermissionCacheManager permissionCacheManager = PermissionCacheManager();
+  final TokenCacheManager tokenCacheManager = TokenCacheManager();
+
+  TextEditingController passwordText = TextEditingController();
+  TextEditingController emailText = TextEditingController();
+
+  PageController? pageController;
+
   int _currentIndex = 0;
   int get currentIndex => _currentIndex;
 
@@ -14,30 +22,23 @@ class SignInViewModel extends ChangeNotifier {
     notifyListeners();
   }
 
-  TextEditingController passwordText = TextEditingController();
-  TextEditingController emailText = TextEditingController();
-
   Future<void> login() async {
     if (passwordText.text != '' && emailText.text != '') {
       UserLoginResponse response = await RetrofitService.instance
           .login(emailText.text, passwordText.text);
       Logger().d(
-          '${response.message}. \naccessToken:${GetStorage().read('accessToken')}');
+          '${response.message}. \naccessToken:${tokenCacheManager.readItem('accessToken')}');
     } else {
       Logger().d("Fill the blanks!");
     }
   }
 
-  PageController? pageController;
-
   permissionSetCache(bool condition) async {
-    SharedPreferences prefs = await SharedPreferences.getInstance();
-    await prefs.setBool('permission', condition);
+    await permissionCacheManager.writeItem('permission', condition);
   }
 
   permissionGetCache() async {
-    SharedPreferences prefs = await SharedPreferences.getInstance();
-    bool boolValue = prefs.getBool('permission') ?? false;
+    bool boolValue = permissionCacheManager.readItem('permission') ?? false;
     return boolValue;
   }
 }

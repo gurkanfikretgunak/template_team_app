@@ -1,3 +1,4 @@
+import 'package:client/core/init/cache/token_cache_manager/token_cache_manager.dart';
 import 'package:client/core/model/register/user_register_response.dart';
 import 'package:client/core/services/retrofit/retrofit_service.dart';
 import 'package:flutter/cupertino.dart';
@@ -11,6 +12,8 @@ class SignUpViewModel extends ChangeNotifier {
   TextEditingController nameText = TextEditingController();
   TextEditingController passwordText = TextEditingController();
   TextEditingController emailText = TextEditingController();
+
+  final TokenCacheManager tokenCacheManager = TokenCacheManager();
 
   set currentIndex(int newIndex) {
     _currentIndex = newIndex;
@@ -34,7 +37,7 @@ class SignUpViewModel extends ChangeNotifier {
           phoneNumber,
         );
         Logger().d(
-            '${result.message}. \naccessToken:${GetStorage().read('accessToken')}');
+            '${result.message}. \naccessToken:${tokenCacheManager.readItem('accessToken')}');
       } else {
         //TODO: Show error messages
         Logger().d("Fill the name textfield as full name!");

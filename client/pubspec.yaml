@@ -36,12 +36,9 @@ dependencies:
   url_launcher: ^6.1.8
   share_plus: ^6.3.0
   map_launcher: ^2.4.0
-  shared_preferences: ^2.0.17
   cached_network_image: ^3.2.3
   permission_handler: ^10.2.0
-
   onesignal_flutter: ^3.5.0
-
   geocoding: ^2.0.5
   google_maps_flutter: ^2.2.5
   geolocator: ^9.0.2
