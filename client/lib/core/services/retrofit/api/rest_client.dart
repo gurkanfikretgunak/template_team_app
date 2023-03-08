@@ -1,3 +1,4 @@
+import 'package:client/core/model/address/address_model.dart';
 import 'package:client/core/model/login/user_login_request.dart';
 import 'package:client/core/model/login/user_login_response.dart';
 import 'package:client/core/model/register/user_register_request.dart';
@@ -16,4 +17,7 @@ abstract class RestClient {
 
   @POST("/auth/login")
   Future<UserLoginResponse> login(@Body() UserLoginRequest user);
+
+  @GET("/auth/user/address")
+  Future<AddressModel> getAddress();
 }
