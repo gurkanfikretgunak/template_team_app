@@ -17,14 +17,16 @@ class SignInViewModel extends ChangeNotifier {
   TextEditingController passwordText = TextEditingController();
   TextEditingController emailText = TextEditingController();
 
-  Future<void> login() async {
+  Future<dynamic> login() async {
     if (passwordText.text != '' && emailText.text != '') {
       UserLoginResponse response = await RetrofitService.instance
           .login(emailText.text, passwordText.text);
       Logger().d(
           '${response.message}. \naccessToken:${GetStorage().read('accessToken')}');
+      return response;
     } else {
       Logger().d("Fill the blanks!");
+      return "hatalı";
     }
   }
 
