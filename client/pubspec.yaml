@@ -48,6 +48,8 @@ dependencies:
   socket_io_client: ^2.0.1
   retrofit: ^4.0.1
   get_storage: ^2.1.1
+  flutter_bloc: ^8.1.2
+  equatable: ^2.0.5
 
 
 dev_dependencies:
