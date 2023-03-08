@@ -136,28 +136,9 @@ class SignInWidgets {
   }
 
   Column titleTexts(BuildContext context) {
-    final TokenCacheManager tokenCacheManager = TokenCacheManager();
-
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Row(
-          children: [
-            CustomElevatedButton(
-                textColor: ButtonColor.light,
-                onPressed: () async {
-                  tokenCacheManager.writeItem("a", "value");
-                  Logger().e("a");
-                },
-                text: "write"),
-            CustomElevatedButton(
-                textColor: ButtonColor.light,
-                onPressed: () {
-                  Logger().e(tokenCacheManager.readItem("accessToken"));
-                },
-                text: "read"),
-          ],
-        ),
         Text(
           L10n.of(context)!.welcomeBack,
           style: TextConstants.instance.heading4,
