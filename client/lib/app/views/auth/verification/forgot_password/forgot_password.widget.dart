@@ -6,9 +6,14 @@ import 'package:client/app/widgets/inputs/widgets/text_fields/keyboard_type.dart
 import 'package:client/core/constans/text_constants.dart';
 import 'package:client/core/extensions/common_extension.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+
+import '../../sign_up/sign_up.viewmodel.dart';
 
 class ForgotPasswordWidgets {
   Widget enterMobileNumberBody(BuildContext context) {
+    final providerSignUp = Provider.of<SignUpViewModel>(context);
+
     return Padding(
       padding: context.paddingNormal,
       child: Column(
@@ -23,6 +28,8 @@ class ForgotPasswordWidgets {
                 style: TextConstants.instance.heading6,
               ),
               CustomTextFormField(
+                isVisible: false,
+                controller: providerSignUp.emailText,
                 prefixIcon: const Icon(Icons.mobile_friendly_outlined),
                 labelTextValue: L10n.of(context)!.phoneNumber,
                 hintText: "(+1) - __ __",

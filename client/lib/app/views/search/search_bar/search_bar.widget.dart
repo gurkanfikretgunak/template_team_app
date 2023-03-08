@@ -109,6 +109,7 @@ class _SearchBarWidgetState extends State<SearchBarWidget> {
               height: 50,
               width: 400,
               child: CustomTextFormField(
+                  isVisible: false,
                   hintText: L10n.of(context)!.search,
                   onChanged: (value) => _runFilter(value),
                   controller: provider.searchController,

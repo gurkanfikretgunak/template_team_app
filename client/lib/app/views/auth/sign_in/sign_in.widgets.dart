@@ -11,12 +11,11 @@ import 'package:client/app/widgets/divider/divider_widgets.dart';
 import 'package:client/app/widgets/divider/widgets/custom_divider.dart';
 import 'package:client/app/widgets/image_viewer/icons/icons_widgets.dart';
 import 'package:client/app/widgets/inputs/widgets/text_fields/custom_text_form_field.dart';
-import 'package:client/core/base/base_cache_manager/base_cache_manager.dart';
 import 'package:client/core/constans/text_constants.dart';
 import 'package:client/core/extensions/common_extension.dart';
 import 'package:client/core/init/cache/token_cache_manager/token_cache_manager.dart';
+import 'package:client/core/provider/validation/validator_provider.dart';
 import 'package:flutter/material.dart';
-import 'package:get_storage/get_storage.dart';
 import 'package:logger/logger.dart';
 import 'package:provider/provider.dart';
 
@@ -89,18 +88,29 @@ class SignInWidgets {
 
   Widget textFormFieldsAndButton(BuildContext context) {
     final provider = Provider.of<SignInViewModel>(context);
-    return Wrap(
+    final providerValidation = Provider.of<FormViewModel>(context);
+
+    return Column(
       children: [
-        CustomTextFormField(
-          labelTextValue: L10n.of(context)!.email,
-          hintText: "johndoe@gmail.com",
-          controller: provider.emailText,
+        Wrap(
+          children: [
+            CustomTextFormField(
+                isVisible: false,
+                labelTextValue: L10n.of(context)!.email,
+                hintText: "johndoe@gmail.com",
+                controller: provider.emailText,
+                onChanged: providerValidation.validateEmail,
+                errorText: providerValidation.email.error),
+            CustomTextFormField(
+                isVisible: true,
+                labelTextValue: L10n.of(context)!.password,
+                controller: provider.passwordText,
+                hintText: L10n.of(context)!.setPassword,
+                onChanged: providerValidation.validatePassword,
+                errorText: providerValidation.password.error),
+          ],
         ),
-        CustomTextFormField(
-          labelTextValue: L10n.of(context)!.password,
-          controller: provider.passwordText,
-          hintText: L10n.of(context)!.setPassword,
-        ),
+        context.emptySizedHeightBoxNormal,
         SizedBox(
           width: context.dynamicWidth(1),
           child: CustomElevatedButton(
