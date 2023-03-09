@@ -1,6 +1,6 @@
 import 'package:client/core/base/view_model/base_view_model.dart';
+import 'package:client/core/init/cache/permission_cache_manager/permission_cache_manager.dart';
 import 'package:client/core/model/booking_model.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 
 class BookingViewModel extends BaseViewModel {
   bool isSelect = false;
@@ -35,14 +35,15 @@ class BookingViewModel extends BaseViewModel {
     return favoriteBookings.contains(favBookShow);
   }
 
-  favoriteSetCache(favoriteMovies) async {
-    SharedPreferences prefs = await SharedPreferences.getInstance();
-    await prefs.setBool('favorite', favoriteMovies);
+  final PermissionCacheManager _permissionCacheManager =
+      PermissionCacheManager();
+
+  favoriteSetCache(favoriteMovies) {
+    _permissionCacheManager.writeItem('favorite', favoriteMovies);
   }
 
-  favoriteGetCache() async {
-    SharedPreferences prefs = await SharedPreferences.getInstance();
-    boolValue = prefs.getBool('favorite') ?? false;
+  favoriteGetCache() {
+    boolValue = _permissionCacheManager.readItem('favorite') ?? false;
     notifyListeners();
     return boolValue;
   }

@@ -4,10 +4,10 @@ import 'package:client/app/widgets/image_viewer/icons/widgets/custom_icons.dart'
 import 'package:client/app/widgets/inputs/widgets/search_field/search_field_notification.dart';
 import 'package:client/core/constans/text_constants.dart';
 import 'package:client/core/extensions/common_extension.dart';
+import 'package:client/core/init/cache/token_cache_manager/token_cache_manager.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-// ignore: import_of_legacy_library_into_null_safe
-import 'package:shared_preferences/shared_preferences.dart';
+
 import '../../../../core/constans/color_constants.dart';
 import '../../../../gen/assets.gen.dart';
 import '../../../l10n/app_l10n.dart';
@@ -71,16 +71,16 @@ class _SearchBarWidgetState extends State<SearchBarWidget> {
     });
   }
 
-  Future<void> readySharedPreferences() async {
-    var sharedPreferences = await SharedPreferences.getInstance();
-    _search = sharedPreferences.getString("search") ?? '';
+  final TokenCacheManager _tokenCacheManager = TokenCacheManager();
+  void readySharedPreferences() {
+    _search = _tokenCacheManager.readItem("search") ?? '';
     setState(() {});
   }
 
-  Future<void> saveData() async {
-    var sharedPreferences = await SharedPreferences.getInstance();
+  void saveData() {
     _search = SearchFieldNotifier().searchController.text;
-    sharedPreferences.setString("search", _search);
+
+    _tokenCacheManager.writeItem("search", _search);
   }
 
   @override
