@@ -8,11 +8,7 @@ const { Server } = require("socket.io");
 const io = new Server(server);
 
 
-    let activeUsers = [];
 
-    const getUser = (id) => {
-        return activeUsers.find((user) => user.userId === id);
-    }
 
     const sendNotification = (data) => {
         var headers = {
@@ -40,33 +36,17 @@ const io = new Server(server);
     }   
 
     io.on("connection", (socket) => {
-        socket.on("new-user-add", (newUserId) => {
-            if (!activeUsers.some((user) => user.userId === newUserId)) {
-              activeUsers.push({ userId: newUserId, socketId: socket.id });
-               console.log("New User Connected", activeUsers);
-            }
-            io.emit("get-users", activeUsers);
-        });
-        
-        socket.on("notification", ({sender, receiver, type, message}) => {    
-          const user = getUser(receiver);
-          if(user) {
-             console.log(user);
-            io.to(user.socketId).emit("get-notification", { 
-              message,
-              sender,
-              receiver,
-              type
-            });
-          } else {
-              console.log("user not online");
-              const offlineNotification = {
-                  contents: {en: `${""} ${""}`},
-                  include_external_user_ids:[ `${receiver}`],  
-                  app_id: "295cf3a9-987f-421f-9b0f-133358a8539a",
-              };
-              sendNotification(offlineNotification);
-          }
+            socket.on("notification", ({sender, receiver, type, message}) => {    
+            const user = getUser(receiver);
+            const offlineNotification = {
+                contents: {en: "test"},
+                included_segments:["Subscribed Users"],
+                data:{
+                    "foo":"bar"
+                },
+                app_id: "6aa7ad16-6b4a-4de7-a707-9f9f9a883dee",
+            };
+            sendNotification(offlineNotification);
       });
     });
 

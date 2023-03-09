@@ -1,3 +1,4 @@
+import 'package:client/core/base/base_cache_manager/base_cache_manager.dart';
 import 'package:client/core/services/one_signal/onesignal_service.dart';
 import 'package:client/core/services/socket/socket_service.dart';
 import 'package:client/gen/assets.gen.dart';

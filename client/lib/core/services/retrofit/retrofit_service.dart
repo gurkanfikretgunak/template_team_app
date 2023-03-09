@@ -1,3 +1,4 @@
+import 'package:client/core/init/cache/token_cache_manager/token_cache_manager.dart';
 import 'package:client/core/model/login/user_login_request.dart';
 import 'package:client/core/model/login/user_login_response.dart';
 import 'package:client/core/model/register/user_register_request.dart';
@@ -12,6 +13,8 @@ class RetrofitService {
   RetrofitService._init();
 
   final client = RestClient(Dio());
+
+  final TokenCacheManager tokenCacheManager = TokenCacheManager();
 
   Future<UserRegisterResponse> register(
     String name,
@@ -28,8 +31,10 @@ class RetrofitService {
           name: name,
           phoneNumber: phoneNumber));
 
-      GetStorage().write('accessToken', response.data![0].accessToken);
-      GetStorage().write('refreshToken', response.data![0].refreshToken);
+      tokenCacheManager.writeItem(
+          'accessToken', response.data![0].accessToken!);
+      tokenCacheManager.writeItem(
+          'refreshToken', response.data![0].refreshToken!);
 
       return response;
     } catch (e) {
@@ -45,8 +50,10 @@ class RetrofitService {
       UserLoginResponse response = await client
           .login(UserLoginRequest(email: email, password: password));
 
-      GetStorage().write('accessToken', response.data![0].accessToken);
-      GetStorage().write('refreshToken', response.data![0].refreshToken);
+      tokenCacheManager.writeItem(
+          'accessToken', response.data![0].accessToken!);
+      tokenCacheManager.writeItem(
+          'refreshToken', response.data![0].refreshToken!);
 
       return response;
     } catch (e) {
