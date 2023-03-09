@@ -22,16 +22,7 @@ class SignInViewModel extends ChangeNotifier {
     notifyListeners();
   }
 
-  Future<void> login() async {
-    if (passwordText.text != '' && emailText.text != '') {
-      UserLoginResponse response = await RetrofitService.instance
-          .login(emailText.text, passwordText.text);
-      Logger().d(
-          '${response.message}. \naccessToken:${tokenCacheManager.readItem('accessToken')}');
-    } else {
-      Logger().d("Fill the blanks!");
-    }
-  }
+
 
   permissionSetCache(bool condition) async {
     await permissionCacheManager.writeItem('permission', condition);

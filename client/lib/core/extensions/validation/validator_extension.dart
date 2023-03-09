@@ -15,6 +15,7 @@ extension InputValidation on String {
   bool get isValidPassword {
     //TODO: Password validation will be more strange
     final passwordRegExp = RegExp(r"^[a-zA-Z0-9]{3,30}$");
+
     return passwordRegExp.hasMatch(this);
   }
 
