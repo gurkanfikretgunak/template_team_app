@@ -25,39 +25,52 @@ class SignUpViewModel extends ChangeNotifier {
     notifyListeners();
   }
 
-  PageController? pageController;
-
-  Future<UserRegisterResponse> register() async {
+  void register() async {
     const String phoneNumber = '5326748019';
 
-    List<String>? fullNameList = _fullNameSplitter(nameText.text);
+    if (nameText.text.isNotEmpty &&
+        passwordText.text.isNotEmpty &&
+        emailText.text.isNotEmpty) {
+      List<String>? fullNameList = _fullNameSplitter(nameText.text);
 
-    UserRegisterResponse result = await RetrofitService.instance.register(
-      fullNameList![0], //name
-      fullNameList[1], //surname
-      emailText.text,
-      passwordText.text,
-      phoneNumber,
-    );
-    Logger().d(
-        '${result.message}. \naccessToken:${GetStorage().read('accessToken')}');
-
-    return result;
+      if (fullNameList != null) {
+        UserRegisterResponse result = await RetrofitService.instance.register(
+          fullNameList[0], //name
+          fullNameList[1], //surname
+          emailText.text,
+          passwordText.text,
+          phoneNumber,
+        );
+        Logger().d(
+            '${result.message}. \naccessToken:${tokenCacheManager.readItem('accessToken')}');
+      } else {
+        //TODO: Show error messages
+        Logger().d("Fill the name textfield as full name!");
+      }
+    } else {
+      Logger().d("Fill the blanks!");
+    }
   }
+
+  PageController? pageController;
 }
 
 /// Returns [String name, String surname] or null
-List<String>? _fullNameSplitter(String fullName) {
+List<String>? _fullNameSplitter(String name) {
   final whitespaceRE = RegExp(r"\s+");
   List<String> nameTextControl =
-      fullName.replaceAll(whitespaceRE, " ").trim().split(' ');
+      name.replaceAll(whitespaceRE, " ").trim().split(' ');
 
-  int count = nameTextControl.length - 1;
-  String name = nameTextControl.reduce((f, s) {
-    if (s != nameTextControl[count]) return '$f $s';
-    return f;
-  });
+  if (nameTextControl.length >= 2) {
+    int count = nameTextControl.length - 1;
+    String name = nameTextControl.reduce((f, s) {
+      if (s != nameTextControl[count]) return '$f $s';
+      return f;
+    });
 
-  String surname = nameTextControl[count];
-  return [name, surname];
+    String surname = nameTextControl[count];
+    return [name, surname];
+  }
+
+  return null;
 }

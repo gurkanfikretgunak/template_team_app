@@ -5,16 +5,13 @@ extension InputValidation on String {
   }
 
   bool get isValidName {
-    final whitespaceRE = RegExp(r"\s+");
-    List<String> nameTextControl =
-        replaceAll(whitespaceRE, " ").trim().split(' ');
-
-    return nameTextControl.length >= 2 ? true : false;
+    final nameRegExp = RegExp(r"^\s*([A-Za-z]{1,})+\.?$");
+    return nameRegExp.hasMatch(this);
   }
 
   bool get isValidPassword {
-    //TODO: Password validation will be more strange
-    final passwordRegExp = RegExp(r"^[a-zA-Z0-9]{3,30}$");
+    final passwordRegExp =
+        RegExp(r'^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[!]).{8,}');
     return passwordRegExp.hasMatch(this);
   }
 
