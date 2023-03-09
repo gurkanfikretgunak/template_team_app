@@ -10,8 +10,7 @@ extension InputValidation on String {
   }
 
   bool get isValidPassword {
-    final passwordRegExp =
-        RegExp(r'^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[!]).{8,}');
+    final passwordRegExp = RegExp('^[a-zA-Z0-9]{3,30}');
     return passwordRegExp.hasMatch(this);
   }
 
