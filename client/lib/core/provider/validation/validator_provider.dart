@@ -46,6 +46,8 @@ class FormViewModel extends ChangeNotifier {
   }
 
   bool get signUpValidate {
-    return _password.value != null && _name.value != null;
+    return _password.value != null &&
+        _name.value != null &&
+        _email.value != null;
   }
 }
