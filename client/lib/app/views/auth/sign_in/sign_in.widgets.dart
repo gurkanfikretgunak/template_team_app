@@ -118,17 +118,6 @@ class SignInWidgets {
             width: context.dynamicWidth(1),
             child: BlocBuilder<LoginBloc, LoginState>(
               builder: (context, state) {
-                if (state is LoginInitialState) {
-                  return CustomElevatedButton(
-                    onPressed: () async {
-                      context.read<LoginBloc>().add(const LoginButtonEvent());
-                    },
-                    text: L10n.of(context)!.login,
-                    buttonSize: ButtonSize.large,
-                    buttonColor: ButtonColor.purple,
-                    textColor: ButtonColor.light,
-                  );
-                }
                 if (state is LoginLoadingState) {
                   return const Center(
                     child: CircularProgressIndicator(
@@ -147,10 +136,11 @@ class SignInWidgets {
 
                 return Column(
                   children: [
-                    CustomText(
-                      "Lütfen Tekrar Deneyiniz.",
-                      color: ColorConstant.instance.red0,
-                    ),
+                    if (state is LoginErrorState)
+                      CustomText(
+                        "Lütfen Tekrar Deneyiniz.",
+                        color: ColorConstant.instance.red0,
+                      ),
                     context.emptySizedHeightBoxNormal,
                     SizedBox(
                       width: context.dynamicWidth(1),

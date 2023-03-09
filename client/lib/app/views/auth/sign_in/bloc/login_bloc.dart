@@ -7,7 +7,6 @@ import 'package:client/app/views/auth/sign_in/bloc/login_states.dart';
 class LoginBloc extends Bloc<LoginEvent, LoginState> {
   final TextEditingController passwordText = TextEditingController();
   final TextEditingController emailText = TextEditingController();
-
   LoginBloc() : super(LoginInitialState()) {
     on<LoginButtonEvent>((event, emit) async {
       emit(LoginLoadingState());

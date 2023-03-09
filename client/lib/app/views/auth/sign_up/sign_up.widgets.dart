@@ -1,7 +1,6 @@
 import 'package:client/app/l10n/app_l10n.dart';
 import 'package:client/app/routes/navigation_service.dart';
 import 'package:client/app/routes/routes.dart';
-import 'package:client/app/views/auth/sign_in/sign_in.viewmodel.dart';
 import 'package:client/app/views/auth/sign_up/sign_up.viewmodel.dart';
 import 'package:client/app/widgets/buttons/widgets/button_color.dart';
 import 'package:client/app/widgets/buttons/widgets/button_size.dart';
@@ -17,7 +16,6 @@ class SignUpWidgets {
   Widget signUpTextField(BuildContext context) {
     final providerSignUp = Provider.of<SignUpViewModel>(context);
     final providerValidation = Provider.of<FormViewModel>(context);
-    final provider = Provider.of<SignInViewModel>(context);
     return SingleChildScrollView(
       child: Padding(
         padding: context.paddingNormal,
@@ -56,17 +54,17 @@ class SignUpWidgets {
               width: context.dynamicWidth(1),
               child: CustomElevatedButton(
                 onPressed: () async {
-                  if (provider.emailText.text.isNotEmpty &&
-                      provider.passwordText.text.isNotEmpty) {
+                  if (providerSignUp.emailText.text.isNotEmpty &&
+                      providerSignUp.passwordText.text.isNotEmpty) {
                     providerSignUp.register();
 
-                    if (await provider.permissionGetCache()) {
+                    if (await providerSignUp.permissionGetCache()) {
                       NavigationService.instance
                           .navigateToPageClear(path: Routes.navigation.name);
                     } else {
                       NavigationService.instance
                           .navigateToPageClear(path: Routes.permission.name);
-                      await provider.permissionSetCache(true);
+                      await providerSignUp.permissionSetCache(true);
                     }
                   } else {
                     componentSnackbar(context, "Boş bırakmayınız", "Tamam");
