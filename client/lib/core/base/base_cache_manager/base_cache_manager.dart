@@ -12,9 +12,7 @@ abstract class ICacheManager<T> {
     return null;
   }
 
-  Future<void> writeItem(String key, T value) async {
-    box.write(key, value);
-  }
+  Future<void> writeItem(String key, T value);
 
   T? readItem(String key) {
     box.read(key);

@@ -18,6 +18,8 @@ abstract class RestClient {
   @POST("/auth/login")
   Future<UserLoginResponse> login(@Body() UserLoginRequest user);
 
-  @GET("/auth/user/address")
-  Future<AddressModel> getAddress();
+  @GET("/user/address")
+  Future<AddressModel> getAddress(
+    @Header('Authorization') String token,
+  );
 }

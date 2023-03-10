@@ -8,7 +8,8 @@ class ManageAddressBloc extends Bloc<ManageAddressEvent, ManageAddressState> {
     on<FetchAddressEvent>((event, emit) async {
       emit(ManageAddressLoadingState());
       var postsResponse = await AddressService().getAll();
-      if (postsResponse.runtimeType != String) {
+
+      if (postsResponse!.success == true) {
         emit(ManageAddressLoadedState(postsResponse));
       } else {
         emit(ManageAddressErrorState(""));

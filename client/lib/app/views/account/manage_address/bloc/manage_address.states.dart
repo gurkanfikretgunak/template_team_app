@@ -11,7 +11,7 @@ class ManageAddressInitialState extends ManageAddressState {}
 class ManageAddressLoadingState extends ManageAddressState {}
 
 class ManageAddressLoadedState extends ManageAddressState {
-  List<AddressModel>? addressResponse;
+  AddressModel addressResponse;
   ManageAddressLoadedState(this.addressResponse);
 }
 

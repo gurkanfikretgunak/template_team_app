@@ -17,12 +17,12 @@ class App extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MultiProvider(
-      providers: [
-        BlocProvider<ManageAddressBloc>(
-            create: (BuildContext context) => ManageAddressBloc())
-      ],
-      child: MultiProvider(
-        providers: MultiProviderInit().providers,
+      providers: MultiProviderInit().providers,
+      child: MultiBlocProvider(
+        providers: [
+          BlocProvider<ManageAddressBloc>(
+              create: (BuildContext context) => ManageAddressBloc())
+        ],
         child: MaterialApp(
           home: const SignUpView(),
           title: "Salony",
