@@ -1,16 +1,20 @@
 import 'package:client/app/l10n/app_l10n.dart';
 import 'package:client/app/routes/routes_widgets.dart';
-import 'package:client/app/views/auth/sign_in/sign_in.viewmodel.dart';
+import 'package:client/app/views/auth/sign_in/bloc/login_bloc.dart';
+import 'package:client/app/views/auth/sign_in/bloc/login_events.dart';
+import 'package:client/app/views/auth/sign_in/bloc/login_states.dart';
 import 'package:client/app/views/auth/widgets/custom_social_icon.dart';
 import 'package:client/app/views/auth/widgets/social_image_path.dart';
 import 'package:client/app/widgets/buttons/widgets/button_color.dart';
 import 'package:client/app/widgets/buttons/widgets/button_size.dart';
 import 'package:client/app/widgets/buttons/widgets/custom_elevated_button.dart';
 import 'package:client/app/widgets/buttons/widgets/custom_text_button.dart';
+import 'package:client/app/widgets/custom_text.dart';
 import 'package:client/app/widgets/divider/divider_widgets.dart';
 import 'package:client/app/widgets/divider/widgets/custom_divider.dart';
 import 'package:client/app/widgets/image_viewer/icons/icons_widgets.dart';
 import 'package:client/app/widgets/inputs/widgets/text_fields/custom_text_form_field.dart';
+import 'package:client/core/constans/color_constants.dart';
 import 'package:client/core/constans/text_constants.dart';
 import 'package:client/core/extensions/common_extension.dart';
 import 'package:client/core/init/cache/token_cache_manager/token_cache_manager.dart';
@@ -18,6 +22,7 @@ import 'package:client/core/provider/validation/validator_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:logger/logger.dart';
 import 'package:provider/provider.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class SignInWidgets {
   Widget body(BuildContext context) {
@@ -87,52 +92,90 @@ class SignInWidgets {
   }
 
   Widget textFormFieldsAndButton(BuildContext context) {
-    final provider = Provider.of<SignInViewModel>(context);
     final providerValidation = Provider.of<FormViewModel>(context);
 
-    return Column(
-      children: [
-        Wrap(
-          children: [
-            CustomTextFormField(
-                isVisible: false,
-                labelTextValue: L10n.of(context)!.email,
-                hintText: "johndoe@gmail.com",
-                controller: provider.emailText,
-                onChanged: providerValidation.validateEmail,
-                errorText: providerValidation.email.error),
-            CustomTextFormField(
-                isVisible: true,
-                labelTextValue: L10n.of(context)!.password,
-                controller: provider.passwordText,
-                hintText: L10n.of(context)!.setPassword,
-                onChanged: providerValidation.validatePassword,
-                errorText: providerValidation.password.error),
-          ],
-        ),
-        context.emptySizedHeightBoxNormal,
-        SizedBox(
-          width: context.dynamicWidth(1),
-          child: CustomElevatedButton(
-            onPressed: () async {
-              provider.login();
-              if (await provider.permissionGetCache()) {
-                NavigationService.instance
-                    .navigateToPageClear(path: Routes.navigation.name);
-              } else {
-                NavigationService.instance
-                    .navigateToPageClear(path: Routes.permission.name);
-                await provider.permissionSetCache(true);
-              }
-            },
-            text: L10n.of(context)!.login,
-            buttonSize: ButtonSize.large,
-            buttonColor: ButtonColor.purple,
-            textColor: ButtonColor.light,
+    return BlocBuilder<LoginBloc, LoginState>(builder: (context, data) {
+      return Column(
+        children: [
+          Wrap(
+            children: [
+              CustomTextFormField(
+                  isVisible: false,
+                  labelTextValue: L10n.of(context)!.email,
+                  hintText: "johndoe@gmail.com",
+                  controller: context.read<LoginBloc>().emailText,
+                  onChanged: providerValidation.validateEmail,
+                  errorText: providerValidation.email.error),
+              CustomTextFormField(
+                  isVisible: true,
+                  labelTextValue: L10n.of(context)!.password,
+                  controller: context.read<LoginBloc>().passwordText,
+                  hintText: L10n.of(context)!.setPassword,
+                  onChanged: providerValidation.validatePassword,
+                  errorText: providerValidation.password.error),
+            ],
           ),
-        ),
-      ],
-    );
+          context.emptySizedHeightBoxNormal,
+          SizedBox(
+            width: context.dynamicWidth(1),
+            child: BlocBuilder<LoginBloc, LoginState>(
+              builder: (context, state) {
+                if (state is LoginInitialState) {
+                  return CustomElevatedButton(
+                    onPressed: () async {
+                      context.read<LoginBloc>().add(const LoginButtonEvent());
+                    },
+                    text: L10n.of(context)!.login,
+                    buttonSize: ButtonSize.large,
+                    buttonColor: ButtonColor.purple,
+                    textColor: ButtonColor.light,
+                  );
+                }
+                if (state is LoginLoadingState) {
+                  return const Center(
+                    child: CircularProgressIndicator(
+                      color: Colors.blue,
+                    ),
+                  );
+                }
+                if (state is LoginLoadedState) {
+                  Future.delayed(Duration.zero, () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const NavigationView(false)));
+                  });
+                }
+
+                return Column(
+                  children: [
+                    CustomText(
+                      "Lütfen Tekrar Deneyiniz.",
+                      color: ColorConstant.instance.red0,
+                    ),
+                    context.emptySizedHeightBoxNormal,
+                    SizedBox(
+                      width: context.dynamicWidth(1),
+                      child: CustomElevatedButton(
+                        onPressed: () async {
+                          context
+                              .read<LoginBloc>()
+                              .add(const LoginButtonEvent());
+                        },
+                        text: L10n.of(context)!.login,
+                        buttonSize: ButtonSize.large,
+                        buttonColor: ButtonColor.purple,
+                        textColor: ButtonColor.light,
+                      ),
+                    ),
+                  ],
+                );
+              },
+            ),
+          ),
+        ],
+      );
+    });
   }
 
   Column titleTexts(BuildContext context) {

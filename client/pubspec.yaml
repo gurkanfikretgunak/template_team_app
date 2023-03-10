@@ -47,6 +47,7 @@ dependencies:
   get_storage: ^2.1.1
   shared_preferences: ^2.0.18
   equatable: ^2.0.5
+  bloc: ^8.1.1
   flutter_bloc: ^8.1.2
 
 
