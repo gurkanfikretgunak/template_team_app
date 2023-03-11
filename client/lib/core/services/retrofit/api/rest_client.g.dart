@@ -69,14 +69,14 @@ class _RestClient implements RestClient {
   }
 
   @override
-  Future<AddressModel> getAddress(token) async {
+  Future<AddressResponse> getAddress(token) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{r'Authorization': token};
     _headers.removeWhere((k, v) => v == null);
     final Map<String, dynamic>? _data = null;
     final _result = await _dio
-        .fetch<Map<String, dynamic>>(_setStreamType<AddressModel>(Options(
+        .fetch<Map<String, dynamic>>(_setStreamType<AddressResponse>(Options(
       method: 'GET',
       headers: _headers,
       extra: _extra,
@@ -88,7 +88,7 @@ class _RestClient implements RestClient {
               data: _data,
             )
             .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
-    final value = AddressModel.fromJson(_result.data!);
+    final value = AddressResponse.fromJson(_result.data!);
     return value;
   }
 

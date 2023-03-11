@@ -1,33 +1,44 @@
 import 'package:client/core/base/base_retrofit_service/base_retrofit_service.dart';
-import 'package:client/core/model/address/address_model.dart';
+import 'package:client/core/init/cache/isar/isar_local_database.dart';
+import 'package:client/core/model/address/address_response.dart';
 
-class AddressService extends IRetrofitService<AddressModel> {
+class AddressService extends IRetrofitService<AddressResponse> {
   @override
-  Future<AddressModel>? getAll() {
-    return client.getAddress(
-        "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NDAzNjJmY2YwZGQ2NGE1MzdiZTJmNmYiLCJpYXQiOjE2Nzg0NzUxODYsImV4cCI6MTY3ODQ4NzE4Nn0.J1l84iI5ClXBHab5hBSY0iOsSEvmo56OculYHnSHgOg");
+  Future<AddressResponse>? getAll() async {
+    try {
+      String accesToken = await IsarLocalDatabase.instance.getIsarRecord();
+
+      AddressResponse response = await client.getAddress("Bearer $accesToken");
+
+      return response;
+    } catch (e) {
+      return AddressResponse(
+        success: false,
+        message: e.toString(),
+      );
+    }
   }
 
   @override
-  Future<AddressModel>? delete(AddressModel entity) {
+  Future<AddressResponse>? delete(AddressResponse entity) {
     // TODO: implement delete
     throw UnimplementedError();
   }
 
   @override
-  Future<AddressModel>? getById(String id) {
+  Future<AddressResponse>? getById(String id) {
     // TODO: implement getById
     throw UnimplementedError();
   }
 
   @override
-  Future<AddressModel>? patch(AddressModel entity) {
+  Future<AddressResponse>? patch(AddressResponse entity) {
     // TODO: implement patch
     throw UnimplementedError();
   }
 
   @override
-  Future<AddressModel>? post(AddressModel entity) {
+  Future<AddressResponse>? post(AddressResponse entity) {
     // TODO: implement post
     throw UnimplementedError();
   }
