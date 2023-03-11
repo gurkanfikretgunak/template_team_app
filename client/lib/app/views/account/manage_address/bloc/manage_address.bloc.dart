@@ -7,12 +7,13 @@ class ManageAddressBloc extends Bloc<ManageAddressEvent, ManageAddressState> {
   ManageAddressBloc() : super(ManageAddressInitialState()) {
     on<FetchAddressEvent>((event, emit) async {
       emit(ManageAddressLoadingState());
+
       var postsResponse = await AddressService().getAll();
 
       if (postsResponse!.success == true) {
         emit(ManageAddressLoadedState(postsResponse));
       } else {
-        emit(ManageAddressErrorState(""));
+        emit(ManageAddressErrorState(postsResponse.message ?? 'Error'));
       }
     });
 

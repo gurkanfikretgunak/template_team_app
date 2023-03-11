@@ -1,3 +1,4 @@
+import 'package:client/core/init/cache/isar/isar_local_database.dart';
 import 'package:client/core/init/cache/token_cache_manager/token_cache_manager.dart';
 import 'package:client/core/model/login/user_login_request.dart';
 import 'package:client/core/model/login/user_login_response.dart';
@@ -5,7 +6,6 @@ import 'package:client/core/model/register/user_register_request.dart';
 import 'package:client/core/model/register/user_register_response.dart';
 import 'package:client/core/services/retrofit/api/rest_client.dart';
 import 'package:dio/dio.dart';
-import 'package:get_storage/get_storage.dart';
 
 class RetrofitService {
   static final RetrofitService _instance = RetrofitService._init();
@@ -31,10 +31,8 @@ class RetrofitService {
           name: name,
           phoneNumber: phoneNumber));
 
-      tokenCacheManager.writeItem(
-          'accessToken', response.data![0].accessToken!);
-      tokenCacheManager.writeItem(
-          'refreshToken', response.data![0].refreshToken!);
+      IsarLocalDatabase.instance.crateData(
+          response.data![0].accessToken!, response.data![0].user!.email!);
 
       return response;
     } catch (e) {
@@ -50,10 +48,8 @@ class RetrofitService {
       UserLoginResponse response = await client
           .login(UserLoginRequest(email: email, password: password));
 
-      tokenCacheManager.writeItem(
-          'accessToken', response.data![0].accessToken!);
-      tokenCacheManager.writeItem(
-          'refreshToken', response.data![0].refreshToken!);
+      IsarLocalDatabase.instance
+          .crateData(response.data![0].accessToken!, email);
 
       return response;
     } catch (e) {

@@ -1,4 +1,4 @@
-import 'package:client/core/model/address/address_model.dart';
+import 'package:client/core/model/address/address_response.dart';
 import 'package:equatable/equatable.dart';
 
 class ManageAddressState extends Equatable {
@@ -11,7 +11,7 @@ class ManageAddressInitialState extends ManageAddressState {}
 class ManageAddressLoadingState extends ManageAddressState {}
 
 class ManageAddressLoadedState extends ManageAddressState {
-  AddressModel addressResponse;
+  AddressResponse addressResponse;
   ManageAddressLoadedState(this.addressResponse);
 }
 
