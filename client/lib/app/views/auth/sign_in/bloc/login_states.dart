@@ -18,6 +18,7 @@ class LoginLoadingState extends LoginState {}
 class LoginLoadedState extends LoginState {
   LoginLoadedState(this.userRequest);
   UserLoginResponse userRequest;
+  bool navigateT = false;
 }
 
 class LoginErrorState extends LoginState {

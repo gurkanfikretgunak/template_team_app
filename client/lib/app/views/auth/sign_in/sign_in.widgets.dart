@@ -17,10 +17,8 @@ import 'package:client/app/widgets/inputs/widgets/text_fields/custom_text_form_f
 import 'package:client/core/constans/color_constants.dart';
 import 'package:client/core/constans/text_constants.dart';
 import 'package:client/core/extensions/common_extension.dart';
-import 'package:client/core/init/cache/token_cache_manager/token_cache_manager.dart';
 import 'package:client/core/provider/validation/validator_provider.dart';
 import 'package:flutter/material.dart';
-import 'package:logger/logger.dart';
 import 'package:provider/provider.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -94,8 +92,15 @@ class SignInWidgets {
   Widget textFormFieldsAndButton(BuildContext context) {
     final providerValidation = Provider.of<FormViewModel>(context);
 
-    return BlocBuilder<LoginBloc, LoginState>(builder: (context, data) {
-      return Column(
+    return BlocListener(
+      bloc: BlocProvider.of<LoginBloc>(context),
+      listener: (context, state) {
+        if (state is LoginLoadedState) {
+          NavigationService.instance
+              .navigateToPageClear(path: Routes.navigation.name);
+        }
+      },
+      child: Column(
         children: [
           Wrap(
             children: [
@@ -120,17 +125,6 @@ class SignInWidgets {
             width: context.dynamicWidth(1),
             child: BlocBuilder<LoginBloc, LoginState>(
               builder: (context, state) {
-                if (state is LoginInitialState) {
-                  return CustomElevatedButton(
-                    onPressed: () async {
-                      context.read<LoginBloc>().add(const LoginButtonEvent());
-                    },
-                    text: L10n.of(context)!.login,
-                    buttonSize: ButtonSize.large,
-                    buttonColor: ButtonColor.purple,
-                    textColor: ButtonColor.light,
-                  );
-                }
                 if (state is LoginLoadingState) {
                   return const Center(
                     child: CircularProgressIndicator(
@@ -138,21 +132,13 @@ class SignInWidgets {
                     ),
                   );
                 }
-                if (state is LoginLoadedState) {
-                  Future.delayed(Duration.zero, () {
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => const NavigationView(false)));
-                  });
-                }
-
                 return Column(
                   children: [
-                    CustomText(
-                      "Lütfen Tekrar Deneyiniz.",
-                      color: ColorConstant.instance.red0,
-                    ),
+                    if (state is LoginErrorState)
+                      CustomText(
+                        "Lütfen Tekrar Deneyiniz.",
+                        color: ColorConstant.instance.red0,
+                      ),
                     context.emptySizedHeightBoxNormal,
                     SizedBox(
                       width: context.dynamicWidth(1),
@@ -174,8 +160,8 @@ class SignInWidgets {
             ),
           ),
         ],
-      );
-    });
+      ),
+    );
   }
 
   Column titleTexts(BuildContext context) {

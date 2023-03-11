@@ -31,8 +31,10 @@ class RetrofitService {
           name: name,
           phoneNumber: phoneNumber));
 
+
       IsarLocalDatabase.instance.crateData(
           response.data![0].accessToken!, response.data![0].user!.email!);
+
 
       return response;
     } catch (e) {
@@ -50,6 +52,7 @@ class RetrofitService {
 
       IsarLocalDatabase.instance
           .crateData(response.data![0].accessToken!, email);
+
 
       return response;
     } catch (e) {

@@ -4,6 +4,7 @@ import 'package:client/core/services/retrofit/retrofit_service.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:get_storage/get_storage.dart';
 import 'package:logger/logger.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class SignUpViewModel extends ChangeNotifier {
   int _currentIndex = 0;
@@ -50,6 +51,17 @@ class SignUpViewModel extends ChangeNotifier {
     } else {
       Logger().d("Fill the blanks!");
     }
+  }
+
+  permissionSetCache(bool condition) async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    await prefs.setBool('permission', condition);
+  }
+
+  permissionGetCache() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    bool boolValue = prefs.getBool('permission') ?? false;
+    return boolValue;
   }
 
   PageController? pageController;

@@ -4,6 +4,7 @@ import 'package:client/app/routes/routes.dart';
 import 'package:client/app/views/auth/sign_up/sign_up_bloc/sign_up.bloc.dart';
 import 'package:client/app/views/auth/sign_up/sign_up_bloc/sign_up.states.dart';
 import 'package:client/app/views/auth/sign_up/sign_up_bloc/sing_up.events.dart';
+
 import 'package:client/app/widgets/buttons/widgets/button_color.dart';
 import 'package:client/app/widgets/buttons/widgets/button_size.dart';
 import 'package:client/app/widgets/buttons/widgets/custom_elevated_button.dart';
@@ -41,6 +42,7 @@ class SignUpWidgets {
           child: Padding(
             padding: context.paddingNormal,
             child: Column(
+
               children: [
                 Wrap(
                   alignment: WrapAlignment.center,
@@ -93,9 +95,7 @@ class SignUpWidgets {
                 context.emptySizedHeightBoxNormal,
               ],
             ),
-          ),
-        );
-      }),
+
     );
   }
 }

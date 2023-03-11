@@ -1,6 +1,5 @@
 import 'package:client/app/views/account/manage_address/manage_address.viewmodel.dart';
 import 'package:client/app/views/account/payments/payment_home/payment.viewmodel.dart';
-import 'package:client/app/views/auth/sign_in/sign_in.viewmodel.dart';
 import 'package:client/app/views/auth/sign_up/sign_up.viewmodel.dart';
 import 'package:client/app/views/auth/verification/verify_otp/verify_otp.viewmodel.dart';
 import 'package:client/app/views/booking_detail/booking_detail.viewmodel.dart';
@@ -12,7 +11,6 @@ import 'package:client/app/views/filter_bottom_sheet/widgets/offers/offer_notifi
 import 'package:client/app/views/filter_bottom_sheet/widgets/timing/timing_notifier.dart';
 import 'package:client/app/views/home/home.viewmodel.dart';
 import 'package:client/app/views/maps/maps.viewmodel.dart';
-import 'package:client/app/views/navigation/navigation.viewmodel.dart';
 import 'package:client/app/views/onboarding/onboarding.viewmodel.dart';
 import 'package:client/app/views/permission/permission.viewmodel.dart';
 import 'package:client/app/views/shop_detail/shop_detail.viewmodel.dart';
@@ -27,7 +25,6 @@ class MultiProviderInit {
   final List<SingleChildWidget> providers = [
     ChangeNotifierProvider(create: (_) => TimingNotifier()),
     ChangeNotifierProvider(create: (_) => OnboardingViewModel()),
-    ChangeNotifierProvider(create: (_) => BottomNavBarViewModel()),
     ChangeNotifierProvider(create: (_) => RadioButtonNotifier()),
     ChangeNotifierProvider(create: (_) => BookingDetailViewModel()),
     ChangeNotifierProvider(create: (_) => SearchFieldNotifier()),
@@ -43,7 +40,6 @@ class MultiProviderInit {
     ChangeNotifierProvider(create: (_) => PaymentViewModel()),
     ChangeNotifierProvider(create: (_) => CheckoutDetailViewModel()),
     ChangeNotifierProvider(create: (_) => PermissionViewModel()),
-    ChangeNotifierProvider(create: (_) => SignInViewModel()),
     ChangeNotifierProvider(create: (_) => SignUpViewModel()),
     ChangeNotifierProvider(create: (_) => MapsViewModel()),
     ChangeNotifierProvider(create: (_) => FormViewModel()),
