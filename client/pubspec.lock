@@ -645,6 +645,24 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "3.0.5"
+
+  isar_flutter_libs:
+    dependency: "direct main"
+    description:
+      name: isar_flutter_libs
+      sha256: "9794524734856a8a3629652f9f359b66e3fea3cebeec4dbdeb3e3a8fb253073e"
+      url: "https://pub.dev"
+    source: hosted
+    version: "3.0.5"
+  isar_generator:
+    dependency: "direct dev"
+    description:
+      name: isar_generator
+      sha256: ee4ab5d5b251bc7e86e1257793b57af100065831f00f3a12404b177ae53c2d69
+      url: "https://pub.dev"
+    source: hosted
+    version: "3.0.5"
+
   js:
     dependency: transitive
     description:
@@ -989,6 +1007,7 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "3.2.0"
+
   shared_preferences:
     dependency: "direct main"
     description:
@@ -1045,6 +1064,7 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "2.1.5"
+
   shelf:
     dependency: transitive
     description:
@@ -1338,6 +1358,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "6.2.2"
+  xxh3:
+    dependency: transitive
+    description:
+      name: xxh3
+      sha256: a92b30944a9aeb4e3d4f3c3d4ddb3c7816ca73475cd603682c4f8149690f56d7
+      url: "https://pub.dev"
+    source: hosted
+    version: "1.0.1"
   yaml:
     dependency: transitive
     description:
@@ -1347,5 +1375,5 @@ packages:
     source: hosted
     version: "3.1.1"
 sdks:
-  dart: ">=2.19.0 <3.0.0"
+  dart: ">=2.19.0 <4.0.0"
   flutter: ">=3.3.0"

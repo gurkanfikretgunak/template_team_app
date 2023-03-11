@@ -1,6 +1,7 @@
 import 'package:client/app/l10n/app_l10n.dart';
 import 'package:client/app/routes/app_routes.dart';
 import 'package:client/app/routes/navigation_service.dart';
+
 import 'package:client/app/routes/routes_widgets.dart';
 import 'package:client/app/views/auth/authentication/bloc/auth_bloc.dart';
 import 'package:client/app/views/auth/authentication/bloc/auth_states.dart';
@@ -20,6 +21,7 @@ class App extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MultiProvider(
+
       providers: MultiProviderInit().providers,
       child: MaterialApp(
         home: BlocBuilder<AuthenticationBloc, AuthenticationState>(

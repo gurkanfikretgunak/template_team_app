@@ -1,9 +1,10 @@
+import 'package:client/core/init/cache/isar/isar_local_database.dart';
 import 'package:client/core/init/cache/token_cache_manager/token_cache_manager.dart';
 import 'package:client/core/model/login/user_login_request.dart';
 import 'package:client/core/model/login/user_login_response.dart';
 import 'package:client/core/model/register/user_register_request.dart';
 import 'package:client/core/model/register/user_register_response.dart';
-import 'package:client/core/services/retrofit/rest_client.dart';
+import 'package:client/core/services/retrofit/api/rest_client.dart';
 import 'package:dio/dio.dart';
 
 class RetrofitService {
@@ -30,6 +31,11 @@ class RetrofitService {
           name: name,
           phoneNumber: phoneNumber));
 
+
+      IsarLocalDatabase.instance.crateData(
+          response.data![0].accessToken!, response.data![0].user!.email!);
+
+
       return response;
     } catch (e) {
       return UserRegisterResponse(
@@ -43,6 +49,10 @@ class RetrofitService {
     try {
       UserLoginResponse response = await client
           .login(UserLoginRequest(email: email, password: password));
+
+      IsarLocalDatabase.instance
+          .crateData(response.data![0].accessToken!, email);
+
 
       return response;
     } catch (e) {

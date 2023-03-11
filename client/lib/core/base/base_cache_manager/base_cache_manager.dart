@@ -7,14 +7,12 @@ abstract class ICacheManager<T> {
   Future<bool?> init() async {
     box = GetStorage();
     await GetStorage.init()
-        ? Logger().e("Initialized get storage ")
-        : Logger().e("No initialized get storage");
+        ? Logger().i("Initialized get storage ")
+        : Logger().i("No initialized get storage");
     return null;
   }
 
-  Future<void> writeItem(String key, T value) async {
-    box.write(key, value);
-  }
+  Future<void> writeItem(String key, T value);
 
   T? readItem(String key) {
     box.read(key);
