@@ -2,7 +2,6 @@ import 'package:client/app/views/account/manage_address/bloc/manage_address.bloc
 import 'package:client/app/views/account/manage_address/bloc/manage_address.states.dart';
 import 'package:client/app/views/account/manage_address/manage_address.widgets.dart';
 import 'package:client/core/base/base_view/base_view.dart';
-import 'package:client/core/model/address/address_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -23,10 +22,17 @@ class ManageAddressView extends BaseView with ManageAddressWidgets {
       appbar: appbar(context),
       body: BlocBuilder<ManageAddressBloc, ManageAddressState>(
         builder: (context, state) {
-          if (state is ManageAddressLoadingState) {
+          if (state is ManageAddressInitialState) {
             return const Center(
               child: CircularProgressIndicator(
                 color: Colors.blue,
+              ),
+            );
+          }
+          if (state is ManageAddressLoadingState) {
+            return const Center(
+              child: CircularProgressIndicator(
+                color: Colors.red,
               ),
             );
           }
@@ -34,10 +40,23 @@ class ManageAddressView extends BaseView with ManageAddressWidgets {
           if (state is ManageAddressLoadedState) {
             return Column(
               children: [
-                ListView.builder(
+                Expanded(
+                  child: SizedBox(
+                    child: ListView.builder(
+                      itemCount: ((state.addressResponse.data) ?? []).length,
+                      itemBuilder: (context, index) {
+                        return Center(
+                          child: Text(state.addressResponse.data![index]
+                              .addresses![index].address!.city!),
+                        );
+                      },
+                    ),
+                  ),
+                ),
+                /*  ListView.builder(
                   itemCount: state.addressResponse.data.length,
                   itemBuilder: (context, index) {
-                    Datum address = state.addressResponse.data[index];
+                   // Datum address = state.addressResponse.data[index];
                     return Card(
                       child: ListTile(
                         leading: CircleAvatar(
@@ -49,14 +68,14 @@ class ManageAddressView extends BaseView with ManageAddressWidgets {
                       ),
                     );
                   },
-                ),
+                ), */
               ],
             );
           }
           if (state is ManageAddressErrorState) {
             return const Text("Err");
           }
-          return const Center(child: Text('Error Occured'));
+          return const Center(child: Text('No data'));
         },
       ),
       errorBody: const Text('errorrrr'),

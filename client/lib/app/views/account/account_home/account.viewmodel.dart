@@ -1,10 +1,12 @@
 import 'package:client/app/l10n/app_l10n.dart';
 import 'package:client/app/routes/routes_widgets.dart';
-import 'package:client/app/views/account/payments/payment_home/payment.viewmodel.dart';
+import 'package:client/app/views/account/manage_address/bloc/manage_address.bloc.dart';
+import 'package:client/app/views/account/manage_address/bloc/manage_address.events.dart';
 import 'package:client/app/views/account/widgets/alert_bottom_sheet.dart';
 import 'package:client/app/widgets/custom_bottom_sheet.dart';
 import 'package:client/core/base/view_model/base_view_model.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class AccountViewModel extends BaseViewModel {
   List<Map> accountItems(BuildContext context) {
@@ -30,6 +32,7 @@ class AccountViewModel extends BaseViewModel {
         "title": L10n.of(context)!.manageAddress,
         "subTitle": "",
         "onTap": () {
+          context.read<ManageAddressBloc>().add(const FetchAddressEvent());
           NavigationService.instance.navigateToPage(Routes.manageAddress.name);
         },
       },
