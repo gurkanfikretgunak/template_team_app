@@ -1,12 +1,14 @@
 import 'package:client/app/l10n/app_l10n.dart';
-import 'package:client/app/views/navigation/navigation.viewmodel.dart';
+import 'package:client/app/views/navigation/bloc/navigation_bloc.dart';
+import 'package:client/app/views/navigation/bloc/navigation_event.dart';
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class CustomBottomNavigationBar extends StatefulWidget {
   const CustomBottomNavigationBar({super.key});
   @override
-  State<CustomBottomNavigationBar> createState() => _CustomBottomNavigationBarState();
+  State<CustomBottomNavigationBar> createState() =>
+      _CustomBottomNavigationBarState();
 }
 
 class _CustomBottomNavigationBarState extends State<CustomBottomNavigationBar> {
@@ -19,27 +21,33 @@ class _CustomBottomNavigationBarState extends State<CustomBottomNavigationBar> {
           color: Colors.blueGrey,
         )),
       ),
-      child: BottomNavigationBar(
-        items: <BottomNavigationBarItem>[
-          BottomNavigationBarItem(
-              label: L10n.of(context)!.home, icon: const Icon(Icons.home_outlined), activeIcon: const Icon(Icons.home)),
-          BottomNavigationBarItem(
-            label: L10n.of(context)!.search,
-            icon: const Icon(Icons.search),
-          ),
-          BottomNavigationBarItem(
-            label: L10n.of(context)!.booking,
-            icon: const Icon(Icons.add),
-          ),
-          BottomNavigationBarItem(
-            label: L10n.of(context)!.profile,
-            icon: const Icon(Icons.person_outline),
-            activeIcon: const Icon(Icons.person),
-          ),
-        ],
-        currentIndex: context.watch<BottomNavBarViewModel>().currentPage,
-        onTap: context.read<BottomNavBarViewModel>().changePage,
-      ),
+      child: BlocBuilder<PageBloc, int>(builder: (context, snapshot) {
+        return BottomNavigationBar(
+          items: <BottomNavigationBarItem>[
+            BottomNavigationBarItem(
+                label: L10n.of(context)!.home,
+                icon: const Icon(Icons.home_outlined),
+                activeIcon: const Icon(Icons.home)),
+            BottomNavigationBarItem(
+              label: L10n.of(context)!.search,
+              icon: const Icon(Icons.search),
+            ),
+            BottomNavigationBarItem(
+              label: L10n.of(context)!.booking,
+              icon: const Icon(Icons.add),
+            ),
+            BottomNavigationBarItem(
+              label: L10n.of(context)!.profile,
+              icon: const Icon(Icons.person_outline),
+              activeIcon: const Icon(Icons.person),
+            ),
+          ],
+          currentIndex: BlocProvider.of<PageBloc>(context).state,
+          onTap: (index) {
+            BlocProvider.of<PageBloc>(context).add(ChangePage(index));
+          },
+        );
+      }),
     );
   }
 }

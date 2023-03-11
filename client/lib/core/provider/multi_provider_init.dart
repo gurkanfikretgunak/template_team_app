@@ -11,7 +11,6 @@ import 'package:client/app/views/filter_bottom_sheet/widgets/offers/offer_notifi
 import 'package:client/app/views/filter_bottom_sheet/widgets/timing/timing_notifier.dart';
 import 'package:client/app/views/home/home.viewmodel.dart';
 import 'package:client/app/views/maps/maps.viewmodel.dart';
-import 'package:client/app/views/navigation/navigation.viewmodel.dart';
 import 'package:client/app/views/onboarding/onboarding.viewmodel.dart';
 import 'package:client/app/views/permission/permission.viewmodel.dart';
 import 'package:client/app/views/shop_detail/shop_detail.viewmodel.dart';
@@ -26,7 +25,6 @@ class MultiProviderInit {
   final List<SingleChildWidget> providers = [
     ChangeNotifierProvider(create: (_) => TimingNotifier()),
     ChangeNotifierProvider(create: (_) => OnboardingViewModel()),
-    ChangeNotifierProvider(create: (_) => BottomNavBarViewModel()),
     ChangeNotifierProvider(create: (_) => RadioButtonNotifier()),
     ChangeNotifierProvider(create: (_) => BookingDetailViewModel()),
     ChangeNotifierProvider(create: (_) => SearchFieldNotifier()),

@@ -5,7 +5,6 @@ import 'package:client/core/model/register/user_register_request.dart';
 import 'package:client/core/model/register/user_register_response.dart';
 import 'package:client/core/services/retrofit/rest_client.dart';
 import 'package:dio/dio.dart';
-import 'package:get_storage/get_storage.dart';
 
 class RetrofitService {
   static final RetrofitService _instance = RetrofitService._init();
@@ -31,11 +30,6 @@ class RetrofitService {
           name: name,
           phoneNumber: phoneNumber));
 
-      tokenCacheManager.writeItem(
-          'accessToken', response.data![0].accessToken!);
-      tokenCacheManager.writeItem(
-          'refreshToken', response.data![0].refreshToken!);
-
       return response;
     } catch (e) {
       return UserRegisterResponse(
@@ -49,11 +43,6 @@ class RetrofitService {
     try {
       UserLoginResponse response = await client
           .login(UserLoginRequest(email: email, password: password));
-
-      tokenCacheManager.writeItem(
-          'accessToken', response.data![0].accessToken!);
-      tokenCacheManager.writeItem(
-          'refreshToken', response.data![0].refreshToken!);
 
       return response;
     } catch (e) {

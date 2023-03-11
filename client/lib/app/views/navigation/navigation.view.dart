@@ -1,8 +1,12 @@
-import 'package:client/app/views/navigation/navigation.viewmodel.dart';
 import 'package:client/app/views/navigation/widgets/bottom_bar.dart';
 import 'package:client/core/base/base_view/base_view.dart';
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import '../account/account_home/account.view.dart';
+import '../bookings/bookings.view.dart';
+import '../home/home.view.dart';
+import '../search/search.view.dart';
+import 'bloc/navigation_bloc.dart';
 
 class NavigationView extends BaseView {
   const NavigationView(this.error, {super.key});
@@ -15,17 +19,19 @@ class NavigationView extends BaseView {
 
   @override
   Widget build(BuildContext context) {
-    final provider = Provider.of<BottomNavBarViewModel>(context);
-
+    List<Widget> pageOptions = <Widget>[
+      const HomeView(false),
+      const SearchView(false),
+      const BookingsView(false),
+      const AccountView(false),
+    ];
     return dynamicBuild(
       context,
       error: backendError(),
       bottomNavigationBar: const CustomBottomNavigationBar(),
-      body: Center(
-        child: provider.pageOptions.elementAt(
-          provider.currentPage,
-        ),
-      ),
+      body: BlocBuilder<PageBloc, int>(builder: (context, currentPageIndex) {
+        return Center(child: pageOptions.elementAt(currentPageIndex));
+      }),
       errorBody: const Text('errorrrr'),
     );
   }

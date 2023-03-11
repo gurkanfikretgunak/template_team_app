@@ -17,10 +17,8 @@ import 'package:client/app/widgets/inputs/widgets/text_fields/custom_text_form_f
 import 'package:client/core/constans/color_constants.dart';
 import 'package:client/core/constans/text_constants.dart';
 import 'package:client/core/extensions/common_extension.dart';
-import 'package:client/core/init/cache/token_cache_manager/token_cache_manager.dart';
 import 'package:client/core/provider/validation/validator_provider.dart';
 import 'package:flutter/material.dart';
-import 'package:logger/logger.dart';
 import 'package:provider/provider.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -94,8 +92,15 @@ class SignInWidgets {
   Widget textFormFieldsAndButton(BuildContext context) {
     final providerValidation = Provider.of<FormViewModel>(context);
 
-    return BlocBuilder<LoginBloc, LoginState>(builder: (context, data) {
-      return Column(
+    return BlocListener(
+      bloc: BlocProvider.of<LoginBloc>(context),
+      listener: (context, state) {
+        if (state is LoginLoadedState) {
+          NavigationService.instance
+              .navigateToPageClear(path: Routes.navigation.name);
+        }
+      },
+      child: Column(
         children: [
           Wrap(
             children: [
@@ -127,15 +132,6 @@ class SignInWidgets {
                     ),
                   );
                 }
-                if (state is LoginLoadedState) {
-                  Future.delayed(Duration.zero, () {
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => const NavigationView(false)));
-                  });
-                }
-
                 return Column(
                   children: [
                     if (state is LoginErrorState)
@@ -164,33 +160,14 @@ class SignInWidgets {
             ),
           ),
         ],
-      );
-    });
+      ),
+    );
   }
 
   Column titleTexts(BuildContext context) {
-    final TokenCacheManager tokenCacheManager = TokenCacheManager();
-
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Row(
-          children: [
-            CustomElevatedButton(
-                textColor: ButtonColor.light,
-                onPressed: () async {
-                  tokenCacheManager.writeItem("a", "value");
-                  Logger().e("a");
-                },
-                text: "write"),
-            CustomElevatedButton(
-                textColor: ButtonColor.light,
-                onPressed: () {
-                  Logger().e(tokenCacheManager.readItem("accessToken"));
-                },
-                text: "read"),
-          ],
-        ),
         Text(
           L10n.of(context)!.welcomeBack,
           style: TextConstants.instance.heading4,
