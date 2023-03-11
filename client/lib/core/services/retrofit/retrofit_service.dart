@@ -3,7 +3,7 @@ import 'package:client/core/model/login/user_login_request.dart';
 import 'package:client/core/model/login/user_login_response.dart';
 import 'package:client/core/model/register/user_register_request.dart';
 import 'package:client/core/model/register/user_register_response.dart';
-import 'package:client/core/services/retrofit/rest_client.dart';
+import 'package:client/core/services/retrofit/api/rest_client.dart';
 import 'package:dio/dio.dart';
 import 'package:get_storage/get_storage.dart';
 

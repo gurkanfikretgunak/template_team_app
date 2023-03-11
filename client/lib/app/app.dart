@@ -1,6 +1,7 @@
 import 'package:client/app/l10n/app_l10n.dart';
 import 'package:client/app/routes/app_routes.dart';
 import 'package:client/app/routes/navigation_service.dart';
+import 'package:client/app/views/account/manage_address/bloc/manage_address.bloc.dart';
 import 'package:client/app/views/auth/sign_in/bloc/login_bloc.dart';
 import 'package:client/app/views/auth/sign_in/sign_in.view.dart';
 import 'package:client/app/views/auth/sign_up/sign_up.view.dart';
