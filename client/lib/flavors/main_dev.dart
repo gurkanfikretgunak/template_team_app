@@ -1,4 +1,4 @@
-import 'package:client/core/base/base_cache_manager/base_cache_manager.dart';
+import 'package:client/core/init/cache/isar/isar_local_database.dart';
 import 'package:client/core/services/one_signal/onesignal_service.dart';
 import 'package:client/core/services/socket/socket_service.dart';
 import 'package:client/gen/assets.gen.dart';
@@ -15,6 +15,7 @@ Future<void> main() async {
 
   SocketService().socketBuilder();
 
+  await IsarLocalDatabase.instance.initIsar();
   Flavor.create(
     Environment.dev,
     color: Colors.green,
