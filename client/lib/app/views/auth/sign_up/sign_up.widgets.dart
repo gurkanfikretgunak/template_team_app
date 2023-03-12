@@ -21,28 +21,27 @@ class SignUpWidgets {
     final providerValidation = Provider.of<FormViewModel>(context);
 
     return BlocListener(
-      bloc: BlocProvider.of<SignUpBloc>(context),
-      listener: (context, state) async {
-        if (state is SignUpBlocLoadedState) {
-          if (await context.read<SignUpBloc>().permissionGetCache()) {
-            NavigationService.instance
-                .navigateToPageClear(path: Routes.navigation.name);
-          } else {
-            NavigationService.instance
-                .navigateToPageClear(path: Routes.permission.name);
-            await context.read<SignUpBloc>().permissionSetCache(true);
+        bloc: BlocProvider.of<SignUpBloc>(context),
+        listener: (context, state) async {
+          if (state is SignUpBlocLoadedState) {
+            if (await context.read<SignUpBloc>().permissionGetCache()) {
+              NavigationService.instance
+                  .navigateToPageClear(path: Routes.navigation.name);
+            } else {
+              NavigationService.instance
+                  .navigateToPageClear(path: Routes.permission.name);
+              await context.read<SignUpBloc>().permissionSetCache(true);
+            }
+          } else if (state is SignUpBlocErrorState) {
+            componentSnackbar(context, state.e, 'Ok');
           }
-        } else if (state is SignUpBlocErrorState) {
-          componentSnackbar(context, state.e, 'Ok');
-        }
-      },
-      child:
-          BlocBuilder<SignUpBloc, SignUpBlocState>(builder: (context, state) {
-        return SingleChildScrollView(
-          child: Padding(
+        },
+        child:
+            BlocBuilder<SignUpBloc, SignUpBlocState>(builder: (context, state) {
+          return SingleChildScrollView(
+              child: Padding(
             padding: context.paddingNormal,
             child: Column(
-
               children: [
                 Wrap(
                   alignment: WrapAlignment.center,
@@ -95,22 +94,22 @@ class SignUpWidgets {
                 context.emptySizedHeightBoxNormal,
               ],
             ),
-
-    );
+          ));
+        }));
   }
-}
 
-void componentSnackbar(context, String textInfo, String labelText) {
-  final snackBar = SnackBar(
-    behavior: SnackBarBehavior.floating,
-    content: Text(textInfo),
-    action: SnackBarAction(
-      label: labelText,
-      textColor: Colors.white,
-      onPressed: () {},
-    ),
-  );
+  void componentSnackbar(context, String textInfo, String labelText) {
+    final snackBar = SnackBar(
+      behavior: SnackBarBehavior.floating,
+      content: Text(textInfo),
+      action: SnackBarAction(
+        label: labelText,
+        textColor: Colors.white,
+        onPressed: () {},
+      ),
+    );
 
-  // ignore: use_build_context_synchronously
-  ScaffoldMessenger.of(context).showSnackBar(snackBar);
+    // ignore: use_build_context_synchronously
+    ScaffoldMessenger.of(context).showSnackBar(snackBar);
+  }
 }

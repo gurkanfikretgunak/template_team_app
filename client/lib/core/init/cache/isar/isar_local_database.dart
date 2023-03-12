@@ -1,4 +1,3 @@
-
 import 'package:client/core/init/cache/isar/collection/auth/auth_data_crypto.dart';
 import 'package:client/core/init/cache/isar/collection/auth/auth_datas.dart';
 import 'package:isar/isar.dart';
