@@ -1,5 +1,8 @@
 import 'package:client/app/app.dart';
+import 'package:client/app/views/account/manage_address/bloc/manage_address.bloc.dart';
+import 'package:client/app/views/auth/sign_up/sign_up_bloc/sign_up.bloc.dart';
 import 'package:client/app/views/navigation/bloc/navigation_bloc.dart';
+import 'package:client/app/views/shop_detail/bloc/shop_detail.bloc.dart';
 import 'package:flavor/flavor.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
@@ -31,6 +34,10 @@ Future<void> setupApp() async {
               AuthenticationBloc(SecureStorage.instance)
                 ..add(AuthAppStartedEvent())),
       BlocProvider<PageBloc>(create: (BuildContext context) => PageBloc()),
+      BlocProvider<PageBloc>(create: (BuildContext context) => PageBloc()),
+      BlocProvider<SignUpBloc>(create: (_) => SignUpBloc()),
+      BlocProvider<ManageAddressBloc>(create: (_) => ManageAddressBloc()),
+      BlocProvider<ShopDetailBloc>(create: (_) => ShopDetailBloc()),
     ],
     child: const App(),
   ));

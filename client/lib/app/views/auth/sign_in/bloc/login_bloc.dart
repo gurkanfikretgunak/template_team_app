@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:client/app/views/auth/sign_in/bloc/login_events.dart';
 import 'package:client/app/views/auth/sign_in/bloc/login_states.dart';
+import 'package:logger/logger.dart';
 
 import '../../authentication/bloc/auth_bloc.dart';
 import '../../authentication/bloc/auth_events.dart';
@@ -19,6 +20,8 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
       emit(LoginLoadingState());
       var postsResponse = await RetrofitService.instance
           .login(emailText.text, passwordText.text);
+
+      Logger().e(postsResponse.success);
 
       if (postsResponse.success == true) {
         emit(LoginLoadedState(postsResponse));

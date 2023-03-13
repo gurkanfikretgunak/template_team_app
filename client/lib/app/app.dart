@@ -21,7 +21,6 @@ class App extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MultiProvider(
-
       providers: MultiProviderInit().providers,
       child: MaterialApp(
         home: BlocBuilder<AuthenticationBloc, AuthenticationState>(

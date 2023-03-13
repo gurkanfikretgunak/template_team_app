@@ -24,6 +24,7 @@ class SignUpWidgets {
       bloc: BlocProvider.of<SignUpBloc>(context),
       listener: (context, state) async {
         if (state is SignUpBlocLoadedState) {
+          // ignore: use_build_context_synchronously
           if (await context.read<SignUpBloc>().permissionGetCache()) {
             NavigationService.instance
                 .navigateToPageClear(path: Routes.navigation.name);
@@ -36,43 +37,42 @@ class SignUpWidgets {
           componentSnackbar(context, state.e, 'Ok');
         }
       },
-      child:
-          BlocBuilder<SignUpBloc, SignUpBlocState>(builder: (context, state) {
-        return SingleChildScrollView(
-          child: Padding(
-            padding: context.paddingNormal,
-            child: Column(
-
-              children: [
-                Wrap(
-                  alignment: WrapAlignment.center,
-                  children: [
-                    CustomTextFormField(
-                      labelTextValue: L10n.of(context)!.fullName,
-                      controller: context.watch<SignUpBloc>().nameText,
-                      hintText: "John Doe",
-                      isVisible: false,
-                      onChanged: providerValidation.validateName,
-                      errorText: providerValidation.name.error,
-                    ),
-                    CustomTextFormField(
-                        labelTextValue: L10n.of(context)!.email,
-                        keyboardType: KeyboardType.email,
-                        controller: context.watch<SignUpBloc>().emailText,
-                        hintText: "john@example.com",
+      child: BlocBuilder<SignUpBloc, SignUpBlocState>(
+        builder: (context, state) {
+          return SingleChildScrollView(
+            child: Padding(
+              padding: context.paddingNormal,
+              child: Column(
+                children: [
+                  Wrap(
+                    alignment: WrapAlignment.center,
+                    children: [
+                      CustomTextFormField(
+                        labelTextValue: L10n.of(context)!.fullName,
+                        controller: context.watch<SignUpBloc>().nameText,
+                        hintText: "John Doe",
                         isVisible: false,
-                        onChanged: providerValidation.validateEmail,
-                        errorText: providerValidation.email.error),
-                    CustomTextFormField(
-                        labelTextValue: L10n.of(context)!.password,
-                        controller: context.watch<SignUpBloc>().passwordText,
-                        hintText: L10n.of(context)!.setPassword,
-                        isVisible: true,
-                        onChanged: providerValidation.validatePassword,
-                        errorText: providerValidation.password.error),
-                  ],
-                ),
-                SizedBox(
+                        onChanged: providerValidation.validateName,
+                        errorText: providerValidation.name.error,
+                      ),
+                      CustomTextFormField(
+                          labelTextValue: L10n.of(context)!.email,
+                          keyboardType: KeyboardType.email,
+                          controller: context.watch<SignUpBloc>().emailText,
+                          hintText: "john@example.com",
+                          isVisible: false,
+                          onChanged: providerValidation.validateEmail,
+                          errorText: providerValidation.email.error),
+                      CustomTextFormField(
+                          labelTextValue: L10n.of(context)!.password,
+                          controller: context.watch<SignUpBloc>().passwordText,
+                          hintText: L10n.of(context)!.setPassword,
+                          isVisible: true,
+                          onChanged: providerValidation.validatePassword,
+                          errorText: providerValidation.password.error),
+                    ],
+                  ),
+                  SizedBox(
                     width: context.dynamicWidth(1),
                     child: CustomElevatedButton(
                       onPressed: () async {
@@ -86,31 +86,35 @@ class SignUpWidgets {
                       buttonSize: ButtonSize.large,
                       buttonColor: ButtonColor.purple,
                       textColor: ButtonColor.light,
-                    )),
-                if (state is SignUpBlocLoadingState)
-                  Padding(
-                    padding: context.verticalPaddingNormal,
-                    child: const Center(child: CircularProgressIndicator()),
+                    ),
                   ),
-                context.emptySizedHeightBoxNormal,
-              ],
+                  if (state is SignUpBlocLoadingState)
+                    Padding(
+                      padding: context.verticalPaddingNormal,
+                      child: const Center(child: CircularProgressIndicator()),
+                    ),
+                  context.emptySizedHeightBoxNormal,
+                ],
+              ),
             ),
-
+          );
+        },
+      ),
     );
   }
-}
 
-void componentSnackbar(context, String textInfo, String labelText) {
-  final snackBar = SnackBar(
-    behavior: SnackBarBehavior.floating,
-    content: Text(textInfo),
-    action: SnackBarAction(
-      label: labelText,
-      textColor: Colors.white,
-      onPressed: () {},
-    ),
-  );
+  void componentSnackbar(context, String textInfo, String labelText) {
+    final snackBar = SnackBar(
+      behavior: SnackBarBehavior.floating,
+      content: Text(textInfo),
+      action: SnackBarAction(
+        label: labelText,
+        textColor: Colors.white,
+        onPressed: () {},
+      ),
+    );
 
-  // ignore: use_build_context_synchronously
-  ScaffoldMessenger.of(context).showSnackBar(snackBar);
+    // ignore: use_build_context_synchronously
+    ScaffoldMessenger.of(context).showSnackBar(snackBar);
+  }
 }

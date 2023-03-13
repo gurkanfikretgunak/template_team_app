@@ -5,6 +5,8 @@ import 'package:client/app/views/home/widgets/filter_list.dart';
 import 'package:client/app/views/home/widgets/drop_down/select_country_dropdown.dart';
 import 'package:client/app/views/home/widgets/services_gridview.dart';
 import 'package:client/app/views/shop/widget/list_shop.dart';
+import 'package:client/app/views/shop_detail/bloc/shop_detail.bloc.dart';
+import 'package:client/app/views/shop_detail/bloc/shop_detail.events.dart';
 import 'package:client/app/widgets/custom_appbar.dart';
 import 'package:client/app/widgets/inputs/inputs_widgets.dart';
 import 'package:client/core/constans/text_constants.dart';
@@ -145,6 +147,7 @@ class ShopList extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
+        context.read<ShopDetailBloc>().add(const FetchShopDetailEvent());
         NavigationService.instance.navigateToPage(Routes.shopDetail.name);
       },
       child: SizedBox(

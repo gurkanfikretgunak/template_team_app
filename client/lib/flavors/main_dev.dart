@@ -1,6 +1,4 @@
-
 import 'package:client/core/init/cache/isar/isar_local_database.dart';
-
 
 import 'package:client/core/services/one_signal/onesignal_service.dart';
 import 'package:client/core/services/socket/socket_service.dart';
@@ -14,9 +12,9 @@ Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await dotenv.load(fileName: Assets.env.envDev);
 
-  OneSignalService();
+  // OneSignalService();
 
-  SocketService().socketBuilder();
+  // SocketService().socketBuilder();
 
   await IsarLocalDatabase.instance.initIsar();
   Flavor.create(
