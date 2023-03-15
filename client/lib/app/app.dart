@@ -1,13 +1,7 @@
 import 'package:client/app/l10n/app_l10n.dart';
-import 'package:client/app/routes/app_routes.dart';
-import 'package:client/app/routes/navigation_service.dart';
-
 import 'package:client/app/routes/routes_widgets.dart';
 import 'package:client/app/views/auth/authentication/bloc/auth_bloc.dart';
 import 'package:client/app/views/auth/authentication/bloc/auth_states.dart';
-import 'package:client/app/views/auth/sign_in/sign_in.view.dart';
-import 'package:client/app/views/home/home.view.dart';
-import 'package:client/app/views/onboarding/onboarding.view.dart';
 import 'package:client/app/views/splash/splash.view.dart';
 import 'package:client/core/init/theme/custom_theme.dart';
 import 'package:client/core/provider/multi_provider_init.dart';
