@@ -26,5 +26,5 @@ abstract class RestClient {
 
   @GET("/shop/details/{id}")
   Future<ShopDetailModel> getShopDetailsById(
-      @Header('Authorization') String token, @Path() String id);
+      @Path("id") String id, @Header('Authorization') String token);
 }

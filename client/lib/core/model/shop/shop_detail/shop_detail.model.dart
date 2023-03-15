@@ -1,251 +1,305 @@
-// To parse this JSON data, do
-//
-//     final shopDetailModel = shopDetailModelFromJson(jsonString);
-
-import 'package:meta/meta.dart';
-import 'dart:convert';
-
-ShopDetailModel shopDetailModelFromJson(String str) =>
-    ShopDetailModel.fromJson(json.decode(str));
-
-String shopDetailModelToJson(ShopDetailModel data) =>
-    json.encode(data.toJson());
-
 class ShopDetailModel {
-  ShopDetailModel({
-    this.success,
-    this.data,
-    this.message,
-    this.pagination,
-  });
-
   bool? success;
-  List<ShopDetailData>? data;
+  List<Data>? data;
   String? message;
   bool? pagination;
 
-  factory ShopDetailModel.fromJson(Map<String, dynamic> json) =>
-      ShopDetailModel(
-        success: json["success"],
-        data: List<ShopDetailData>.from(
-            json["data"].map((x) => ShopDetailData.fromJson(x))),
-        message: json["message"],
-        pagination: json["pagination"],
-      );
+  ShopDetailModel({this.success, this.data, this.message, this.pagination});
 
-  Map<String, dynamic> toJson() => {
-        "success": success,
-        "data": List<dynamic>.from(data!.map((x) => x.toJson())),
-        "message": message,
-        "pagination": pagination,
-      };
+  ShopDetailModel.fromJson(Map<String, dynamic> json) {
+    success = json['success'];
+    if (json['data'] != null) {
+      data = <Data>[];
+      json['data'].forEach((v) {
+        data!.add(new Data.fromJson(v));
+      });
+    }
+    message = json['message'];
+    pagination = json['pagination'];
+  }
+
+  Map<String, dynamic> toJson() {
+    final Map<String, dynamic> data = new Map<String, dynamic>();
+    data['success'] = this.success;
+    if (this.data != null) {
+      data['data'] = this.data!.map((v) => v.toJson()).toList();
+    }
+    data['message'] = this.message;
+    data['pagination'] = this.pagination;
+    return data;
+  }
 }
 
-class ShopDetailData {
-  ShopDetailData({
-    required this.shop,
-    required this.coupons,
-    required this.recommends,
-    required this.packages,
-    required this.isFavorited,
-  });
+class Data {
+  Shop? shop;
+  List<Coupons>? coupons;
+  List<Recommends>? recommends;
+  List<Packages>? packages;
+  bool? isFavorited;
 
-  Shop shop;
-  List<Coupon> coupons;
-  List<Package> recommends;
-  List<Package> packages;
-  bool isFavorited;
+  Data(
+      {this.shop,
+      this.coupons,
+      this.recommends,
+      this.packages,
+      this.isFavorited});
 
-  factory ShopDetailData.fromJson(Map<String, dynamic> json) => ShopDetailData(
-        shop: Shop.fromJson(json["shop"]),
-        coupons:
-            List<Coupon>.from(json["coupons"].map((x) => Coupon.fromJson(x))),
-        recommends: List<Package>.from(
-            json["recommends"].map((x) => Package.fromJson(x))),
-        packages: List<Package>.from(
-            json["packages"].map((x) => Package.fromJson(x))),
-        isFavorited: json["isFavorited"],
-      );
+  Data.fromJson(Map<String, dynamic> json) {
+    shop = json['shop'] != null ? new Shop.fromJson(json['shop']) : null;
+    if (json['coupons'] != null) {
+      coupons = <Coupons>[];
+      json['coupons'].forEach((v) {
+        coupons!.add(new Coupons.fromJson(v));
+      });
+    }
+    if (json['recommends'] != null) {
+      recommends = <Recommends>[];
+      json['recommends'].forEach((v) {
+        recommends!.add(new Recommends.fromJson(v));
+      });
+    }
+    if (json['packages'] != null) {
+      packages = <Packages>[];
+      json['packages'].forEach((v) {
+        packages!.add(new Packages.fromJson(v));
+      });
+    }
+    isFavorited = json['isFavorited'];
+  }
 
-  Map<String, dynamic> toJson() => {
-        "shop": shop.toJson(),
-        "coupons": List<dynamic>.from(coupons.map((x) => x.toJson())),
-        "recommends": List<dynamic>.from(recommends.map((x) => x.toJson())),
-        "packages": List<dynamic>.from(packages.map((x) => x.toJson())),
-        "isFavorited": isFavorited,
-      };
-}
-
-class Coupon {
-  Coupon({
-    required this.id,
-    required this.sharedBy,
-    required this.couponName,
-    required this.couponDesc,
-    required this.discount,
-    required this.expirationDate,
-  });
-
-  String id;
-  String sharedBy;
-  String couponName;
-  String couponDesc;
-  int discount;
-  DateTime expirationDate;
-
-  factory Coupon.fromJson(Map<String, dynamic> json) => Coupon(
-        id: json["_id"],
-        sharedBy: json["sharedBy"],
-        couponName: json["couponName"],
-        couponDesc: json["couponDesc"],
-        discount: json["discount"],
-        expirationDate: DateTime.parse(json["expirationDate"]),
-      );
-
-  Map<String, dynamic> toJson() => {
-        "_id": id,
-        "sharedBy": sharedBy,
-        "couponName": couponName,
-        "couponDesc": couponDesc,
-        "discount": discount,
-        "expirationDate": expirationDate.toIso8601String(),
-      };
-}
-
-class Package {
-  Package({
-    required this.id,
-    required this.provider,
-    required this.name,
-    required this.cost,
-    required this.duration,
-    required this.image,
-    required this.services,
-    required this.type,
-  });
-
-  String id;
-  String provider;
-  String name;
-  int cost;
-  int duration;
-  String image;
-  List<String> services;
-  String type;
-
-  factory Package.fromJson(Map<String, dynamic> json) => Package(
-        id: json["_id"],
-        provider: json["provider"],
-        name: json["name"],
-        cost: json["cost"],
-        duration: json["duration"],
-        image: json["image"],
-        services: List<String>.from(json["services"].map((x) => x)),
-        type: json["type"],
-      );
-
-  Map<String, dynamic> toJson() => {
-        "_id": id,
-        "provider": provider,
-        "name": name,
-        "cost": cost,
-        "duration": duration,
-        "image": image,
-        "services": List<dynamic>.from(services.map((x) => x)),
-        "type": type,
-      };
+  Map<String, dynamic> toJson() {
+    final Map<String, dynamic> data = new Map<String, dynamic>();
+    if (this.shop != null) {
+      data['shop'] = this.shop!.toJson();
+    }
+    if (this.coupons != null) {
+      data['coupons'] = this.coupons!.map((v) => v.toJson()).toList();
+    }
+    if (this.recommends != null) {
+      data['recommends'] = this.recommends!.map((v) => v.toJson()).toList();
+    }
+    if (this.packages != null) {
+      data['packages'] = this.packages!.map((v) => v.toJson()).toList();
+    }
+    data['isFavorited'] = this.isFavorited;
+    return data;
+  }
 }
 
 class Shop {
-  Shop({
-    required this.address,
-    required this.id,
-    required this.name,
-    required this.genderPreference,
-    required this.phoneNumber,
-    required this.averageRating,
-    required this.numRates,
-    required this.serviceTypes,
-  });
+  Address? address;
+  String? sId;
+  String? name;
+  String? genderPreference;
+  String? phoneNumber;
+  int? averageRating;
+  int? numRates;
+  List<ServiceTypes>? serviceTypes;
 
-  Address address;
-  String id;
-  String name;
-  String genderPreference;
-  String phoneNumber;
-  int averageRating;
-  int numRates;
-  List<ServiceType> serviceTypes;
+  Shop(
+      {this.address,
+      this.sId,
+      this.name,
+      this.genderPreference,
+      this.phoneNumber,
+      this.averageRating,
+      this.numRates,
+      this.serviceTypes});
 
-  factory Shop.fromJson(Map<String, dynamic> json) => Shop(
-        address: Address.fromJson(json["address"]),
-        id: json["_id"],
-        name: json["name"],
-        genderPreference: json["genderPreference"],
-        phoneNumber: json["phoneNumber"],
-        averageRating: json["averageRating"],
-        numRates: json["numRates"],
-        serviceTypes: List<ServiceType>.from(
-            json["serviceTypes"].map((x) => ServiceType.fromJson(x))),
-      );
+  Shop.fromJson(Map<String, dynamic> json) {
+    address =
+        json['address'] != null ? new Address.fromJson(json['address']) : null;
+    sId = json['_id'];
+    name = json['name'];
+    genderPreference = json['genderPreference'];
+    phoneNumber = json['phoneNumber'];
+    averageRating = json['averageRating'];
+    numRates = json['numRates'];
+    if (json['serviceTypes'] != null) {
+      serviceTypes = <ServiceTypes>[];
+      json['serviceTypes'].forEach((v) {
+        serviceTypes!.add(new ServiceTypes.fromJson(v));
+      });
+    }
+  }
 
-  Map<String, dynamic> toJson() => {
-        "address": address.toJson(),
-        "_id": id,
-        "name": name,
-        "genderPreference": genderPreference,
-        "phoneNumber": phoneNumber,
-        "averageRating": averageRating,
-        "numRates": numRates,
-        "serviceTypes": List<dynamic>.from(serviceTypes.map((x) => x.toJson())),
-      };
+  Map<String, dynamic> toJson() {
+    final Map<String, dynamic> data = new Map<String, dynamic>();
+    if (this.address != null) {
+      data['address'] = this.address!.toJson();
+    }
+    data['_id'] = this.sId;
+    data['name'] = this.name;
+    data['genderPreference'] = this.genderPreference;
+    data['phoneNumber'] = this.phoneNumber;
+    data['averageRating'] = this.averageRating;
+    data['numRates'] = this.numRates;
+    if (this.serviceTypes != null) {
+      data['serviceTypes'] = this.serviceTypes!.map((v) => v.toJson()).toList();
+    }
+    return data;
+  }
 }
 
 class Address {
-  Address({
-    required this.coordinates,
-    required this.fullAdress,
-    required this.city,
-    required this.country,
-  });
+  List<double>? coordinates;
+  String? fullAdress;
+  String? city;
+  String? country;
 
-  List<double> coordinates;
-  String fullAdress;
-  String city;
-  String country;
+  Address({this.coordinates, this.fullAdress, this.city, this.country});
 
-  factory Address.fromJson(Map<String, dynamic> json) => Address(
-        coordinates:
-            List<double>.from(json["coordinates"].map((x) => x?.toDouble())),
-        fullAdress: json["fullAdress"],
-        city: json["city"],
-        country: json["country"],
-      );
+  Address.fromJson(Map<String, dynamic> json) {
+    coordinates = json['coordinates'].cast<double>();
+    fullAdress = json['fullAdress'];
+    city = json['city'];
+    country = json['country'];
+  }
 
-  Map<String, dynamic> toJson() => {
-        "coordinates": List<dynamic>.from(coordinates.map((x) => x)),
-        "fullAdress": fullAdress,
-        "city": city,
-        "country": country,
-      };
+  Map<String, dynamic> toJson() {
+    final Map<String, dynamic> data = new Map<String, dynamic>();
+    data['coordinates'] = this.coordinates;
+    data['fullAdress'] = this.fullAdress;
+    data['city'] = this.city;
+    data['country'] = this.country;
+    return data;
+  }
 }
 
-class ServiceType {
-  ServiceType({
-    required this.id,
-    required this.name,
-  });
+class ServiceTypes {
+  String? sId;
+  String? name;
 
-  String id;
-  String name;
+  ServiceTypes({this.sId, this.name});
 
-  factory ServiceType.fromJson(Map<String, dynamic> json) => ServiceType(
-        id: json["_id"],
-        name: json["name"],
-      );
+  ServiceTypes.fromJson(Map<String, dynamic> json) {
+    sId = json['_id'];
+    name = json['name'];
+  }
 
-  Map<String, dynamic> toJson() => {
-        "_id": id,
-        "name": name,
-      };
+  Map<String, dynamic> toJson() {
+    final Map<String, dynamic> data = new Map<String, dynamic>();
+    data['_id'] = this.sId;
+    data['name'] = this.name;
+    return data;
+  }
+}
+
+class Coupons {
+  String? sId;
+  String? sharedBy;
+  String? couponName;
+  String? couponDesc;
+  int? discount;
+  String? expirationDate;
+
+  Coupons(
+      {this.sId,
+      this.sharedBy,
+      this.couponName,
+      this.couponDesc,
+      this.discount,
+      this.expirationDate});
+
+  Coupons.fromJson(Map<String, dynamic> json) {
+    sId = json['_id'];
+    sharedBy = json['sharedBy'];
+    couponName = json['couponName'];
+    couponDesc = json['couponDesc'];
+    discount = json['discount'];
+    expirationDate = json['expirationDate'];
+  }
+
+  Map<String, dynamic> toJson() {
+    final Map<String, dynamic> data = new Map<String, dynamic>();
+    data['_id'] = this.sId;
+    data['sharedBy'] = this.sharedBy;
+    data['couponName'] = this.couponName;
+    data['couponDesc'] = this.couponDesc;
+    data['discount'] = this.discount;
+    data['expirationDate'] = this.expirationDate;
+    return data;
+  }
+}
+
+class Recommends {
+  String? sId;
+  String? provider;
+  String? name;
+  int? cost;
+  int? duration;
+  String? image;
+  String? type;
+
+  Recommends(
+      {this.sId,
+      this.provider,
+      this.name,
+      this.cost,
+      this.duration,
+      this.image,
+      this.type});
+
+  Recommends.fromJson(Map<String, dynamic> json) {
+    sId = json['_id'];
+    provider = json['provider'];
+    name = json['name'];
+    cost = json['cost'];
+    duration = json['duration'];
+    image = json['image'];
+    type = json['type'];
+  }
+
+  Map<String, dynamic> toJson() {
+    final Map<String, dynamic> data = new Map<String, dynamic>();
+    data['_id'] = this.sId;
+    data['provider'] = this.provider;
+    data['name'] = this.name;
+    data['cost'] = this.cost;
+    data['duration'] = this.duration;
+    data['image'] = this.image;
+    data['type'] = this.type;
+    return data;
+  }
+}
+
+class Packages {
+  String? sId;
+  String? provider;
+  String? name;
+  int? cost;
+  int? duration;
+  String? image;
+  List<String>? services;
+
+  Packages(
+      {this.sId,
+      this.provider,
+      this.name,
+      this.cost,
+      this.duration,
+      this.image,
+      this.services});
+
+  Packages.fromJson(Map<String, dynamic> json) {
+    sId = json['_id'];
+    provider = json['provider'];
+    name = json['name'];
+    cost = json['cost'];
+    duration = json['duration'];
+    image = json['image'];
+    services = json['services'].cast<String>();
+  }
+
+  Map<String, dynamic> toJson() {
+    final Map<String, dynamic> data = new Map<String, dynamic>();
+    data['_id'] = this.sId;
+    data['provider'] = this.provider;
+    data['name'] = this.name;
+    data['cost'] = this.cost;
+    data['duration'] = this.duration;
+    data['image'] = this.image;
+    data['services'] = this.services;
+    return data;
+  }
 }

@@ -11,8 +11,7 @@ class ShopDetailBloc extends Bloc<ShopDetailEvent, ShopDetailState> {
 
       var shopDetailResponse =
           await ShopDetailService().getById("6408dba901944083922f1c47");
-
-      Logger().e(shopDetailResponse);
+      Logger().e(shopDetailResponse!.success);
       if (shopDetailResponse!.success == true) {
         emit(ShopDetailLoadedState(shopDetailResponse));
       } else {

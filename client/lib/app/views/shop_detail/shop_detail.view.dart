@@ -42,7 +42,7 @@ class ShopDetailView extends BaseView with ShopDetailWidgets {
                     itemBuilder: (context, index) {
                       return Center(
                         child:
-                            Text(state.shopDetailResponse.data![0].shop.name),
+                            Text(state.shopDetailResponse.data![0].shop!.name!),
                       );
                     },
                   ),
@@ -68,7 +68,7 @@ class ShopDetailView extends BaseView with ShopDetailWidgets {
           );
         }
         if (state is ShopDetailErrorState) {
-          return const Text("Err");
+          return Center(child: Text(state.e.toString()));
         }
         return const Center(child: Text('No data'));
       },

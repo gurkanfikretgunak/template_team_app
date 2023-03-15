@@ -1,6 +1,7 @@
 import 'package:client/core/base/base_retrofit_service/base_retrofit_service.dart';
 import 'package:client/core/init/cache/isar/isar_local_database.dart';
 import 'package:client/core/model/shop/shop_detail/shop_detail.model.dart';
+import 'package:logger/logger.dart';
 
 class ShopDetailService extends IRetrofitService<ShopDetailModel> {
   @override
@@ -16,18 +17,22 @@ class ShopDetailService extends IRetrofitService<ShopDetailModel> {
   }
 
   @override
-  Future<ShopDetailModel>? getById(String id) async {
+  Future<ShopDetailModel> getById(String id) async {
     try {
       String accesToken = await IsarLocalDatabase.instance.getIsarRecord();
 
       ShopDetailModel response =
-          await client.getShopDetailsById("Bearer $accesToken", id);
+          await client.getShopDetailsById(id, "Bearer $accesToken");
+
+      Logger().e(response.success);
 
       return response;
     } catch (e) {
       return ShopDetailModel(
         success: false,
         message: e.toString(),
+        data: [],
+        pagination: true,
       );
     }
   }

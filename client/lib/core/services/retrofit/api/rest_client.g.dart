@@ -94,8 +94,8 @@ class _RestClient implements RestClient {
 
   @override
   Future<ShopDetailModel> getShopDetailsById(
-    token,
     id,
+    token,
   ) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
