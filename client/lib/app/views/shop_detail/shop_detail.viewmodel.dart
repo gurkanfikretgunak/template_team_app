@@ -1,6 +1,7 @@
 import 'package:client/app/l10n/app_l10n.dart';
 import 'package:client/core/base/view_model/base_view_model.dart';
 import 'package:client/core/model/booking_model.dart';
+import 'package:client/core/model/shop/shop_detail/shop_detail.model.dart';
 import 'package:flutter/material.dart';
 import 'package:share_plus/share_plus.dart';
 import 'package:url_launcher/url_launcher_string.dart';
@@ -36,9 +37,9 @@ class ShopDetailViewModel extends BaseViewModel {
     notifyListeners();
   }
 
-  List<BookingModel> favoriteShopDetail = [];
+  List<ShopDetailData> favoriteShopDetail = [];
 
-  void favShopDetail(BookingModel shopDetail, bool isFavorite) {
+  void favShopDetail(ShopDetailData shopDetail, bool isFavorite) {
     if (isFavorite) {
       favoriteShopDetail.add(shopDetail);
     } else {
@@ -47,7 +48,7 @@ class ShopDetailViewModel extends BaseViewModel {
     notifyListeners();
   }
 
-  bool isDetailFavorite(BookingModel shopDetail) {
+  bool isDetailFavorite(ShopDetailData shopDetail) {
     return favoriteShopDetail.contains(shopDetail);
   }
 

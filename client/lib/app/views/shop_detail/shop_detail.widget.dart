@@ -11,12 +11,13 @@ import 'package:client/app/widgets/divider/divider_widgets.dart';
 import 'package:client/core/constans/color_constants.dart';
 import 'package:client/core/extensions/common_extension.dart';
 import 'package:client/core/model/booking_model.dart';
+import 'package:client/core/model/shop/shop_detail/shop_detail.model.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import '../../../core/constans/text_constants.dart';
 
 class ShopDetailWidgets {
-  Widget shopDetailBody(BuildContext context, BookingModel shopModel) {
+  Widget shopDetailBody(BuildContext context, ShopDetailData shopModel) {
     return SliverToBoxAdapter(
       child: Padding(
         padding: context.paddingNormal,
@@ -43,7 +44,7 @@ class ShopDetailWidgets {
     );
   }
 
-  Widget buildIcons(BuildContext context, BookingModel shopModel) {
+  Widget buildIcons(BuildContext context, ShopDetailData shopModel) {
     return FittedBox(
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -108,7 +109,7 @@ class ShopDetailWidgets {
     );
   }
 
-  Widget favoriteIcon(BookingModel shopModel) {
+  Widget favoriteIcon(ShopDetailData shopModel) {
     return Consumer<ShopDetailViewModel>(
       builder: (context, value, child) {
         bool favoriteShopDetail = value.isDetailFavorite(shopModel);
@@ -131,7 +132,9 @@ class ShopDetailWidgets {
                     Icons.favorite_border,
                     size: 30,
                   ),
-                  crossFadeState: favoriteShopDetail ? CrossFadeState.showFirst : CrossFadeState.showSecond,
+                  crossFadeState: favoriteShopDetail
+                      ? CrossFadeState.showFirst
+                      : CrossFadeState.showSecond,
                   duration: const Duration(seconds: 1),
                 )),
             context.emptySizedHeightBoxLow,
@@ -228,7 +231,8 @@ class ShopDetailWidgets {
                 },
                 child: Chip(
                   backgroundColor: ColorConstant.instance.light2,
-                  shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(5)),
+                  shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(5)),
                   label: Text(
                     list[index],
                     style: TextStyle(

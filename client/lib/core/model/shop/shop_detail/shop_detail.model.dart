@@ -1,6 +1,6 @@
 class ShopDetailModel {
   bool? success;
-  List<Data>? data;
+  List<ShopDetailData>? data;
   String? message;
   bool? pagination;
 
@@ -9,9 +9,9 @@ class ShopDetailModel {
   ShopDetailModel.fromJson(Map<String, dynamic> json) {
     success = json['success'];
     if (json['data'] != null) {
-      data = <Data>[];
+      data = <ShopDetailData>[];
       json['data'].forEach((v) {
-        data!.add(new Data.fromJson(v));
+        data!.add(new ShopDetailData.fromJson(v));
       });
     }
     message = json['message'];
@@ -30,21 +30,21 @@ class ShopDetailModel {
   }
 }
 
-class Data {
+class ShopDetailData {
   Shop? shop;
   List<Coupons>? coupons;
   List<Recommends>? recommends;
   List<Packages>? packages;
   bool? isFavorited;
 
-  Data(
+  ShopDetailData(
       {this.shop,
       this.coupons,
       this.recommends,
       this.packages,
       this.isFavorited});
 
-  Data.fromJson(Map<String, dynamic> json) {
+  ShopDetailData.fromJson(Map<String, dynamic> json) {
     shop = json['shop'] != null ? new Shop.fromJson(json['shop']) : null;
     if (json['coupons'] != null) {
       coupons = <Coupons>[];

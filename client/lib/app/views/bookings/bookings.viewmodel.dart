@@ -1,6 +1,7 @@
 import 'package:client/core/base/view_model/base_view_model.dart';
 import 'package:client/core/init/cache/permission_cache_manager/permission_cache_manager.dart';
 import 'package:client/core/model/booking_model.dart';
+import 'package:client/core/model/shop/shop_detail/shop_detail.model.dart';
 
 class BookingViewModel extends BaseViewModel {
   bool isSelect = false;
@@ -18,9 +19,9 @@ class BookingViewModel extends BaseViewModel {
     notifyListeners();
   }
 
-  List<BookingModel> favoriteBookings = [];
+  List<ShopDetailData> favoriteBookings = [];
 
-  void favBooking(BookingModel favBookShow, bool isFavorite) {
+  void favBooking(ShopDetailData favBookShow, bool isFavorite) {
     if (isFavorite) {
       favoriteBookings.add(favBookShow);
       booking.isFavorite = true;
@@ -31,7 +32,7 @@ class BookingViewModel extends BaseViewModel {
     notifyListeners();
   }
 
-  bool isFavorite(BookingModel favBookShow) {
+  bool isFavorite(ShopDetailData favBookShow) {
     return favoriteBookings.contains(favBookShow);
   }
 

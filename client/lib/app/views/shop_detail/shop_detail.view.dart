@@ -9,6 +9,8 @@ import 'package:client/core/base/base_view/base_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import '../../widgets/buttons/buttons_widgets.dart';
+
 class ShopDetailView extends BaseView with ShopDetailWidgets {
   const ShopDetailView({super.key});
 
@@ -33,37 +35,33 @@ class ShopDetailView extends BaseView with ShopDetailWidgets {
         }
 
         if (state is ShopDetailLoadedState) {
-          return Column(
+          return Stack(
             children: [
-              Expanded(
-                child: SizedBox(
-                  child: ListView.builder(
-                    itemCount: state.shopDetailResponse.data!.length,
-                    itemBuilder: (context, index) {
-                      return Center(
-                        child:
-                            Text(state.shopDetailResponse.data![0].shop!.name!),
-                      );
-                    },
-                  ),
-                ),
-              ),
-              /*  ListView.builder(
-                  itemCount: state.addressResponse.data.length,
-                  itemBuilder: (context, index) {
-                   // Datum address = state.addressResponse.data[index];
-                    return Card(
-                      child: ListTile(
-                        leading: CircleAvatar(
-                          child: Text(address.address.addressOwner),
-                        ),
-                        title: Text(
-                          address.address.addressOwner.toString(),
-                        ),
+              Column(
+                children: [
+                  Expanded(
+                    child: SizedBox(
+                      child: ListView.builder(
+                        itemCount: state.shopDetailResponse.data!.length,
+                        itemBuilder: (context, index) {
+                          return Center(
+                            child: SliverShopDetailWidget(
+                              shopModel: state.shopDetailResponse.data![index],
+                            ),
+                          );
+                        },
                       ),
-                    );
-                  },
-                ), */
+                    ),
+                  ),
+                ],
+              ),
+
+              // CheckoutButton(
+              //   itemCount: value.itemCount,
+              //   totalPrice: value.totalPrice,
+              //   onPressed: () => NavigationService.instance
+              //       .navigateToPage(Routes.checkout.name),
+              // )
             ],
           );
         }
@@ -72,28 +70,6 @@ class ShopDetailView extends BaseView with ShopDetailWidgets {
         }
         return const Center(child: Text('No data'));
       },
-    )
-
-        // Consumer<ShopDetailViewModel>(
-        //   builder: (context, value, child) {
-        //     return Stack(
-        //       children: [
-        //         SliverShopDetailWidget(
-        //           shopModel: MockShop.bookingList(context)[1],
-        //         ),
-        //         value.selectedShop
-        //             ? CheckoutButton(
-        //                 itemCount: value.itemCount,
-        //                 totalPrice: value.totalPrice,
-        //                 onPressed: () => NavigationService.instance
-        //                     .navigateToPage(Routes.checkout.name),
-        //               )
-        //             : const SizedBox()
-        //       ],
-        //     );
-        //   },
-        // ),
-
-        );
+    ));
   }
 }
