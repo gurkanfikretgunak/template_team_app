@@ -28,14 +28,35 @@ class ShopDetailWidgets {
             context.emptySizedHeightBoxLow,
             const CustomDivider(type: DividerType.dashed),
             context.emptySizedHeightBoxLow,
-            Row(
-              mainAxisAlignment: MainAxisAlignment.start,
-              children: [
-                const OfferBoxWidget(),
-                context.emptySizedWidthBoxLow,
-                const OfferBoxWidget(),
-              ],
+
+            SizedBox(
+              height: context.dynamicHeight(0.06),
+              child: ListView.builder(
+                scrollDirection: Axis.horizontal,
+                shrinkWrap: true,
+                itemCount: shopModel.coupons!.length,
+                itemBuilder: (context, index) {
+                  Coupons coupons = shopModel.coupons![index];
+                  return FittedBox(
+                    child: OfferBoxWidget(
+                      couponDesc: coupons.couponDesc ?? "",
+                      couponName: coupons.couponName ?? '',
+                      discount: coupons.discount.toString(),
+                    ),
+                  );
+                },
+              ),
             ),
+            // Row(
+            //   mainAxisAlignment: MainAxisAlignment.start,
+            //   children: [
+
+            //     shopModel.
+            //     const OfferBoxWidget(),
+            //     context.emptySizedWidthBoxLow,
+            //     const OfferBoxWidget(),
+            //   ],
+            // ),
             const Divider(thickness: 5.0),
             buildTabbar(context),
           ],
@@ -180,22 +201,27 @@ class ShopDetailWidgets {
     );
   }
 
-  Widget buildTabbarView(BuildContext context) {
+  Widget buildTabbarView(BuildContext context,
+      {required ShopDetailData shopDetailData}) {
     final provider = Provider.of<ShopDetailViewModel>(context);
 
     switch (provider.selectedTab) {
       case "Recommended":
-        return const RecommendedView();
+        return RecommendedView(recommended: shopDetailData.recommends!);
       case "Packages":
-        return const PackagesView();
+        return PackagesView(
+          packages: shopDetailData.packages!,
+        );
       case "Face Care":
         return const FaceCareView();
       case "Haircut":
         return const HairCutView();
       case 'Önerilen':
-        return const RecommendedView();
+        return RecommendedView(recommended: shopDetailData.recommends!);
       case 'Paketler':
-        return const PackagesView();
+        return PackagesView(
+          packages: shopDetailData.packages!,
+        );
       case 'Yüz bakımı':
         return const FaceCareView();
       case 'Saç kesimi':

@@ -4,7 +4,6 @@ import 'package:client/app/widgets/buttons/buttons_widgets.dart';
 import 'package:client/app/widgets/custom_card.dart';
 import 'package:client/core/constans/color_constants.dart';
 import 'package:client/core/extensions/common_extension.dart';
-import 'package:client/gen/assets.gen.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'tabbar_view/recommended/recommended.viewmodel.dart';
@@ -14,8 +13,17 @@ class ShopServiceCustomListTile extends StatelessWidget {
     super.key,
     this.shopService,
     required this.index,
+    this.image,
+    this.name,
+    this.duration,
+    this.cost,
   });
   final Map? shopService;
+  final String? image;
+  final String? name;
+  final int? duration;
+  final int? cost;
+
   final int index;
 
   @override
@@ -31,7 +39,11 @@ class ShopServiceCustomListTile extends StatelessWidget {
           height: 75,
           decoration: BoxDecoration(
             image: DecorationImage(
-                fit: BoxFit.cover, image: AssetImage(shopService!["image"] ?? Assets.images.shop.shopDetail2.path)),
+              fit: BoxFit.cover,
+              image: NetworkImage(
+                image!,
+              ),
+            ),
             borderRadius: const BorderRadius.all(Radius.circular(8)),
           ),
         ),
@@ -40,14 +52,14 @@ class ShopServiceCustomListTile extends StatelessWidget {
             spacing: 8,
             direction: Axis.vertical,
             children: [
-              Text(shopService!["name"] ?? L10n.of(context)!.haircut),
-              const Text('\$40'),
+              Text(name ?? L10n.of(context)!.haircut),
+              Text(cost.toString()),
               Wrap(
                 crossAxisAlignment: WrapCrossAlignment.center,
                 spacing: 2,
                 children: [
                   const Icon(Icons.access_time),
-                  Text('30 ${L10n.of(context)!.mins}'),
+                  Text('$duration ${L10n.of(context)!.mins}'),
                 ],
               )
             ],
@@ -86,7 +98,9 @@ class ShopServiceCustomListTile extends StatelessWidget {
                             ),
                           ),
                           Text(
-                            value.recommendList(context)[index]['count'].toString(),
+                            value
+                                .recommendList(context)[index]['count']
+                                .toString(),
                           ),
                           IconButton(
                             onPressed: () {
@@ -106,7 +120,8 @@ class ShopServiceCustomListTile extends StatelessWidget {
                       vm.selectedShopCard(40);
                     },
                     buttonSize: ButtonSize.small,
-                    child: Icon(Icons.add, color: ColorConstant.instance.purple2),
+                    child:
+                        Icon(Icons.add, color: ColorConstant.instance.purple2),
                   );
           },
         ),

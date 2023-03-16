@@ -12,7 +12,7 @@ import '../shop_detail.widget.dart';
 
 class SliverShopDetailWidget extends StatefulWidget with ShopDetailWidgets {
   const SliverShopDetailWidget({super.key, required this.shopModel});
-  final ShopDetailData shopModel;
+  final ShopDetailModel shopModel;
   @override
   State<SliverShopDetailWidget> createState() => _SliverShopDetailWidgetState();
 }
@@ -56,14 +56,17 @@ class _SliverShopDetailWidgetState extends State<SliverShopDetailWidget> {
         controller: _scrollDetailController,
         slivers: <Widget>[
           sliverAppBar(context),
-          ShopDetailWidgets().shopDetailBody(context, widget.shopModel),
-          ShopDetailWidgets().buildTabbarView(context)
+          ShopDetailWidgets()
+              .shopDetailBody(context, widget.shopModel.data![0]),
+          ShopDetailWidgets().buildTabbarView(context,
+              shopDetailData: widget.shopModel.data![0])
         ],
       ),
     );
   }
 
   Widget sliverAppBar(BuildContext context) {
+    Shop shop = widget.shopModel.data![0].shop!;
     return SliverAppBar(
       leading: BackButton(
         color: _textColor,
@@ -99,11 +102,11 @@ class _SliverShopDetailWidgetState extends State<SliverShopDetailWidget> {
           height: 80,
           child: ShopCardWidgets().shopInformation(
             context,
-            widget.shopModel.shop!.name!,
-            widget.shopModel.shop!.address!.city!,
-            widget.shopModel.shop!.phoneNumber!,
-            widget.shopModel.shop!.genderPreference!,
-            widget.shopModel.shop!.averageRating!,
+            shop.name!,
+            shop.address!.city!,
+            shop.phoneNumber!,
+            shop.genderPreference!,
+            shop.averageRating!,
             isColor!,
           ),
         ),

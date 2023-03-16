@@ -1,15 +1,10 @@
-import 'package:client/app/routes/routes_widgets.dart';
-import 'package:client/app/views/shop/widget/list_shop.dart';
 import 'package:client/app/views/shop_detail/bloc/shop_detail.bloc.dart';
 import 'package:client/app/views/shop_detail/bloc/shop_detail.states.dart';
-import 'package:client/app/views/shop_detail/shop_detail.viewmodel.dart';
 import 'package:client/app/views/shop_detail/shop_detail.widget.dart';
 import 'package:client/app/views/shop_detail/widget/sliver_shop_detail.dart';
 import 'package:client/core/base/base_view/base_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-
-import '../../widgets/buttons/buttons_widgets.dart';
 
 class ShopDetailView extends BaseView with ShopDetailWidgets {
   const ShopDetailView({super.key});
@@ -51,8 +46,7 @@ class ShopDetailView extends BaseView with ShopDetailWidgets {
                               itemBuilder: (context, index) {
                                 return Center(
                                   child: SliverShopDetailWidget(
-                                    shopModel:
-                                        state.shopDetailResponse.data![index],
+                                    shopModel: state.shopDetailResponse,
                                   ),
                                 );
                               },

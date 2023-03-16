@@ -1,6 +1,6 @@
 import 'package:client/app/views/shop_detail/bloc/shop_detail.events.dart';
 import 'package:client/app/views/shop_detail/bloc/shop_detail.states.dart';
-import 'package:client/core/network/retrofit/repository/shop/shop_detail.service.dart';
+import 'package:client/core/network/retrofit/repository/shop/shop_detail.repository.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class ShopDetailBloc extends Bloc<ShopDetailEvent, ShopDetailState> {

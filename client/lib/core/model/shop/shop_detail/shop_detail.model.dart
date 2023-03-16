@@ -11,7 +11,7 @@ class ShopDetailModel {
     if (json['data'] != null) {
       data = <ShopDetailData>[];
       json['data'].forEach((v) {
-        data!.add(new ShopDetailData.fromJson(v));
+        data!.add(ShopDetailData.fromJson(v));
       });
     }
     message = json['message'];
@@ -19,13 +19,13 @@ class ShopDetailModel {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['success'] = this.success;
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['success'] = success;
     if (this.data != null) {
       data['data'] = this.data!.map((v) => v.toJson()).toList();
     }
-    data['message'] = this.message;
-    data['pagination'] = this.pagination;
+    data['message'] = message;
+    data['pagination'] = pagination;
     return data;
   }
 }
@@ -45,43 +45,43 @@ class ShopDetailData {
       this.isFavorited});
 
   ShopDetailData.fromJson(Map<String, dynamic> json) {
-    shop = json['shop'] != null ? new Shop.fromJson(json['shop']) : null;
+    shop = json['shop'] != null ? Shop.fromJson(json['shop']) : null;
     if (json['coupons'] != null) {
       coupons = <Coupons>[];
       json['coupons'].forEach((v) {
-        coupons!.add(new Coupons.fromJson(v));
+        coupons!.add(Coupons.fromJson(v));
       });
     }
     if (json['recommends'] != null) {
       recommends = <Recommends>[];
       json['recommends'].forEach((v) {
-        recommends!.add(new Recommends.fromJson(v));
+        recommends!.add(Recommends.fromJson(v));
       });
     }
     if (json['packages'] != null) {
       packages = <Packages>[];
       json['packages'].forEach((v) {
-        packages!.add(new Packages.fromJson(v));
+        packages!.add(Packages.fromJson(v));
       });
     }
     isFavorited = json['isFavorited'];
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    if (this.shop != null) {
-      data['shop'] = this.shop!.toJson();
+    final Map<String, dynamic> data = <String, dynamic>{};
+    if (shop != null) {
+      data['shop'] = shop!.toJson();
     }
-    if (this.coupons != null) {
-      data['coupons'] = this.coupons!.map((v) => v.toJson()).toList();
+    if (coupons != null) {
+      data['coupons'] = coupons!.map((v) => v.toJson()).toList();
     }
-    if (this.recommends != null) {
-      data['recommends'] = this.recommends!.map((v) => v.toJson()).toList();
+    if (recommends != null) {
+      data['recommends'] = recommends!.map((v) => v.toJson()).toList();
     }
-    if (this.packages != null) {
-      data['packages'] = this.packages!.map((v) => v.toJson()).toList();
+    if (packages != null) {
+      data['packages'] = packages!.map((v) => v.toJson()).toList();
     }
-    data['isFavorited'] = this.isFavorited;
+    data['isFavorited'] = isFavorited;
     return data;
   }
 }
@@ -108,7 +108,7 @@ class Shop {
 
   Shop.fromJson(Map<String, dynamic> json) {
     address =
-        json['address'] != null ? new Address.fromJson(json['address']) : null;
+        json['address'] != null ? Address.fromJson(json['address']) : null;
     sId = json['_id'];
     name = json['name'];
     genderPreference = json['genderPreference'];
@@ -118,24 +118,24 @@ class Shop {
     if (json['serviceTypes'] != null) {
       serviceTypes = <ServiceTypes>[];
       json['serviceTypes'].forEach((v) {
-        serviceTypes!.add(new ServiceTypes.fromJson(v));
+        serviceTypes!.add(ServiceTypes.fromJson(v));
       });
     }
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    if (this.address != null) {
-      data['address'] = this.address!.toJson();
+    final Map<String, dynamic> data = <String, dynamic>{};
+    if (address != null) {
+      data['address'] = address!.toJson();
     }
-    data['_id'] = this.sId;
-    data['name'] = this.name;
-    data['genderPreference'] = this.genderPreference;
-    data['phoneNumber'] = this.phoneNumber;
-    data['averageRating'] = this.averageRating;
-    data['numRates'] = this.numRates;
-    if (this.serviceTypes != null) {
-      data['serviceTypes'] = this.serviceTypes!.map((v) => v.toJson()).toList();
+    data['_id'] = sId;
+    data['name'] = name;
+    data['genderPreference'] = genderPreference;
+    data['phoneNumber'] = phoneNumber;
+    data['averageRating'] = averageRating;
+    data['numRates'] = numRates;
+    if (serviceTypes != null) {
+      data['serviceTypes'] = serviceTypes!.map((v) => v.toJson()).toList();
     }
     return data;
   }
@@ -157,11 +157,11 @@ class Address {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['coordinates'] = this.coordinates;
-    data['fullAdress'] = this.fullAdress;
-    data['city'] = this.city;
-    data['country'] = this.country;
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['coordinates'] = coordinates;
+    data['fullAdress'] = fullAdress;
+    data['city'] = city;
+    data['country'] = country;
     return data;
   }
 }
@@ -178,9 +178,9 @@ class ServiceTypes {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['_id'] = this.sId;
-    data['name'] = this.name;
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['_id'] = sId;
+    data['name'] = name;
     return data;
   }
 }
@@ -211,13 +211,13 @@ class Coupons {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['_id'] = this.sId;
-    data['sharedBy'] = this.sharedBy;
-    data['couponName'] = this.couponName;
-    data['couponDesc'] = this.couponDesc;
-    data['discount'] = this.discount;
-    data['expirationDate'] = this.expirationDate;
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['_id'] = sId;
+    data['sharedBy'] = sharedBy;
+    data['couponName'] = couponName;
+    data['couponDesc'] = couponDesc;
+    data['discount'] = discount;
+    data['expirationDate'] = expirationDate;
     return data;
   }
 }
@@ -251,14 +251,14 @@ class Recommends {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['_id'] = this.sId;
-    data['provider'] = this.provider;
-    data['name'] = this.name;
-    data['cost'] = this.cost;
-    data['duration'] = this.duration;
-    data['image'] = this.image;
-    data['type'] = this.type;
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['_id'] = sId;
+    data['provider'] = provider;
+    data['name'] = name;
+    data['cost'] = cost;
+    data['duration'] = duration;
+    data['image'] = image;
+    data['type'] = type;
     return data;
   }
 }
@@ -292,14 +292,14 @@ class Packages {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['_id'] = this.sId;
-    data['provider'] = this.provider;
-    data['name'] = this.name;
-    data['cost'] = this.cost;
-    data['duration'] = this.duration;
-    data['image'] = this.image;
-    data['services'] = this.services;
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['_id'] = sId;
+    data['provider'] = provider;
+    data['name'] = name;
+    data['cost'] = cost;
+    data['duration'] = duration;
+    data['image'] = image;
+    data['services'] = services;
     return data;
   }
 }
