@@ -1,6 +1,6 @@
 import 'package:client/core/init/cache/token_cache_manager/token_cache_manager.dart';
 import 'package:client/core/model/register/user_register_response.dart';
-import 'package:client/core/services/retrofit/retrofit_service.dart';
+import 'package:client/core/network/retrofit/retrofit_service.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:get_storage/get_storage.dart';
 import 'package:logger/logger.dart';

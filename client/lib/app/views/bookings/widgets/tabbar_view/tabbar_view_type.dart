@@ -4,6 +4,7 @@ import 'package:client/app/widgets/divider/divider_widgets.dart';
 import 'package:client/app/widgets/list_items/list_items_widget.dart';
 import 'package:client/core/extensions/common_extension.dart';
 import 'package:client/core/model/booking_model.dart';
+import 'package:client/core/model/shop/shop_detail/shop_detail.model.dart';
 import 'package:flutter/widgets.dart';
 import 'package:provider/provider.dart';
 
@@ -40,15 +41,16 @@ class TabBarViewTypeLabel {
 
       case TabBarViewType.unComing:
         return BookingCard(
-          booking: BookingModel(
-            title: 'Cosmo Life ${L10n.of(context)!.beautyCentre}',
-            location: 'Yalı Evleri',
-            distance: '5.0 Kms',
-            desc: ' ${L10n.of(context)!.haircut} x 1 +  ${L10n.of(context)!.shave} x 1',
-            date: '8 Mar 2021',
-            price: '\$102',
-            isCancel: false,
-          ),
+          booking: ShopDetailData(
+              // title: 'Cosmo Life ${L10n.of(context)!.beautyCentre}',
+              // location: 'Yalı Evleri',
+              // distance: '5.0 Kms',
+              // desc:
+              //     ' ${L10n.of(context)!.haircut} x 1 +  ${L10n.of(context)!.shave} x 1',
+              // date: '8 Mar 2021',
+              // price: '\$102',
+              // isCancel: false,
+              ),
         );
 
       case TabBarViewType.favorites:

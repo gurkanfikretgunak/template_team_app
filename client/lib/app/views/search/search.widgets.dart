@@ -7,6 +7,7 @@ import 'package:client/app/widgets/inputs/inputs_widgets.dart';
 import 'package:client/core/constans/color_constants.dart';
 import 'package:client/core/constans/text_constants.dart';
 import 'package:client/core/extensions/common_extension.dart';
+import 'package:client/core/model/shop/shop_detail/shop_detail.model.dart';
 import 'package:client/gen/assets.gen.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -49,15 +50,20 @@ class SearchWidgets {
                       ),
                       context.emptySizedWidthBoxNormal,
                       Text(provider.deneme[index],
-                          style: TextConstants.instance.button1.copyWith(color: ColorConstant.instance.dark3))
+                          style: TextConstants.instance.button1
+                              .copyWith(color: ColorConstant.instance.dark3))
                     ],
                   );
                 }),
             const CustomDivider(type: DividerType.normal),
-            categoryTitle(title: L10n.of(context)!.trendingNearYou, context: context, buttonText: ""),
+            categoryTitle(
+                title: L10n.of(context)!.trendingNearYou,
+                context: context,
+                buttonText: ""),
             GestureDetector(
               onTap: () {
-                NavigationService.instance.navigateToPage(Routes.shopDetail.name);
+                NavigationService.instance
+                    .navigateToPage(Routes.shopDetail.name);
               },
               child: ShopList(
                 imageFlex: 2,
@@ -68,7 +74,10 @@ class SearchWidgets {
               ),
             ),
             const CustomDivider(type: DividerType.normal),
-            categoryTitle(title: L10n.of(context)!.tryTheseService, context: context, buttonText: ""),
+            categoryTitle(
+                title: L10n.of(context)!.tryTheseService,
+                context: context,
+                buttonText: ""),
             const ServicesGridView(),
           ],
         ),
@@ -102,7 +111,18 @@ class ShopList extends StatelessWidget {
         itemBuilder: (context, index) {
           return ShopCard(
             isBig: false,
-            shopModel: MockShop.bookingList(context)[index],
+            shopModel: ShopDetailData(
+              shop: Shop(
+                address: Address(),
+                name: "name",
+                phoneNumber: "1111111",
+                averageRating: 2,
+                genderPreference: "",
+                numRates: 2,
+                sId: "--",
+                serviceTypes: [],
+              ),
+            ),
             imageFlex: imageFlex,
             cardHeight: cardHeight,
             cardWidth: cardWidth,
@@ -129,7 +149,10 @@ class ShopList extends StatelessWidget {
 }
 
 Widget categoryTitle(
-    {required String title, String? buttonText, required BuildContext context, VoidCallback? onPressed}) {
+    {required String title,
+    String? buttonText,
+    required BuildContext context,
+    VoidCallback? onPressed}) {
   return Row(
     mainAxisAlignment: MainAxisAlignment.spaceBetween,
     children: [

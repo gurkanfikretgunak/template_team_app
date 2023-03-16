@@ -41,16 +41,22 @@ class ShopDetailView extends BaseView with ShopDetailWidgets {
                 children: [
                   Expanded(
                     child: SizedBox(
-                      child: ListView.builder(
-                        itemCount: state.shopDetailResponse.data!.length,
-                        itemBuilder: (context, index) {
-                          return Center(
-                            child: SliverShopDetailWidget(
-                              shopModel: state.shopDetailResponse.data![index],
+                      child: state.shopDetailResponse.data!.isEmpty
+                          ? const Center(
+                              child: Text("ListeBoş"),
+                            )
+                          : ListView.builder(
+                              shrinkWrap: true,
+                              itemCount: state.shopDetailResponse.data!.length,
+                              itemBuilder: (context, index) {
+                                return Center(
+                                  child: SliverShopDetailWidget(
+                                    shopModel:
+                                        state.shopDetailResponse.data![index],
+                                  ),
+                                );
+                              },
                             ),
-                          );
-                        },
-                      ),
                     ),
                   ),
                 ],

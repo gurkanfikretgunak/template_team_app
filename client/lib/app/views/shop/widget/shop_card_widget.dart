@@ -1,4 +1,5 @@
 import 'package:client/core/model/booking_model.dart';
+import 'package:client/core/model/shop/shop_detail/shop_detail.model.dart';
 import 'package:flutter/material.dart';
 import '../../../../gen/assets.gen.dart';
 import '../../../widgets/inputs/widgets/shop_cards/shop_card.dart';
@@ -14,7 +15,7 @@ class ShopSpeacialCard extends StatelessWidget {
   }) : super(key: key);
   final double cardHeight;
   final double cardWidth;
-  final BookingModel shopModel;
+  final ShopDetailData shopModel;
   final int imageFlex;
   final double imageWidth;
 

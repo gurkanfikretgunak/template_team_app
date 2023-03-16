@@ -13,13 +13,19 @@ class ShopCardWidgets {
       borderRadius: const BorderRadius.all(Radius.circular(12)),
       child: CustomImageViewer(
         fit: BoxFit.fitWidth,
-        assetPath: imagePath,
+        url: imagePath,
       ),
     );
   }
 
-  Widget shopInformation(BuildContext context, shopName, shopTypes, rating,
-      address, discountAmount, bool isStack) {
+  Widget shopInformation(
+      BuildContext context,
+      String shopName,
+      String shopTypes,
+      String rating,
+      String address,
+      int discountAmount,
+      bool isStack) {
     return FittedBox(
       child: Wrap(
         direction: Axis.vertical,

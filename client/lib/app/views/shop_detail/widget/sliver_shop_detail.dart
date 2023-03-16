@@ -52,6 +52,7 @@ class _SliverShopDetailWidgetState extends State<SliverShopDetailWidget> {
           ? context.onlyBottomPaddingHigh
           : context.onlyBottomPaddingLow,
       child: CustomScrollView(
+        shrinkWrap: true,
         controller: _scrollDetailController,
         slivers: <Widget>[
           sliverAppBar(context),
@@ -98,11 +99,11 @@ class _SliverShopDetailWidgetState extends State<SliverShopDetailWidget> {
           height: 80,
           child: ShopCardWidgets().shopInformation(
             context,
-            widget.shopModel.shop!.name,
-            widget.shopModel.shop!.address,
-            widget.shopModel.shop!.phoneNumber,
-            widget.shopModel.shop!.genderPreference,
-            widget.shopModel.shop!.averageRating,
+            widget.shopModel.shop!.name!,
+            widget.shopModel.shop!.address!.city!,
+            widget.shopModel.shop!.phoneNumber!,
+            widget.shopModel.shop!.genderPreference!,
+            widget.shopModel.shop!.averageRating!,
             isColor!,
           ),
         ),

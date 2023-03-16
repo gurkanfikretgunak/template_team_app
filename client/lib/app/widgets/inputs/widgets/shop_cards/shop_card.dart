@@ -42,7 +42,9 @@ class ShopCard extends StatelessWidget with ShopCardWidgets {
               child: ClipRRect(
                 borderRadius: const BorderRadius.all(Radius.circular(20)),
                 child: SizedBox(
-                    width: imageWidth, child: shopImage(shopModel.shop!.name)),
+                    width: imageWidth,
+                    child: shopImage(
+                        "https://netstorage.bloomingdales.com/netstorage/fashion/prod/images/projects/about-us/shopping/shopping-services/beauty-detail.jpg")),
               )),
           context.emptySizedHeightBoxLow,
           Row(
@@ -52,11 +54,11 @@ class ShopCard extends StatelessWidget with ShopCardWidgets {
                 child: FittedBox(
                   child: shopInformation(
                     context,
-                    shopModel.shop!.name,
-                    shopModel..shop!.address,
-                    shopModel.shop!.phoneNumber,
-                    shopModel.shop!.name,
-                    shopModel.shop!.averageRating,
+                    shopModel.shop!.name!,
+                    shopModel.shop!.address!.city ?? "",
+                    shopModel.shop!.phoneNumber!,
+                    shopModel.shop!.name!,
+                    shopModel.shop!.averageRating!,
                     false,
                   ),
                 ),

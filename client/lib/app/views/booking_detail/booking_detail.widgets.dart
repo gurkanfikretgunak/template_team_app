@@ -8,6 +8,7 @@ import 'package:client/core/constans/color_constants.dart';
 import 'package:client/core/constans/text_constants.dart';
 import 'package:client/core/extensions/common_extension.dart';
 import 'package:client/core/model/booking_model.dart';
+import 'package:client/core/model/shop/shop_detail/shop_detail.model.dart';
 import 'package:client/gen/assets.gen.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -24,7 +25,7 @@ class BookingDetailWidgets {
     return CustomAppbar(title: L10n.of(context)!.bookingDetail);
   }
 
-  body(BuildContext context, BookingModel bookName) {
+  body(BuildContext context, ShopDetailData bookName) {
     return SingleChildScrollView(
       physics: const BouncingScrollPhysics(),
       child: Padding(
@@ -34,9 +35,13 @@ class BookingDetailWidgets {
           runSpacing: 30,
           children: [
             bookingTitle(context, bookName),
-            BookingDateAndLocation(iconPath: Assets.icons.shop.path, text: L10n.of(context)!.shopService),
+            BookingDateAndLocation(
+                iconPath: Assets.icons.shop.path,
+                text: L10n.of(context)!.shopService),
             const CustomDivider(type: DividerType.dashed),
-            BookingDateAndLocation(iconPath: Assets.icons.calender.path, text: "10 ${L10n.of(context)!.march} 2021"),
+            BookingDateAndLocation(
+                iconPath: Assets.icons.calender.path,
+                text: "10 ${L10n.of(context)!.march} 2021"),
             const CustomDivider(type: DividerType.dashed),
             orderItemList(),
             const CustomDivider(type: DividerType.dashed),
@@ -45,7 +50,8 @@ class BookingDetailWidgets {
               width: context.dynamicWidth(1),
               child: CustomElevatedButton(
                 onPressed: () {
-                  Navigator.of(context).push(MaterialPageRoute(builder: (context) => const CheckoutView(false, true)));
+                  Navigator.of(context).push(MaterialPageRoute(
+                      builder: (context) => const CheckoutView(false, true)));
                 },
                 text: L10n.of(context)!.reorderBooking,
                 textColor: ButtonColor.light,
@@ -57,11 +63,11 @@ class BookingDetailWidgets {
     );
   }
 
-  Row bookingTitle(BuildContext context, BookingModel bookName) {
+  Row bookingTitle(BuildContext context, ShopDetailData bookName) {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
-        Text(bookName.title!, style: TextConstants.instance.heading6),
+        Text(bookName.shop!.name!, style: TextConstants.instance.heading6),
         Consumer<BookingViewModel>(builder: (context, value, child) {
           return value.isFavorite(bookName)
               ? const FavoriteIcon(isFavorite: true)
@@ -78,12 +84,16 @@ class BookingDetailWidgets {
         totalRowStyle(text: L10n.of(context)!.itemTotal, price: "-\$210"),
         totalRowStyle(text: L10n.of(context)!.couponDiscount, price: "-\$210"),
         const CustomDivider(),
-        totalRowStyle(text: L10n.of(context)!.grandTotal, price: "-\$210", isGrandTotal: true),
+        totalRowStyle(
+            text: L10n.of(context)!.grandTotal,
+            price: "-\$210",
+            isGrandTotal: true),
       ],
     );
   }
 
-  Wrap totalRowStyle({required String text, required String price, bool? isGrandTotal}) {
+  Wrap totalRowStyle(
+      {required String text, required String price, bool? isGrandTotal}) {
     return Wrap(
       children: [
         Row(
@@ -91,7 +101,8 @@ class BookingDetailWidgets {
           children: [
             Text(
               text,
-              style: isGrandTotal != null ? TextConstants.instance.button2 : null,
+              style:
+                  isGrandTotal != null ? TextConstants.instance.button2 : null,
             ),
             Text(
               price,

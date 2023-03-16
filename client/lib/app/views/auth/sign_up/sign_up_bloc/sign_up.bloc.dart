@@ -1,7 +1,7 @@
 import 'package:client/app/views/auth/sign_up/sign_up_bloc/sign_up.states.dart';
 import 'package:client/app/views/auth/sign_up/sign_up_bloc/sing_up.events.dart';
 import 'package:client/core/init/cache/permission_cache_manager/permission_cache_manager.dart';
-import 'package:client/core/services/retrofit/retrofit_service.dart';
+import 'package:client/core/network/retrofit/retrofit_service.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
