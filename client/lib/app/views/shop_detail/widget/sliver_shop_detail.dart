@@ -1,5 +1,6 @@
 import 'package:client/core/extensions/common_extension.dart';
 import 'package:client/core/model/booking_model.dart';
+import 'package:client/core/model/shop/shop_detail/shop_detail.model.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import '../../../../core/constans/color_constants.dart';
@@ -11,7 +12,7 @@ import '../shop_detail.widget.dart';
 
 class SliverShopDetailWidget extends StatefulWidget with ShopDetailWidgets {
   const SliverShopDetailWidget({super.key, required this.shopModel});
-  final BookingModel shopModel;
+  final ShopDetailModel shopModel;
   @override
   State<SliverShopDetailWidget> createState() => _SliverShopDetailWidgetState();
 }
@@ -29,14 +30,17 @@ class _SliverShopDetailWidgetState extends State<SliverShopDetailWidget> {
     _scrollDetailController = ScrollController()
       ..addListener(() {
         setState(() {
-          _textColor = _isSliverAppBarExpanded ? ColorConstant.instance.dark0 : ColorConstant.instance.light4;
+          _textColor = _isSliverAppBarExpanded
+              ? ColorConstant.instance.dark0
+              : ColorConstant.instance.light4;
           isColor = _isSliverAppBarExpanded ? false : true;
         });
       });
   }
 
   bool get _isSliverAppBarExpanded {
-    return _scrollDetailController.hasClients && _scrollDetailController.offset > (200 - kToolbarHeight);
+    return _scrollDetailController.hasClients &&
+        _scrollDetailController.offset > (200 - kToolbarHeight);
   }
 
   @override
@@ -44,19 +48,25 @@ class _SliverShopDetailWidgetState extends State<SliverShopDetailWidget> {
     final vm = Provider.of<ShopDetailViewModel>(context);
 
     return Padding(
-      padding: vm.selectedShop ? context.onlyBottomPaddingHigh : context.onlyBottomPaddingLow,
+      padding: vm.selectedShop
+          ? context.onlyBottomPaddingHigh
+          : context.onlyBottomPaddingLow,
       child: CustomScrollView(
+        shrinkWrap: true,
         controller: _scrollDetailController,
         slivers: <Widget>[
           sliverAppBar(context),
-          ShopDetailWidgets().shopDetailBody(context, widget.shopModel),
-          ShopDetailWidgets().buildTabbarView(context)
+          ShopDetailWidgets()
+              .shopDetailBody(context, widget.shopModel.data![0]),
+          ShopDetailWidgets().buildTabbarView(context,
+              shopDetailData: widget.shopModel.data![0])
         ],
       ),
     );
   }
 
   Widget sliverAppBar(BuildContext context) {
+    Shop shop = widget.shopModel.data![0].shop!;
     return SliverAppBar(
       leading: BackButton(
         color: _textColor,
@@ -67,7 +77,10 @@ class _SliverShopDetailWidgetState extends State<SliverShopDetailWidget> {
       actions: [
         GestureDetector(
           onTap: () {
-            Navigator.push(context, MaterialPageRoute(builder: (context) => const SearchBarWidget()));
+            Navigator.push(
+                context,
+                MaterialPageRoute(
+                    builder: (context) => const SearchBarWidget()));
           },
           child: Image.asset(
             Assets.icons.search.path,
@@ -89,21 +102,25 @@ class _SliverShopDetailWidgetState extends State<SliverShopDetailWidget> {
           height: 80,
           child: ShopCardWidgets().shopInformation(
             context,
-            widget.shopModel.title,
-            widget.shopModel.location,
-            widget.shopModel.price,
-            widget.shopModel.title,
-            widget.shopModel.distance,
+            shop.name!,
+            shop.address!.city!,
+            shop.phoneNumber!,
+            shop.genderPreference!,
+            shop.averageRating!,
             isColor!,
           ),
         ),
       ),
       flexibleSpace: FlexibleSpaceBar(
         centerTitle: false,
-        titlePadding: const EdgeInsetsDirectional.only(start: 10.0, bottom: 10.0, end: 50),
+        titlePadding: const EdgeInsetsDirectional.only(
+            start: 10.0, bottom: 10.0, end: 50),
         background: Stack(
           children: [
-            SizedBox(width: context.width, child: Image.asset(Assets.images.shop.homeShop1.path, fit: BoxFit.cover)),
+            SizedBox(
+                width: context.width,
+                child: Image.asset(Assets.images.shop.homeShop1.path,
+                    fit: BoxFit.cover)),
           ],
         ),
       ),

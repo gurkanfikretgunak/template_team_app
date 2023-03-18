@@ -1,7 +1,6 @@
 export './app_routes.dart';
 export './navigation_service.dart';
-export './routes.dart';
-export './routes.dart';
+
 export 'package:client/app/views/account/about/about.view.dart';
 export 'package:client/app/views/account/favorites/favorites.view.dart';
 export 'package:client/app/views/account/manage_address/manage_address.view.dart';

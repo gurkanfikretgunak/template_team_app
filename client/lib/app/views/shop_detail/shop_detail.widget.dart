@@ -11,12 +11,13 @@ import 'package:client/app/widgets/divider/divider_widgets.dart';
 import 'package:client/core/constans/color_constants.dart';
 import 'package:client/core/extensions/common_extension.dart';
 import 'package:client/core/model/booking_model.dart';
+import 'package:client/core/model/shop/shop_detail/shop_detail.model.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import '../../../core/constans/text_constants.dart';
 
 class ShopDetailWidgets {
-  Widget shopDetailBody(BuildContext context, BookingModel shopModel) {
+  Widget shopDetailBody(BuildContext context, ShopDetailData shopModel) {
     return SliverToBoxAdapter(
       child: Padding(
         padding: context.paddingNormal,
@@ -27,14 +28,35 @@ class ShopDetailWidgets {
             context.emptySizedHeightBoxLow,
             const CustomDivider(type: DividerType.dashed),
             context.emptySizedHeightBoxLow,
-            Row(
-              mainAxisAlignment: MainAxisAlignment.start,
-              children: [
-                const OfferBoxWidget(),
-                context.emptySizedWidthBoxLow,
-                const OfferBoxWidget(),
-              ],
+
+            SizedBox(
+              height: context.dynamicHeight(0.06),
+              child: ListView.builder(
+                scrollDirection: Axis.horizontal,
+                shrinkWrap: true,
+                itemCount: shopModel.coupons!.length,
+                itemBuilder: (context, index) {
+                  Coupons coupons = shopModel.coupons![index];
+                  return FittedBox(
+                    child: OfferBoxWidget(
+                      couponDesc: coupons.couponDesc ?? "",
+                      couponName: coupons.couponName ?? '',
+                      discount: coupons.discount.toString(),
+                    ),
+                  );
+                },
+              ),
             ),
+            // Row(
+            //   mainAxisAlignment: MainAxisAlignment.start,
+            //   children: [
+
+            //     shopModel.
+            //     const OfferBoxWidget(),
+            //     context.emptySizedWidthBoxLow,
+            //     const OfferBoxWidget(),
+            //   ],
+            // ),
             const Divider(thickness: 5.0),
             buildTabbar(context),
           ],
@@ -43,7 +65,7 @@ class ShopDetailWidgets {
     );
   }
 
-  Widget buildIcons(BuildContext context, BookingModel shopModel) {
+  Widget buildIcons(BuildContext context, ShopDetailData shopModel) {
     return FittedBox(
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -108,7 +130,7 @@ class ShopDetailWidgets {
     );
   }
 
-  Widget favoriteIcon(BookingModel shopModel) {
+  Widget favoriteIcon(ShopDetailData shopModel) {
     return Consumer<ShopDetailViewModel>(
       builder: (context, value, child) {
         bool favoriteShopDetail = value.isDetailFavorite(shopModel);
@@ -131,7 +153,9 @@ class ShopDetailWidgets {
                     Icons.favorite_border,
                     size: 30,
                   ),
-                  crossFadeState: favoriteShopDetail ? CrossFadeState.showFirst : CrossFadeState.showSecond,
+                  crossFadeState: favoriteShopDetail
+                      ? CrossFadeState.showFirst
+                      : CrossFadeState.showSecond,
                   duration: const Duration(seconds: 1),
                 )),
             context.emptySizedHeightBoxLow,
@@ -177,22 +201,27 @@ class ShopDetailWidgets {
     );
   }
 
-  Widget buildTabbarView(BuildContext context) {
+  Widget buildTabbarView(BuildContext context,
+      {required ShopDetailData shopDetailData}) {
     final provider = Provider.of<ShopDetailViewModel>(context);
 
     switch (provider.selectedTab) {
       case "Recommended":
-        return const RecommendedView();
+        return RecommendedView(recommended: shopDetailData.recommends!);
       case "Packages":
-        return const PackagesView();
+        return PackagesView(
+          packages: shopDetailData.packages!,
+        );
       case "Face Care":
         return const FaceCareView();
       case "Haircut":
         return const HairCutView();
       case 'Önerilen':
-        return const RecommendedView();
+        return RecommendedView(recommended: shopDetailData.recommends!);
       case 'Paketler':
-        return const PackagesView();
+        return PackagesView(
+          packages: shopDetailData.packages!,
+        );
       case 'Yüz bakımı':
         return const FaceCareView();
       case 'Saç kesimi':
@@ -228,7 +257,8 @@ class ShopDetailWidgets {
                 },
                 child: Chip(
                   backgroundColor: ColorConstant.instance.light2,
-                  shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(5)),
+                  shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(5)),
                   label: Text(
                     list[index],
                     style: TextStyle(

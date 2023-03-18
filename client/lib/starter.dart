@@ -1,4 +1,5 @@
 import 'package:client/app/app.dart';
+
 import 'package:flavor/flavor.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';

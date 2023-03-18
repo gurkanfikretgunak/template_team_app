@@ -2,6 +2,7 @@ import 'package:client/app/widgets/custom_card.dart';
 import 'package:client/app/widgets/inputs/widgets/shop_cards/shop_card_widgets.dart';
 import 'package:client/core/extensions/common_extension.dart';
 import 'package:client/core/model/booking_model.dart';
+import 'package:client/core/model/shop/shop_detail/shop_detail.model.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -19,7 +20,7 @@ class ShopCard extends StatelessWidget with ShopCardWidgets {
     required this.shopModel,
   });
 
-  final BookingModel shopModel;
+  final ShopDetailData shopModel;
   final double cardHeight;
   final double cardWidth;
   final int imageFlex;
@@ -41,7 +42,9 @@ class ShopCard extends StatelessWidget with ShopCardWidgets {
               child: ClipRRect(
                 borderRadius: const BorderRadius.all(Radius.circular(20)),
                 child: SizedBox(
-                    width: imageWidth, child: shopImage(shopModel.desc)),
+                    width: imageWidth,
+                    child: shopImage(
+                        "https://netstorage.bloomingdales.com/netstorage/fashion/prod/images/projects/about-us/shopping/shopping-services/beauty-detail.jpg")),
               )),
           context.emptySizedHeightBoxLow,
           Row(
@@ -51,11 +54,11 @@ class ShopCard extends StatelessWidget with ShopCardWidgets {
                 child: FittedBox(
                   child: shopInformation(
                     context,
-                    shopModel.title,
-                    shopModel.location,
-                    shopModel.price,
-                    shopModel.date,
-                    shopModel.distance,
+                    shopModel.shop!.name!,
+                    shopModel.shop!.address!.city ?? "",
+                    shopModel.shop!.phoneNumber!,
+                    shopModel.shop!.name!,
+                    shopModel.shop!.averageRating!,
                     false,
                   ),
                 ),

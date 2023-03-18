@@ -5,11 +5,14 @@ import 'package:client/app/views/home/widgets/filter_list.dart';
 import 'package:client/app/views/home/widgets/drop_down/select_country_dropdown.dart';
 import 'package:client/app/views/home/widgets/services_gridview.dart';
 import 'package:client/app/views/shop/widget/list_shop.dart';
+import 'package:client/app/views/shop_detail/bloc/shop_detail.bloc.dart';
+import 'package:client/app/views/shop_detail/bloc/shop_detail.events.dart';
 import 'package:client/app/widgets/custom_appbar.dart';
 import 'package:client/app/widgets/inputs/inputs_widgets.dart';
 import 'package:client/core/constans/text_constants.dart';
 import 'package:client/core/extensions/common_extension.dart';
-import 'package:client/core/services/socket/socket_service.dart';
+import 'package:client/core/model/shop/shop_detail/shop_detail.model.dart';
+import 'package:client/core/network/socket/socket_service.dart';
 import 'package:client/gen/assets.gen.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -145,6 +148,7 @@ class ShopList extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
+        context.read<ShopDetailBloc>().add(const FetchShopDetailEvent());
         NavigationService.instance.navigateToPage(Routes.shopDetail.name);
       },
       child: SizedBox(
@@ -157,7 +161,18 @@ class ShopList extends StatelessWidget {
             return ShopCard(
               isBig: false,
               imageFlex: imageFlex,
-              shopModel: MockShop.bookingList(context)[index],
+              shopModel: ShopDetailData(
+                shop: Shop(
+                  address: Address(),
+                  name: "name",
+                  phoneNumber: "1111111",
+                  averageRating: 2,
+                  genderPreference: "",
+                  numRates: 2,
+                  sId: "--",
+                  serviceTypes: [],
+                ),
+              ),
               cardHeight: cardHeight,
               cardWidth: cardWidth,
               imageWidth: imageWidth,

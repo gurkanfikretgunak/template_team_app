@@ -11,7 +11,14 @@ import '../../../widgets/image_viewer/icons/widgets/custom_icons.dart';
 class OfferBoxWidget extends StatelessWidget {
   const OfferBoxWidget({
     super.key,
+    required this.couponName,
+    required this.couponDesc,
+    required this.discount,
   });
+
+  final String couponName;
+  final String couponDesc;
+  final String discount;
 
   @override
   Widget build(BuildContext context) {
@@ -31,13 +38,13 @@ class OfferBoxWidget extends StatelessWidget {
                   ),
                   context.emptySizedWidthBoxLow,
                   Text(
-                    "50%",
+                    discount,
                     style: TextConstants.instance.button1,
                   )
                 ],
               ),
               Text(
-                L10n.of(context)!.couponDiscount,
+                couponName,
                 style: TextConstants.instance.label2,
               )
             ],

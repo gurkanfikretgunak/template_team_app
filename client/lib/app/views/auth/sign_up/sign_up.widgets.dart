@@ -55,6 +55,15 @@ class SignUpWidgets {
                       errorText: providerValidation.name.error,
                     ),
                     CustomTextFormField(
+                      labelTextValue: L10n.of(context)!.email,
+                      keyboardType: KeyboardType.email,
+                      controller: context.watch<SignUpBloc>().emailText,
+                      hintText: "john@example.com",
+                      isVisible: false,
+                      onChanged: providerValidation.validateName,
+                      errorText: providerValidation.name.error,
+                    ),
+                    CustomTextFormField(
                         labelTextValue: L10n.of(context)!.email,
                         keyboardType: KeyboardType.email,
                         controller: context.watch<SignUpBloc>().emailText,
@@ -72,20 +81,21 @@ class SignUpWidgets {
                   ],
                 ),
                 SizedBox(
-                    width: context.dynamicWidth(1),
-                    child: CustomElevatedButton(
-                      onPressed: () async {
-                        if (providerValidation.signUpValidate) {
-                          context.read<SignUpBloc>().add(const RegisterEvent());
-                        } else {
-                          componentSnackbar(context, 'Fill the blanks!', 'Ok');
-                        }
-                      },
-                      text: L10n.of(context)!.signup,
-                      buttonSize: ButtonSize.large,
-                      buttonColor: ButtonColor.purple,
-                      textColor: ButtonColor.light,
-                    )),
+                  width: context.dynamicWidth(1),
+                  child: CustomElevatedButton(
+                    onPressed: () async {
+                      if (providerValidation.signUpValidate) {
+                        context.read<SignUpBloc>().add(const RegisterEvent());
+                      } else {
+                        componentSnackbar(context, 'Fill the blanks!', 'Ok');
+                      }
+                    },
+                    text: L10n.of(context)!.signup,
+                    buttonSize: ButtonSize.large,
+                    buttonColor: ButtonColor.purple,
+                    textColor: ButtonColor.light,
+                  ),
+                ),
                 if (state is SignUpBlocLoadingState)
                   Padding(
                     padding: context.verticalPaddingNormal,
